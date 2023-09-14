@@ -1,0 +1,10 @@
+C:\Users\user\Desktop\視窗程式設計\HW1\bin\Debug\HW1.exe.config
+C:\Users\user\Desktop\視窗程式設計\HW1\bin\Debug\HW1.exe
+C:\Users\user\Desktop\視窗程式設計\HW1\bin\Debug\HW1.pdb
+C:\Users\user\Desktop\視窗程式設計\HW1\obj\Debug\HW1.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\視窗程式設計\HW1\obj\Debug\HW1.Properties.Resources.resources
+C:\Users\user\Desktop\視窗程式設計\HW1\obj\Debug\HW1.csproj.GenerateResource.cache
+C:\Users\user\Desktop\視窗程式設計\HW1\obj\Debug\HW1.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\視窗程式設計\HW1\obj\Debug\HW1.exe
+C:\Users\user\Desktop\視窗程式設計\HW1\obj\Debug\HW1.pdb
+C:\Users\user\Desktop\視窗程式設計\HW1\obj\Debug\HW1.AppForm.resources
