@@ -11,28 +11,28 @@ namespace HW1
         private double last_number_ = 0;
         private char last_op_ = '\0';
 
-        public string calculate(string math)
+        public string calculate(string math_expr)
         {
-            bool input_invalid = String.IsNullOrEmpty(math) || !Char.IsDigit(math[math.Length - 1]);
+            bool input_invalid = String.IsNullOrEmpty(math_expr) || !Char.IsDigit(math_expr[math_expr.Length - 1]);
             if (input_invalid)
             {
                 return null;
             }
 
-            if (noOp(math))
+            if (!math_expr.Any(c => (c == '+' || c == '-' || c == '*' || c == '/')))
             {
-                return chainCalculate(math);
+                return chainCalculate(math_expr);
             }
-            string expr = toPostfixExpr(math);
-            return computeExpr(expr).ToString();
+            string postfix_expr = toPostfixExpr(math_expr);
+            return EvaluatePostfixMathExpr(postfix_expr).ToString();
         }
 
-        private string toPostfixExpr(string math)
+        private string toPostfixExpr(string math_expr)
         {
             string expr = "";
             Stack<char> stack = new Stack<char>();
 
-            foreach (char c in math)
+            foreach (char c in math_expr)
             {
                 if (isOperator(c))
                 {
@@ -61,23 +61,11 @@ namespace HW1
 
         private string chainCalculate(string num)
         {
-            double a = num.Length == 0 ? 0 : double.Parse(num);
+            double a = num.Length == 0 ? 0 : Double.Parse(num, System.Globalization.NumberStyles.Float);
             return compute(a, last_number_, last_op_).ToString();
         }
 
-        private bool noOp(string expr)
-        {
-            foreach (char c in expr)
-            {
-                if (isOperator(c))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        private double computeExpr(string postfix_expr)
+        private double EvaluatePostfixMathExpr(string postfix_expr)
         {
             double a, b;
             Stack<double> stack = new Stack<double>();
@@ -94,7 +82,7 @@ namespace HW1
                 }
                 else
                 {
-                    stack.Push(double.Parse(token));
+                    stack.Push(Double.Parse(token, System.Globalization.NumberStyles.Float));
                 }
             }
 
