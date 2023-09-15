@@ -8,35 +8,50 @@ namespace HW1
 {
     class Calculator
     {
-        private double last_number_ = 0;
-        private char last_op_ = '\0';
-
-        public string calculate(string math_expr)
+        private double _lastNumber;
+        private char _lastOp;
+        private readonly Dictionary<char, int> _operatorDict = new Dictionary<char, int> 
         {
-            bool input_invalid = String.IsNullOrEmpty(math_expr) || !Char.IsDigit(math_expr[math_expr.Length - 1]);
-            if (input_invalid)
+            { '+', 1 },
+            { '-', 1 },
+            { 'x', 2 },
+            { '/', 2 } 
+        };
+
+        public Calculator()
+        {
+            _lastOp = '\0';
+            _lastNumber = 0;
+        }
+
+        /* 計算textbox上的數學式並回傳結果 */
+        public string Calculate(string mathExpr)
+        {
+            bool inputInvalid = String.IsNullOrEmpty(mathExpr) || !Char.IsDigit(mathExpr[mathExpr.Length - 1]);
+            if (inputInvalid)
             {
                 return null;
             }
 
-            if (!math_expr.Any(c => (c == '+' || c == '-' || c == '*' || c == '/')))
+            if (!mathExpr.Any(c => IsOperator(c)))
             {
-                return chainCalculate(math_expr);
+                return ChainCalculate(mathExpr);
             }
-            string postfix_expr = toPostfixExpr(math_expr);
-            return EvaluatePostfixMathExpr(postfix_expr).ToString();
+            string postfixExpr = ToPostfixExpr(mathExpr);
+            return EvaluatePostfixMathExpr(postfixExpr).ToString();
         }
 
-        private string toPostfixExpr(string math_expr)
+        /* 將中序數學式轉成後序 ex. (1 + 2 * 3) 轉換後會變成 (1 2 3 * +) */
+        private string ToPostfixExpr(string mathExpr)
         {
             string expr = "";
             Stack<char> stack = new Stack<char>();
 
-            foreach (char c in math_expr)
+            foreach (char c in mathExpr)
             {
-                if (isOperator(c))
+                if (IsOperator(c))
                 {
-                    while (stack.Count > 0 && operatorPriority(stack.Peek()) >= operatorPriority(c))
+                    while (stack.Count > 0 && OperatorPriority(stack.Peek()) >= OperatorPriority(c))
                     {
                         expr += ' ';
                         expr += stack.Pop();
@@ -59,26 +74,28 @@ namespace HW1
             return expr;
         }
 
-        private string chainCalculate(string num)
+        /* 實現計算機可以連續計算的功能 */
+        private string ChainCalculate(string num)
         {
-            double a = num.Length == 0 ? 0 : Double.Parse(num, System.Globalization.NumberStyles.Float);
-            return compute(a, last_number_, last_op_).ToString();
+            double a = (num.Length == 0) ? 0 : Double.Parse(num, System.Globalization.NumberStyles.Float);
+            return Compute(a, _lastNumber, _lastOp).ToString();
         }
 
-        private double EvaluatePostfixMathExpr(string postfix_expr)
+        /* 計算後序數學式並將結果傳回 */
+        private double EvaluatePostfixMathExpr(string postfixExpr)
         {
             double a, b;
             Stack<double> stack = new Stack<double>();
-            string[] tokens = postfix_expr.Split(null);
+            string[] tokens = postfixExpr.Split(null);
 
             foreach (string token in tokens)
             {
-                if (token.Length == 1 && isOperator(token[0]))
+                if (token.Length == 1 && IsOperator(token[0]))
                 {
-                    b = last_number_ = stack.Pop();
+                    b = _lastNumber = stack.Pop();
                     a = stack.Pop();
-                    stack.Push(compute(a, b, token[0]));
-                    last_op_ = token[0];
+                    stack.Push(Compute(a, b, token[0]));
+                    _lastOp = token[0];
                 }
                 else
                 {
@@ -89,7 +106,8 @@ namespace HW1
             return stack.Peek();
         }
 
-        private double compute(double a, double b, double op)
+        /* 根據傳入的op對a b做四則運算 */
+        private double Compute(double a, double b, char op)
         {
             double result = a;
 
@@ -103,30 +121,35 @@ namespace HW1
                     result -= b;
                     break;
 
-                case '*':
+                case 'x':
                     result *= b;
                     break;
 
                 case '/':
                     result /= b;
                     break;
+
+                default:
+                    break;
             }
 
             return result;
-        }
+        } 
 
-        private int operatorPriority(char c)
+        /* implement中序轉後序的演算法時需要用到的function */
+        private int OperatorPriority(char c)
         {
-            if (c == '*' || c == '/')
-                return 2;
-            else if (c == '+' || c == '-')
-                return 1;
+            if (IsOperator(c))
+            {
+                return _operatorDict[c];
+            }
             return 0;
         }
 
-        private bool isOperator(char c)
+        /* 檢查c是不是四則運算的符號 */
+        private bool IsOperator(char c)
         {
-            return c == '+' || c == '-' || c == '*' || c == '/';
+            return _operatorDict.ContainsKey(c);
         }
     }
 }
