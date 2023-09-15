@@ -15,132 +15,133 @@ namespace HW1
         public AppForm()
         {
             InitializeComponent();
-            result_ = "";
-            calculator_ = new Calculator();
-            dot_ = false;
+            _result = "";
+            _calculator = new Calculator();
+            _dot = false;
         }
 
-        private Calculator calculator_;
-        private string result_;
-        private bool dot_;
+        private Calculator _calculator;
+        private string _result;
+        private bool _dot;
 
-        private void buttonCE_Click(object sender, EventArgs e)
+        private void ButtonCEClick(object sender, EventArgs e)
         {
-            textBox.Text = result_;
-            dot_ = !double.TryParse(result_, out _);
+            textBox.Text = _result;
+            _dot = !double.TryParse(_result, out _);
         }
 
-        private void buttonC_Click(object sender, EventArgs e)
+        private void ButtonCClick(object sender, EventArgs e)
         {
-            textBox.Text = result_ = "";
-            dot_ = false;
+            textBox.Text = _result = "";
+            _dot = false;
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void Button9Click(object sender, EventArgs e)
         {
-            textBox.Text += '9';
+            textBox.Text += button9.Text;
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void Button8Click(object sender, EventArgs e)
         {
-            textBox.Text += '8';
+            textBox.Text += button8.Text;
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void Button7Click(object sender, EventArgs e)
         {
-            textBox.Text += '7';
+            textBox.Text += button7.Text;
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void Button6Click(object sender, EventArgs e)
         {
-            textBox.Text += '6';
+            textBox.Text += button6.Text;
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Button5Click(object sender, EventArgs e)
         {
-            textBox.Text += '5';
+            textBox.Text += button5.Text;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Button4Click(object sender, EventArgs e)
         {
-            textBox.Text += '4';
+            textBox.Text += button4.Text;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3Click(object sender, EventArgs e)
         {
-            textBox.Text += '3';
+            textBox.Text += button3.Text;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2Click(object sender, EventArgs e)
         {
-            textBox.Text += '2';
+            textBox.Text += button2.Text;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1Click(object sender, EventArgs e)
         {
-            textBox.Text += '1';
+            textBox.Text += button1.Text;
         }
 
-        private void button0_Click(object sender, EventArgs e)
+        private void Button0Click(object sender, EventArgs e)
         {
-            textBox.Text += '0';
+            textBox.Text += button0.Text;
         }
 
-        private void buttonPlus_Click(object sender, EventArgs e)
-        {
-            if (!String.IsNullOrEmpty(textBox.Text) && Char.IsNumber(textBox.Text[textBox.Text.Length - 1]))
-            {
-                textBox.Text += '+';
-                dot_ = false;
-            }
-        }
-
-        private void buttonMinus_Click(object sender, EventArgs e)
+        private void ButtonPlusClick(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(textBox.Text) && Char.IsNumber(textBox.Text[textBox.Text.Length - 1]))
             {
-                textBox.Text += '-';
-                dot_ = false;
+                textBox.Text += buttonPlus.Text;
+                _dot = false;
             }
         }
 
-        private void buttonMul_Click(object sender, EventArgs e)
+        private void ButtonMinusClick(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(textBox.Text) && Char.IsNumber(textBox.Text[textBox.Text.Length - 1]))
             {
-                textBox.Text += 'x';
-                dot_ = false;
+                textBox.Text += buttonMinus.Text;
+                _dot = false;
             }
         }
 
-        private void buttonSub_Click(object sender, EventArgs e)
+        private void ButtonMulClick(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(textBox.Text) && Char.IsNumber(textBox.Text[textBox.Text.Length - 1]))
             {
-                textBox.Text += '/';
-                dot_ = false;
+                textBox.Text += buttonMul.Text;
+                _dot = false;
             }
         }
 
-        private void buttonDot_Click(object sender, EventArgs e)
+        private void ButtonDivClick(object sender, EventArgs e)
         {
-            bool can_insert =
-                !dot_ &&
+            if (!String.IsNullOrEmpty(textBox.Text) && Char.IsNumber(textBox.Text[textBox.Text.Length - 1]))
+            {
+                textBox.Text += buttonDiv.Text;
+                _dot = false;
+            }
+        }
+
+        private void ButtonDotClick(object sender, EventArgs e)
+        {
+            bool canInsert =
+                !_dot &&
                 !String.IsNullOrEmpty(textBox.Text) &&
                  Char.IsNumber(textBox.Text[textBox.Text.Length - 1]);
-            if (can_insert)
+            if (canInsert)
             {
-                textBox.Text += '.';
-                dot_ = true;
+                textBox.Text += buttonDot.Text;
+                _dot = true;
             }
         }
 
-        private void buttonEqual_Click(object sender, EventArgs e)
+        private void ButtonEqualClick(object sender, EventArgs e)
         {
-            string result = calculator_.calculate(textBox.Text.Replace('x', '*'));
+            const char mulOperator = '*';
+            string result = _calculator.Calculate(textBox.Text.Replace(buttonMul.Text[0], mulOperator));
             if (!String.IsNullOrEmpty(result))
             {
-                result_ = textBox.Text = result;
+                _result = textBox.Text = result;
             }
         }
     }

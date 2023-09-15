@@ -8,35 +8,35 @@ namespace HW1
 {
     class Calculator
     {
-        private double last_number_ = 0;
-        private char last_op_ = '\0';
+        private double _last_number = 0;
+        private char _last_op = '\0';
 
-        public string calculate(string math_expr)
+        public string Calculate(string mathExpr)
         {
-            bool input_invalid = String.IsNullOrEmpty(math_expr) || !Char.IsDigit(math_expr[math_expr.Length - 1]);
-            if (input_invalid)
+            bool inputInvalid = String.IsNullOrEmpty(mathExpr) || !Char.IsDigit(mathExpr[mathExpr.Length - 1]);
+            if (inputInvalid)
             {
                 return null;
             }
 
-            if (!math_expr.Any(c => (c == '+' || c == '-' || c == '*' || c == '/')))
+            if (!mathExpr.Any(c => (c == '+' || c == '-' || c == '*' || c == '/')))
             {
-                return chainCalculate(math_expr);
+                return ChainCalculate(mathExpr);
             }
-            string postfix_expr = toPostfixExpr(math_expr);
-            return EvaluatePostfixMathExpr(postfix_expr).ToString();
+            string postfixExpr = ToPostfixExpr(mathExpr);
+            return EvaluatePostfixMathExpr(postfixExpr).ToString();
         }
 
-        private string toPostfixExpr(string math_expr)
+        private string ToPostfixExpr(string mathExpr)
         {
             string expr = "";
             Stack<char> stack = new Stack<char>();
 
-            foreach (char c in math_expr)
+            foreach (char c in mathExpr)
             {
-                if (isOperator(c))
+                if (IsOperator(c))
                 {
-                    while (stack.Count > 0 && operatorPriority(stack.Peek()) >= operatorPriority(c))
+                    while (stack.Count > 0 && OperatorPriority(stack.Peek()) >= OperatorPriority(c))
                     {
                         expr += ' ';
                         expr += stack.Pop();
@@ -59,26 +59,26 @@ namespace HW1
             return expr;
         }
 
-        private string chainCalculate(string num)
+        private string ChainCalculate(string num)
         {
             double a = num.Length == 0 ? 0 : Double.Parse(num, System.Globalization.NumberStyles.Float);
-            return compute(a, last_number_, last_op_).ToString();
+            return Compute(a, _last_number, _last_op).ToString();
         }
 
-        private double EvaluatePostfixMathExpr(string postfix_expr)
+        private double EvaluatePostfixMathExpr(string postfixExpr)
         {
             double a, b;
             Stack<double> stack = new Stack<double>();
-            string[] tokens = postfix_expr.Split(null);
+            string[] tokens = postfixExpr.Split(null);
 
             foreach (string token in tokens)
             {
-                if (token.Length == 1 && isOperator(token[0]))
+                if (token.Length == 1 && IsOperator(token[0]))
                 {
-                    b = last_number_ = stack.Pop();
+                    b = _last_number = stack.Pop();
                     a = stack.Pop();
-                    stack.Push(compute(a, b, token[0]));
-                    last_op_ = token[0];
+                    stack.Push(Compute(a, b, token[0]));
+                    _last_op = token[0];
                 }
                 else
                 {
@@ -89,7 +89,7 @@ namespace HW1
             return stack.Peek();
         }
 
-        private double compute(double a, double b, double op)
+        private double Compute(double a, double b, double op)
         {
             double result = a;
 
@@ -115,7 +115,7 @@ namespace HW1
             return result;
         }
 
-        private int operatorPriority(char c)
+        private int OperatorPriority(char c)
         {
             if (c == '*' || c == '/')
                 return 2;
@@ -124,7 +124,7 @@ namespace HW1
             return 0;
         }
 
-        private bool isOperator(char c)
+        private bool IsOperator(char c)
         {
             return c == '+' || c == '-' || c == '*' || c == '/';
         }
