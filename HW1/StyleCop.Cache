@@ -10,7 +10,7 @@
     <timestamps>
       <styleCop>2023/09/15 15:15:03.194</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/09/15 15:52:45.661</sourceFile>
+      <sourceFile>2023/09/15 16:17:37.427</sourceFile>
       <parser>2023/09/15 15:15:03.194</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 15:15:03.194</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -20,10 +20,10 @@
         <context>Unsuitable naming(名不符實)-HW1(hw)</context>
         <line>7</line>
         <index>123</index>
-        <endIndex>4191</endIndex>
+        <endIndex>4217</endIndex>
         <startLine>7</startLine>
         <startColumn>1</startColumn>
-        <endLine>152</endLine>
+        <endLine>155</endLine>
         <endColumn>1</endColumn>
         <warning>False</warning>
       </violation>
@@ -126,50 +126,6 @@
         <endColumn>26</endColumn>
         <warning>False</warning>
       </violation>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
-        <context>Literal constants(字面常數)-'+'</context>
-        <line>36</line>
-        <index>909</index>
-        <endIndex>911</endIndex>
-        <startLine>36</startLine>
-        <startColumn>42</startColumn>
-        <endLine>36</endLine>
-        <endColumn>44</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
-        <context>Literal constants(字面常數)-'-'</context>
-        <line>36</line>
-        <index>921</index>
-        <endIndex>923</endIndex>
-        <startLine>36</startLine>
-        <startColumn>54</startColumn>
-        <endLine>36</endLine>
-        <endColumn>56</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
-        <context>Literal constants(字面常數)-'*'</context>
-        <line>36</line>
-        <index>933</index>
-        <endIndex>935</endIndex>
-        <startLine>36</startLine>
-        <startColumn>66</startColumn>
-        <endLine>36</endLine>
-        <endColumn>68</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
-        <context>Literal constants(字面常數)-'/'</context>
-        <line>36</line>
-        <index>945</index>
-        <endIndex>947</endIndex>
-        <startLine>36</startLine>
-        <startColumn>78</startColumn>
-        <endLine>36</endLine>
-        <endColumn>80</endColumn>
-        <warning>False</warning>
-      </violation>
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-mathExpr(expr)</context>
         <line>28</line>
@@ -184,8 +140,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-postfixExpr(postfix, expr)</context>
         <line>40</line>
-        <index>1052</index>
-        <endIndex>1088</endIndex>
+        <index>1019</index>
+        <endIndex>1055</endIndex>
         <startLine>40</startLine>
         <startColumn>20</startColumn>
         <endLine>40</endLine>
@@ -195,8 +151,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-' '</context>
         <line>56</line>
-        <index>1655</index>
-        <endIndex>1657</endIndex>
+        <index>1622</index>
+        <endIndex>1624</endIndex>
         <startLine>56</startLine>
         <startColumn>33</startColumn>
         <endLine>56</endLine>
@@ -206,8 +162,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-' '</context>
         <line>59</line>
-        <index>1758</index>
-        <endIndex>1760</endIndex>
+        <index>1725</index>
+        <endIndex>1727</endIndex>
         <startLine>59</startLine>
         <startColumn>29</startColumn>
         <endLine>59</endLine>
@@ -217,8 +173,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-' '</context>
         <line>70</line>
-        <index>2004</index>
-        <endIndex>2006</endIndex>
+        <index>1971</index>
+        <endIndex>1973</endIndex>
         <startLine>70</startLine>
         <startColumn>25</startColumn>
         <endLine>70</endLine>
@@ -228,8 +184,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-mathExpr(expr)</context>
         <line>45</line>
-        <index>1272</index>
-        <endIndex>1286</endIndex>
+        <index>1239</index>
+        <endIndex>1253</endIndex>
         <startLine>45</startLine>
         <startColumn>38</startColumn>
         <endLine>45</endLine>
@@ -239,8 +195,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-expr(expr)</context>
         <line>47</line>
-        <index>1320</index>
-        <endIndex>1328</endIndex>
+        <index>1287</index>
+        <endIndex>1295</endIndex>
         <startLine>47</startLine>
         <startColumn>20</startColumn>
         <endLine>47</endLine>
@@ -250,8 +206,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-ToPostfixExpr(postfix, expr)</context>
         <line>45</line>
-        <index>1243</index>
-        <endIndex>2099</endIndex>
+        <index>1210</index>
+        <endIndex>2066</endIndex>
         <startLine>45</startLine>
         <startColumn>9</startColumn>
         <endLine>75</endLine>
@@ -271,8 +227,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-num(num)</context>
         <line>78</line>
-        <index>2172</index>
-        <endIndex>2181</endIndex>
+        <index>2139</index>
+        <endIndex>2148</endIndex>
         <startLine>78</startLine>
         <startColumn>39</startColumn>
         <endLine>78</endLine>
@@ -282,8 +238,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-postfixExpr(postfix, expr)</context>
         <line>85</line>
-        <index>2456</index>
-        <endIndex>2473</endIndex>
+        <index>2425</index>
+        <endIndex>2442</endIndex>
         <startLine>85</startLine>
         <startColumn>48</startColumn>
         <endLine>85</endLine>
@@ -293,8 +249,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-b(b)</context>
         <line>87</line>
-        <index>2510</index>
-        <endIndex>2510</endIndex>
+        <index>2479</index>
+        <endIndex>2479</endIndex>
         <startLine>87</startLine>
         <startColumn>23</startColumn>
         <endLine>87</endLine>
@@ -304,8 +260,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-EvaluatePostfixMathExpr(postfix, expr)</context>
         <line>85</line>
-        <index>2417</index>
-        <endIndex>3194</endIndex>
+        <index>2386</index>
+        <endIndex>3163</endIndex>
         <startLine>85</startLine>
         <startColumn>9</startColumn>
         <endLine>107</endLine>
@@ -320,8 +276,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="Variable3" ruleCheckId="VR0003">
         <context>ICS(變數-3)</context>
         <line>87</line>
-        <index>2507</index>
-        <endIndex>2507</endIndex>
+        <index>2476</index>
+        <endIndex>2476</endIndex>
         <startLine>87</startLine>
         <startColumn>20</startColumn>
         <endLine>87</endLine>
@@ -331,8 +287,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-'+'</context>
         <line>116</line>
-        <index>3398</index>
-        <endIndex>3400</endIndex>
+        <index>3367</index>
+        <endIndex>3369</endIndex>
         <startLine>116</startLine>
         <startColumn>22</startColumn>
         <endLine>116</endLine>
@@ -342,8 +298,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-'-'</context>
         <line>120</line>
-        <index>3489</index>
-        <endIndex>3491</endIndex>
+        <index>3458</index>
+        <endIndex>3460</endIndex>
         <startLine>120</startLine>
         <startColumn>22</startColumn>
         <endLine>120</endLine>
@@ -351,10 +307,10 @@
         <warning>False</warning>
       </violation>
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
-        <context>Literal constants(字面常數)-'*'</context>
+        <context>Literal constants(字面常數)-'x'</context>
         <line>124</line>
-        <index>3580</index>
-        <endIndex>3582</endIndex>
+        <index>3549</index>
+        <endIndex>3551</endIndex>
         <startLine>124</startLine>
         <startColumn>22</startColumn>
         <endLine>124</endLine>
@@ -364,8 +320,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-'/'</context>
         <line>128</line>
-        <index>3671</index>
-        <endIndex>3673</endIndex>
+        <index>3640</index>
+        <endIndex>3642</endIndex>
         <startLine>128</startLine>
         <startColumn>22</startColumn>
         <endLine>128</endLine>
@@ -375,8 +331,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-b(b)</context>
         <line>110</line>
-        <index>3272</index>
-        <endIndex>3279</endIndex>
+        <index>3241</index>
+        <endIndex>3248</endIndex>
         <startLine>110</startLine>
         <startColumn>42</startColumn>
         <endLine>110</endLine>
@@ -386,8 +342,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-op(op)</context>
         <line>110</line>
-        <index>3282</index>
-        <endIndex>3288</endIndex>
+        <index>3251</index>
+        <endIndex>3257</endIndex>
         <startLine>110</startLine>
         <startColumn>52</startColumn>
         <endLine>110</endLine>
@@ -401,28 +357,28 @@
       </violation>
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-c(c)</context>
-        <line>137</line>
-        <index>3882</index>
-        <endIndex>3887</endIndex>
-        <startLine>137</startLine>
+        <line>140</line>
+        <index>3908</index>
+        <endIndex>3913</endIndex>
+        <startLine>140</startLine>
         <startColumn>38</startColumn>
-        <endLine>137</endLine>
+        <endLine>140</endLine>
         <endColumn>43</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="Method2" ruleCheckId="MT0002">
         <context>ICS(函式-2)</context>
-        <line>137</line>
+        <line>140</line>
         <warning>False</warning>
       </violation>
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-c(c)</context>
-        <line>147</line>
-        <index>4103</index>
-        <endIndex>4108</endIndex>
-        <startLine>147</startLine>
+        <line>150</line>
+        <index>4129</index>
+        <endIndex>4134</endIndex>
+        <startLine>150</startLine>
         <startColumn>33</startColumn>
-        <endLine>147</endLine>
+        <endLine>150</endLine>
         <endColumn>38</endColumn>
         <warning>False</warning>
       </violation>
@@ -432,7 +388,7 @@
     <timestamps>
       <styleCop>2023/09/15 15:15:03.194</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/09/15 15:20:41.778</sourceFile>
+      <sourceFile>2023/09/15 16:17:48.127</sourceFile>
       <parser>2023/09/15 15:15:03.194</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 15:15:03.194</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -442,10 +398,10 @@
         <context>Unsuitable naming(名不符實)-HW1(hw)</context>
         <line>11</line>
         <index>225</index>
-        <endIndex>4914</endIndex>
+        <endIndex>4827</endIndex>
         <startLine>11</startLine>
         <startColumn>1</startColumn>
-        <endLine>166</endLine>
+        <endLine>165</endLine>
         <endColumn>1</endColumn>
         <warning>False</warning>
       </violation>
@@ -482,10 +438,21 @@
         <warning>False</warning>
       </violation>
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
+        <context>Unsuitable naming(名不符實)-ButtonSubClick(sub)</context>
+        <line>112</line>
+        <index>3046</index>
+        <endIndex>3342</endIndex>
+        <startLine>112</startLine>
+        <startColumn>9</startColumn>
+        <endLine>119</endLine>
+        <endColumn>9</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-ButtonMulClick(mul)</context>
         <line>122</line>
-        <index>3402</index>
-        <endIndex>3698</endIndex>
+        <index>3398</index>
+        <endIndex>3694</endIndex>
         <startLine>122</startLine>
         <startColumn>9</startColumn>
         <endLine>129</endLine>
@@ -495,8 +462,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-ButtonDivClick(div)</context>
         <line>132</line>
-        <index>3752</index>
-        <endIndex>4048</endIndex>
+        <index>3748</index>
+        <endIndex>4044</endIndex>
         <startLine>132</startLine>
         <startColumn>9</startColumn>
         <endLine>139</endLine>
@@ -506,34 +473,12 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="IndentAndNewLine4" ruleCheckId="IN0004">
         <context>ICS(縮排與換行-4)</context>
         <line>147</line>
-        <index>4279</index>
-        <endIndex>4295</endIndex>
+        <index>4275</index>
+        <endIndex>4291</endIndex>
         <startLine>147</startLine>
         <startColumn>1</startColumn>
         <endLine>147</endLine>
         <endColumn>17</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
-        <context>Unsuitable naming(名不符實)-mulOperator(mul)</context>
-        <line>158</line>
-        <index>4642</index>
-        <endIndex>4658</endIndex>
-        <startLine>158</startLine>
-        <startColumn>24</startColumn>
-        <endLine>158</endLine>
-        <endColumn>40</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="Variable4" ruleCheckId="VR0004">
-        <context>ICS(變數-4)</context>
-        <line>158</line>
-        <index>4637</index>
-        <endIndex>4652</endIndex>
-        <startLine>158</startLine>
-        <startColumn>19</startColumn>
-        <endLine>158</endLine>
-        <endColumn>34</endColumn>
         <warning>False</warning>
       </violation>
     </violations>
@@ -542,7 +487,7 @@
     <timestamps>
       <styleCop>2023/09/15 15:15:03.194</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/09/15 15:12:43.793</sourceFile>
+      <sourceFile>2023/09/15 16:15:29.118</sourceFile>
       <parser>2023/09/15 15:15:03.194</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 15:15:03.194</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -552,7 +497,7 @@
         <context>Unsuitable naming(名不符實)-HW1(hw)</context>
         <line>2</line>
         <index>2</index>
-        <endIndex>15363</endIndex>
+        <endIndex>15339</endIndex>
         <startLine>2</startLine>
         <startColumn>1</startColumn>
         <endLine>319</endLine>
@@ -562,8 +507,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-"PMingLiU"</context>
         <line>55</line>
-        <index>2309</index>
-        <endIndex>2318</endIndex>
+        <index>2307</index>
+        <endIndex>2316</endIndex>
         <startLine>55</startLine>
         <startColumn>57</startColumn>
         <endLine>55</endLine>
@@ -573,8 +518,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-"PMingLiU"</context>
         <line>287</line>
-        <index>13856</index>
-        <endIndex>13865</endIndex>
+        <index>13834</index>
+        <endIndex>13843</endIndex>
         <startLine>287</startLine>
         <startColumn>49</startColumn>
         <endLine>287</endLine>
@@ -584,8 +529,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>55</line>
-        <index>2406</index>
-        <endIndex>2408</endIndex>
+        <index>2404</index>
+        <endIndex>2406</endIndex>
         <startLine>55</startLine>
         <startColumn>154</startColumn>
         <endLine>55</endLine>
@@ -595,8 +540,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>70</line>
-        <index>3218</index>
-        <endIndex>3220</endIndex>
+        <index>3216</index>
+        <endIndex>3218</endIndex>
         <startLine>70</startLine>
         <startColumn>57</startColumn>
         <endLine>70</endLine>
@@ -606,8 +551,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>81</line>
-        <index>3765</index>
-        <endIndex>3767</endIndex>
+        <index>3763</index>
+        <endIndex>3765</endIndex>
         <startLine>81</startLine>
         <startColumn>60</startColumn>
         <endLine>81</endLine>
@@ -617,19 +562,19 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>92</line>
-        <index>4333</index>
-        <endIndex>4335</endIndex>
+        <index>4323</index>
+        <endIndex>4325</endIndex>
         <startLine>92</startLine>
-        <startColumn>61</startColumn>
+        <startColumn>59</startColumn>
         <endLine>92</endLine>
-        <endColumn>63</endColumn>
+        <endColumn>61</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>103</line>
-        <index>4894</index>
-        <endIndex>4896</endIndex>
+        <index>4874</index>
+        <endIndex>4876</endIndex>
         <startLine>103</startLine>
         <startColumn>59</startColumn>
         <endLine>103</endLine>
@@ -639,8 +584,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>114</line>
-        <index>5445</index>
-        <endIndex>5447</endIndex>
+        <index>5425</index>
+        <endIndex>5427</endIndex>
         <startLine>114</startLine>
         <startColumn>59</startColumn>
         <endLine>114</endLine>
@@ -650,8 +595,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>125</line>
-        <index>6008</index>
-        <endIndex>6010</endIndex>
+        <index>5988</index>
+        <endIndex>5990</endIndex>
         <startLine>125</startLine>
         <startColumn>61</startColumn>
         <endLine>125</endLine>
@@ -661,8 +606,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>136</line>
-        <index>6558</index>
-        <endIndex>6560</endIndex>
+        <index>6538</index>
+        <endIndex>6540</endIndex>
         <startLine>136</startLine>
         <startColumn>57</startColumn>
         <endLine>136</endLine>
@@ -672,8 +617,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>147</line>
-        <index>7087</index>
-        <endIndex>7089</endIndex>
+        <index>7067</index>
+        <endIndex>7069</endIndex>
         <startLine>147</startLine>
         <startColumn>57</startColumn>
         <endLine>147</endLine>
@@ -683,8 +628,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>158</line>
-        <index>7616</index>
-        <endIndex>7618</endIndex>
+        <index>7596</index>
+        <endIndex>7598</endIndex>
         <startLine>158</startLine>
         <startColumn>57</startColumn>
         <endLine>158</endLine>
@@ -694,8 +639,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>169</line>
-        <index>8151</index>
-        <endIndex>8153</endIndex>
+        <index>8131</index>
+        <endIndex>8133</endIndex>
         <startLine>169</startLine>
         <startColumn>58</startColumn>
         <endLine>169</endLine>
@@ -705,8 +650,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>180</line>
-        <index>8698</index>
-        <endIndex>8700</endIndex>
+        <index>8678</index>
+        <endIndex>8680</endIndex>
         <startLine>180</startLine>
         <startColumn>59</startColumn>
         <endLine>180</endLine>
@@ -716,8 +661,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>191</line>
-        <index>9238</index>
-        <endIndex>9240</endIndex>
+        <index>9218</index>
+        <endIndex>9220</endIndex>
         <startLine>191</startLine>
         <startColumn>57</startColumn>
         <endLine>191</endLine>
@@ -727,8 +672,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>202</line>
-        <index>9768</index>
-        <endIndex>9770</endIndex>
+        <index>9748</index>
+        <endIndex>9750</endIndex>
         <startLine>202</startLine>
         <startColumn>57</startColumn>
         <endLine>202</endLine>
@@ -738,8 +683,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>213</line>
-        <index>10298</index>
-        <endIndex>10300</endIndex>
+        <index>10278</index>
+        <endIndex>10280</endIndex>
         <startLine>213</startLine>
         <startColumn>57</startColumn>
         <endLine>213</endLine>
@@ -749,8 +694,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>224</line>
-        <index>10827</index>
-        <endIndex>10829</endIndex>
+        <index>10807</index>
+        <endIndex>10809</endIndex>
         <startLine>224</startLine>
         <startColumn>57</startColumn>
         <endLine>224</endLine>
@@ -760,8 +705,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>235</line>
-        <index>11356</index>
-        <endIndex>11358</endIndex>
+        <index>11336</index>
+        <endIndex>11338</endIndex>
         <startLine>235</startLine>
         <startColumn>57</startColumn>
         <endLine>235</endLine>
@@ -771,8 +716,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>246</line>
-        <index>11885</index>
-        <endIndex>11887</endIndex>
+        <index>11865</index>
+        <endIndex>11867</endIndex>
         <startLine>246</startLine>
         <startColumn>57</startColumn>
         <endLine>246</endLine>
@@ -782,8 +727,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>257</line>
-        <index>12414</index>
-        <endIndex>12416</endIndex>
+        <index>12394</index>
+        <endIndex>12396</endIndex>
         <startLine>257</startLine>
         <startColumn>57</startColumn>
         <endLine>257</endLine>
@@ -793,8 +738,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-136</context>
         <line>287</line>
-        <index>13953</index>
-        <endIndex>13955</endIndex>
+        <index>13931</index>
+        <endIndex>13933</endIndex>
         <startLine>287</startLine>
         <startColumn>146</startColumn>
         <endLine>287</endLine>
@@ -804,8 +749,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-36</context>
         <line>56</line>
-        <index>2476</index>
-        <endIndex>2477</endIndex>
+        <index>2474</index>
+        <endIndex>2475</endIndex>
         <startLine>56</startLine>
         <startColumn>62</startColumn>
         <endLine>56</endLine>
@@ -815,8 +760,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-36</context>
         <line>221</line>
-        <index>10644</index>
-        <endIndex>10645</endIndex>
+        <index>10624</index>
+        <endIndex>10625</endIndex>
         <startLine>221</startLine>
         <startColumn>62</startColumn>
         <endLine>221</endLine>
@@ -826,8 +771,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-36</context>
         <line>232</line>
-        <index>11173</index>
-        <endIndex>11174</endIndex>
+        <index>11153</index>
+        <endIndex>11154</endIndex>
         <startLine>232</startLine>
         <startColumn>62</startColumn>
         <endLine>232</endLine>
@@ -837,8 +782,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-36</context>
         <line>243</line>
-        <index>11702</index>
-        <endIndex>11703</endIndex>
+        <index>11682</index>
+        <endIndex>11683</endIndex>
         <startLine>243</startLine>
         <startColumn>62</startColumn>
         <endLine>243</endLine>
@@ -848,8 +793,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-36</context>
         <line>254</line>
-        <index>12231</index>
-        <endIndex>12232</endIndex>
+        <index>12211</index>
+        <endIndex>12212</endIndex>
         <startLine>254</startLine>
         <startColumn>62</startColumn>
         <endLine>254</endLine>
@@ -859,8 +804,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-4</context>
         <line>57</line>
-        <index>2553</index>
-        <endIndex>2553</endIndex>
+        <index>2551</index>
+        <endIndex>2551</endIndex>
         <startLine>57</startLine>
         <startColumn>68</startColumn>
         <endLine>57</endLine>
@@ -870,8 +815,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-4</context>
         <line>104</line>
-        <index>4943</index>
-        <endIndex>4943</endIndex>
+        <index>4923</index>
+        <endIndex>4923</endIndex>
         <startLine>104</startLine>
         <startColumn>39</startColumn>
         <endLine>104</endLine>
@@ -881,8 +826,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-4</context>
         <line>289</line>
-        <index>14107</index>
-        <endIndex>14107</endIndex>
+        <index>14085</index>
+        <endIndex>14085</endIndex>
         <startLine>289</startLine>
         <startColumn>60</startColumn>
         <endLine>289</endLine>
@@ -892,8 +837,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-4</context>
         <line>289</line>
-        <index>14113</index>
-        <endIndex>14113</endIndex>
+        <index>14091</index>
+        <endIndex>14091</endIndex>
         <startLine>289</startLine>
         <startColumn>66</startColumn>
         <endLine>289</endLine>
@@ -903,8 +848,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-479</context>
         <line>67</line>
-        <index>3034</index>
-        <endIndex>3036</endIndex>
+        <index>3032</index>
+        <endIndex>3034</endIndex>
         <startLine>67</startLine>
         <startColumn>62</startColumn>
         <endLine>67</endLine>
@@ -914,8 +859,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-479</context>
         <line>78</line>
-        <index>3569</index>
-        <endIndex>3571</endIndex>
+        <index>3567</index>
+        <endIndex>3569</endIndex>
         <startLine>78</startLine>
         <startColumn>65</startColumn>
         <endLine>78</endLine>
@@ -925,19 +870,19 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-479</context>
         <line>89</line>
-        <index>4133</index>
-        <endIndex>4135</endIndex>
+        <index>4129</index>
+        <endIndex>4131</endIndex>
         <startLine>89</startLine>
-        <startColumn>66</startColumn>
+        <startColumn>64</startColumn>
         <endLine>89</endLine>
-        <endColumn>68</endColumn>
+        <endColumn>66</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-479</context>
         <line>100</line>
-        <index>4702</index>
-        <endIndex>4704</endIndex>
+        <index>4682</index>
+        <endIndex>4684</endIndex>
         <startLine>100</startLine>
         <startColumn>64</startColumn>
         <endLine>100</endLine>
@@ -947,8 +892,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-479</context>
         <line>111</line>
-        <index>5253</index>
-        <endIndex>5255</endIndex>
+        <index>5233</index>
+        <endIndex>5235</endIndex>
         <startLine>111</startLine>
         <startColumn>64</startColumn>
         <endLine>111</endLine>
@@ -958,8 +903,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-142</context>
         <line>67</line>
-        <index>3039</index>
-        <endIndex>3041</endIndex>
+        <index>3037</index>
+        <endIndex>3039</endIndex>
         <startLine>67</startLine>
         <startColumn>67</startColumn>
         <endLine>67</endLine>
@@ -969,8 +914,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-142</context>
         <line>166</line>
-        <index>7968</index>
-        <endIndex>7970</endIndex>
+        <index>7948</index>
+        <endIndex>7950</endIndex>
         <startLine>166</startLine>
         <startColumn>68</startColumn>
         <endLine>166</endLine>
@@ -980,8 +925,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>68</line>
-        <index>3113</index>
-        <endIndex>3113</endIndex>
+        <index>3111</index>
+        <endIndex>3111</endIndex>
         <startLine>68</startLine>
         <startColumn>68</startColumn>
         <endLine>68</endLine>
@@ -991,8 +936,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>79</line>
-        <index>3651</index>
-        <endIndex>3651</endIndex>
+        <index>3649</index>
+        <endIndex>3649</endIndex>
         <startLine>79</startLine>
         <startColumn>71</startColumn>
         <endLine>79</endLine>
@@ -1002,19 +947,19 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>90</line>
-        <index>4216</index>
-        <endIndex>4216</endIndex>
+        <index>4210</index>
+        <endIndex>4210</endIndex>
         <startLine>90</startLine>
-        <startColumn>72</startColumn>
+        <startColumn>70</startColumn>
         <endLine>90</endLine>
-        <endColumn>72</endColumn>
+        <endColumn>70</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>101</line>
-        <index>4783</index>
-        <endIndex>4783</endIndex>
+        <index>4763</index>
+        <endIndex>4763</endIndex>
         <startLine>101</startLine>
         <startColumn>70</startColumn>
         <endLine>101</endLine>
@@ -1024,8 +969,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>112</line>
-        <index>5334</index>
-        <endIndex>5334</endIndex>
+        <index>5314</index>
+        <endIndex>5314</endIndex>
         <startLine>112</startLine>
         <startColumn>70</startColumn>
         <endLine>112</endLine>
@@ -1035,8 +980,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>123</line>
-        <index>5891</index>
-        <endIndex>5891</endIndex>
+        <index>5871</index>
+        <endIndex>5871</endIndex>
         <startLine>123</startLine>
         <startColumn>72</startColumn>
         <endLine>123</endLine>
@@ -1046,8 +991,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>134</line>
-        <index>6453</index>
-        <endIndex>6453</endIndex>
+        <index>6433</index>
+        <endIndex>6433</endIndex>
         <startLine>134</startLine>
         <startColumn>68</startColumn>
         <endLine>134</endLine>
@@ -1057,8 +1002,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>145</line>
-        <index>6982</index>
-        <endIndex>6982</endIndex>
+        <index>6962</index>
+        <endIndex>6962</endIndex>
         <startLine>145</startLine>
         <startColumn>68</startColumn>
         <endLine>145</endLine>
@@ -1068,8 +1013,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>156</line>
-        <index>7511</index>
-        <endIndex>7511</endIndex>
+        <index>7491</index>
+        <endIndex>7491</endIndex>
         <startLine>156</startLine>
         <startColumn>68</startColumn>
         <endLine>156</endLine>
@@ -1079,8 +1024,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>167</line>
-        <index>8043</index>
-        <endIndex>8043</endIndex>
+        <index>8023</index>
+        <endIndex>8023</endIndex>
         <startLine>167</startLine>
         <startColumn>69</startColumn>
         <endLine>167</endLine>
@@ -1090,8 +1035,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>170</line>
-        <index>8199</index>
-        <endIndex>8199</endIndex>
+        <index>8179</index>
+        <endIndex>8179</endIndex>
         <startLine>170</startLine>
         <startColumn>38</startColumn>
         <endLine>170</endLine>
@@ -1101,8 +1046,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>178</line>
-        <index>8587</index>
-        <endIndex>8587</endIndex>
+        <index>8567</index>
+        <endIndex>8567</endIndex>
         <startLine>178</startLine>
         <startColumn>70</startColumn>
         <endLine>178</endLine>
@@ -1112,8 +1057,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>189</line>
-        <index>9133</index>
-        <endIndex>9133</endIndex>
+        <index>9113</index>
+        <endIndex>9113</endIndex>
         <startLine>189</startLine>
         <startColumn>68</startColumn>
         <endLine>189</endLine>
@@ -1123,8 +1068,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>200</line>
-        <index>9663</index>
-        <endIndex>9663</endIndex>
+        <index>9643</index>
+        <endIndex>9643</endIndex>
         <startLine>200</startLine>
         <startColumn>68</startColumn>
         <endLine>200</endLine>
@@ -1134,8 +1079,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>211</line>
-        <index>10193</index>
-        <endIndex>10193</endIndex>
+        <index>10173</index>
+        <endIndex>10173</endIndex>
         <startLine>211</startLine>
         <startColumn>68</startColumn>
         <endLine>211</endLine>
@@ -1145,8 +1090,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>222</line>
-        <index>10722</index>
-        <endIndex>10722</endIndex>
+        <index>10702</index>
+        <endIndex>10702</endIndex>
         <startLine>222</startLine>
         <startColumn>68</startColumn>
         <endLine>222</endLine>
@@ -1156,8 +1101,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>233</line>
-        <index>11251</index>
-        <endIndex>11251</endIndex>
+        <index>11231</index>
+        <endIndex>11231</endIndex>
         <startLine>233</startLine>
         <startColumn>68</startColumn>
         <endLine>233</endLine>
@@ -1167,8 +1112,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>244</line>
-        <index>11780</index>
-        <endIndex>11780</endIndex>
+        <index>11760</index>
+        <endIndex>11760</endIndex>
         <startLine>244</startLine>
         <startColumn>68</startColumn>
         <endLine>244</endLine>
@@ -1178,8 +1123,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-6</context>
         <line>255</line>
-        <index>12309</index>
-        <endIndex>12309</endIndex>
+        <index>12289</index>
+        <endIndex>12289</endIndex>
         <startLine>255</startLine>
         <startColumn>68</startColumn>
         <endLine>255</endLine>
@@ -1189,8 +1134,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>70</line>
-        <index>3223</index>
-        <endIndex>3224</endIndex>
+        <index>3221</index>
+        <endIndex>3222</endIndex>
         <startLine>70</startLine>
         <startColumn>62</startColumn>
         <endLine>70</endLine>
@@ -1200,8 +1145,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>81</line>
-        <index>3770</index>
-        <endIndex>3771</endIndex>
+        <index>3768</index>
+        <endIndex>3769</endIndex>
         <startLine>81</startLine>
         <startColumn>65</startColumn>
         <endLine>81</endLine>
@@ -1211,19 +1156,19 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>92</line>
-        <index>4338</index>
-        <endIndex>4339</endIndex>
+        <index>4328</index>
+        <endIndex>4329</endIndex>
         <startLine>92</startLine>
-        <startColumn>66</startColumn>
+        <startColumn>64</startColumn>
         <endLine>92</endLine>
-        <endColumn>67</endColumn>
+        <endColumn>65</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>103</line>
-        <index>4899</index>
-        <endIndex>4900</endIndex>
+        <index>4879</index>
+        <endIndex>4880</endIndex>
         <startLine>103</startLine>
         <startColumn>64</startColumn>
         <endLine>103</endLine>
@@ -1233,8 +1178,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>114</line>
-        <index>5450</index>
-        <endIndex>5451</endIndex>
+        <index>5430</index>
+        <endIndex>5431</endIndex>
         <startLine>114</startLine>
         <startColumn>64</startColumn>
         <endLine>114</endLine>
@@ -1244,8 +1189,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>125</line>
-        <index>6013</index>
-        <endIndex>6014</endIndex>
+        <index>5993</index>
+        <endIndex>5994</endIndex>
         <startLine>125</startLine>
         <startColumn>66</startColumn>
         <endLine>125</endLine>
@@ -1255,8 +1200,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>136</line>
-        <index>6563</index>
-        <endIndex>6564</endIndex>
+        <index>6543</index>
+        <endIndex>6544</endIndex>
         <startLine>136</startLine>
         <startColumn>62</startColumn>
         <endLine>136</endLine>
@@ -1266,8 +1211,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>147</line>
-        <index>7092</index>
-        <endIndex>7093</endIndex>
+        <index>7072</index>
+        <endIndex>7073</endIndex>
         <startLine>147</startLine>
         <startColumn>62</startColumn>
         <endLine>147</endLine>
@@ -1277,8 +1222,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>158</line>
-        <index>7621</index>
-        <endIndex>7622</endIndex>
+        <index>7601</index>
+        <endIndex>7602</endIndex>
         <startLine>158</startLine>
         <startColumn>62</startColumn>
         <endLine>158</endLine>
@@ -1288,8 +1233,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>169</line>
-        <index>8156</index>
-        <endIndex>8157</endIndex>
+        <index>8136</index>
+        <endIndex>8137</endIndex>
         <startLine>169</startLine>
         <startColumn>63</startColumn>
         <endLine>169</endLine>
@@ -1299,8 +1244,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>180</line>
-        <index>8703</index>
-        <endIndex>8704</endIndex>
+        <index>8683</index>
+        <endIndex>8684</endIndex>
         <startLine>180</startLine>
         <startColumn>64</startColumn>
         <endLine>180</endLine>
@@ -1310,8 +1255,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>191</line>
-        <index>9243</index>
-        <endIndex>9244</endIndex>
+        <index>9223</index>
+        <endIndex>9224</endIndex>
         <startLine>191</startLine>
         <startColumn>62</startColumn>
         <endLine>191</endLine>
@@ -1321,8 +1266,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>202</line>
-        <index>9773</index>
-        <endIndex>9774</endIndex>
+        <index>9753</index>
+        <endIndex>9754</endIndex>
         <startLine>202</startLine>
         <startColumn>62</startColumn>
         <endLine>202</endLine>
@@ -1332,8 +1277,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>213</line>
-        <index>10303</index>
-        <endIndex>10304</endIndex>
+        <index>10283</index>
+        <endIndex>10284</endIndex>
         <startLine>213</startLine>
         <startColumn>62</startColumn>
         <endLine>213</endLine>
@@ -1343,8 +1288,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>224</line>
-        <index>10832</index>
-        <endIndex>10833</endIndex>
+        <index>10812</index>
+        <endIndex>10813</endIndex>
         <startLine>224</startLine>
         <startColumn>62</startColumn>
         <endLine>224</endLine>
@@ -1354,8 +1299,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>235</line>
-        <index>11361</index>
-        <endIndex>11362</endIndex>
+        <index>11341</index>
+        <endIndex>11342</endIndex>
         <startLine>235</startLine>
         <startColumn>62</startColumn>
         <endLine>235</endLine>
@@ -1365,8 +1310,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>246</line>
-        <index>11890</index>
-        <endIndex>11891</endIndex>
+        <index>11870</index>
+        <endIndex>11871</endIndex>
         <startLine>246</startLine>
         <startColumn>62</startColumn>
         <endLine>246</endLine>
@@ -1376,8 +1321,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-88</context>
         <line>257</line>
-        <index>12419</index>
-        <endIndex>12420</endIndex>
+        <index>12399</index>
+        <endIndex>12400</endIndex>
         <startLine>257</startLine>
         <startColumn>62</startColumn>
         <endLine>257</endLine>
@@ -1387,8 +1332,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-242</context>
         <line>78</line>
-        <index>3574</index>
-        <endIndex>3576</endIndex>
+        <index>3572</index>
+        <endIndex>3574</endIndex>
         <startLine>78</startLine>
         <startColumn>70</startColumn>
         <endLine>78</endLine>
@@ -1398,8 +1343,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-242</context>
         <line>155</line>
-        <index>7437</index>
-        <endIndex>7439</endIndex>
+        <index>7417</index>
+        <endIndex>7419</endIndex>
         <startLine>155</startLine>
         <startColumn>67</startColumn>
         <endLine>155</endLine>
@@ -1409,8 +1354,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-242</context>
         <line>210</line>
-        <index>10119</index>
-        <endIndex>10121</endIndex>
+        <index>10099</index>
+        <endIndex>10101</endIndex>
         <startLine>210</startLine>
         <startColumn>67</startColumn>
         <endLine>210</endLine>
@@ -1420,8 +1365,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-242</context>
         <line>254</line>
-        <index>12235</index>
-        <endIndex>12237</endIndex>
+        <index>12215</index>
+        <endIndex>12217</endIndex>
         <startLine>254</startLine>
         <startColumn>66</startColumn>
         <endLine>254</endLine>
@@ -1431,19 +1376,19 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-342</context>
         <line>89</line>
-        <index>4138</index>
-        <endIndex>4140</endIndex>
+        <index>4134</index>
+        <endIndex>4136</endIndex>
         <startLine>89</startLine>
-        <startColumn>71</startColumn>
+        <startColumn>69</startColumn>
         <endLine>89</endLine>
-        <endColumn>73</endColumn>
+        <endColumn>71</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-342</context>
         <line>144</line>
-        <index>6908</index>
-        <endIndex>6910</endIndex>
+        <index>6888</index>
+        <endIndex>6890</endIndex>
         <startLine>144</startLine>
         <startColumn>67</startColumn>
         <endLine>144</endLine>
@@ -1453,8 +1398,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-342</context>
         <line>199</line>
-        <index>9589</index>
-        <endIndex>9591</endIndex>
+        <index>9569</index>
+        <endIndex>9571</endIndex>
         <startLine>199</startLine>
         <startColumn>67</startColumn>
         <endLine>199</endLine>
@@ -1464,8 +1409,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-342</context>
         <line>243</line>
-        <index>11706</index>
-        <endIndex>11708</endIndex>
+        <index>11686</index>
+        <endIndex>11688</endIndex>
         <startLine>243</startLine>
         <startColumn>66</startColumn>
         <endLine>243</endLine>
@@ -1475,8 +1420,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-442</context>
         <line>100</line>
-        <index>4707</index>
-        <endIndex>4709</endIndex>
+        <index>4687</index>
+        <endIndex>4689</endIndex>
         <startLine>100</startLine>
         <startColumn>69</startColumn>
         <endLine>100</endLine>
@@ -1486,8 +1431,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-442</context>
         <line>133</line>
-        <index>6379</index>
-        <endIndex>6381</endIndex>
+        <index>6359</index>
+        <endIndex>6361</endIndex>
         <startLine>133</startLine>
         <startColumn>67</startColumn>
         <endLine>133</endLine>
@@ -1497,8 +1442,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-442</context>
         <line>188</line>
-        <index>9059</index>
-        <endIndex>9061</endIndex>
+        <index>9039</index>
+        <endIndex>9041</endIndex>
         <startLine>188</startLine>
         <startColumn>67</startColumn>
         <endLine>188</endLine>
@@ -1508,8 +1453,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-442</context>
         <line>232</line>
-        <index>11177</index>
-        <endIndex>11179</endIndex>
+        <index>11157</index>
+        <endIndex>11159</endIndex>
         <startLine>232</startLine>
         <startColumn>66</startColumn>
         <endLine>232</endLine>
@@ -1519,8 +1464,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-542</context>
         <line>111</line>
-        <index>5258</index>
-        <endIndex>5260</endIndex>
+        <index>5238</index>
+        <endIndex>5240</endIndex>
         <startLine>111</startLine>
         <startColumn>69</startColumn>
         <endLine>111</endLine>
@@ -1530,8 +1475,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-542</context>
         <line>122</line>
-        <index>5813</index>
-        <endIndex>5815</endIndex>
+        <index>5793</index>
+        <endIndex>5795</endIndex>
         <startLine>122</startLine>
         <startColumn>71</startColumn>
         <endLine>122</endLine>
@@ -1541,8 +1486,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-542</context>
         <line>177</line>
-        <index>8511</index>
-        <endIndex>8513</endIndex>
+        <index>8491</index>
+        <endIndex>8493</endIndex>
         <startLine>177</startLine>
         <startColumn>69</startColumn>
         <endLine>177</endLine>
@@ -1552,8 +1497,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-542</context>
         <line>221</line>
-        <index>10648</index>
-        <endIndex>10650</endIndex>
+        <index>10628</index>
+        <endIndex>10630</endIndex>
         <startLine>221</startLine>
         <startColumn>66</startColumn>
         <endLine>221</endLine>
@@ -1563,8 +1508,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-5</context>
         <line>115</line>
-        <index>5494</index>
-        <endIndex>5494</endIndex>
+        <index>5474</index>
+        <endIndex>5474</endIndex>
         <startLine>115</startLine>
         <startColumn>39</startColumn>
         <endLine>115</endLine>
@@ -1574,8 +1519,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-5</context>
         <line>289</line>
-        <index>14110</index>
-        <endIndex>14110</endIndex>
+        <index>14088</index>
+        <endIndex>14088</endIndex>
         <startLine>289</startLine>
         <startColumn>63</startColumn>
         <endLine>289</endLine>
@@ -1585,8 +1530,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-5</context>
         <line>289</line>
-        <index>14116</index>
-        <endIndex>14116</endIndex>
+        <index>14094</index>
+        <endIndex>14094</endIndex>
         <startLine>289</startLine>
         <startColumn>69</startColumn>
         <endLine>289</endLine>
@@ -1596,8 +1541,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-331</context>
         <line>122</line>
-        <index>5808</index>
-        <endIndex>5810</endIndex>
+        <index>5788</index>
+        <endIndex>5790</endIndex>
         <startLine>122</startLine>
         <startColumn>66</startColumn>
         <endLine>122</endLine>
@@ -1607,8 +1552,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-331</context>
         <line>133</line>
-        <index>6374</index>
-        <endIndex>6376</endIndex>
+        <index>6354</index>
+        <endIndex>6356</endIndex>
         <startLine>133</startLine>
         <startColumn>62</startColumn>
         <endLine>133</endLine>
@@ -1618,8 +1563,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-331</context>
         <line>144</line>
-        <index>6903</index>
-        <endIndex>6905</endIndex>
+        <index>6883</index>
+        <endIndex>6885</endIndex>
         <startLine>144</startLine>
         <startColumn>62</startColumn>
         <endLine>144</endLine>
@@ -1629,8 +1574,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-331</context>
         <line>155</line>
-        <index>7432</index>
-        <endIndex>7434</endIndex>
+        <index>7412</index>
+        <endIndex>7414</endIndex>
         <startLine>155</startLine>
         <startColumn>62</startColumn>
         <endLine>155</endLine>
@@ -1640,8 +1585,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-331</context>
         <line>166</line>
-        <index>7963</index>
-        <endIndex>7965</endIndex>
+        <index>7943</index>
+        <endIndex>7945</endIndex>
         <startLine>166</startLine>
         <startColumn>63</startColumn>
         <endLine>166</endLine>
@@ -1651,8 +1596,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-184</context>
         <line>177</line>
-        <index>8506</index>
-        <endIndex>8508</endIndex>
+        <index>8486</index>
+        <endIndex>8488</endIndex>
         <startLine>177</startLine>
         <startColumn>64</startColumn>
         <endLine>177</endLine>
@@ -1662,8 +1607,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-184</context>
         <line>188</line>
-        <index>9054</index>
-        <endIndex>9056</endIndex>
+        <index>9034</index>
+        <endIndex>9036</endIndex>
         <startLine>188</startLine>
         <startColumn>62</startColumn>
         <endLine>188</endLine>
@@ -1673,8 +1618,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-184</context>
         <line>199</line>
-        <index>9584</index>
-        <endIndex>9586</endIndex>
+        <index>9564</index>
+        <endIndex>9566</endIndex>
         <startLine>199</startLine>
         <startColumn>62</startColumn>
         <endLine>199</endLine>
@@ -1684,8 +1629,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
         <context>Literal constants(字面常數)-184</context>
         <line>210</line>
-        <index>10114</index>
-        <endIndex>10116</endIndex>
+        <index>10094</index>
+        <endIndex>10096</endIndex>
         <startLine>210</startLine>
         <startColumn>62</startColumn>
         <endLine>210</endLine>
@@ -1700,8 +1645,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-buttonC(c)</context>
         <line>300</line>
-        <index>14374</index>
-        <endIndex>14417</endIndex>
+        <index>14352</index>
+        <endIndex>14395</endIndex>
         <startLine>300</startLine>
         <startColumn>9</startColumn>
         <endLine>300</endLine>
@@ -1718,6 +1663,17 @@
         <line>301</line>
         <warning>False</warning>
       </violation>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
+        <context>Unsuitable naming(名不符實)-buttonSub(sub)</context>
+        <line>302</line>
+        <index>14463</index>
+        <endIndex>14508</endIndex>
+        <startLine>302</startLine>
+        <startColumn>9</startColumn>
+        <endLine>302</endLine>
+        <endColumn>54</endColumn>
+        <warning>False</warning>
+      </violation>
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="Variable1" ruleCheckId="VR0001">
         <context>ICS(變數-1)</context>
         <line>302</line>
@@ -1726,8 +1682,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-buttonMul(mul)</context>
         <line>303</line>
-        <index>14543</index>
-        <endIndex>14588</endIndex>
+        <index>14519</index>
+        <endIndex>14564</endIndex>
         <startLine>303</startLine>
         <startColumn>9</startColumn>
         <endLine>303</endLine>
@@ -1742,8 +1698,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-buttonDiv(div)</context>
         <line>304</line>
-        <index>14599</index>
-        <endIndex>14644</endIndex>
+        <index>14575</index>
+        <endIndex>14620</endIndex>
         <startLine>304</startLine>
         <startColumn>9</startColumn>
         <endLine>304</endLine>
@@ -1778,8 +1734,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-buttonCE(ce)</context>
         <line>309</line>
-        <index>14875</index>
-        <endIndex>14919</endIndex>
+        <index>14851</index>
+        <endIndex>14895</endIndex>
         <startLine>309</startLine>
         <startColumn>9</startColumn>
         <endLine>309</endLine>

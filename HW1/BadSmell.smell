@@ -253,7 +253,7 @@
             <Smell>
               <Id>5</Id>
               <SmellType>ICS(縮排與換行-3)</SmellType>
-              <HashCode>IndentAndNewLine3._operatorDict.            { '*', 2 },</HashCode>
+              <HashCode>IndentAndNewLine3._operatorDict.            { 'x', 2 },</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>HW1</Project>
@@ -300,134 +300,6 @@
             </Smell>
             <Smell>
               <Id>8</Id>
-              <SmellType>Literal constants(字面常數)-'+'</SmellType>
-              <HashCode>LiteralConstants.Calculate.'+'</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>HW1</Project>
-              <File>Calculator.cs</File>
-              <Line>36</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>9</Id>
-              <SmellType>Literal constants(字面常數)-'+'</SmellType>
-              <HashCode>LiteralConstants.Compute.'+'</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>HW1</Project>
-              <File>Calculator.cs</File>
-              <Line>116</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>10</Id>
-              <SmellType>Literal constants(字面常數)-'-'</SmellType>
-              <HashCode>LiteralConstants.Calculate.'-'</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>HW1</Project>
-              <File>Calculator.cs</File>
-              <Line>36</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>11</Id>
-              <SmellType>Literal constants(字面常數)-'-'</SmellType>
-              <HashCode>LiteralConstants.Compute.'-'</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>HW1</Project>
-              <File>Calculator.cs</File>
-              <Line>120</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>12</Id>
-              <SmellType>Literal constants(字面常數)-'*'</SmellType>
-              <HashCode>LiteralConstants.Calculate.'*'</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>HW1</Project>
-              <File>Calculator.cs</File>
-              <Line>36</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>13</Id>
-              <SmellType>Literal constants(字面常數)-'*'</SmellType>
-              <HashCode>LiteralConstants.Compute.'*'</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>HW1</Project>
-              <File>Calculator.cs</File>
-              <Line>124</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>14</Id>
-              <SmellType>Literal constants(字面常數)-'/'</SmellType>
-              <HashCode>LiteralConstants.Calculate.'/'</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>HW1</Project>
-              <File>Calculator.cs</File>
-              <Line>36</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>15</Id>
-              <SmellType>Literal constants(字面常數)-'/'</SmellType>
-              <HashCode>LiteralConstants.Compute.'/'</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>HW1</Project>
-              <File>Calculator.cs</File>
-              <Line>128</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>16</Id>
               <SmellType>Literal constants(字面常數)-' '</SmellType>
               <HashCode>LiteralConstants.ToPostfixExpr.' '</HashCode>
               <Severity>Red</Severity>
@@ -443,7 +315,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>17</Id>
+              <Id>9</Id>
               <SmellType>Literal constants(字面常數)-' '</SmellType>
               <HashCode>LiteralConstants.ToPostfixExpr.' '</HashCode>
               <Severity>Red</Severity>
@@ -459,7 +331,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>18</Id>
+              <Id>10</Id>
               <SmellType>Literal constants(字面常數)-' '</SmellType>
               <HashCode>LiteralConstants.ToPostfixExpr.' '</HashCode>
               <Severity>Red</Severity>
@@ -475,7 +347,71 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>19</Id>
+              <Id>11</Id>
+              <SmellType>Literal constants(字面常數)-'+'</SmellType>
+              <HashCode>LiteralConstants.Compute.'+'</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>116</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>12</Id>
+              <SmellType>Literal constants(字面常數)-'-'</SmellType>
+              <HashCode>LiteralConstants.Compute.'-'</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>120</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>13</Id>
+              <SmellType>Literal constants(字面常數)-'x'</SmellType>
+              <HashCode>LiteralConstants.Compute.'x'</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>124</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>14</Id>
+              <SmellType>Literal constants(字面常數)-'/'</SmellType>
+              <HashCode>LiteralConstants.Compute.'/'</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>128</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>15</Id>
               <SmellType>Unsuitable naming(名不符實)-HW1(hw)</SmellType>
               <HashCode>UnsuitableNaming.Root.HW1.HW1</HashCode>
               <Severity>Red</Severity>
@@ -491,7 +427,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>20</Id>
+              <Id>16</Id>
               <SmellType>Unsuitable naming(名不符實)-_lastOp(op)</SmellType>
               <HashCode>UnsuitableNaming.Calculator._lastOp._lastOp</HashCode>
               <Severity>Red</Severity>
@@ -507,7 +443,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>21</Id>
+              <Id>17</Id>
               <SmellType>Unsuitable naming(名不符實)-_operatorDict(dict)</SmellType>
               <HashCode>UnsuitableNaming.Calculator._operatorDict._operatorDict</HashCode>
               <Severity>Red</Severity>
@@ -523,7 +459,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>22</Id>
+              <Id>18</Id>
               <SmellType>Unsuitable naming(名不符實)-mathExpr(expr)</SmellType>
               <HashCode>UnsuitableNaming.Calculator.Calculate.mathExpr</HashCode>
               <Severity>Red</Severity>
@@ -539,7 +475,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>23</Id>
+              <Id>19</Id>
               <SmellType>Unsuitable naming(名不符實)-postfixExpr(postfix, expr)</SmellType>
               <HashCode>UnsuitableNaming.Calculator.Calculate.postfixExpr</HashCode>
               <Severity>Red</Severity>
@@ -555,7 +491,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>24</Id>
+              <Id>20</Id>
               <SmellType>Unsuitable naming(名不符實)-mathExpr(expr)</SmellType>
               <HashCode>UnsuitableNaming.Calculator.ToPostfixExpr.mathExpr</HashCode>
               <Severity>Red</Severity>
@@ -571,7 +507,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>25</Id>
+              <Id>21</Id>
               <SmellType>Unsuitable naming(名不符實)-expr(expr)</SmellType>
               <HashCode>UnsuitableNaming.Calculator.ToPostfixExpr.expr</HashCode>
               <Severity>Red</Severity>
@@ -587,7 +523,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>26</Id>
+              <Id>22</Id>
               <SmellType>Unsuitable naming(名不符實)-ToPostfixExpr(postfix, expr)</SmellType>
               <HashCode>UnsuitableNaming.Calculator.ToPostfixExpr.ToPostfixExpr</HashCode>
               <Severity>Red</Severity>
@@ -603,7 +539,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>27</Id>
+              <Id>23</Id>
               <SmellType>Long method(過長函式)</SmellType>
               <HashCode>LongMethod.Calculator.ToPostfixExpr.31string mathExpr;</HashCode>
               <Severity>Red</Severity>
@@ -619,7 +555,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>28</Id>
+              <Id>24</Id>
               <SmellType>ICS(函式-2)</SmellType>
               <HashCode>Method2.Calculator.ToPostfixExpr</HashCode>
               <Severity>Red</Severity>
@@ -635,7 +571,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>29</Id>
+              <Id>25</Id>
               <SmellType>Unsuitable naming(名不符實)-num(num)</SmellType>
               <HashCode>UnsuitableNaming.Calculator.ChainCalculate.num</HashCode>
               <Severity>Red</Severity>
@@ -651,7 +587,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>30</Id>
+              <Id>26</Id>
               <SmellType>Unsuitable naming(名不符實)-postfixExpr(postfix, expr)</SmellType>
               <HashCode>UnsuitableNaming.Calculator.EvaluatePostfixMathExpr.postfixExpr</HashCode>
               <Severity>Red</Severity>
@@ -667,7 +603,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>31</Id>
+              <Id>27</Id>
               <SmellType>Unsuitable naming(名不符實)-b(b)</SmellType>
               <HashCode>UnsuitableNaming.Calculator.EvaluatePostfixMathExpr.b</HashCode>
               <Severity>Red</Severity>
@@ -683,7 +619,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>32</Id>
+              <Id>28</Id>
               <SmellType>Unsuitable naming(名不符實)-EvaluatePostfixMathExpr(postfix, expr)</SmellType>
               <HashCode>UnsuitableNaming.Calculator.EvaluatePostfixMathExpr.EvaluatePostfixMathExpr</HashCode>
               <Severity>Red</Severity>
@@ -699,7 +635,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>33</Id>
+              <Id>29</Id>
               <SmellType>Long method(過長函式)</SmellType>
               <HashCode>LongMethod.Calculator.EvaluatePostfixMathExpr.23string postfixExpr;</HashCode>
               <Severity>Warning</Severity>
@@ -715,7 +651,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>34</Id>
+              <Id>30</Id>
               <SmellType>ICS(變數-3)</SmellType>
               <HashCode>Variable3.EvaluatePostfixMathExpr.a</HashCode>
               <Severity>Red</Severity>
@@ -731,7 +667,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>35</Id>
+              <Id>31</Id>
               <SmellType>Unsuitable naming(名不符實)-b(b)</SmellType>
               <HashCode>UnsuitableNaming.Calculator.Compute.b</HashCode>
               <Severity>Red</Severity>
@@ -747,7 +683,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>36</Id>
+              <Id>32</Id>
               <SmellType>Unsuitable naming(名不符實)-op(op)</SmellType>
               <HashCode>UnsuitableNaming.Calculator.Compute.op</HashCode>
               <Severity>Red</Severity>
@@ -763,11 +699,11 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>37</Id>
+              <Id>33</Id>
               <SmellType>Long method(過長函式)</SmellType>
-              <HashCode>LongMethod.Calculator.Compute.25double a;double b;char op;</HashCode>
+              <HashCode>LongMethod.Calculator.Compute.28double a;double b;char op;</HashCode>
               <Severity>Warning</Severity>
-              <Weight>25</Weight>
+              <Weight>28</Weight>
               <Project>HW1</Project>
               <File>Calculator.cs</File>
               <Line>110</Line>
@@ -779,14 +715,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>38</Id>
+              <Id>34</Id>
               <SmellType>Unsuitable naming(名不符實)-c(c)</SmellType>
               <HashCode>UnsuitableNaming.Calculator.OperatorPriority.c</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Calculator.cs</File>
-              <Line>137</Line>
+              <Line>140</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -795,14 +731,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>39</Id>
+              <Id>35</Id>
               <SmellType>ICS(函式-2)</SmellType>
               <HashCode>Method2.Calculator.OperatorPriority</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Calculator.cs</File>
-              <Line>137</Line>
+              <Line>140</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -811,14 +747,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>40</Id>
+              <Id>36</Id>
               <SmellType>Unsuitable naming(名不符實)-c(c)</SmellType>
               <HashCode>UnsuitableNaming.Calculator.IsOperator.c</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Calculator.cs</File>
-              <Line>147</Line>
+              <Line>150</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -827,7 +763,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>41</Id>
+              <Id>37</Id>
               <SmellType>ICS(縮排與換行-4)</SmellType>
               <HashCode>IndentAndNewLine4.ButtonDotClick.                 Char.IsNumber(textBox.Text[textBox.Text.Length - 1]);</HashCode>
               <Severity>Red</Severity>
@@ -843,7 +779,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>42</Id>
+              <Id>38</Id>
               <SmellType>Unsuitable naming(名不符實)-HW1(hw)</SmellType>
               <HashCode>UnsuitableNaming.Root.HW1.HW1</HashCode>
               <Severity>Red</Severity>
@@ -859,7 +795,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>43</Id>
+              <Id>39</Id>
               <SmellType>Unsuitable naming(名不符實)-ButtonCEClick(ce)</SmellType>
               <HashCode>UnsuitableNaming.AppForm.ButtonCEClick.ButtonCEClick</HashCode>
               <Severity>Red</Severity>
@@ -875,7 +811,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>44</Id>
+              <Id>40</Id>
               <SmellType>ICS(函式-1)</SmellType>
               <HashCode>Method1.AppForm.ButtonCEClick</HashCode>
               <Severity>Red</Severity>
@@ -891,7 +827,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>45</Id>
+              <Id>41</Id>
               <SmellType>Unsuitable naming(名不符實)-ButtonCClick(c)</SmellType>
               <HashCode>UnsuitableNaming.AppForm.ButtonCClick.ButtonCClick</HashCode>
               <Severity>Red</Severity>
@@ -907,7 +843,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>46</Id>
+              <Id>42</Id>
               <SmellType>ICS(函式-1)</SmellType>
               <HashCode>Method1.AppForm.ButtonCClick</HashCode>
               <Severity>Red</Severity>
@@ -923,7 +859,23 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>47</Id>
+              <Id>43</Id>
+              <SmellType>Unsuitable naming(名不符實)-ButtonSubClick(sub)</SmellType>
+              <HashCode>UnsuitableNaming.AppForm.ButtonSubClick.ButtonSubClick</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Form1.cs</File>
+              <Line>112</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>44</Id>
               <SmellType>Unsuitable naming(名不符實)-ButtonMulClick(mul)</SmellType>
               <HashCode>UnsuitableNaming.AppForm.ButtonMulClick.ButtonMulClick</HashCode>
               <Severity>Red</Severity>
@@ -939,7 +891,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>48</Id>
+              <Id>45</Id>
               <SmellType>Unsuitable naming(名不符實)-ButtonDivClick(div)</SmellType>
               <HashCode>UnsuitableNaming.AppForm.ButtonDivClick.ButtonDivClick</HashCode>
               <Severity>Red</Severity>
@@ -955,39 +907,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>49</Id>
-              <SmellType>Unsuitable naming(名不符實)-mulOperator(mul)</SmellType>
-              <HashCode>UnsuitableNaming.AppForm.ButtonEqualClick.mulOperator</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>HW1</Project>
-              <File>Form1.cs</File>
-              <Line>158</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>50</Id>
-              <SmellType>ICS(變數-4)</SmellType>
-              <HashCode>Variable4.ButtonEqualClick.mulOperator</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>HW1</Project>
-              <File>Form1.cs</File>
-              <Line>158</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(變數-4) 定義字面常數的名稱的所有字母大寫，並以底線隔開單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>51</Id>
+              <Id>46</Id>
               <SmellType>Literal constants(字面常數)-"PMingLiU"</SmellType>
               <HashCode>LiteralConstants.InitializeComponent."PMingLiU"</HashCode>
               <Severity>Red</Severity>
@@ -1003,7 +923,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>52</Id>
+              <Id>47</Id>
               <SmellType>Literal constants(字面常數)-"PMingLiU"</SmellType>
               <HashCode>LiteralConstants.InitializeComponent."PMingLiU"</HashCode>
               <Severity>Red</Severity>
@@ -1011,6 +931,86 @@
               <Project>HW1</Project>
               <File>Form1.Designer.cs</File>
               <Line>287</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>48</Id>
+              <SmellType>Literal constants(字面常數)-136</SmellType>
+              <HashCode>LiteralConstants.InitializeComponent.136</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Form1.Designer.cs</File>
+              <Line>55</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>49</Id>
+              <SmellType>Literal constants(字面常數)-136</SmellType>
+              <HashCode>LiteralConstants.InitializeComponent.136</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Form1.Designer.cs</File>
+              <Line>70</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>50</Id>
+              <SmellType>Literal constants(字面常數)-136</SmellType>
+              <HashCode>LiteralConstants.InitializeComponent.136</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Form1.Designer.cs</File>
+              <Line>81</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>51</Id>
+              <SmellType>Literal constants(字面常數)-136</SmellType>
+              <HashCode>LiteralConstants.InitializeComponent.136</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Form1.Designer.cs</File>
+              <Line>92</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>52</Id>
+              <SmellType>Literal constants(字面常數)-136</SmellType>
+              <HashCode>LiteralConstants.InitializeComponent.136</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Form1.Designer.cs</File>
+              <Line>103</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1026,7 +1026,7 @@
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Form1.Designer.cs</File>
-              <Line>55</Line>
+              <Line>114</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1042,7 +1042,7 @@
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Form1.Designer.cs</File>
-              <Line>70</Line>
+              <Line>125</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1058,7 +1058,7 @@
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Form1.Designer.cs</File>
-              <Line>81</Line>
+              <Line>136</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1074,7 +1074,7 @@
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Form1.Designer.cs</File>
-              <Line>92</Line>
+              <Line>147</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1090,7 +1090,7 @@
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Form1.Designer.cs</File>
-              <Line>103</Line>
+              <Line>158</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1106,7 +1106,7 @@
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Form1.Designer.cs</File>
-              <Line>114</Line>
+              <Line>169</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1122,7 +1122,7 @@
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Form1.Designer.cs</File>
-              <Line>125</Line>
+              <Line>180</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1138,7 +1138,7 @@
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Form1.Designer.cs</File>
-              <Line>136</Line>
+              <Line>191</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1154,7 +1154,7 @@
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Form1.Designer.cs</File>
-              <Line>147</Line>
+              <Line>202</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1170,7 +1170,7 @@
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Form1.Designer.cs</File>
-              <Line>158</Line>
+              <Line>213</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1186,7 +1186,7 @@
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Form1.Designer.cs</File>
-              <Line>169</Line>
+              <Line>224</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1202,7 +1202,7 @@
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Form1.Designer.cs</File>
-              <Line>180</Line>
+              <Line>235</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1218,7 +1218,7 @@
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Form1.Designer.cs</File>
-              <Line>191</Line>
+              <Line>246</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1234,7 +1234,7 @@
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Form1.Designer.cs</File>
-              <Line>202</Line>
+              <Line>257</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1250,86 +1250,6 @@
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Form1.Designer.cs</File>
-              <Line>213</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>68</Id>
-              <SmellType>Literal constants(字面常數)-136</SmellType>
-              <HashCode>LiteralConstants.InitializeComponent.136</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>HW1</Project>
-              <File>Form1.Designer.cs</File>
-              <Line>224</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>69</Id>
-              <SmellType>Literal constants(字面常數)-136</SmellType>
-              <HashCode>LiteralConstants.InitializeComponent.136</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>HW1</Project>
-              <File>Form1.Designer.cs</File>
-              <Line>235</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>70</Id>
-              <SmellType>Literal constants(字面常數)-136</SmellType>
-              <HashCode>LiteralConstants.InitializeComponent.136</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>HW1</Project>
-              <File>Form1.Designer.cs</File>
-              <Line>246</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>71</Id>
-              <SmellType>Literal constants(字面常數)-136</SmellType>
-              <HashCode>LiteralConstants.InitializeComponent.136</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>HW1</Project>
-              <File>Form1.Designer.cs</File>
-              <Line>257</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>72</Id>
-              <SmellType>Literal constants(字面常數)-136</SmellType>
-              <HashCode>LiteralConstants.InitializeComponent.136</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>HW1</Project>
-              <File>Form1.Designer.cs</File>
               <Line>287</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
@@ -1339,7 +1259,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>73</Id>
+              <Id>68</Id>
               <SmellType>Literal constants(字面常數)-36</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.36</HashCode>
               <Severity>Red</Severity>
@@ -1355,7 +1275,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>74</Id>
+              <Id>69</Id>
               <SmellType>Literal constants(字面常數)-36</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.36</HashCode>
               <Severity>Red</Severity>
@@ -1371,7 +1291,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>75</Id>
+              <Id>70</Id>
               <SmellType>Literal constants(字面常數)-36</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.36</HashCode>
               <Severity>Red</Severity>
@@ -1387,7 +1307,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>76</Id>
+              <Id>71</Id>
               <SmellType>Literal constants(字面常數)-36</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.36</HashCode>
               <Severity>Red</Severity>
@@ -1403,7 +1323,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>77</Id>
+              <Id>72</Id>
               <SmellType>Literal constants(字面常數)-36</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.36</HashCode>
               <Severity>Red</Severity>
@@ -1419,7 +1339,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>78</Id>
+              <Id>73</Id>
               <SmellType>Literal constants(字面常數)-4</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.4</HashCode>
               <Severity>Red</Severity>
@@ -1435,7 +1355,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>79</Id>
+              <Id>74</Id>
               <SmellType>Literal constants(字面常數)-4</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.4</HashCode>
               <Severity>Red</Severity>
@@ -1451,7 +1371,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>80</Id>
+              <Id>75</Id>
               <SmellType>Literal constants(字面常數)-4</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.4</HashCode>
               <Severity>Red</Severity>
@@ -1467,7 +1387,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>81</Id>
+              <Id>76</Id>
               <SmellType>Literal constants(字面常數)-4</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.4</HashCode>
               <Severity>Red</Severity>
@@ -1483,7 +1403,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>82</Id>
+              <Id>77</Id>
               <SmellType>Literal constants(字面常數)-479</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.479</HashCode>
               <Severity>Red</Severity>
@@ -1499,7 +1419,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>83</Id>
+              <Id>78</Id>
               <SmellType>Literal constants(字面常數)-479</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.479</HashCode>
               <Severity>Red</Severity>
@@ -1515,7 +1435,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>84</Id>
+              <Id>79</Id>
               <SmellType>Literal constants(字面常數)-479</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.479</HashCode>
               <Severity>Red</Severity>
@@ -1531,7 +1451,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>85</Id>
+              <Id>80</Id>
               <SmellType>Literal constants(字面常數)-479</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.479</HashCode>
               <Severity>Red</Severity>
@@ -1547,7 +1467,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>86</Id>
+              <Id>81</Id>
               <SmellType>Literal constants(字面常數)-479</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.479</HashCode>
               <Severity>Red</Severity>
@@ -1563,7 +1483,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>87</Id>
+              <Id>82</Id>
               <SmellType>Literal constants(字面常數)-142</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.142</HashCode>
               <Severity>Red</Severity>
@@ -1579,7 +1499,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>88</Id>
+              <Id>83</Id>
               <SmellType>Literal constants(字面常數)-142</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.142</HashCode>
               <Severity>Red</Severity>
@@ -1595,7 +1515,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>89</Id>
+              <Id>84</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1611,7 +1531,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>90</Id>
+              <Id>85</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1627,7 +1547,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>91</Id>
+              <Id>86</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1643,7 +1563,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>92</Id>
+              <Id>87</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1659,7 +1579,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>93</Id>
+              <Id>88</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1675,7 +1595,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>94</Id>
+              <Id>89</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1691,7 +1611,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>95</Id>
+              <Id>90</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1707,7 +1627,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>96</Id>
+              <Id>91</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1723,7 +1643,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>97</Id>
+              <Id>92</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1739,7 +1659,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>98</Id>
+              <Id>93</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1755,7 +1675,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>99</Id>
+              <Id>94</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1771,7 +1691,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>100</Id>
+              <Id>95</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1787,7 +1707,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>101</Id>
+              <Id>96</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1803,7 +1723,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>102</Id>
+              <Id>97</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1819,7 +1739,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>103</Id>
+              <Id>98</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1835,7 +1755,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>104</Id>
+              <Id>99</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1851,7 +1771,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>105</Id>
+              <Id>100</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1867,7 +1787,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>106</Id>
+              <Id>101</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1883,7 +1803,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>107</Id>
+              <Id>102</Id>
               <SmellType>Literal constants(字面常數)-6</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.6</HashCode>
               <Severity>Red</Severity>
@@ -1899,7 +1819,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>108</Id>
+              <Id>103</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -1915,7 +1835,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>109</Id>
+              <Id>104</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -1931,7 +1851,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>110</Id>
+              <Id>105</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -1947,7 +1867,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>111</Id>
+              <Id>106</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -1963,7 +1883,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>112</Id>
+              <Id>107</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -1979,7 +1899,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>113</Id>
+              <Id>108</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -1995,7 +1915,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>114</Id>
+              <Id>109</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -2011,7 +1931,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>115</Id>
+              <Id>110</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -2027,7 +1947,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>116</Id>
+              <Id>111</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -2043,7 +1963,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>117</Id>
+              <Id>112</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -2059,7 +1979,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>118</Id>
+              <Id>113</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -2075,7 +1995,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>119</Id>
+              <Id>114</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -2091,7 +2011,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>120</Id>
+              <Id>115</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -2107,7 +2027,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>121</Id>
+              <Id>116</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -2123,7 +2043,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>122</Id>
+              <Id>117</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -2139,7 +2059,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>123</Id>
+              <Id>118</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -2155,7 +2075,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>124</Id>
+              <Id>119</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -2171,7 +2091,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>125</Id>
+              <Id>120</Id>
               <SmellType>Literal constants(字面常數)-88</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.88</HashCode>
               <Severity>Red</Severity>
@@ -2187,7 +2107,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>126</Id>
+              <Id>121</Id>
               <SmellType>Literal constants(字面常數)-242</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.242</HashCode>
               <Severity>Red</Severity>
@@ -2203,7 +2123,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>127</Id>
+              <Id>122</Id>
               <SmellType>Literal constants(字面常數)-242</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.242</HashCode>
               <Severity>Red</Severity>
@@ -2219,7 +2139,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>128</Id>
+              <Id>123</Id>
               <SmellType>Literal constants(字面常數)-242</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.242</HashCode>
               <Severity>Red</Severity>
@@ -2235,7 +2155,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>129</Id>
+              <Id>124</Id>
               <SmellType>Literal constants(字面常數)-242</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.242</HashCode>
               <Severity>Red</Severity>
@@ -2251,7 +2171,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>130</Id>
+              <Id>125</Id>
               <SmellType>Literal constants(字面常數)-342</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.342</HashCode>
               <Severity>Red</Severity>
@@ -2267,7 +2187,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>131</Id>
+              <Id>126</Id>
               <SmellType>Literal constants(字面常數)-342</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.342</HashCode>
               <Severity>Red</Severity>
@@ -2283,7 +2203,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>132</Id>
+              <Id>127</Id>
               <SmellType>Literal constants(字面常數)-342</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.342</HashCode>
               <Severity>Red</Severity>
@@ -2299,7 +2219,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>133</Id>
+              <Id>128</Id>
               <SmellType>Literal constants(字面常數)-342</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.342</HashCode>
               <Severity>Red</Severity>
@@ -2315,7 +2235,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>134</Id>
+              <Id>129</Id>
               <SmellType>Literal constants(字面常數)-442</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.442</HashCode>
               <Severity>Red</Severity>
@@ -2331,7 +2251,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>135</Id>
+              <Id>130</Id>
               <SmellType>Literal constants(字面常數)-442</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.442</HashCode>
               <Severity>Red</Severity>
@@ -2347,7 +2267,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>136</Id>
+              <Id>131</Id>
               <SmellType>Literal constants(字面常數)-442</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.442</HashCode>
               <Severity>Red</Severity>
@@ -2363,7 +2283,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>137</Id>
+              <Id>132</Id>
               <SmellType>Literal constants(字面常數)-442</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.442</HashCode>
               <Severity>Red</Severity>
@@ -2379,7 +2299,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>138</Id>
+              <Id>133</Id>
               <SmellType>Literal constants(字面常數)-542</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.542</HashCode>
               <Severity>Red</Severity>
@@ -2395,7 +2315,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>139</Id>
+              <Id>134</Id>
               <SmellType>Literal constants(字面常數)-542</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.542</HashCode>
               <Severity>Red</Severity>
@@ -2411,7 +2331,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>140</Id>
+              <Id>135</Id>
               <SmellType>Literal constants(字面常數)-542</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.542</HashCode>
               <Severity>Red</Severity>
@@ -2427,7 +2347,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>141</Id>
+              <Id>136</Id>
               <SmellType>Literal constants(字面常數)-542</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.542</HashCode>
               <Severity>Red</Severity>
@@ -2443,7 +2363,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>142</Id>
+              <Id>137</Id>
               <SmellType>Literal constants(字面常數)-5</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.5</HashCode>
               <Severity>Red</Severity>
@@ -2459,7 +2379,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>143</Id>
+              <Id>138</Id>
               <SmellType>Literal constants(字面常數)-5</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.5</HashCode>
               <Severity>Red</Severity>
@@ -2475,7 +2395,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>144</Id>
+              <Id>139</Id>
               <SmellType>Literal constants(字面常數)-5</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.5</HashCode>
               <Severity>Red</Severity>
@@ -2491,7 +2411,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>145</Id>
+              <Id>140</Id>
               <SmellType>Literal constants(字面常數)-331</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.331</HashCode>
               <Severity>Red</Severity>
@@ -2507,7 +2427,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>146</Id>
+              <Id>141</Id>
               <SmellType>Literal constants(字面常數)-331</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.331</HashCode>
               <Severity>Red</Severity>
@@ -2523,7 +2443,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>147</Id>
+              <Id>142</Id>
               <SmellType>Literal constants(字面常數)-331</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.331</HashCode>
               <Severity>Red</Severity>
@@ -2539,7 +2459,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>148</Id>
+              <Id>143</Id>
               <SmellType>Literal constants(字面常數)-331</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.331</HashCode>
               <Severity>Red</Severity>
@@ -2555,7 +2475,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>149</Id>
+              <Id>144</Id>
               <SmellType>Literal constants(字面常數)-331</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.331</HashCode>
               <Severity>Red</Severity>
@@ -2571,7 +2491,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>150</Id>
+              <Id>145</Id>
               <SmellType>Literal constants(字面常數)-184</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.184</HashCode>
               <Severity>Red</Severity>
@@ -2587,7 +2507,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>151</Id>
+              <Id>146</Id>
               <SmellType>Literal constants(字面常數)-184</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.184</HashCode>
               <Severity>Red</Severity>
@@ -2603,7 +2523,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>152</Id>
+              <Id>147</Id>
               <SmellType>Literal constants(字面常數)-184</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.184</HashCode>
               <Severity>Red</Severity>
@@ -2619,7 +2539,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>153</Id>
+              <Id>148</Id>
               <SmellType>Literal constants(字面常數)-184</SmellType>
               <HashCode>LiteralConstants.InitializeComponent.184</HashCode>
               <Severity>Red</Severity>
@@ -2635,7 +2555,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>154</Id>
+              <Id>149</Id>
               <SmellType>Unsuitable naming(名不符實)-HW1(hw)</SmellType>
               <HashCode>UnsuitableNaming.Root.HW1.HW1</HashCode>
               <Severity>Red</Severity>
@@ -2651,7 +2571,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>155</Id>
+              <Id>150</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.textBox</HashCode>
               <Severity>Red</Severity>
@@ -2667,7 +2587,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>156</Id>
+              <Id>151</Id>
               <SmellType>Unsuitable naming(名不符實)-buttonC(c)</SmellType>
               <HashCode>UnsuitableNaming.AppForm.buttonC.buttonC</HashCode>
               <Severity>Red</Severity>
@@ -2683,7 +2603,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>157</Id>
+              <Id>152</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.buttonC</HashCode>
               <Severity>Red</Severity>
@@ -2699,7 +2619,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>158</Id>
+              <Id>153</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.buttonPlus</HashCode>
               <Severity>Red</Severity>
@@ -2715,9 +2635,25 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>159</Id>
+              <Id>154</Id>
+              <SmellType>Unsuitable naming(名不符實)-buttonSub(sub)</SmellType>
+              <HashCode>UnsuitableNaming.AppForm.buttonSub.buttonSub</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Form1.Designer.cs</File>
+              <Line>302</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>155</Id>
               <SmellType>ICS(變數-1)</SmellType>
-              <HashCode>Variable1.AppForm.buttonMinus</HashCode>
+              <HashCode>Variable1.AppForm.buttonSub</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>HW1</Project>
@@ -2731,7 +2667,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>160</Id>
+              <Id>156</Id>
               <SmellType>Unsuitable naming(名不符實)-buttonMul(mul)</SmellType>
               <HashCode>UnsuitableNaming.AppForm.buttonMul.buttonMul</HashCode>
               <Severity>Red</Severity>
@@ -2747,7 +2683,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>161</Id>
+              <Id>157</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.buttonMul</HashCode>
               <Severity>Red</Severity>
@@ -2763,7 +2699,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>162</Id>
+              <Id>158</Id>
               <SmellType>Unsuitable naming(名不符實)-buttonDiv(div)</SmellType>
               <HashCode>UnsuitableNaming.AppForm.buttonDiv.buttonDiv</HashCode>
               <Severity>Red</Severity>
@@ -2779,7 +2715,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>163</Id>
+              <Id>159</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.buttonDiv</HashCode>
               <Severity>Red</Severity>
@@ -2795,7 +2731,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>164</Id>
+              <Id>160</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.buttonEqual</HashCode>
               <Severity>Red</Severity>
@@ -2811,7 +2747,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>165</Id>
+              <Id>161</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.button3</HashCode>
               <Severity>Red</Severity>
@@ -2827,7 +2763,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>166</Id>
+              <Id>162</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.button6</HashCode>
               <Severity>Red</Severity>
@@ -2843,7 +2779,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>167</Id>
+              <Id>163</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.button9</HashCode>
               <Severity>Red</Severity>
@@ -2859,7 +2795,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>168</Id>
+              <Id>164</Id>
               <SmellType>Unsuitable naming(名不符實)-buttonCE(ce)</SmellType>
               <HashCode>UnsuitableNaming.AppForm.buttonCE.buttonCE</HashCode>
               <Severity>Red</Severity>
@@ -2875,7 +2811,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>169</Id>
+              <Id>165</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.buttonCE</HashCode>
               <Severity>Red</Severity>
@@ -2891,7 +2827,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>170</Id>
+              <Id>166</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.buttonDot</HashCode>
               <Severity>Red</Severity>
@@ -2907,7 +2843,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>171</Id>
+              <Id>167</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.button2</HashCode>
               <Severity>Red</Severity>
@@ -2923,7 +2859,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>172</Id>
+              <Id>168</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.button5</HashCode>
               <Severity>Red</Severity>
@@ -2939,7 +2875,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>173</Id>
+              <Id>169</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.button8</HashCode>
               <Severity>Red</Severity>
@@ -2955,7 +2891,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>174</Id>
+              <Id>170</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.button0</HashCode>
               <Severity>Red</Severity>
@@ -2971,7 +2907,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>175</Id>
+              <Id>171</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.button1</HashCode>
               <Severity>Red</Severity>
@@ -2987,7 +2923,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>176</Id>
+              <Id>172</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.button4</HashCode>
               <Severity>Red</Severity>
@@ -3003,7 +2939,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>177</Id>
+              <Id>173</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.AppForm.button7</HashCode>
               <Severity>Red</Severity>
@@ -3019,7 +2955,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>178</Id>
+              <Id>174</Id>
               <SmellType>Unsuitable naming(名不符實)-HW1(hw)</SmellType>
               <HashCode>UnsuitableNaming.Root.HW1.HW1</HashCode>
               <Severity>Red</Severity>
@@ -3076,7 +3012,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>696</ProductionLoc>
+          <ProductionLoc>698</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>
