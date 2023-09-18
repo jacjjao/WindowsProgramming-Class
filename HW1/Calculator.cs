@@ -3,19 +3,60 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace HW1 {
+
+    public abstract class Keyword {
+        public abstract bool IsEqual(char c);
+        public abstract double Operate(double a, double b);
+    }
+
+    class Plus : Keyword {
+        public override bool IsEqual(char c) {
+            return c == '+';
+        }
+        public override double Operate(double a, double b) {
+            return a + b;
+        }
+    }
+
+    class Subtract : Keyword {
+        public override bool IsEqual(char c) {
+            return c == '-';
+        }
+        public override double Operate(double a, double b) {
+            return a - b;
+        }
+    }
+
+    class Multiply : Keyword {
+        public override bool IsEqual(char c) {
+            return c == 'x';
+        }
+        public override double Operate(double a, double b) {
+            return a * b;
+        }
+    }
+
+    class Divide : Keyword {
+        public override bool IsEqual(char c) {
+            return c == '/';
+        }
+        public override double Operate(double a, double b) {
+            return a / b;
+        }
+    }
+
     class Calculator {
         private double _lastNumber;
         private char _lastOp;
-        private readonly Dictionary<char, int> _operatorDict = new Dictionary<char, int> {
-            { '+', 1 },
-            { '-', 1 },
-            { 'x', 2 },
-            { '/', 2 }
+        private readonly Dictionary<Keyword, int> _operatorDict = new Dictionary<Keyword, int> {
+            { new Plus(), 1 },
+            { new Subtract(), 1 },
+            { new Multiply(), 2 },
+            { new Divide(), 2 }
         };
 
         public Calculator() {
-            _lastOp = '\0';
-            _lastNumber = 0;
+            Reset();
         }
 
         /* 計算textbox上的數學式並回傳結果 */
@@ -25,10 +66,15 @@ namespace HW1 {
                 return null;
             }
 
-            if (!mathExpr.Any(c => IsOperator(c))) {
-                return ChainCalculate(mathExpr);
+            string postfixExpr = "";
+            if (mathExpr[0] == '-') {
+                postfixExpr += mathExpr[0];
+                mathExpr = mathExpr.Substring(1);
             }
-            string postfixExpr = ToPostfixExpr(mathExpr);
+            if (!mathExpr.Any(c => IsOperator(c))) {
+                return ChainCalculate(postfixExpr + mathExpr);
+            }
+            postfixExpr += ToPostfixExpr(mathExpr);
             return EvaluatePostfixMathExpr(postfixExpr).ToString();
         }
 
@@ -85,46 +131,40 @@ namespace HW1 {
 
             return stack.Peek();
         }
-
+        
         /* 根據傳入的op對a b做四則運算 */
         private double Compute(double a, double b, char op) {
-            double result = a;
-
-            switch (op) {
-                case '+':
-                    result += b;
-                    break;
-
-                case '-':
-                    result -= b;
-                    break;
-
-                case 'x':
-                    result *= b;
-                    break;
-
-                case '/':
-                    result /= b;
-                    break;
-
-                default:
-                    break;
+            foreach (var item in _operatorDict) {
+                if (item.Key.IsEqual(op)) {
+                    return item.Key.Operate(a, b);
+                }
             }
-
-            return result;
+            return 0;
         }
 
         /* implement中序轉後序的演算法時需要用到的function */
         private int OperatorPriority(char c) {
-            if (IsOperator(c)) {
-                return _operatorDict[c];
+            foreach (var item in _operatorDict) {
+                if (item.Key.IsEqual(c)) {
+                    return item.Value;
+                }
             }
             return 0;
         }
 
         /* 檢查c是不是四則運算的符號 */
         private bool IsOperator(char c) {
-            return _operatorDict.ContainsKey(c);
+            foreach (var item in _operatorDict) {
+                if (item.Key.IsEqual(c)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void Reset() {
+            _lastOp = '+';
+            _lastNumber = 0;
         }
     }
 }

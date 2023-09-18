@@ -5,14 +5,11 @@ namespace HW1 {
     public partial class AppForm : Form {
         public AppForm() {
             InitializeComponent();
-            _result = "";
-            _calculator = new Calculator();
-            _dot = false;
         }
 
-        private Calculator _calculator;
-        private string _result;
-        private bool _dot;
+        private Calculator _calculator = new Calculator();
+        private string _result = "";
+        private bool _dot = false;
 
         /* 處理button CE被點擊時的event */
         private void ButtonCEClick(object sender, EventArgs e) {
@@ -84,9 +81,9 @@ namespace HW1 {
             }
         }
 
-        /* 處理button minus被點擊時的event */
+        /* 處理button subtract被點擊時的event */
         private void ButtonSubClick(object sender, EventArgs e) {
-            if (!String.IsNullOrEmpty(textBox.Text) && Char.IsNumber(textBox.Text[textBox.Text.Length - 1])) {
+            if (String.IsNullOrEmpty(textBox.Text) || Char.IsNumber(textBox.Text[textBox.Text.Length - 1])) {
                 textBox.Text += buttonSub.Text;
                 _dot = false;
             }
@@ -122,10 +119,23 @@ namespace HW1 {
 
         /* 處理button equal被點擊時的event */
         private void ButtonEqualClick(object sender, EventArgs e) {
-            string result = _calculator.Calculate(textBox.Text);
-            if (!String.IsNullOrEmpty(result)) {
-                _result = textBox.Text = result;
+            try {
+                string result = _calculator.Calculate(textBox.Text);
+                if (!String.IsNullOrEmpty(result)) {
+                    _result = textBox.Text = result;
+                }
             }
+            catch (Exception) {
+                MessageBox.Show("Something bad happened");
+                Reset();
+                _calculator.Reset();
+            }
+        }
+
+        private void Reset() {
+            _result = textBox.Text = "";
+            _dot = false;
+            _calculator.Reset();
         }
     }
 }
