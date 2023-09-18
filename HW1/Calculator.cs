@@ -37,12 +37,12 @@ namespace HW1 {
             if (!mathExpr.Any(c => IsOperator(c))) {
                 return ChainCalculate(postfixExpr + mathExpr);
             }
-            postfixExpr += TransferToPostfixExpr(mathExpr);
+            postfixExpr += TransformToPostfixExpr(mathExpr);
             return EvaluatePostfixMathExpr(postfixExpr).ToString();
         }
 
         /* 將中序數學式轉成後序 ex. (1 + 2 * 3) 轉換後會變成 (1 2 3 * +) */
-        private string TransferToPostfixExpr(string mathExpr) {
+        private string TransformToPostfixExpr(string mathExpr) {
             const char SPACE = ' ';
             string expr = "";
             Stack<char> stack = new Stack<char>();
