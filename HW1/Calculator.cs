@@ -9,11 +9,11 @@ namespace HW1 {
 
         private double _lastNumber;
         private char _lastOp;
-        private readonly Dictionary<Keyword, int> _operatorDict = new Dictionary<Keyword, int> {
-            { new Plus(),     _lowPriority },
-            { new Subtract(), _lowPriority },
-            { new Multiply(), _highPriority },
-            { new Divide(),   _highPriority }
+        private readonly Tuple<Keyword, int>[] _operatorDict = new Tuple<Keyword, int>[] {
+            new Tuple<Keyword, int>(new Plus(),     _lowPriority),
+            new Tuple<Keyword, int>(new Subtract(), _lowPriority),
+            new Tuple<Keyword, int>(new Multiply(), _highPriority),
+            new Tuple<Keyword, int>(new Divide(),   _highPriority)
         };
 
         public Calculator() {
@@ -98,9 +98,9 @@ namespace HW1 {
 
         /* 根據傳入的op對a b做四則運算 */
         private double Compute(double a, double b, char op) {
-            foreach (var item in _operatorDict) {
-                if (item.Key.IsEqual(op)) {
-                    return item.Key.Operate(a, b);
+            foreach (var (keyword, _) in _operatorDict) {
+                if (keyword.IsEqual(op)) {
+                    return keyword.Operate(a, b);
                 }
             }
             return 0;
@@ -108,9 +108,9 @@ namespace HW1 {
 
         /* implement中序轉後序的演算法時需要用到的function */
         private int GetOperatorPriority(char c) {
-            foreach (var item in _operatorDict) {
-                if (item.Key.IsEqual(c)) {
-                    return item.Value;
+            foreach (var (keyword, priority) in _operatorDict) {
+                if (keyword.IsEqual(c)) {
+                    return priority;
                 }
             }
             return 0;
@@ -118,7 +118,7 @@ namespace HW1 {
 
         /* 檢查c是不是四則運算的符號 */
         private bool IsOperator(char c) {
-            return _operatorDict.Any(item => item.Key.IsEqual(c));
+            return _operatorDict.Any(item => item.Item1.IsEqual(c));
         }
 
         /* reset */
