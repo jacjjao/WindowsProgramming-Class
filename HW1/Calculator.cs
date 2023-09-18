@@ -118,12 +118,7 @@ namespace HW1 {
 
         /* 檢查c是不是四則運算的符號 */
         private bool IsOperator(char c) {
-            foreach (var item in _operatorDict) {
-                if (item.Key.IsEqual(c)) {
-                    return true;
-                }
-            }
-            return false;
+            return _operatorDict.Any(item => item.Key.IsEqual(c));
         }
 
         /* reset */
