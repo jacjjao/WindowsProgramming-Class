@@ -1,9 +1,9 @@
 ﻿namespace HW1 {
     class Multiply : Keyword {
-        public static readonly char _symbol = 'x';
+        public const char SYMBOL = 'x';
         /* 同Keyword */
         public override bool IsEqual(char c) {
-            return c == _symbol;
+            return c == SYMBOL;
         }
 
         /* 同Keyword */

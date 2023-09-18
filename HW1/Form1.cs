@@ -132,7 +132,6 @@ namespace HW1 {
             catch (Exception) {
                 MessageBox.Show("Something bad happened");
                 Reset();
-                _calculator.Reset();
             }
         }
 

@@ -4,12 +4,12 @@ using System.Linq;
 
 namespace HW1 {
     class Calculator {
-        static private readonly int _lowPriority = 1;
-        static private readonly int _highPriority = 2;
-
         private double _lastNumber;
         private char _lastOp;
-        private readonly Tuple<Keyword, int>[] _operatorDict = new Tuple<Keyword, int>[] {
+
+        private const int _lowPriority = 1;
+        private const int _highPriority = 2;
+        private readonly Tuple<Keyword, int>[] _keywords = new Tuple<Keyword, int>[] {
             new Tuple<Keyword, int>(new Plus(),     _lowPriority),
             new Tuple<Keyword, int>(new Subtract(), _lowPriority),
             new Tuple<Keyword, int>(new Multiply(), _highPriority),
@@ -98,7 +98,7 @@ namespace HW1 {
 
         /* 根據傳入的op對a b做四則運算 */
         private double Compute(double a, double b, char op) {
-            foreach (var (keyword, _) in _operatorDict) {
+            foreach (var (keyword, _) in _keywords) {
                 if (keyword.IsEqual(op)) {
                     return keyword.Operate(a, b);
                 }
@@ -108,7 +108,7 @@ namespace HW1 {
 
         /* implement中序轉後序的演算法時需要用到的function */
         private int GetOperatorPriority(char c) {
-            foreach (var (keyword, priority) in _operatorDict) {
+            foreach (var (keyword, priority) in _keywords) {
                 if (keyword.IsEqual(c)) {
                     return priority;
                 }
@@ -118,12 +118,12 @@ namespace HW1 {
 
         /* 檢查c是不是四則運算的符號 */
         private bool IsOperator(char c) {
-            return _operatorDict.Any(item => item.Item1.IsEqual(c));
+            return _keywords.Any(item => item.Item1.IsEqual(c));
         }
 
         /* reset */
         public void Reset() {
-            _lastOp = Plus._symbol;
+            _lastOp = Plus.SYMBOL;
             _lastNumber = 0;
         }
     }

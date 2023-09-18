@@ -1,9 +1,9 @@
 ﻿namespace HW1 {
     class Subtract : Keyword {
-        public static readonly char _symbol = '-';
+        public const char SYMBOL = '-';
         /* 同Keyword */
         public override bool IsEqual(char c) {
-            return c == _symbol;
+            return c == SYMBOL;
         }
 
         /* 同Keyword */
