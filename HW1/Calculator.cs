@@ -34,7 +34,7 @@ namespace HW1 {
                 postfixExpr += mathExpr[0];
                 mathExpr = mathExpr.Substring(1);
             }
-            if (!mathExpr.Any(c => IsOperator(c))) {
+            if (!mathExpr.Any(c => IsKeyword(c))) {
                 return ChainCalculate(postfixExpr + mathExpr);
             }
             postfixExpr += TransformToPostfixExpr(mathExpr);
@@ -48,8 +48,8 @@ namespace HW1 {
             Stack<char> stack = new Stack<char>();
 
             foreach (char c in mathExpr) {
-                if (IsOperator(c)) {
-                    while (stack.Count > 0 && GetOperatorPriority(stack.Peek()) >= GetOperatorPriority(c)) {
+                if (IsKeyword(c)) {
+                    while (stack.Count > 0 && GetKeywordPriority(stack.Peek()) >= GetKeywordPriority(c)) {
                         expr += SPACE;
                         expr += stack.Pop();
                     }
@@ -82,7 +82,7 @@ namespace HW1 {
             string[] tokens = postfixExpr.Split(null);
 
             foreach (string token in tokens) {
-                if (token.Length == 1 && IsOperator(token[0])) {
+                if (token.Length == 1 && IsKeyword(token[0])) {
                     rhs = _lastNumber = stack.Pop();
                     lhs = stack.Pop();
                     stack.Push(Compute(lhs, rhs, token[0]));
@@ -107,7 +107,7 @@ namespace HW1 {
         }
 
         /* implement中序轉後序的演算法時需要用到的function */
-        private int GetOperatorPriority(char c) {
+        private int GetKeywordPriority(char c) {
             foreach (var (keyword, priority) in _keywords) {
                 if (keyword.IsEqual(c)) {
                     return priority;
@@ -117,7 +117,7 @@ namespace HW1 {
         }
 
         /* 檢查c是不是四則運算的符號 */
-        private bool IsOperator(char c) {
+        private bool IsKeyword(char c) {
             return _keywords.Any(item => item.Item1.IsEqual(c));
         }
 
