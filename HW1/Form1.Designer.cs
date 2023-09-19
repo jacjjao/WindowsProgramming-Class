@@ -71,7 +71,7 @@ namespace HW1
             this._buttonC.TabIndex = 1;
             this._buttonC.Text = "C";
             this._buttonC.UseVisualStyleBackColor = true;
-            this._buttonC.Click += new System.EventHandler(this.ButtonCClick);
+            this._buttonC.Click += new System.EventHandler(this.DoButtonCClick);
             // 
             // buttonPlus
             // 
@@ -170,7 +170,7 @@ namespace HW1
             this._buttonCE.TabIndex = 6;
             this._buttonCE.Text = "CE";
             this._buttonCE.UseVisualStyleBackColor = true;
-            this._buttonCE.Click += new System.EventHandler(this.ButtonCEClick);
+            this._buttonCE.Click += new System.EventHandler(this.DoButtonCEClick);
             // 
             // buttonDot
             // 
