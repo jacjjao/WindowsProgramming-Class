@@ -188,12 +188,45 @@
           <Reviews>
             <Smell>
               <Id>1</Id>
-              <SmellType>A syntax error has been discovered in file C:\Users\user\Desktop\視窗程式設計\HW1\Calculator.cs on line 136.</SmellType>
+              <SmellType>ICS(空白與空行-9)</SmellType>
+              <HashCode>SpacingAndNewLine9</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>HW1</Project>
               <File>Calculator.cs</File>
-              <Line>136</Line>
+              <Line>16</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(空白與空行-9) 陣列初始化的左大括號後面，右大括號前面</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>2</Id>
+              <SmellType>ICS(空白與空行-9)</SmellType>
+              <HashCode>SpacingAndNewLine9</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>20</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(空白與空行-9) 陣列初始化的左大括號後面，右大括號前面</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>3</Id>
+              <SmellType>Unsuitable naming(名不符實)-HW1(hw)</SmellType>
+              <HashCode>UnsuitableNaming.Root.HW1.HW1</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>5</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -202,7 +235,375 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>2</Id>
+              <Id>4</Id>
+              <SmellType>Unsuitable naming(名不符實)-_lastOp(op)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator._lastOp._lastOp</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>10</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>5</Id>
+              <SmellType>Unsuitable naming(名不符實)-_keywords(keywords)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator._keywords._keywords</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>14</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>6</Id>
+              <SmellType>Unsuitable naming(名不符實)-mathExpr(expr)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.Calculate.mathExpr</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>28</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>7</Id>
+              <SmellType>Unsuitable naming(名不符實)-postfixExpr(postfix, expr)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.Calculate.postfixExpr</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>38</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>8</Id>
+              <SmellType>Long method(過長函式)</SmellType>
+              <HashCode>LongMethod.Calculator.Calculate.23string mathExpr;</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>23</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>28</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>9</Id>
+              <SmellType>Unsuitable naming(名不符實)-mathExpr(expr)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.TransformToPostfixExpr.mathExpr</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>53</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>10</Id>
+              <SmellType>Unsuitable naming(名不符實)-expr(expr)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.TransformToPostfixExpr.expr</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>56</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>11</Id>
+              <SmellType>Unsuitable naming(名不符實)-TransformToPostfixExpr(postfix, expr)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.TransformToPostfixExpr.TransformToPostfixExpr</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>53</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>12</Id>
+              <SmellType>Long method(過長函式)</SmellType>
+              <HashCode>LongMethod.Calculator.TransformToPostfixExpr.31string mathExpr;</HashCode>
+              <Severity>Red</Severity>
+              <Weight>31</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>53</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>13</Id>
+              <SmellType>Unsuitable naming(名不符實)-num(num)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.ChainCalculate.num</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>86</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>14</Id>
+              <SmellType>Unsuitable naming(名不符實)-lhs(lhs)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.ChainCalculate.lhs</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>88</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>15</Id>
+              <SmellType>Unsuitable naming(名不符實)-postfixExpr(postfix, expr)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.EvaluatePostfixMathExpr.postfixExpr</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>93</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>16</Id>
+              <SmellType>Unsuitable naming(名不符實)-lhs(lhs)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.EvaluatePostfixMathExpr.lhs</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>95</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>17</Id>
+              <SmellType>Unsuitable naming(名不符實)-rhs(rhs)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.EvaluatePostfixMathExpr.rhs</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>96</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>18</Id>
+              <SmellType>Unsuitable naming(名不符實)-EvaluatePostfixMathExpr(postfix, expr)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.EvaluatePostfixMathExpr.EvaluatePostfixMathExpr</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>93</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>19</Id>
+              <SmellType>Long method(過長函式)</SmellType>
+              <HashCode>LongMethod.Calculator.EvaluatePostfixMathExpr.24string postfixExpr;</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>24</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>93</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>20</Id>
+              <SmellType>Unsuitable naming(名不符實)-lhs(lhs)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.Compute.lhs</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>119</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>21</Id>
+              <SmellType>Unsuitable naming(名不符實)-rhs(rhs)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.Compute.rhs</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>119</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>22</Id>
+              <SmellType>Unsuitable naming(名不符實)-op(op)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.Compute.op</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>119</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>23</Id>
+              <SmellType>Unsuitable naming(名不符實)-c(c)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.GetKeywordPriority.c</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>126</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>24</Id>
+              <SmellType>Unsuitable naming(名不符實)-GetKeywordPriority(keyword)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.GetKeywordPriority.GetKeywordPriority</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>126</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>25</Id>
+              <SmellType>Unsuitable naming(名不符實)-c(c)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.IsKeyword.c</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>133</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>26</Id>
+              <SmellType>Unsuitable naming(名不符實)-IsKeyword(keyword)</SmellType>
+              <HashCode>UnsuitableNaming.Calculator.IsKeyword.IsKeyword</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>133</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>27</Id>
               <SmellType>Unsuitable naming(名不符實)-HW1(hw)</SmellType>
               <HashCode>UnsuitableNaming.Root.HW1.HW1</HashCode>
               <Severity>Red</Severity>
@@ -218,7 +619,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>3</Id>
+              <Id>28</Id>
               <SmellType>Unsuitable naming(名不符實)-lhs(lhs)</SmellType>
               <HashCode>UnsuitableNaming.Divide.Operate.lhs</HashCode>
               <Severity>Red</Severity>
@@ -234,7 +635,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>4</Id>
+              <Id>29</Id>
               <SmellType>Unsuitable naming(名不符實)-rhs(rhs)</SmellType>
               <HashCode>UnsuitableNaming.Divide.Operate.rhs</HashCode>
               <Severity>Red</Severity>
@@ -250,7 +651,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>5</Id>
+              <Id>30</Id>
               <SmellType>Unsuitable naming(名不符實)-HW1(hw)</SmellType>
               <HashCode>UnsuitableNaming.Root.HW1.HW1</HashCode>
               <Severity>Red</Severity>
@@ -266,7 +667,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>6</Id>
+              <Id>31</Id>
               <SmellType>Unsuitable naming(名不符實)-DoButtonCEClick(ce)</SmellType>
               <HashCode>UnsuitableNaming.AppForm.DoButtonCEClick.DoButtonCEClick</HashCode>
               <Severity>Red</Severity>
@@ -282,7 +683,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>7</Id>
+              <Id>32</Id>
               <SmellType>ICS(函式-1)</SmellType>
               <HashCode>Method1.AppForm.DoButtonCEClick</HashCode>
               <Severity>Red</Severity>
@@ -298,7 +699,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>8</Id>
+              <Id>33</Id>
               <SmellType>Unsuitable naming(名不符實)-DoButtonCClick(c)</SmellType>
               <HashCode>UnsuitableNaming.AppForm.DoButtonCClick.DoButtonCClick</HashCode>
               <Severity>Red</Severity>
@@ -314,7 +715,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>9</Id>
+              <Id>34</Id>
               <SmellType>ICS(函式-1)</SmellType>
               <HashCode>Method1.AppForm.DoButtonCClick</HashCode>
               <Severity>Red</Severity>
@@ -330,7 +731,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>10</Id>
+              <Id>35</Id>
               <SmellType>Unsuitable naming(名不符實)-ButtonSubClick(sub)</SmellType>
               <HashCode>UnsuitableNaming.AppForm.ButtonSubClick.ButtonSubClick</HashCode>
               <Severity>Red</Severity>
@@ -346,7 +747,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>11</Id>
+              <Id>36</Id>
               <SmellType>Unsuitable naming(名不符實)-ButtonMulClick(mul)</SmellType>
               <HashCode>UnsuitableNaming.AppForm.ButtonMulClick.ButtonMulClick</HashCode>
               <Severity>Red</Severity>
@@ -362,7 +763,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>12</Id>
+              <Id>37</Id>
               <SmellType>Unsuitable naming(名不符實)-ButtonDivClick(div)</SmellType>
               <HashCode>UnsuitableNaming.AppForm.ButtonDivClick.ButtonDivClick</HashCode>
               <Severity>Red</Severity>
@@ -378,7 +779,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>13</Id>
+              <Id>38</Id>
               <SmellType>Unsuitable naming(名不符實)-HW1(hw)</SmellType>
               <HashCode>UnsuitableNaming.Root.HW1.HW1</HashCode>
               <Severity>Red</Severity>
@@ -394,7 +795,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>14</Id>
+              <Id>39</Id>
               <SmellType>Unsuitable naming(名不符實)-_buttonC(c)</SmellType>
               <HashCode>UnsuitableNaming.AppForm._buttonC._buttonC</HashCode>
               <Severity>Red</Severity>
@@ -410,7 +811,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>15</Id>
+              <Id>40</Id>
               <SmellType>Unsuitable naming(名不符實)-_buttonSub(sub)</SmellType>
               <HashCode>UnsuitableNaming.AppForm._buttonSub._buttonSub</HashCode>
               <Severity>Red</Severity>
@@ -426,7 +827,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>16</Id>
+              <Id>41</Id>
               <SmellType>Unsuitable naming(名不符實)-_buttonMul(mul)</SmellType>
               <HashCode>UnsuitableNaming.AppForm._buttonMul._buttonMul</HashCode>
               <Severity>Red</Severity>
@@ -442,7 +843,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>17</Id>
+              <Id>42</Id>
               <SmellType>Unsuitable naming(名不符實)-_buttonDiv(div)</SmellType>
               <HashCode>UnsuitableNaming.AppForm._buttonDiv._buttonDiv</HashCode>
               <Severity>Red</Severity>
@@ -458,7 +859,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>18</Id>
+              <Id>43</Id>
               <SmellType>Unsuitable naming(名不符實)-_buttonCE(ce)</SmellType>
               <HashCode>UnsuitableNaming.AppForm._buttonCE._buttonCE</HashCode>
               <Severity>Red</Severity>
@@ -474,7 +875,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>19</Id>
+              <Id>44</Id>
               <SmellType>Unsuitable naming(名不符實)-HW1(hw)</SmellType>
               <HashCode>UnsuitableNaming.Root.HW1.HW1</HashCode>
               <Severity>Red</Severity>
@@ -490,7 +891,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>20</Id>
+              <Id>45</Id>
               <SmellType>Unsuitable naming(名不符實)-Keyword(keyword)</SmellType>
               <HashCode>UnsuitableNaming.HW1.Keyword.Keyword</HashCode>
               <Severity>Red</Severity>
@@ -506,7 +907,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>21</Id>
+              <Id>46</Id>
               <SmellType>Unsuitable naming(名不符實)-lhs(lhs)</SmellType>
               <HashCode>UnsuitableNaming.Keyword.Operate.lhs</HashCode>
               <Severity>Red</Severity>
@@ -522,7 +923,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>22</Id>
+              <Id>47</Id>
               <SmellType>Unsuitable naming(名不符實)-rhs(rhs)</SmellType>
               <HashCode>UnsuitableNaming.Keyword.Operate.rhs</HashCode>
               <Severity>Red</Severity>
@@ -538,7 +939,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>23</Id>
+              <Id>48</Id>
               <SmellType>Unsuitable naming(名不符實)-HW1(hw)</SmellType>
               <HashCode>UnsuitableNaming.Root.HW1.HW1</HashCode>
               <Severity>Red</Severity>
@@ -554,7 +955,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>24</Id>
+              <Id>49</Id>
               <SmellType>Unsuitable naming(名不符實)-lhs(lhs)</SmellType>
               <HashCode>UnsuitableNaming.Multiply.Operate.lhs</HashCode>
               <Severity>Red</Severity>
@@ -570,7 +971,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>25</Id>
+              <Id>50</Id>
               <SmellType>Unsuitable naming(名不符實)-rhs(rhs)</SmellType>
               <HashCode>UnsuitableNaming.Multiply.Operate.rhs</HashCode>
               <Severity>Red</Severity>
@@ -586,7 +987,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>26</Id>
+              <Id>51</Id>
               <SmellType>Unsuitable naming(名不符實)-HW1(hw)</SmellType>
               <HashCode>UnsuitableNaming.Root.HW1.HW1</HashCode>
               <Severity>Red</Severity>
@@ -602,7 +1003,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>27</Id>
+              <Id>52</Id>
               <SmellType>Unsuitable naming(名不符實)-lhs(lhs)</SmellType>
               <HashCode>UnsuitableNaming.Plus.Operate.lhs</HashCode>
               <Severity>Red</Severity>
@@ -618,7 +1019,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>28</Id>
+              <Id>53</Id>
               <SmellType>Unsuitable naming(名不符實)-rhs(rhs)</SmellType>
               <HashCode>UnsuitableNaming.Plus.Operate.rhs</HashCode>
               <Severity>Red</Severity>
@@ -634,7 +1035,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>29</Id>
+              <Id>54</Id>
               <SmellType>Unsuitable naming(名不符實)-HW1(hw)</SmellType>
               <HashCode>UnsuitableNaming.Root.HW1.HW1</HashCode>
               <Severity>Red</Severity>
@@ -650,7 +1051,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>30</Id>
+              <Id>55</Id>
               <SmellType>Unsuitable naming(名不符實)-HW1(hw)</SmellType>
               <HashCode>UnsuitableNaming.Root.HW1.HW1</HashCode>
               <Severity>Red</Severity>
@@ -666,7 +1067,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>31</Id>
+              <Id>56</Id>
               <SmellType>Unsuitable naming(名不符實)-lhs(lhs)</SmellType>
               <HashCode>UnsuitableNaming.Subtract.Operate.lhs</HashCode>
               <Severity>Red</Severity>
@@ -682,7 +1083,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>32</Id>
+              <Id>57</Id>
               <SmellType>Unsuitable naming(名不符實)-rhs(rhs)</SmellType>
               <HashCode>UnsuitableNaming.Subtract.Operate.rhs</HashCode>
               <Severity>Red</Severity>
@@ -700,16 +1101,16 @@
           </Reviews>
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList>
-            <string xsi:nil="true" />
             <string>UnsuitableNaming.Root.HW1.HW1</string>
-            <string>UnsuitableNaming.Divide.Operate.lhs</string>
-            <string>UnsuitableNaming.Divide.Operate.rhs</string>
             <string>UnsuitableNaming.HW1.Keyword.Keyword</string>
             <string>Method1.AppForm.DoButtonCEClick</string>
             <string>Method1.AppForm.DoButtonCClick</string>
-            <string>UnsuitableNaming.AppForm.DoButtonCEClick.DoButtonCEClick</string>
-            <string>UnsuitableNaming.AppForm.DoButtonCClick.DoButtonCClick</string>
-            <string>UnsuitableNaming.AppForm._buttonC._buttonC</string>
+            <string>UnsuitableNaming.Divide.Operate.lhs</string>
+            <string>UnsuitableNaming.Divide.Operate.rhs</string>
+            <string>UnsuitableNaming.AppForm.ButtonSubClick.ButtonSubClick</string>
+            <string>UnsuitableNaming.AppForm.ButtonMulClick.ButtonMulClick</string>
+            <string>UnsuitableNaming.AppForm.ButtonDivClick.ButtonDivClick</string>
+            <string>LongMethod.Calculator.Calculate.23string mathExpr;</string>
           </HashCodeRequestIgnoreList>
           <AnalysisFileManager>
             <AnalysisFiles>
@@ -775,7 +1176,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>633</ProductionLoc>
+          <ProductionLoc>778</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

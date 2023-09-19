@@ -9,13 +9,14 @@ namespace HW1
         private double _lastNumber;
         private char _lastOp;
 
-        private const int _lowPriority = 1;
-        private const int _highPriority = 2;
-        private readonly Tuple<Keyword, int>[] _keywords = new Tuple<Keyword, int>[] {
-            new Tuple<Keyword, int>(new Plus(),     _lowPriority),
-            new Tuple<Keyword, int>(new Subtract(), _lowPriority),
-            new Tuple<Keyword, int>(new Multiply(), _highPriority),
-            new Tuple<Keyword, int>(new Divide(),   _highPriority)
+        private const int LOW_PRIORITY = 1;
+        private const int HIGH_PRIORITY = 2;
+        private readonly Tuple<Keyword, int>[] _keywords = new Tuple<Keyword, int>[] 
+        {
+            new Tuple<Keyword, int>(new Plus(), LOW_PRIORITY),
+            new Tuple<Keyword, int>(new Subtract(), LOW_PRIORITY),
+            new Tuple<Keyword, int>(new Multiply(), HIGH_PRIORITY),
+            new Tuple<Keyword, int>(new Divide(), HIGH_PRIORITY)
         };
 
         public Calculator()
@@ -119,28 +120,13 @@ namespace HW1
         {
             var (keyword, _) = _keywords.OrderByDescending(item => item.Item1.IsEqual(op)).First();
             return keyword.Operate(lhs, rhs);
-            /* 這樣寫Dr.Smell會警告有依戀情節(feature envy)
-            foreach (var (keyword, _) in _keywords)
-            {
-                if (keyword.IsEqual(op))
-                {
-                    return keyword.Operate(lhs, rhs);
-                }
-            }
-            return 0; */
         }
 
         /* implement中序轉後序的演算法時需要用到的function */
         private int GetKeywordPriority(char c)
         {
-            foreach (var (keyword, priority) in _keywords)
-            {
-                if (keyword.IsEqual(c))
-                {
-                    return priority;
-                }
-            }
-            return 0;
+            var (_, priority) = _keywords.OrderByDescending(item => item.Item1.IsEqual(c)).First();
+            return priority;
         }
 
         /* 檢查c是不是四則運算的符號 */
