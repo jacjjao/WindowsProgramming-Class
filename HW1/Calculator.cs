@@ -11,12 +11,12 @@ namespace HW1
 
         private const int LOW_PRIORITY = 1;
         private const int HIGH_PRIORITY = 2;
-        private readonly Tuple<Keyword, int>[] _keywords = new Tuple<Keyword, int>[] 
+        private readonly Dictionary<char, Tuple<Keyword, int>> _keywords = new Dictionary<char, Tuple<Keyword, int>>
         {
-            new Tuple<Keyword, int>(new Plus(), LOW_PRIORITY),
-            new Tuple<Keyword, int>(new Subtract(), LOW_PRIORITY),
-            new Tuple<Keyword, int>(new Multiply(), HIGH_PRIORITY),
-            new Tuple<Keyword, int>(new Divide(), HIGH_PRIORITY)
+            { Plus.SYMBOL, new Tuple<Keyword, int>(new Plus(), LOW_PRIORITY) },
+            { Subtract.SYMBOL, new Tuple<Keyword, int>(new Subtract(), LOW_PRIORITY) },
+            { Multiply.SYMBOL, new Tuple<Keyword, int>(new Multiply(), HIGH_PRIORITY) },
+            { Divide.SYMBOL, new Tuple<Keyword, int>(new Divide(), HIGH_PRIORITY) },
         };
 
         public Calculator()
@@ -45,6 +45,7 @@ namespace HW1
             {
                 return ChainCalculate(postfixExpr + mathExpr);
             }
+            _lastOp = mathExpr.Reverse().First(c => IsKeyword(c));
             postfixExpr += TransformToPostfixExpr(mathExpr);
             return EvaluatePostfixMathExpr(postfixExpr).ToString();
         }
@@ -96,15 +97,15 @@ namespace HW1
             double rhs;
             Stack<double> stack = new Stack<double>();
             string[] tokens = postfixExpr.Split(null);
+            _lastNumber = Double.Parse(tokens.Reverse().First(token => !IsKeyword(token[0])), System.Globalization.NumberStyles.Float);
 
             foreach (string token in tokens)
             {
                 if (token.Length == 1 && IsKeyword(token[0]))
                 {
-                    rhs = _lastNumber = stack.Pop();
+                    rhs = stack.Pop();
                     lhs = stack.Pop();
                     stack.Push(Compute(lhs, rhs, token[0]));
-                    _lastOp = token[0];
                 }
                 else
                 {
@@ -118,21 +119,21 @@ namespace HW1
         /* 根據傳入的op對a b做四則運算 */
         private double Compute(double lhs, double rhs, char op)
         {
-            var (keyword, _) = _keywords.OrderByDescending(item => item.Item1.IsEqual(op)).First();
+            var (keyword, _) = _keywords[op];
             return keyword.Operate(lhs, rhs);
         }
 
         /* implement中序轉後序的演算法時需要用到的function */
         private int GetKeywordPriority(char c)
         {
-            var (_, priority) = _keywords.OrderByDescending(item => item.Item1.IsEqual(c)).First();
+            var (_, priority) = _keywords[c];
             return priority;
         }
 
         /* 檢查c是不是四則運算的符號 */
         private bool IsKeyword(char c)
         {
-            return _keywords.Any(item => item.Item1.IsEqual(c));
+            return _keywords.ContainsKey(c);
         }
 
         /* reset */
