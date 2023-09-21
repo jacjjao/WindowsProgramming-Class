@@ -1,12 +1,12 @@
-﻿namespace HW1
+﻿namespace HomeWork1
 {
-    class Divide : Keyword
+    class Divide : KeyWord
     {
         public const char SYMBOL = '/';
         /* 同Keyword */
-        public override double Operate(double lhs, double rhs)
+        public override double Operate(double leftHandSide, double rightHandSide)
         {
-            return lhs / rhs;
+            return leftHandSide / rightHandSide;
         }
     }
 }

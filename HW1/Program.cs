@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace HW1
+namespace HomeWork1
 {
     static class Program
     {

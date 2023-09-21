@@ -1,5 +1,5 @@
 ﻿
-namespace HW1
+namespace HomeWork1
 {
     partial class AppForm
     {
@@ -30,16 +30,16 @@ namespace HW1
         private void InitializeComponent()
         {
             this._textBox = new System.Windows.Forms.TextBox();
-            this._buttonC = new System.Windows.Forms.Button();
+            this._buttonClear = new System.Windows.Forms.Button();
             this._buttonPlus = new System.Windows.Forms.Button();
-            this._buttonSub = new System.Windows.Forms.Button();
-            this._buttonMul = new System.Windows.Forms.Button();
-            this._buttonDiv = new System.Windows.Forms.Button();
+            this._buttonSubtract = new System.Windows.Forms.Button();
+            this._buttonMultiply = new System.Windows.Forms.Button();
+            this._buttonDivide = new System.Windows.Forms.Button();
             this._buttonEqual = new System.Windows.Forms.Button();
             this._button3 = new System.Windows.Forms.Button();
             this._button6 = new System.Windows.Forms.Button();
             this._button9 = new System.Windows.Forms.Button();
-            this._buttonCE = new System.Windows.Forms.Button();
+            this._buttonClearExpression = new System.Windows.Forms.Button();
             this._buttonDot = new System.Windows.Forms.Button();
             this._button2 = new System.Windows.Forms.Button();
             this._button5 = new System.Windows.Forms.Button();
@@ -64,14 +64,14 @@ namespace HW1
             // 
             // buttonC
             // 
-            this._buttonC.Location = new System.Drawing.Point(479, 142);
-            this._buttonC.Margin = new System.Windows.Forms.Padding(6);
-            this._buttonC.Name = "buttonC";
-            this._buttonC.Size = new System.Drawing.Size(136, 88);
-            this._buttonC.TabIndex = 1;
-            this._buttonC.Text = "C";
-            this._buttonC.UseVisualStyleBackColor = true;
-            this._buttonC.Click += new System.EventHandler(this.DoButtonCClick);
+            this._buttonClear.Location = new System.Drawing.Point(479, 142);
+            this._buttonClear.Margin = new System.Windows.Forms.Padding(6);
+            this._buttonClear.Name = "buttonC";
+            this._buttonClear.Size = new System.Drawing.Size(136, 88);
+            this._buttonClear.TabIndex = 1;
+            this._buttonClear.Text = "C";
+            this._buttonClear.UseVisualStyleBackColor = true;
+            this._buttonClear.Click += new System.EventHandler(this.ButtonClearClick);
             // 
             // buttonPlus
             // 
@@ -86,36 +86,36 @@ namespace HW1
             // 
             // buttonMinus
             // 
-            this._buttonSub.Location = new System.Drawing.Point(479, 342);
-            this._buttonSub.Margin = new System.Windows.Forms.Padding(6);
-            this._buttonSub.Name = "buttonMinus";
-            this._buttonSub.Size = new System.Drawing.Size(136, 88);
-            this._buttonSub.TabIndex = 3;
-            this._buttonSub.Text = "-";
-            this._buttonSub.UseVisualStyleBackColor = true;
-            this._buttonSub.Click += new System.EventHandler(this.ButtonSubClick);
+            this._buttonSubtract.Location = new System.Drawing.Point(479, 342);
+            this._buttonSubtract.Margin = new System.Windows.Forms.Padding(6);
+            this._buttonSubtract.Name = "buttonMinus";
+            this._buttonSubtract.Size = new System.Drawing.Size(136, 88);
+            this._buttonSubtract.TabIndex = 3;
+            this._buttonSubtract.Text = "-";
+            this._buttonSubtract.UseVisualStyleBackColor = true;
+            this._buttonSubtract.Click += new System.EventHandler(this.ButtonSubtractClick);
             // 
             // buttonMul
             // 
-            this._buttonMul.Location = new System.Drawing.Point(479, 442);
-            this._buttonMul.Margin = new System.Windows.Forms.Padding(6);
-            this._buttonMul.Name = "buttonMul";
-            this._buttonMul.Size = new System.Drawing.Size(136, 88);
-            this._buttonMul.TabIndex = 4;
-            this._buttonMul.Text = "x";
-            this._buttonMul.UseVisualStyleBackColor = true;
-            this._buttonMul.Click += new System.EventHandler(this.ButtonMulClick);
+            this._buttonMultiply.Location = new System.Drawing.Point(479, 442);
+            this._buttonMultiply.Margin = new System.Windows.Forms.Padding(6);
+            this._buttonMultiply.Name = "buttonMul";
+            this._buttonMultiply.Size = new System.Drawing.Size(136, 88);
+            this._buttonMultiply.TabIndex = 4;
+            this._buttonMultiply.Text = "x";
+            this._buttonMultiply.UseVisualStyleBackColor = true;
+            this._buttonMultiply.Click += new System.EventHandler(this.ButtonMultiplyClick);
             // 
             // buttonDiv
             // 
-            this._buttonDiv.Location = new System.Drawing.Point(479, 542);
-            this._buttonDiv.Margin = new System.Windows.Forms.Padding(6);
-            this._buttonDiv.Name = "buttonDiv";
-            this._buttonDiv.Size = new System.Drawing.Size(136, 88);
-            this._buttonDiv.TabIndex = 5;
-            this._buttonDiv.Text = "/";
-            this._buttonDiv.UseVisualStyleBackColor = true;
-            this._buttonDiv.Click += new System.EventHandler(this.ButtonDivClick);
+            this._buttonDivide.Location = new System.Drawing.Point(479, 542);
+            this._buttonDivide.Margin = new System.Windows.Forms.Padding(6);
+            this._buttonDivide.Name = "buttonDiv";
+            this._buttonDivide.Size = new System.Drawing.Size(136, 88);
+            this._buttonDivide.TabIndex = 5;
+            this._buttonDivide.Text = "/";
+            this._buttonDivide.UseVisualStyleBackColor = true;
+            this._buttonDivide.Click += new System.EventHandler(this.ButtonDivideClick);
             // 
             // buttonEqual
             // 
@@ -163,14 +163,14 @@ namespace HW1
             // 
             // buttonCE
             // 
-            this._buttonCE.Location = new System.Drawing.Point(331, 142);
-            this._buttonCE.Margin = new System.Windows.Forms.Padding(6);
-            this._buttonCE.Name = "buttonCE";
-            this._buttonCE.Size = new System.Drawing.Size(136, 88);
-            this._buttonCE.TabIndex = 6;
-            this._buttonCE.Text = "CE";
-            this._buttonCE.UseVisualStyleBackColor = true;
-            this._buttonCE.Click += new System.EventHandler(this.DoButtonCEClick);
+            this._buttonClearExpression.Location = new System.Drawing.Point(331, 142);
+            this._buttonClearExpression.Margin = new System.Windows.Forms.Padding(6);
+            this._buttonClearExpression.Name = "buttonCE";
+            this._buttonClearExpression.Size = new System.Drawing.Size(136, 88);
+            this._buttonClearExpression.TabIndex = 6;
+            this._buttonClearExpression.Text = "CE";
+            this._buttonClearExpression.UseVisualStyleBackColor = true;
+            this._buttonClearExpression.Click += new System.EventHandler(this.ButtonClearExpressionClick);
             // 
             // buttonDot
             // 
@@ -277,12 +277,12 @@ namespace HW1
             this.Controls.Add(this._button3);
             this.Controls.Add(this._button6);
             this.Controls.Add(this._button9);
-            this.Controls.Add(this._buttonCE);
-            this.Controls.Add(this._buttonDiv);
-            this.Controls.Add(this._buttonMul);
-            this.Controls.Add(this._buttonSub);
+            this.Controls.Add(this._buttonClearExpression);
+            this.Controls.Add(this._buttonDivide);
+            this.Controls.Add(this._buttonMultiply);
+            this.Controls.Add(this._buttonSubtract);
             this.Controls.Add(this._buttonPlus);
-            this.Controls.Add(this._buttonC);
+            this.Controls.Add(this._buttonClear);
             this.Controls.Add(this._textBox);
             this.Font = new System.Drawing.Font("PMingLiU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -297,16 +297,16 @@ namespace HW1
         #endregion
 
         private System.Windows.Forms.TextBox _textBox;
-        private System.Windows.Forms.Button _buttonC;
+        private System.Windows.Forms.Button _buttonClear;
         private System.Windows.Forms.Button _buttonPlus;
-        private System.Windows.Forms.Button _buttonSub;
-        private System.Windows.Forms.Button _buttonMul;
-        private System.Windows.Forms.Button _buttonDiv;
+        private System.Windows.Forms.Button _buttonSubtract;
+        private System.Windows.Forms.Button _buttonMultiply;
+        private System.Windows.Forms.Button _buttonDivide;
         private System.Windows.Forms.Button _buttonEqual;
         private System.Windows.Forms.Button _button3;
         private System.Windows.Forms.Button _button6;
         private System.Windows.Forms.Button _button9;
-        private System.Windows.Forms.Button _buttonCE;
+        private System.Windows.Forms.Button _buttonClearExpression;
         private System.Windows.Forms.Button _buttonDot;
         private System.Windows.Forms.Button _button2;
         private System.Windows.Forms.Button _button5;

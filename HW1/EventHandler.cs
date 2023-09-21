@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace HomeWork1
+namespace HW1
 {
-    public partial class AppForm : Form
+    class EventHandler
     {
-        public AppForm()
-        {
-            InitializeComponent();
-        }
-
         private Calculator _calculator = new Calculator();
         private string _result = "";
         private bool _dot = false;

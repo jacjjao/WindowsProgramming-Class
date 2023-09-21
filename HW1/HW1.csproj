@@ -48,13 +48,14 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="Divide.cs" />
+    <Compile Include="EventHandler.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Keyword.cs" />
+    <Compile Include="KeyWord.cs" />
     <Compile Include="Multiply.cs" />
     <Compile Include="Plus.cs" />
     <Compile Include="Program.cs" />
