@@ -1,18 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PowerPoint
 {
     class Model
     {
-        private List<Shape> _shapes;
+        public List<Shape> ShapesList 
+        { 
+            get; 
+            set; 
+        }
+
+        private readonly ShapesFactory _factory;
 
         public Model()
         {
-            _shapes = new List<Shape>();
+            ShapesList = new List<Shape>();
+            _factory = new ShapesFactory();
+        }
+
+        /* 新增新的shape */
+        public void AddShape(int index)
+        {
+            var shape = _factory.CreateShape(index); // 我只有呼叫一次factory的method但Dr.Smell說我呼叫兩次?
+            if (shape != null)
+            {
+                ShapesList.Add(shape);
+            }
         }
     }
 }

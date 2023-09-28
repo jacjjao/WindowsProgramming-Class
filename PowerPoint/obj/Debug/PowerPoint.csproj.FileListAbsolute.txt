@@ -8,3 +8,13 @@ C:\Users\hjaco\Desktop\WindowsProgramming\PowerPoint\obj\Debug\PowerPoint.csproj
 C:\Users\hjaco\Desktop\WindowsProgramming\PowerPoint\obj\Debug\PowerPoint.csproj.CoreCompileInputs.cache
 C:\Users\hjaco\Desktop\WindowsProgramming\PowerPoint\obj\Debug\PowerPoint.exe
 C:\Users\hjaco\Desktop\WindowsProgramming\PowerPoint\obj\Debug\PowerPoint.pdb
+C:\Users\user\Desktop\視窗程式設計\PowerPoint\bin\Debug\PowerPoint.exe.config
+C:\Users\user\Desktop\視窗程式設計\PowerPoint\bin\Debug\PowerPoint.exe
+C:\Users\user\Desktop\視窗程式設計\PowerPoint\bin\Debug\PowerPoint.pdb
+C:\Users\user\Desktop\視窗程式設計\PowerPoint\obj\Debug\PowerPoint.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\視窗程式設計\PowerPoint\obj\Debug\PowerPoint.Form1.resources
+C:\Users\user\Desktop\視窗程式設計\PowerPoint\obj\Debug\PowerPoint.Properties.Resources.resources
+C:\Users\user\Desktop\視窗程式設計\PowerPoint\obj\Debug\PowerPoint.csproj.GenerateResource.cache
+C:\Users\user\Desktop\視窗程式設計\PowerPoint\obj\Debug\PowerPoint.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\視窗程式設計\PowerPoint\obj\Debug\PowerPoint.exe
+C:\Users\user\Desktop\視窗程式設計\PowerPoint\obj\Debug\PowerPoint.pdb
