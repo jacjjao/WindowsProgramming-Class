@@ -189,9 +189,9 @@
             <Smell>
               <Id>1</Id>
               <SmellType>Long method(過長函式)</SmellType>
-              <HashCode>LongMethod.Calculator.TransformToPostFixExpression.29string mathExpression;</HashCode>
+              <HashCode>LongMethod.Calculator.TransformToPostFixExpression.27string mathExpression;</HashCode>
               <Severity>Warning</Severity>
-              <Weight>29</Weight>
+              <Weight>27</Weight>
               <Project>HW1</Project>
               <File>Calculator.cs</File>
               <Line>48</Line>
@@ -205,7 +205,7 @@
           </Reviews>
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList>
-            <string>LongMethod.Calculator.TransformToPostFixExpression.29string mathExpression;</string>
+            <string>LongMethod.Calculator.TransformToPostFixExpression.27string mathExpression;</string>
           </HashCodeRequestIgnoreList>
           <AnalysisFileManager>
             <AnalysisFiles>
@@ -271,7 +271,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>740</ProductionLoc>
+          <ProductionLoc>738</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

@@ -63,9 +63,7 @@ namespace HomeWork1
                     stack.Push(c);
                 }
                 else
-                {
                     postFixExpression += c;
-                }
             }
             while (stack.Count > 0)
             {
