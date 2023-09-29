@@ -6,12 +6,14 @@ namespace PowerPoint
 {
     public partial class Form1 : Form
     {
-        private Model _model;
+        private readonly Model _model;
+        private readonly ShapesFactory _factory;
 
         public Form1()
         {
             InitializeComponent();
             _model = new Model();
+            _factory = new ShapesFactory();
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
         }
 
@@ -21,7 +23,7 @@ namespace PowerPoint
             const int DELETE_COLUMN = 0;
             const int SHAPE_COLUMN = 1;
             const int INFO_COLUMN = 2;
-            _model.AddShape(_shapeComboBox.SelectedIndex);
+            _model.AddShape(_factory.CreateShape(_shapeComboBox.SelectedIndex));
             var shape = _model.ShapesList.Last();
             int rowIndex = _dataGridView.Rows.Add();
             var row = _dataGridView.Rows[rowIndex];
