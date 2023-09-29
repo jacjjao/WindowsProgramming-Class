@@ -9,21 +9,13 @@ namespace PowerPoint
     {
         public List<Shape> ShapesList 
         { 
-            get; 
+            get;
+            set;
         }
 
         public Model()
         {
             ShapesList = new List<Shape>();
-        }
-
-        /* 新增新的shape */
-        public void AddShape(Shape shape)
-        {
-            if (shape != null)
-            {
-                ShapesList.Add(shape);
-            }
         }
     }
 }

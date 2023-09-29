@@ -17,7 +17,7 @@ namespace PowerPoint
             switch (index)
             {
                 case 0:
-                    shape = new Rectangle (startPoint, endPoint);
+                    shape = new Rectangle(startPoint, endPoint);
                     break;
                 case 1:
                     shape = new Line(startPoint, endPoint);

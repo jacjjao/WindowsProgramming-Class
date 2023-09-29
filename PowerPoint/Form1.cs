@@ -23,7 +23,9 @@ namespace PowerPoint
             const int DELETE_COLUMN = 0;
             const int SHAPE_COLUMN = 1;
             const int INFO_COLUMN = 2;
-            _model.AddShape(_factory.CreateShape(_shapeComboBox.SelectedIndex));
+            if (_shapeComboBox.SelectedIndex < 0)
+                return;
+            _model.ShapesList.Add(_factory.CreateShape(_shapeComboBox.SelectedIndex));
             var shape = _model.ShapesList.Last();
             int rowIndex = _dataGridView.Rows.Add();
             var row = _dataGridView.Rows[rowIndex];
@@ -38,6 +40,7 @@ namespace PowerPoint
             if (_dataGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 _dataGridView.Rows.Remove(_dataGridView.Rows[e.RowIndex]);
+                _model.ShapesList.Remove(_model.ShapesList[e.RowIndex]);
             }
         }
     }

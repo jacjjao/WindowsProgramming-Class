@@ -187,9 +187,7 @@
         <CodeReview xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
           <Reviews />
           <HashCodeIgnoreList />
-          <HashCodeRequestIgnoreList>
-            <string>30 目前物件 PowerPoint.Model，使用物件的方法或屬性次數：1次，Envy到對象物件 PowerPoint.ShapesFactory，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.ShapesFactory.CreateShape(int) 以及 PowerPoint.ShapesFactory.CreateShape(int)</string>
-          </HashCodeRequestIgnoreList>
+          <HashCodeRequestIgnoreList />
           <AnalysisFileManager>
             <AnalysisFiles>
               <AnalysisFile>
@@ -249,7 +247,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>567</ProductionLoc>
+          <ProductionLoc>562</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>
