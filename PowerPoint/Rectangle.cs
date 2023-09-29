@@ -34,7 +34,7 @@ namespace PowerPoint
         public override string GetInfo()
         {
             const string FORMAT = "({0})({1})";
-            return String.Format(FORMAT, Position.ToString(), Size.ToString());
+            return string.Format(FORMAT, Position.ToString(), Size.ToString());
         }
 
         /* get shape name */

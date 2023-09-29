@@ -36,8 +36,8 @@ namespace PowerPoint
         {
             if (_dataGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                _dataGridView.Rows.Remove(_dataGridView.Rows[e.RowIndex]);
-                _model.ShapesList.Remove(_model.ShapesList[e.RowIndex]);
+                _dataGridView.Rows.RemoveAt(e.RowIndex);
+                _model.ShapesList.RemoveAt(e.RowIndex);
             }
         }
     }
