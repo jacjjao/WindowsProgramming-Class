@@ -7,15 +7,24 @@ namespace PowerPoint
 {
     class Model
     {
+        private readonly ShapesFactory _factory;
+
         public List<Shape> ShapesList 
         { 
             get;
-            set;
         }
 
         public Model()
         {
             ShapesList = new List<Shape>();
+            _factory = new ShapesFactory();
+        }
+
+        /* add shape */
+        public Shape AddShapes(int index)
+        {
+            ShapesList.Add(_factory.CreateShape(index));
+            return ShapesList.Last();
         }
     }
 }
