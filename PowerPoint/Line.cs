@@ -31,14 +31,14 @@ namespace PowerPoint
         }
 
         /* get info */
-        public override string GetInfo()
+        public string GetInfo()
         {
             const string FORMAT = "({0})({1})";
             return string.Format(FORMAT, StartPoint.ToString(), EndPoint.ToString());
         }
 
         /* get shape name */
-        public override string GetShapeName()
+        public string GetShapeName()
         {
             return SHAPE_NAME;
         }

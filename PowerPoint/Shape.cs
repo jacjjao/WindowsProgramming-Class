@@ -1,11 +1,11 @@
 ﻿namespace PowerPoint
 {
-    public abstract class Shape
+    public interface Shape
     {
         /* get info */
-        public abstract string GetInfo();
+        string GetInfo();
 
         /* get shape name */
-        public abstract string GetShapeName();
+        string GetShapeName();
     }
 }
