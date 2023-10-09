@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace PowerPoint
 {
-    class Model
+    public class Model
     {
         private readonly ShapesFactory _factory;
 

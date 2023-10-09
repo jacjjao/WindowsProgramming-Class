@@ -185,69 +185,93 @@
     <div class="data">
       <Data id="ReviewPalData">
         <CodeReview xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-          <Reviews />
-          <HashCodeIgnoreList />
+          <Reviews>
+            <Smell>
+              <Id>1</Id>
+              <SmellType>Long method(過長函式)</SmellType>
+              <HashCode>LongMethod.Calculator.TransformToPostFixExpression.29string mathExpression;</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>29</Weight>
+              <Project>HW1</Project>
+              <File>Calculator.cs</File>
+              <Line>48</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+          </Reviews>
+          <HashCodeIgnoreList>
+            <string>LongMethod.Calculator.TransformToPostFixExpression.29string mathExpression;</string>
+          </HashCodeIgnoreList>
           <HashCodeRequestIgnoreList />
           <AnalysisFileManager>
             <AnalysisFiles>
               <AnalysisFile>
-                <RelativePath>Form1.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
+                <RelativePath>Calculator.cs</RelativePath>
+                <ProjectName>HW1</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Divide.cs</RelativePath>
+                <ProjectName>HW1</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Form1.cs</RelativePath>
+                <ProjectName>HW1</ProjectName>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Form1.Designer.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
+                <ProjectName>HW1</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Line.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
+                <RelativePath>KeyWord.cs</RelativePath>
+                <ProjectName>HW1</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
+                <RelativePath>Multiply.cs</RelativePath>
+                <ProjectName>HW1</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Plus.cs</RelativePath>
+                <ProjectName>HW1</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Program.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
+                <ProjectName>HW1</ProjectName>
                 <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
+                <ProjectName>HW1</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Properties\Resources.Designer.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
+                <ProjectName>HW1</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Properties\Settings.Designer.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
+                <ProjectName>HW1</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Rectangle.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Shape.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>ShapesFactory.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
+                <RelativePath>Subtract.cs</RelativePath>
+                <ProjectName>HW1</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>569</ProductionLoc>
+          <ProductionLoc>740</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

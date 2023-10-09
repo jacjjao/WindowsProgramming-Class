@@ -8,10 +8,10 @@ namespace PowerPoint
     {
         private readonly Model _model;
 
-        public Form1()
+        public Form1(Model model)
         {
             InitializeComponent();
-            _model = new Model();
+            _model = model;
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
         }
 
