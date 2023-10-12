@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Linq;
+using System.Drawing;
+using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {
@@ -21,10 +23,21 @@ namespace PowerPoint
         }
 
         /* add shape */
-        public Shape AddShapes(int index)
+        public Shape AddShape(ShapeType type)
         {
-            ShapesList.Add(_factory.CreateShape(index));
+            ShapesList.Add(_factory.CreateShape(type));
             return ShapesList.Last();
+        }
+
+        public Shape AddShape(ShapeType type, Point p1, Point p2)
+        {
+            ShapesList.Add(_factory.CreateShape(type, p1, p2));
+            return ShapesList.Last();
+        }
+
+        public void DrawAll(Graphics graphics, Pen pen)
+        {
+            ShapesList.ForEach((shape) => shape.Draw(graphics, pen));
         }
     }
 }

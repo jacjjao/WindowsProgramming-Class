@@ -7,5 +7,8 @@
 
         /* get shape name */
         string GetShapeName();
+
+        /* draw */
+        void Draw(System.Drawing.Graphics graphics, System.Drawing.Pen pen);
     }
 }

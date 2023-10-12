@@ -1,16 +1,16 @@
-﻿using System.Windows;
-using System;
+﻿using System;
+using System.Drawing;
 
 namespace PowerPoint
 {
     class Rectangle : Shape
     {
-        public Vector Position 
+        public Point TopLeftPoint 
         { 
             get; 
             set; 
         }
-        public Vector Size 
+        public Point Size 
         { 
             get; 
             set; 
@@ -20,27 +20,36 @@ namespace PowerPoint
 
         public Rectangle()
         {
-            Position = new Vector();
-            Size = new Vector();
+            TopLeftPoint = new Point();
+            Size = new Point();
         }
 
-        public Rectangle(Vector position, Vector size)
+        public Rectangle(Point p1, Point p2)
         {
-            Position = position;
-            Size = size;
+            TopLeftPoint = new Point(Math.Min(p1.X, p2.X), Math.Min(p1.Y, p2.Y));
+            Size = new Point
+            {
+                X = Math.Max(p1.X, p2.X) - Math.Min(p1.X, p2.X),
+                Y = Math.Max(p1.Y, p2.Y) - Math.Min(p1.Y, p2.Y)
+            };
         }
 
         /* get info */
         public string GetInfo()
         {
-            const string FORMAT = "({0})({1})";
-            return string.Format(FORMAT, Position.ToString(), Size.ToString());
+            const string FORMAT = "({0},{1})({2},{3})";
+            return string.Format(FORMAT, TopLeftPoint.X, TopLeftPoint.Y, Size.X, Size.Y);
         }
 
         /* get shape name */
         public string GetShapeName()
         {
             return SHAPE_NAME;
+        }
+
+        public void Draw(Graphics graphics, Pen pen)
+        {
+            graphics.DrawRectangle(pen, TopLeftPoint.X, TopLeftPoint.Y, Size.X, Size.Y);
         }
     }
 }

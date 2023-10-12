@@ -2,46 +2,60 @@
 using System.Windows.Forms;
 using System.Linq;
 using System.Drawing;
+using System.Collections.Generic;
 
 namespace PowerPoint
 {
     public partial class Form1 : Form
     {
+        private List<Tuple<ToolStripButton, ShapeType>> _toolButtonList;
         private readonly PresentationModel _presentModel;
-        private TransparentPanel _drawPanel;
+        private Graphics _graphics;
 
         public Form1(PresentationModel model)
         {
             InitializeComponent();
+            ResizeRedraw = true;
+            DoubleBuffered = true;
             _presentModel = model;
+            _presentModel.OnNewShapeAdd += OnNewShapeAdd;
+            _presentModel.OnShapeRemove += OnShapeRemove;
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
-            CreateDrawPanel();
+            CreateToolButtons();
+            AssignDrawPanelEvent();
+        }
+
+        private void CreateToolButtons()
+        {
+            _toolButtonList = new List<Tuple<ToolStripButton, ShapeType>>();
+            _toolButtonList.Add(Tuple.Create(new ToolStripButton { Text = "/" }, ShapeType.Line));
+            _toolButtonList.Add(Tuple.Create(new ToolStripButton { Text = "[]" }, ShapeType.Rectangle));
+            _toolButtonList.Add(Tuple.Create(new ToolStripButton { Text = "O" }, ShapeType.Circle));
+            _toolButtonList.ForEach((tuple) => toolStrip1.Items.Add(tuple.Item1));
         }
 
         /* create draw panel */
-        private void CreateDrawPanel()
+        private void AssignDrawPanelEvent()
         {
-            _drawPanel = new TransparentPanel
-            {
-                Dock = DockStyle.Fill
-            };
-            _drawPanel.MouseEnter += new EventHandler(this.OnMouseEnter);
-            _drawPanel.MouseLeave += new EventHandler(this.OnMouseLeave);
-            _drawPanel.Paint += new PaintEventHandler(this.OnDrawPanelPaint);
-            _drawPanel.MouseUp += new MouseEventHandler(this.OnMouseUp);
-            _drawPanel.MouseDown += new MouseEventHandler(this.OnMouseDown);
-            _tableLayoutPanel1.Controls.Add(_drawPanel);
+            _drawPanel.MouseUp += OnMouseUp;
+            _drawPanel.MouseMove += OnMouseMove;
+            _drawPanel.MouseDown += OnMouseDown;
+            _graphics = _drawPanel.CreateGraphics();
         }
 
         /* 處理"新增"按鈕被按的event */
         private void AddButtonClick(object sender, EventArgs e)
         {
+            if (_shapeComboBox.SelectedIndex < 0)
+                return;
+            var shape = _presentModel.AddShape((ShapeType)_shapeComboBox.SelectedIndex);
+        }
+
+        private void AddShapeToDataGrid(Shape shape)
+        {
             const int DELETE_COLUMN = 0;
             const int SHAPE_COLUMN = 1;
             const int INFO_COLUMN = 2;
-            if (_shapeComboBox.SelectedIndex < 0)
-                return;
-            var shape = _presentModel.TheModel.AddShapes(_shapeComboBox.SelectedIndex);
             int rowIndex = _dataGridView.Rows.Add();
             var row = _dataGridView.Rows[rowIndex];
             row.Cells[DELETE_COLUMN].Value = new DataGridViewButtonCell();
@@ -50,70 +64,53 @@ namespace PowerPoint
         }
 
         /* 處理DataGridView上的"刪除"按鈕被按的event */
-        private void DoDataGridViewButtonCellClick(object sender, DataGridViewCellEventArgs e)
+        private void OnDataGridViewButtonCellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (_dataGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                _dataGridView.Rows.RemoveAt(e.RowIndex);
-                _presentModel.TheModel.ShapesList.RemoveAt(e.RowIndex);
+                _presentModel.RemoveShape(e.RowIndex);
             }
-        }
-
-        private void UncheckedAllToolStripButton()
-        {
-            _toolStripLineButton.Checked = false;
-            _toolStripRectangleButton.Checked = false;
-            _toolStripCircleButton.Checked = false;
-        }
-
-        private void _toolStripLineButton_Click(object sender, EventArgs e)
-        {
-            UncheckedAllToolStripButton();
-            _toolStripLineButton.Checked = true;
-            _presentModel.SelectedShapeType = PresentationModel.ShapeType.Line;
-        }
-
-        private void _toolStripRectangleButton_Click(object sender, EventArgs e)
-        {
-            UncheckedAllToolStripButton();
-            _toolStripRectangleButton.Checked = true;
-            _presentModel.SelectedShapeType = PresentationModel.ShapeType.Rectangle;
-        }
-
-        private void _toolStripCircleButton_Click(object sender, EventArgs e)
-        {
-            UncheckedAllToolStripButton();
-            _toolStripCircleButton.Checked = true;
-            _presentModel.SelectedShapeType = PresentationModel.ShapeType.Circle;
-        }
-
-        private void OnMouseEnter(object sender, EventArgs e)
-        {
-            if (_presentModel.SelectedShapeType != PresentationModel.ShapeType.None)
-            {
-                Cursor = Cursors.Cross;
-            }
-        }
-
-        private void OnMouseLeave(object sender, EventArgs e)
-        {
-            Cursor = Cursors.Default;
         }
 
         private void OnMouseUp(object sender, MouseEventArgs e)
         {
-            
+            _presentModel.OnMouseUp(e.Location);
+        }
+
+        private void OnMouseMove(object sender, MouseEventArgs e)
+        {
+            _presentModel.OnMouseMove(e.Location);
         }
 
         private void OnMouseDown(object sender, MouseEventArgs e)
         {
-            
+            _presentModel.OnMouseDown(e.Location);
         }
 
-        private void OnDrawPanelPaint(object sender, PaintEventArgs e)
+        private void OnNewShapeAdd(object sender, Shape shape)
         {
-            var graphics = e.Graphics;
-            graphics.FillRectangle(Brushes.Black, 0, 0, 1000, 1000);
+            AddShapeToDataGrid(shape);
+            shape.Draw(_graphics, _presentModel.DrawPen);
+        }
+
+        private void OnShapeRemove(object sender, int index)
+        {
+            _dataGridView.Rows.RemoveAt(index);
+            _graphics.Clear(_drawPanel.BackColor);
+            _presentModel.DrawAll(_graphics);
+        }
+
+        private void OnToolButtonClick(object sender, ToolStripItemClickedEventArgs e)
+        {
+            _presentModel.OnToolStripButtonClick(e.ClickedItem, _toolButtonList);
+            if (_presentModel.SelectedShapeType != ShapeType.None)
+            {
+                Cursor = Cursors.Cross;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
+            }
         }
     }
 }
