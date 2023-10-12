@@ -22,6 +22,13 @@ namespace PowerPoint
                 case 1:
                     shape = new Line(startPoint, endPoint);
                     break;
+                case 2:
+                    shape = new Circle()
+                    {
+                        Position = new Vector(random.Next(LOW, HIGH), random.Next(LOW, HIGH)),
+                        Radius = (float)random.NextDouble()
+                    };
+                break;
             }
             return shape;
         }
