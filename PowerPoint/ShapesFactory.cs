@@ -5,13 +5,13 @@ namespace PowerPoint
 {
     class ShapesFactory
     {
-        /* create shape */
-        public Shape CreateShape(ShapeType type)
+        /* create random shape */
+        public Shape CreateRandomShape(ShapeType type)
         {
-            const int POS_LOW = 100;
-            const int POS_HIGH = 300;
+            const int POS_LOW = 150;
+            const int POS_HIGH = 350;
             const int SIZE_LOW = 20;
-            const int SIZE_HIGH = 100;
+            const int SIZE_HIGH = 50;
             var random = new Random();
             var startPoint = new Point(random.Next(POS_LOW, POS_HIGH), random.Next(POS_LOW, POS_HIGH));
             var endPoint = new Point(random.Next(SIZE_LOW, SIZE_HIGH), random.Next(SIZE_LOW, SIZE_HIGH));

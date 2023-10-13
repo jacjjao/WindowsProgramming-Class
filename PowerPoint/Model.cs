@@ -29,7 +29,7 @@ namespace PowerPoint
         /* add shape */
         public Shape AddShape(ShapeType type)
         {
-            ShapesList.Add(_factory.CreateShape(type));
+            ShapesList.Add(_factory.CreateRandomShape(type));
             return ShapesList.Last();
         }
 

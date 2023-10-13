@@ -206,6 +206,11 @@
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>Form1Initialize.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Line.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
@@ -262,7 +267,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>979</ProductionLoc>
+          <ProductionLoc>990</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

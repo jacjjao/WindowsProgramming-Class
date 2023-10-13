@@ -12,48 +12,11 @@ namespace PowerPoint
         public Form1(PresentationModel model)
         {
             InitializeComponent();
+            CreateComponents();
             ResizeRedraw = true;
             DoubleBuffered = true;
             _presentModel = model;
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
-            HandlePresentationModelEvent();
-            CreateToolButtons();
-            AssignDrawPanelEvent();
-        }
-
-        /* Handle presentation model 的 event */
-        private void HandlePresentationModelEvent()
-        {
-            _presentModel._onNewShapeAdd += DoNewShapeAdd;
-            _presentModel._shouldUpdateDataGrid += UpdateDataGrid;
-        }
-
-        /* 把button放到toolstrip上 */
-        private void CreateToolButtons()
-        {
-            const string LINE = "/";
-            const string RECTANGLE = "[]";
-            const string CIRCLE = "O";
-            var lineButton = new ToolStripButton();
-            lineButton.Text = LINE;
-            var rectangleButton = new ToolStripButton();
-            rectangleButton.Text = RECTANGLE;
-            var circleButton = new ToolStripButton();
-            circleButton.Text = CIRCLE;
-            _toolButtonList = new List<Tuple<ToolStripButton, ShapeType>>();
-            _toolButtonList.Add(Tuple.Create(lineButton, ShapeType.Line));
-            _toolButtonList.Add(Tuple.Create(rectangleButton, ShapeType.Rectangle));
-            _toolButtonList.Add(Tuple.Create(circleButton, ShapeType.Circle));
-            _toolButtonList.ForEach((tuple) => _toolStrip1.Items.Add(tuple.Item1));
-        }
-
-        /* Handl draw panel 的 event */
-        private void AssignDrawPanelEvent()
-        {
-            _drawPanel.MouseUp += DoDrawPanelMouseUp;
-            _drawPanel.MouseMove += DoDrawPanelMouseMove;
-            _drawPanel.MouseDown += DoDrawPanelMouseDown;
-            _drawPanel.Paint += DrawPanelOnDraw;
         }
 
         /* 有形狀變動時需要更新data grid */
