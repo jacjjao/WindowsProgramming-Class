@@ -106,29 +106,25 @@ namespace PowerPoint
             if (_dataGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 _presentModel.RemoveShape(e.RowIndex);
-                DoShapeRemove(this, e.RowIndex);
+                DoShapeRemove(e.RowIndex);
             }
+        }
+
+        /* 刪掉shape所對應的row */
+        private void DoShapeRemove(int index)
+        {
+            _dataGridView.Rows.RemoveAt(index);
+            _drawPanel.Invalidate();
         }
 
         /* 處理有新的形狀加入時的event */
         private void DoNewShapeAdd(object sender, Shape shape)
         {
             const int DELETE_COLUMN = 0;
-            const int SHAPE_COLUMN = 1;
-            const int INFO_COLUMN = 2;
             int rowIndex = _dataGridView.Rows.Add();
             var row = _dataGridView.Rows[rowIndex];
             row.Cells[DELETE_COLUMN].Value = new DataGridViewButtonCell();
-            row.Cells[SHAPE_COLUMN].Value = shape.GetShapeName();
-            row.Cells[INFO_COLUMN].Value = shape.GetInfo();
-            _drawPanel.Invalidate();
-        }
-
-        /* 有形狀被刪除時的event */
-        private void DoShapeRemove(object sender, int index)
-        {
-            _dataGridView.Rows.RemoveAt(index);
-            _drawPanel.Invalidate();
+            UpdateDataGrid(rowIndex, shape);
         }
 
         /* toolstrip按鈕上的button被按到時的event */
