@@ -18,23 +18,20 @@ namespace PowerPoint
             return CreateShape(type, startPoint, endPoint);
         }
 
-        public Shape CreateShape(ShapeType type, Point p1, Point p2)
+        /* create shape */
+        public Shape CreateShape(ShapeType type, Point pointFirst, Point pointSecond)
         {
             Shape shape = null;
             switch (type)
             {
                 case ShapeType.Rectangle:
-                    shape = new Rectangle(p1, p2);
+                    shape = new Rectangle(pointFirst, pointSecond);
                     break;
                 case ShapeType.Line:
-                    shape = new Line
-                    {
-                        StartPoint = p1,
-                        EndPoint = p2
-                    };
+                    shape = new Line(pointFirst, pointSecond);
                     break;
                 case ShapeType.Circle:
-                    shape = new Circle(p1, p2);
+                    shape = new Circle(pointFirst, pointSecond);
                     break;
             }
             return shape;

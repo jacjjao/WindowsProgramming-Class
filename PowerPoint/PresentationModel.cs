@@ -1,125 +1,136 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Collections.Generic;
-using System.Linq;
 using System.Drawing;
-using System.Windows;
+using System.Windows.Forms;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {
-	public class PresentationModel
-	{
-		public ShapeType SelectedShapeType
-		{
-			set;
-			get;
-		}
+    public class PresentationModel
+    {
+        public delegate void OnNewShapeAddedEventHandler(object sender, Shape shape);
+        public event OnNewShapeAddedEventHandler _onNewShapeAdd;
 
-		public Pen DrawPen
+        public delegate void ShouldUpdatedDataGridEventHandler(int index, Shape shape);
+        public event ShouldUpdatedDataGridEventHandler _shouldUpdateDataGrid;
+
+        public ShapeType SelectedShapeType
         {
-			set;
-			get;
+            set;
+            get;
         }
 
-		public delegate void OnNewShapeAdded(object sender, Shape shape);
-		public event OnNewShapeAdded OnNewShapeAdd;
-
-		public delegate void OnShapeRemoved(object sender, int index);
-		public event OnShapeRemoved OnShapeRemove;
-
-		private readonly Model _model;
-
-		private Point _drawStartPos;
-		private Point _drawEndPos;
-		private bool _mousePressed = false;
-
-		public PresentationModel(Model model)
-		{
-			SelectedShapeType = ShapeType.None;
-			DrawPen = new Pen(Color.Red, 1.0f);
-			_model = model;
-		}
-
-		public void OnToolStripButtonClick(object clickedButton, List<Tuple<ToolStripButton, ShapeType>> list)
+        public Pen DrawPen
         {
-			foreach (var (button, shapeType) in list)
+            set;
+            get;
+        }
+
+        private readonly Model _model;
+
+        private Point _drawStartPos;
+        private Point _drawEndPos;
+        private bool _mousePressed = false;
+
+        public PresentationModel(Model model)
+        {
+            SelectedShapeType = ShapeType.None;
+            const float WIDTH = 1.0f;
+            DrawPen = new Pen(Color.Red, WIDTH);
+            _model = model;
+        }
+
+        /* 更新toolstrip button上的Checked屬性 */
+        public void DoToolStripButtonClick(object clickedButton, List<Tuple<ToolStripButton, ShapeType>> list)
+        {
+            foreach (var tuple in list)
             {
-				if (!clickedButton.Equals(button))
+                var (button, shapeType) = tuple;
+                if (!button.Equals(clickedButton))
                 {
-					button.Checked = false;
+                    button.Checked = false;
                 }
-				else
+                else
                 {
-					button.Checked = !(button.Checked);
-					SelectedShapeType = button.Checked ? shapeType : ShapeType.None;
-				}
-			}
-		}
-
-		public void DrawAll(System.Drawing.Graphics graphics)
-        {
-			_model.DrawAll(graphics, DrawPen);
+                    button.Checked = !(button.Checked);
+                    SelectedShapeType = button.Checked ? shapeType : ShapeType.None;
+                }
+            }
         }
 
-		public Shape AddShape(ShapeType type)
+        /* 畫出所有形狀 */
+        public void DrawAll(Graphics graphics)
         {
-			var shape = _model.AddShape(type);
-            OnNewShapeAdd?.Invoke(this, shape);
-            return shape;
+            _model.ShapesList.ForEach((shape) => shape.Draw(graphics, DrawPen));
         }
 
-		private Shape AddShape()
+        /* 新增新的形狀並通知form要更新data grid */
+        public void AddShape(ShapeType type)
         {
-			var shape = _model.AddShape(SelectedShapeType, _drawStartPos, _drawEndPos);
-			OnNewShapeAdd?.Invoke(this, shape);
-			return shape;
-		}
-
-		public void RemoveShape(int index)
-        {
-			_model.ShapesList.RemoveAt(index);
-			OnShapeRemove?.Invoke(this, index);
-		}
-
-		public void OnMouseUp(Point point)
-		{
-			if (!_mousePressed)
-			{
-				return;
-			}
-			_mousePressed = false;
-			_drawEndPos = point;
-			if (_model.ShapesList.Count > 0)
-			{
-				RemoveShape(_model.ShapesList.Count - 1);
-			}
-			AddShape();
-		}
-
-		public void OnMouseMove(Point point)
-        {
-			if (!_mousePressed)
+            var shape = _model.AddShape(type);
+            if (_onNewShapeAdd != null)
             {
-				return;
+                _onNewShapeAdd.Invoke(this, shape);
             }
-			_drawEndPos = point;
-			if (_model.ShapesList.Count > 0)
-			{
-				RemoveShape(_model.ShapesList.Count - 1);
-			}
-			AddShape();
-		}
+        }
 
-		public void OnMouseDown(Point point)
-		{
-			if (SelectedShapeType == ShapeType.None)
+        /* 刪除形狀 */
+        public void RemoveShape(int index)
+        {
+            _model.ShapesList.RemoveAt(index);
+        }
+
+        /* 在draw panel上放開滑鼠按鈕的event */
+        public void DoMouseUp(MouseEventArgs e, List<Tuple<ToolStripButton, ShapeType>> list)
+        {
+            if (!_mousePressed)
+                return;
+            _mousePressed = false;
+            _drawEndPos = e.Location;
+            _model.ShapesList[_model.ShapesList.Count - 1] = _model.CreateShape(SelectedShapeType, _drawStartPos, _drawEndPos);
+            SelectedShapeType = ShapeType.None;
+            foreach (var tuple in list)
             {
-				return;
+                var (button, _) = tuple;
+                button.Checked = false;
             }
-			_mousePressed = true;
-			_drawStartPos = _drawEndPos = point;
-			AddShape();
-		}
-	}
+            int last = _model.ShapesList.Count - 1;
+            if (_shouldUpdateDataGrid != null)
+            {
+                _shouldUpdateDataGrid.Invoke(last, _model.ShapesList[last]);
+            }
+        }
+
+        /* 滑鼠在draw panel移動時的event */
+        public void DoMouseMove(MouseEventArgs e)
+        {
+            if (!_mousePressed)
+            {
+                return;
+            }
+            _drawEndPos = e.Location;
+            _model.ShapesList[_model.ShapesList.Count - 1] = _model.CreateShape(SelectedShapeType, _drawStartPos, _drawEndPos);
+            int last = _model.ShapesList.Count - 1;
+            if (_shouldUpdateDataGrid != null)
+            {
+                _shouldUpdateDataGrid.Invoke(last, _model.ShapesList[last]);
+            }
+        }
+
+        /* 在draw panel上按下滑鼠的event */
+        public void DoMouseDown(MouseEventArgs e)
+        {
+            if (SelectedShapeType == ShapeType.None)
+            {
+                return;
+            }
+            _mousePressed = true;
+            _drawStartPos = _drawEndPos = e.Location;
+            var shape = _model.AddShape(SelectedShapeType, _drawStartPos, _drawEndPos);
+            if (_onNewShapeAdd != null)
+            {
+                _onNewShapeAdd.Invoke(this, shape);
+            }
+        }
+    }
 }

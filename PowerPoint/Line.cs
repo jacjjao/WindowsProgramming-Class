@@ -1,19 +1,18 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace PowerPoint
 {
     class Line : Shape
     {
-        public Point StartPoint 
-        { 
-            get; 
-            set; 
+        public Point StartPoint
+        {
+            get;
+            set;
         }
-        public Point EndPoint 
-        { 
-            get; 
-            set; 
+        public Point EndPoint
+        {
+            get;
+            set;
         }
 
         private const string SHAPE_NAME = "線";
@@ -22,6 +21,12 @@ namespace PowerPoint
         {
             StartPoint = new Point();
             EndPoint = new Point();
+        }
+
+        public Line(Point pointFirst, Point pointSecond)
+        {
+            StartPoint = pointFirst;
+            EndPoint = pointSecond;
         }
 
         /* get info */
@@ -37,6 +42,7 @@ namespace PowerPoint
             return SHAPE_NAME;
         }
 
+        /* draw line */
         public void Draw(Graphics graphics, Pen pen)
         {
             graphics.DrawLine(pen, StartPoint, EndPoint);

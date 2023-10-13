@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
 namespace PowerPoint
@@ -26,12 +22,13 @@ namespace PowerPoint
             Position = new Point();
         }
 
-        public Circle(Point p1, Point p2)
+        public Circle(Point pointFirst, Point pointSecond)
         {
-            int dx = p2.X - p1.X;
-            int dy = p2.Y - p1.Y;
-            Position = p1;
-            Radius = (int)Math.Sqrt(dx * dx + dy * dy);
+            Point point = new Point();
+            point.X = pointSecond.X - pointFirst.X;
+            point.Y = pointSecond.Y - pointFirst.Y;
+            Position = pointFirst;
+            Radius = (int)Math.Sqrt(point.X * point.X + point.Y * point.Y);
         }
 
         const string SHAPE_NAME = "圓形";
@@ -49,6 +46,7 @@ namespace PowerPoint
             return SHAPE_NAME;
         }
 
+        /* draw circle */
         public void Draw(Graphics graphics, Pen pen)
         {
             graphics.DrawEllipse(pen, Position.X - Radius, Position.Y - Radius, Radius + Radius, Radius + Radius);
