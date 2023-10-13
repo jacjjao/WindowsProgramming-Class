@@ -68,15 +68,9 @@ namespace PowerPoint
             if (_dataGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 _presentModel.RemoveShape(e.RowIndex);
-                DoShapeRemove(e.RowIndex);
+                _dataGridView.Rows.RemoveAt(e.RowIndex);
+                _drawPanel.Invalidate();
             }
-        }
-
-        /* 刪掉shape所對應的row */
-        private void DoShapeRemove(int index)
-        {
-            _dataGridView.Rows.RemoveAt(index);
-            _drawPanel.Invalidate();
         }
 
         /* 處理有新的形狀加入時的event */
