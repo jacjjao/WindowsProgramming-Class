@@ -10,7 +10,6 @@ namespace PowerPoint
     {
         private List<Tuple<ToolStripButton, ShapeType>> _toolButtonList;
         private readonly PresentationModel _presentModel;
-        private Graphics _graphics;
 
         public Form1(PresentationModel model)
         {
@@ -40,7 +39,13 @@ namespace PowerPoint
             _drawPanel.MouseUp += OnMouseUp;
             _drawPanel.MouseMove += OnMouseMove;
             _drawPanel.MouseDown += OnMouseDown;
-            _graphics = _drawPanel.CreateGraphics();
+            _drawPanel.Paint += DrawPanelOnDraw;
+        }
+
+        private void DrawPanelOnDraw(object sender, PaintEventArgs e)
+        {
+            var graphics = e.Graphics;
+            _presentModel.DrawAll(graphics);
         }
 
         /* 處理"新增"按鈕被按的event */
@@ -48,7 +53,7 @@ namespace PowerPoint
         {
             if (_shapeComboBox.SelectedIndex < 0)
                 return;
-            var shape = _presentModel.AddShape((ShapeType)_shapeComboBox.SelectedIndex);
+            _presentModel.AddShape((ShapeType)_shapeComboBox.SelectedIndex);
         }
 
         private void AddShapeToDataGrid(Shape shape)
@@ -90,14 +95,13 @@ namespace PowerPoint
         private void OnNewShapeAdd(object sender, Shape shape)
         {
             AddShapeToDataGrid(shape);
-            shape.Draw(_graphics, _presentModel.DrawPen);
+            _drawPanel.Invalidate();
         }
 
         private void OnShapeRemove(object sender, int index)
         {
             _dataGridView.Rows.RemoveAt(index);
-            _graphics.Clear(_drawPanel.BackColor);
-            _presentModel.DrawAll(_graphics);
+            _drawPanel.Invalidate(); 
         }
 
         private void OnToolButtonClick(object sender, ToolStripItemClickedEventArgs e)
