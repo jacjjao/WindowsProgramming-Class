@@ -25,8 +25,16 @@ namespace PowerPoint
 
         public Line(Point pointFirst, Point pointSecond)
         {
-            StartPoint = pointFirst;
-            EndPoint = pointSecond;
+            if (pointFirst.X <= pointSecond.X)
+            {
+                StartPoint = pointFirst;
+                EndPoint = pointSecond;
+            }
+            else
+            {
+                StartPoint = pointSecond;
+                EndPoint = pointFirst;
+            }
         }
 
         /* get info */

@@ -6,17 +6,16 @@ namespace PowerPoint
 {
     public partial class Form1 : Form
     {
-        private List<Tuple<ToolStripButton, ShapeType>> _toolButtonList;
+        private List<ToolStripButton> _toolStripButtons;
         private readonly PresentationModel _presentModel;
+        private DoubleBufferedPanel _drawPanel;
 
         public Form1(PresentationModel model)
         {
             InitializeComponent();
-            CreateComponents();
-            ResizeRedraw = true;
-            DoubleBuffered = true;
             _presentModel = model;
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
+            CreateAndInitializeComponents();
         }
 
         /* 有形狀變動時需要更新data grid */
@@ -33,7 +32,7 @@ namespace PowerPoint
         /* 在畫布上鬆開滑鼠按鍵時的event */
         private void DoDrawPanelMouseUp(object sender, MouseEventArgs e)
         {
-            _presentModel.DoMouseUp(e, _toolButtonList);
+            _presentModel.DoMouseUp(e, _toolStripButtons);
             Cursor = Cursors.Default;
         }
 
@@ -90,10 +89,9 @@ namespace PowerPoint
             UpdateDataGrid(rowIndex, shape);
         }
 
-        /* toolstrip按鈕上的button被按到時的event */
-        private void DoToolButtonClick(object sender, ToolStripItemClickedEventArgs e)
+        /* change cursor */
+        private void ChangeCursor()
         {
-            _presentModel.DoToolStripButtonClick(e.ClickedItem, _toolButtonList);
             if (_presentModel.SelectedShapeType != ShapeType.None)
             {
                 Cursor = Cursors.Cross;
@@ -102,6 +100,27 @@ namespace PowerPoint
             {
                 Cursor = Cursors.Default;
             }
+        }
+
+        /* '/' button被點擊時的event */
+        private void DoToolStripButtonLineClick(object sender, EventArgs e)
+        {
+            _presentModel.DoToolStripButtonClick(sender, _toolStripButtons, ShapeType.Line);
+            ChangeCursor();
+        }
+
+        /* '[]' button被點擊時的event */
+        private void DoToolStripButtonRectangleClick(object sender, EventArgs e)
+        {
+            _presentModel.DoToolStripButtonClick(sender, _toolStripButtons, ShapeType.Rectangle);
+            ChangeCursor();
+        }
+
+        /* 'O' button被點擊時的event */
+        private void DoToolStripButtonCircleClick(object sender, EventArgs e)
+        {
+            _presentModel.DoToolStripButtonClick(sender, _toolStripButtons, ShapeType.Circle);
+            ChangeCursor();
         }
     }
 }

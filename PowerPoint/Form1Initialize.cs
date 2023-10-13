@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace PowerPoint
@@ -7,11 +6,37 @@ namespace PowerPoint
     public partial class Form1 : Form
     {
         /* create components */
-        private void CreateComponents()
+        private void CreateAndInitializeComponents()
         {
+            CreateToolStripButtonList();
+            CreateDrawPanel();
             HandlePresentationModelEvent();
-            CreateToolButtons();
-            AssignDrawPanelEvent();
+            HandleDrawPanelEvent();
+        }
+
+        /* create toolstrip button list */
+        private void CreateToolStripButtonList()
+        {
+            _toolStripButtons = new List<ToolStripButton>();
+            foreach (var item in _toolStrip1.Items)
+            {
+                if (item is ToolStripButton)
+                {
+                    var button = (ToolStripButton)item;
+                    _toolStripButtons.Add(button);
+                }
+            }
+        }
+
+        /* create draw panel */
+        private void CreateDrawPanel()
+        {
+            _drawPanel = new DoubleBufferedPanel
+            {
+                Dock = DockStyle.Fill,
+                BackColor = System.Drawing.Color.White
+            };
+            _tableLayoutPanel1.Controls.Add(_drawPanel);
         }
 
         /* Handle presentation model 的 event */
@@ -21,27 +46,8 @@ namespace PowerPoint
             _presentModel._shouldUpdateDataGrid += UpdateDataGrid;
         }
 
-        /* 把button放到toolstrip上 */
-        private void CreateToolButtons()
-        {
-            const string LINE = "/";
-            const string RECTANGLE = "[]";
-            const string CIRCLE = "O";
-            var lineButton = new ToolStripButton();
-            lineButton.Text = LINE;
-            var rectangleButton = new ToolStripButton();
-            rectangleButton.Text = RECTANGLE;
-            var circleButton = new ToolStripButton();
-            circleButton.Text = CIRCLE;
-            _toolButtonList = new List<Tuple<ToolStripButton, ShapeType>>();
-            _toolButtonList.Add(Tuple.Create(lineButton, ShapeType.Line));
-            _toolButtonList.Add(Tuple.Create(rectangleButton, ShapeType.Rectangle));
-            _toolButtonList.Add(Tuple.Create(circleButton, ShapeType.Circle));
-            _toolButtonList.ForEach((tuple) => _toolStrip1.Items.Add(tuple.Item1));
-        }
-
         /* Handl draw panel 的 event */
-        private void AssignDrawPanelEvent()
+        private void HandleDrawPanelEvent()
         {
             _drawPanel.MouseUp += DoDrawPanelMouseUp;
             _drawPanel.MouseMove += DoDrawPanelMouseMove;

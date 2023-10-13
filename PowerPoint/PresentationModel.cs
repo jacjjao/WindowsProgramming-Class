@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Point = System.Drawing.Point;
@@ -34,18 +33,17 @@ namespace PowerPoint
 
         public PresentationModel(Model model)
         {
+            _model = model;
             SelectedShapeType = ShapeType.None;
             const float WIDTH = 1.0f;
             DrawPen = new Pen(Color.Red, WIDTH);
-            _model = model;
         }
 
         /* 更新toolstrip button上的Checked屬性 */
-        public void DoToolStripButtonClick(object clickedButton, List<Tuple<ToolStripButton, ShapeType>> list)
+        public void DoToolStripButtonClick(object clickedButton, List<ToolStripButton> list, ShapeType type)
         {
-            foreach (var tuple in list)
+            foreach (var button in list)
             {
-                var (button, shapeType) = tuple;
                 if (!button.Equals(clickedButton))
                 {
                     button.Checked = false;
@@ -53,7 +51,7 @@ namespace PowerPoint
                 else
                 {
                     button.Checked = !(button.Checked);
-                    SelectedShapeType = button.Checked ? shapeType : ShapeType.None;
+                    SelectedShapeType = button.Checked ? type : ShapeType.None;
                 }
             }
         }
@@ -81,7 +79,7 @@ namespace PowerPoint
         }
 
         /* 在draw panel上放開滑鼠按鈕的event */
-        public void DoMouseUp(MouseEventArgs e, List<Tuple<ToolStripButton, ShapeType>> list)
+        public void DoMouseUp(MouseEventArgs e, List<ToolStripButton> list)
         {
             if (!_mousePressed)
                 return;
@@ -89,11 +87,7 @@ namespace PowerPoint
             _drawEndPos = e.Location;
             _model.ShapesList[_model.ShapesList.Count - 1] = _model.CreateShape(SelectedShapeType, _drawStartPos, _drawEndPos);
             SelectedShapeType = ShapeType.None;
-            foreach (var tuple in list)
-            {
-                var (button, _) = tuple;
-                button.Checked = false;
-            }
+            list.ForEach((button) => button.Checked = false);
             int last = _model.ShapesList.Count - 1;
             if (_shouldUpdateDataGrid != null)
             {
