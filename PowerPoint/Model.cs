@@ -1,42 +1,44 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.ComponentModel;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {
     public class Model
     {
-        private readonly ShapesFactory _factory;
+        private readonly ShapesFactory _factory = new ShapesFactory();
 
-        public List<Shape> ShapesList
+        public BindingList<IShape> ShapesList
         {
             get;
         }
 
         public Model()
         {
-            ShapesList = new List<Shape>();
-            _factory = new ShapesFactory();
+            ShapesList = new BindingList<IShape>
+            {
+                AllowNew = true,
+                AllowRemove = true,
+                RaiseListChangedEvents = true,
+                AllowEdit = true
+            };
         }
 
         /* create shape */
-        public Shape CreateShape(ShapeType type, Point pointFirst, Point pointSecond)
+        public IShape CreateShape(ShapeType type, Point pointFirst, Point pointSecond)
         {
             return _factory.CreateShape(type, pointFirst, pointSecond);
         }
 
         /* add shape */
-        public Shape AddShape(ShapeType type)
+        public void AddShape(ShapeType type)
         {
             ShapesList.Add(_factory.CreateRandomShape(type));
-            return ShapesList.Last();
         }
 
         /* add shape */
-        public Shape AddShape(ShapeType type, Point pointFirst, Point pointSecond)
+        public void AddShape(ShapeType type, Point pointFirst, Point pointSecond)
         {
             ShapesList.Add(_factory.CreateShape(type, pointFirst, pointSecond));
-            return ShapesList.Last();
         }
     }
 }

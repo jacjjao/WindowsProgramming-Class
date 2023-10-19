@@ -1,6 +1,6 @@
 ﻿namespace PowerPoint
 {
-    public interface Shape
+    public interface IShape
     {
         /* get info */
         string GetInfo();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace PowerPoint
@@ -10,20 +11,33 @@ namespace PowerPoint
         private readonly PresentationModel _presentModel;
         private DoubleBufferedPanel _drawPanel;
 
-        public Form1(PresentationModel model)
+        public Form1(PresentationModel presentationModel)
         {
             InitializeComponent();
-            _presentModel = model;
+            _presentModel = presentationModel;
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
             CreateAndInitializeComponents();
+            _presentModel._model.ShapesList.ListChanged += new ListChangedEventHandler(UpdateDataGrid);
         }
 
         /* 有形狀變動時需要更新data grid */
-        private void UpdateDataGrid(int index, Shape shape)
+        private void UpdateDataGrid(object sender, ListChangedEventArgs e)
         {
+            if (_presentModel._model.ShapesList.Count < _dataGridView.Rows.Count)
+            {
+                _dataGridView.Rows.RemoveAt(e.NewIndex);
+                return;
+            }
+            const int DELETE_COLUMN = 0;
             const int SHAPE_COLUMN = 1;
             const int INFO_COLUMN = 2;
-            var row = _dataGridView.Rows[index];
+            if (_presentModel._model.ShapesList.Count > _dataGridView.Rows.Count)
+            {
+                int rowIndex = _dataGridView.Rows.Add();
+                _dataGridView.Rows[rowIndex].Cells[DELETE_COLUMN].Value = new DataGridViewButtonCell();
+            }
+            var row = _dataGridView.Rows[e.NewIndex];
+            var shape = _presentModel._model.ShapesList[e.NewIndex];
             row.Cells[SHAPE_COLUMN].Value = shape.GetShapeName();
             row.Cells[INFO_COLUMN].Value = shape.GetInfo();
             _drawPanel.Invalidate();
@@ -59,7 +73,7 @@ namespace PowerPoint
         {
             if (_shapeComboBox.SelectedIndex < 0)
                 return;
-            _presentModel.AddShape((ShapeType)_shapeComboBox.SelectedIndex);
+            _presentModel._model.AddShape((ShapeType)_shapeComboBox.SelectedIndex);
         }
 
         /* 處理DataGridView上的"刪除"按鈕被按的event */
@@ -67,20 +81,9 @@ namespace PowerPoint
         {
             if (_dataGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                _presentModel.RemoveShape(e.RowIndex);
-                _dataGridView.Rows.RemoveAt(e.RowIndex);
+                _presentModel._model.ShapesList.RemoveAt(e.RowIndex);
                 _drawPanel.Invalidate();
             }
-        }
-
-        /* 處理有新的形狀加入時的event */
-        private void DoNewShapeAdd(object sender, Shape shape)
-        {
-            const int DELETE_COLUMN = 0;
-            int rowIndex = _dataGridView.Rows.Add();
-            var row = _dataGridView.Rows[rowIndex];
-            row.Cells[DELETE_COLUMN].Value = new DataGridViewButtonCell();
-            UpdateDataGrid(rowIndex, shape);
         }
 
         /* change cursor */

@@ -1,22 +1,42 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 
 namespace PowerPoint
 {
-    class Rectangle : Shape
+    class Rectangle : IShape, INotifyPropertyChanged
     {
+        private Point _topLeftPoint = new Point();
+        private Point _size = new Point();
+
         public Point TopLeftPoint
         {
-            get;
-            set;
+            get
+            {
+                return _topLeftPoint;
+            }
+            set
+            {
+                _topLeftPoint = value;
+                NotifyPropertyChanged();
+            }
         }
         public Point Size
         {
-            get;
-            set;
+            get
+            {
+                return _size;
+            }
+            set
+            {
+                _size = value;
+                NotifyPropertyChanged();
+            }
         }
 
         private const string SHAPE_NAME = "矩形";
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public Rectangle()
         {
@@ -51,6 +71,15 @@ namespace PowerPoint
         public void Draw(Graphics graphics, Pen pen)
         {
             graphics.DrawRectangle(pen, TopLeftPoint.X, TopLeftPoint.Y, Size.X, Size.Y);
+        }
+
+        /* notify */
+        private void NotifyPropertyChanged(string propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

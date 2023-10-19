@@ -1,27 +1,41 @@
-﻿using System.Drawing;
+﻿using System.ComponentModel;
+using System.Drawing;
 
 namespace PowerPoint
 {
-    class Line : Shape
+    class Line : IShape, INotifyPropertyChanged
     {
+        private Point _startPoint = new Point();
+        private Point _endPoint = new Point();
+
         public Point StartPoint
         {
-            get;
-            set;
+            get
+            {
+                return _startPoint;
+            }
+            set
+            {
+                _startPoint = value;
+                NotifyPropertyChanged();
+            }
         }
         public Point EndPoint
         {
-            get;
-            set;
+            get
+            {
+                return _endPoint;
+            }
+            set
+            {
+                _endPoint = value;
+                NotifyPropertyChanged();
+            }
         }
 
         private const string SHAPE_NAME = "線";
 
-        public Line()
-        {
-            StartPoint = new Point();
-            EndPoint = new Point();
-        }
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public Line(Point pointFirst, Point pointSecond)
         {
@@ -54,6 +68,15 @@ namespace PowerPoint
         public void Draw(Graphics graphics, Pen pen)
         {
             graphics.DrawLine(pen, StartPoint, EndPoint);
+        }
+
+        /* notify */
+        private void NotifyPropertyChanged(string propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

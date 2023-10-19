@@ -1,37 +1,54 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 
 namespace PowerPoint
 {
-    class Circle : Shape
+    class Circle : IShape, INotifyPropertyChanged
     {
+        private int _radius;
+        private Point _position = new Point();
+
         public int Radius
         {
-            get;
-            set;
+            get
+            {
+                return _radius;
+            }
+            set
+            {
+                _radius = value;
+                NotifyPropertyChanged();
+            }
         }
 
         public Point Position
         {
-            get;
-            set;
-        }
-
-        public Circle()
-        {
-            Position = new Point();
+            get
+            {
+                return _position;
+            }
+            set
+            {
+                _position = value;
+                NotifyPropertyChanged();
+            }
         }
 
         public Circle(Point pointFirst, Point pointSecond)
         {
-            Point point = new Point();
-            point.X = pointSecond.X - pointFirst.X;
-            point.Y = pointSecond.Y - pointFirst.Y;
             Position = pointFirst;
-            Radius = (int)Math.Sqrt(point.X * point.X + point.Y * point.Y);
+            var radius = new Point()
+            {
+                X = pointSecond.X - pointFirst.X,
+                Y = pointSecond.Y - pointFirst.Y
+            };
+            Radius = (int)Math.Sqrt(radius.X * radius.X + radius.Y * radius.Y);
         }
 
         const string SHAPE_NAME = "圓形";
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /* get info */
         public string GetInfo()
@@ -50,6 +67,15 @@ namespace PowerPoint
         public void Draw(Graphics graphics, Pen pen)
         {
             graphics.DrawEllipse(pen, Position.X - Radius, Position.Y - Radius, Radius + Radius, Radius + Radius);
+        }
+
+        /* notify */
+        private void NotifyPropertyChanged(string propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

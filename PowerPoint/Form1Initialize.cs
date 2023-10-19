@@ -10,7 +10,6 @@ namespace PowerPoint
         {
             CreateToolStripButtonList();
             CreateDrawPanel();
-            HandlePresentationModelEvent();
             HandleDrawPanelEvent();
         }
 
@@ -37,13 +36,6 @@ namespace PowerPoint
                 BackColor = System.Drawing.Color.White
             };
             _tableLayoutPanel1.Controls.Add(_drawPanel);
-        }
-
-        /* Handle presentation model 的 event */
-        private void HandlePresentationModelEvent()
-        {
-            _presentModel._onNewShapeAdd += DoNewShapeAdd;
-            _presentModel._shouldUpdateDataGrid += UpdateDataGrid;
         }
 
         /* Handl draw panel 的 event */

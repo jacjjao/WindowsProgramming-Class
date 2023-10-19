@@ -7,25 +7,24 @@ namespace PowerPoint
 {
     public class PresentationModel
     {
-        public delegate void OnNewShapeAddedEventHandler(object sender, Shape shape);
-        public event OnNewShapeAddedEventHandler _onNewShapeAdd;
-
-        public delegate void ShouldUpdatedDataGridEventHandler(int index, Shape shape);
-        public event ShouldUpdatedDataGridEventHandler _shouldUpdateDataGrid;
-
         public ShapeType SelectedShapeType
         {
-            set;
             get;
+            set;
         }
 
         public Pen DrawPen
         {
+            get;
             set;
+        }
+
+        public List<bool> CheckList
+        {
             get;
         }
 
-        private readonly Model _model;
+        public readonly Model _model;
 
         private Point _drawStartPos;
         private Point _drawEndPos;
@@ -59,23 +58,10 @@ namespace PowerPoint
         /* 畫出所有形狀 */
         public void DrawAll(Graphics graphics)
         {
-            _model.ShapesList.ForEach((shape) => shape.Draw(graphics, DrawPen));
-        }
-
-        /* 新增新的形狀並通知form要更新data grid */
-        public void AddShape(ShapeType type)
-        {
-            var shape = _model.AddShape(type);
-            if (_onNewShapeAdd != null)
+            for (int i = 0; i < _model.ShapesList.Count; i++)
             {
-                _onNewShapeAdd.Invoke(this, shape);
+                _model.ShapesList[i].Draw(graphics, DrawPen);
             }
-        }
-
-        /* 刪除形狀 */
-        public void RemoveShape(int index)
-        {
-            _model.ShapesList.RemoveAt(index);
         }
 
         /* 在draw panel上放開滑鼠按鈕的event */
@@ -88,11 +74,6 @@ namespace PowerPoint
             _model.ShapesList[_model.ShapesList.Count - 1] = _model.CreateShape(SelectedShapeType, _drawStartPos, _drawEndPos);
             SelectedShapeType = ShapeType.None;
             list.ForEach((button) => button.Checked = false);
-            int last = _model.ShapesList.Count - 1;
-            if (_shouldUpdateDataGrid != null)
-            {
-                _shouldUpdateDataGrid.Invoke(last, _model.ShapesList[last]);
-            }
         }
 
         /* 滑鼠在draw panel移動時的event */
@@ -104,11 +85,6 @@ namespace PowerPoint
             }
             _drawEndPos = e.Location;
             _model.ShapesList[_model.ShapesList.Count - 1] = _model.CreateShape(SelectedShapeType, _drawStartPos, _drawEndPos);
-            int last = _model.ShapesList.Count - 1;
-            if (_shouldUpdateDataGrid != null)
-            {
-                _shouldUpdateDataGrid.Invoke(last, _model.ShapesList[last]);
-            }
         }
 
         /* 在draw panel上按下滑鼠的event */
@@ -120,11 +96,7 @@ namespace PowerPoint
             }
             _mousePressed = true;
             _drawStartPos = _drawEndPos = e.Location;
-            var shape = _model.AddShape(SelectedShapeType, _drawStartPos, _drawEndPos);
-            if (_onNewShapeAdd != null)
-            {
-                _onNewShapeAdd.Invoke(this, shape);
-            }
+            _model.AddShape(SelectedShapeType, _drawStartPos, _drawEndPos);
         }
     }
 }
