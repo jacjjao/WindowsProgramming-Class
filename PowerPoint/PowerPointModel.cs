@@ -3,7 +3,7 @@ using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {
-    public class Model
+    public class PowerPointModel
     {
         private readonly ShapesFactory _factory = new ShapesFactory();
 
@@ -12,7 +12,7 @@ namespace PowerPoint
             get;
         }
 
-        public Model()
+        public PowerPointModel()
         {
             ShapesList = new BindingList<IShape>
             {
@@ -21,6 +21,15 @@ namespace PowerPoint
                 RaiseListChangedEvents = true,
                 AllowEdit = true
             };
+        }
+
+        /* draw all */
+        public void DrawAll(System.Drawing.Graphics graphics, System.Drawing.Pen pen)
+        {
+            for (int i = 0; i < ShapesList.Count; i++)
+            {
+                ShapesList[i].Draw(graphics, pen);
+            }
         }
 
         /* create shape */

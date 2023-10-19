@@ -6,6 +6,8 @@ namespace PowerPoint
 {
     class Rectangle : IShape, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private Point _topLeftPoint = new Point();
         private Point _size = new Point();
 
@@ -35,8 +37,6 @@ namespace PowerPoint
         }
 
         private const string SHAPE_NAME = "矩形";
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public Rectangle()
         {

@@ -13,7 +13,7 @@ namespace PowerPoint
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var model = new Model();
+            var model = new PowerPointModel();
             var presentationModel = new PresentationModel(model);
             Application.Run(new Form1(presentationModel));
         }

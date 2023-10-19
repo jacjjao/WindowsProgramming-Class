@@ -5,6 +5,8 @@ namespace PowerPoint
 {
     class Line : IShape, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private Point _startPoint = new Point();
         private Point _endPoint = new Point();
 
@@ -34,8 +36,6 @@ namespace PowerPoint
         }
 
         private const string SHAPE_NAME = "線";
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public Line(Point pointFirst, Point pointSecond)
         {

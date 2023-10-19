@@ -24,44 +24,45 @@ namespace PowerPoint
             get;
         }
 
-        public readonly Model _model;
+        public PowerPointModel Model
+        {
+            get;
+        }
 
         private Point _drawStartPos;
         private Point _drawEndPos;
         private bool _mousePressed = false;
 
-        public PresentationModel(Model model)
+        public PresentationModel(PowerPointModel model)
         {
-            _model = model;
+            Model = model;
             SelectedShapeType = ShapeType.None;
             const float WIDTH = 1.0f;
             DrawPen = new Pen(Color.Red, WIDTH);
+            CheckList = new List<bool>(new bool[Form1.TOOL_STRIP_BUTTON_COUNT]);
         }
 
         /* 更新toolstrip button上的Checked屬性 */
-        public void DoToolStripButtonClick(object clickedButton, List<ToolStripButton> list, ShapeType type)
+        public void DoToolStripButtonClick(int index, ShapeType type)
         {
-            foreach (var button in list)
+            for (int i = 0; i < CheckList.Count; i++)
             {
-                if (!button.Equals(clickedButton))
+                if (i == index)
                 {
-                    button.Checked = false;
+                    CheckList[i] = !CheckList[i];
                 }
                 else
                 {
-                    button.Checked = !(button.Checked);
-                    SelectedShapeType = button.Checked ? type : ShapeType.None;
+                    CheckList[i] = false;
                 }
             }
+            SelectedShapeType = CheckList[index] ? type : ShapeType.None;
         }
 
         /* 畫出所有形狀 */
         public void DrawAll(Graphics graphics)
         {
-            for (int i = 0; i < _model.ShapesList.Count; i++)
-            {
-                _model.ShapesList[i].Draw(graphics, DrawPen);
-            }
+            Model.DrawAll(graphics, DrawPen);
         }
 
         /* 在draw panel上放開滑鼠按鈕的event */
@@ -71,7 +72,7 @@ namespace PowerPoint
                 return;
             _mousePressed = false;
             _drawEndPos = e.Location;
-            _model.ShapesList[_model.ShapesList.Count - 1] = _model.CreateShape(SelectedShapeType, _drawStartPos, _drawEndPos);
+            Model.ShapesList[Model.ShapesList.Count - 1] = Model.CreateShape(SelectedShapeType, _drawStartPos, _drawEndPos);
             SelectedShapeType = ShapeType.None;
             list.ForEach((button) => button.Checked = false);
         }
@@ -84,7 +85,7 @@ namespace PowerPoint
                 return;
             }
             _drawEndPos = e.Location;
-            _model.ShapesList[_model.ShapesList.Count - 1] = _model.CreateShape(SelectedShapeType, _drawStartPos, _drawEndPos);
+            Model.ShapesList[Model.ShapesList.Count - 1] = Model.CreateShape(SelectedShapeType, _drawStartPos, _drawEndPos);
         }
 
         /* 在draw panel上按下滑鼠的event */
@@ -96,7 +97,7 @@ namespace PowerPoint
             }
             _mousePressed = true;
             _drawStartPos = _drawEndPos = e.Location;
-            _model.AddShape(SelectedShapeType, _drawStartPos, _drawEndPos);
+            Model.AddShape(SelectedShapeType, _drawStartPos, _drawEndPos);
         }
     }
 }

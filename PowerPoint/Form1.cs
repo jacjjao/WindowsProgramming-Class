@@ -7,6 +7,7 @@ namespace PowerPoint
 {
     public partial class Form1 : Form
     {
+        public const int TOOL_STRIP_BUTTON_COUNT = 3;
         private List<ToolStripButton> _toolStripButtons;
         private readonly PresentationModel _presentModel;
         private DoubleBufferedPanel _drawPanel;
@@ -15,15 +16,15 @@ namespace PowerPoint
         {
             InitializeComponent();
             _presentModel = presentationModel;
+            _presentModel.Model.ShapesList.ListChanged += new ListChangedEventHandler(UpdateDataGrid);
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
             CreateAndInitializeComponents();
-            _presentModel._model.ShapesList.ListChanged += new ListChangedEventHandler(UpdateDataGrid);
         }
 
         /* 有形狀變動時需要更新data grid */
         private void UpdateDataGrid(object sender, ListChangedEventArgs e)
         {
-            if (_presentModel._model.ShapesList.Count < _dataGridView.Rows.Count)
+            if (_presentModel.Model.ShapesList.Count < _dataGridView.Rows.Count)
             {
                 _dataGridView.Rows.RemoveAt(e.NewIndex);
                 return;
@@ -31,15 +32,14 @@ namespace PowerPoint
             const int DELETE_COLUMN = 0;
             const int SHAPE_COLUMN = 1;
             const int INFO_COLUMN = 2;
-            if (_presentModel._model.ShapesList.Count > _dataGridView.Rows.Count)
+            if (_presentModel.Model.ShapesList.Count > _dataGridView.Rows.Count)
             {
                 int rowIndex = _dataGridView.Rows.Add();
                 _dataGridView.Rows[rowIndex].Cells[DELETE_COLUMN].Value = new DataGridViewButtonCell();
             }
             var row = _dataGridView.Rows[e.NewIndex];
-            var shape = _presentModel._model.ShapesList[e.NewIndex];
-            row.Cells[SHAPE_COLUMN].Value = shape.GetShapeName();
-            row.Cells[INFO_COLUMN].Value = shape.GetInfo();
+            row.Cells[SHAPE_COLUMN].Value = _presentModel.Model.ShapesList[e.NewIndex].GetShapeName();
+            row.Cells[INFO_COLUMN].Value = _presentModel.Model.ShapesList[e.NewIndex].GetInfo();
             _drawPanel.Invalidate();
         }
 
@@ -73,7 +73,7 @@ namespace PowerPoint
         {
             if (_shapeComboBox.SelectedIndex < 0)
                 return;
-            _presentModel._model.AddShape((ShapeType)_shapeComboBox.SelectedIndex);
+            _presentModel.Model.AddShape((ShapeType)_shapeComboBox.SelectedIndex);
         }
 
         /* 處理DataGridView上的"刪除"按鈕被按的event */
@@ -81,7 +81,7 @@ namespace PowerPoint
         {
             if (_dataGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                _presentModel._model.ShapesList.RemoveAt(e.RowIndex);
+                _presentModel.Model.ShapesList.RemoveAt(e.RowIndex);
                 _drawPanel.Invalidate();
             }
         }
@@ -99,24 +99,36 @@ namespace PowerPoint
             }
         }
 
+        /* 更新toolstrip button的Check屬性 */
+        private void RefreshModelCheckList()
+        {
+            for (int i = 0; i < _toolStripButtons.Count; i++)
+            {
+                _toolStripButtons[i].Checked = _presentModel.CheckList[i];
+            }
+        }
+
         /* '/' button被點擊時的event */
         private void DoToolStripButtonLineClick(object sender, EventArgs e)
         {
-            _presentModel.DoToolStripButtonClick(sender, _toolStripButtons, ShapeType.Line);
+            _presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.Line);
+            RefreshModelCheckList();
             ChangeCursor();
         }
 
         /* '[]' button被點擊時的event */
         private void DoToolStripButtonRectangleClick(object sender, EventArgs e)
         {
-            _presentModel.DoToolStripButtonClick(sender, _toolStripButtons, ShapeType.Rectangle);
+            _presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.Rectangle);
+            RefreshModelCheckList();
             ChangeCursor();
         }
 
         /* 'O' button被點擊時的event */
         private void DoToolStripButtonCircleClick(object sender, EventArgs e)
         {
-            _presentModel.DoToolStripButtonClick(sender, _toolStripButtons, ShapeType.Circle);
+            _presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.Circle);
+            RefreshModelCheckList();
             ChangeCursor();
         }
     }

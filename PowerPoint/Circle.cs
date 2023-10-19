@@ -6,6 +6,8 @@ namespace PowerPoint
 {
     class Circle : IShape, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private int _radius;
         private Point _position = new Point();
 
@@ -38,17 +40,13 @@ namespace PowerPoint
         public Circle(Point pointFirst, Point pointSecond)
         {
             Position = pointFirst;
-            var radius = new Point()
-            {
-                X = pointSecond.X - pointFirst.X,
-                Y = pointSecond.Y - pointFirst.Y
-            };
+            var radius = new Point();
+            radius.X = pointSecond.X - pointFirst.X;
+            radius.Y = pointSecond.Y - pointFirst.Y;
             Radius = (int)Math.Sqrt(radius.X * radius.X + radius.Y * radius.Y);
         }
 
         const string SHAPE_NAME = "圓形";
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /* get info */
         public string GetInfo()
