@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace PowerPoint
 {
-    class Rectangle : IShape, INotifyPropertyChanged
+    class Rectangle : IShape
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

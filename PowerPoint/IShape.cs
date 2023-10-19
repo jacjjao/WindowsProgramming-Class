@@ -1,6 +1,8 @@
-﻿namespace PowerPoint
+﻿using System.ComponentModel;
+
+namespace PowerPoint
 {
-    public interface IShape
+    public interface IShape : INotifyPropertyChanged
     {
         /* get info */
         string GetInfo();

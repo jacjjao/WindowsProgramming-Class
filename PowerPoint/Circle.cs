@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace PowerPoint
 {
-    class Circle : IShape, INotifyPropertyChanged
+    class Circle : IShape
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

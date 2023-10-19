@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace PowerPoint
 {
-    class Line : IShape, INotifyPropertyChanged
+    class Line : IShape
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

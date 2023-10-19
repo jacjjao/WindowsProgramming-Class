@@ -10,7 +10,6 @@ namespace PowerPoint
         {
             CreateToolStripButtonList();
             CreateDrawPanel();
-            HandleDrawPanelEvent();
         }
 
         /* create toolstrip button list */
@@ -36,11 +35,6 @@ namespace PowerPoint
                 BackColor = System.Drawing.Color.White
             };
             _tableLayoutPanel1.Controls.Add(_drawPanel);
-        }
-
-        /* Handl draw panel 的 event */
-        private void HandleDrawPanelEvent()
-        {
             _drawPanel.MouseUp += DoDrawPanelMouseUp;
             _drawPanel.MouseMove += DoDrawPanelMouseMove;
             _drawPanel.MouseDown += DoDrawPanelMouseDown;
