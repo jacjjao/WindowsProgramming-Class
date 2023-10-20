@@ -49,5 +49,11 @@ namespace PowerPoint
         {
             ShapesList.Add(_factory.CreateShape(type, pointFirst, pointSecond));
         }
+
+        /* remove at */
+        public void RemoveAt(int index)
+        {
+            ShapesList.RemoveAt(index);
+        }
     }
 }

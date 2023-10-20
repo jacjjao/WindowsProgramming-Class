@@ -7,6 +7,11 @@ namespace PowerPoint
 {
     public class PresentationModel
     {
+        public delegate void CheckListChangedEventHandler();
+        public event CheckListChangedEventHandler _checkListChanged;
+
+        public const int TOOL_STRIP_BUTTON_COUNT = 3;
+
         public ShapeType SelectedShapeType
         {
             get;
@@ -39,7 +44,7 @@ namespace PowerPoint
             SelectedShapeType = ShapeType.None;
             const float WIDTH = 1.0f;
             DrawPen = new Pen(Color.Red, WIDTH);
-            CheckList = new List<bool>(new bool[Form1.TOOL_STRIP_BUTTON_COUNT]);
+            CheckList = new List<bool>(new bool[TOOL_STRIP_BUTTON_COUNT]);
         }
 
         /* 更新toolstrip button上的Checked屬性 */
@@ -57,6 +62,7 @@ namespace PowerPoint
                 }
             }
             SelectedShapeType = CheckList[index] ? type : ShapeType.None;
+            DoListChange();
         }
 
         /* 畫出所有形狀 */
@@ -66,7 +72,7 @@ namespace PowerPoint
         }
 
         /* 在draw panel上放開滑鼠按鈕的event */
-        public void DoMouseUp(MouseEventArgs e, List<ToolStripButton> list)
+        public void DoMouseUp(MouseEventArgs e)
         {
             if (!_mousePressed)
                 return;
@@ -74,7 +80,11 @@ namespace PowerPoint
             _drawEndPos = e.Location;
             Model.ShapesList[Model.ShapesList.Count - 1] = Model.CreateShape(SelectedShapeType, _drawStartPos, _drawEndPos);
             SelectedShapeType = ShapeType.None;
-            list.ForEach((button) => button.Checked = false);
+            for (int i = 0; i < CheckList.Count; i++)
+            {
+                CheckList[i] = false;
+            }
+            DoListChange();
         }
 
         /* 滑鼠在draw panel移動時的event */
@@ -98,6 +108,15 @@ namespace PowerPoint
             _mousePressed = true;
             _drawStartPos = _drawEndPos = e.Location;
             Model.AddShape(SelectedShapeType, _drawStartPos, _drawEndPos);
+        }
+
+        /* fire event */
+        private void DoListChange()
+        {
+            if (_checkListChanged != null)
+            {
+                _checkListChanged();
+            }
         }
     }
 }

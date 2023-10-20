@@ -6,10 +6,10 @@ namespace PowerPoint
 {
     class Circle : Shape
     {
-        private int _radius;
+        private Point _radius = new Point();
         private Point _position = new Point();
 
-        public int Radius
+        public Point Radius
         {
             get
             {
@@ -37,11 +37,11 @@ namespace PowerPoint
 
         public Circle(Point pointFirst, Point pointSecond)
         {
-            Position = pointFirst;
-            var radius = new Point();
-            radius.X = pointSecond.X - pointFirst.X;
-            radius.Y = pointSecond.Y - pointFirst.Y;
-            Radius = (int)Math.Sqrt(radius.X * radius.X + radius.Y * radius.Y);
+            const int TWO = 2;
+            _position.X = Math.Abs(pointFirst.X + pointSecond.X) / TWO;
+            _position.Y = Math.Abs(pointFirst.Y + pointSecond.Y) / TWO;
+            _radius.X = Math.Abs(pointSecond.X - pointFirst.X) / TWO;
+            _radius.Y = Math.Abs(pointSecond.Y - pointFirst.Y) / TWO;
         }
 
         const string SHAPE_NAME = "圓形";
@@ -62,7 +62,8 @@ namespace PowerPoint
         /* draw circle */
         public override void Draw(Graphics graphics, Pen pen)
         {
-            graphics.DrawEllipse(pen, Position.X - Radius, Position.Y - Radius, Radius + Radius, Radius + Radius);
+            const int TWO = 2;
+            graphics.DrawEllipse(pen, Position.X - Radius.X, Position.Y - Radius.Y, Radius.X * TWO, Radius.Y * TWO);
         }
     }
 }

@@ -7,25 +7,34 @@ namespace PowerPoint
 {
     public partial class Form1 : Form
     {
-        public const int TOOL_STRIP_BUTTON_COUNT = 3;
         private List<ToolStripButton> _toolStripButtons;
         private readonly PresentationModel _presentModel;
         private DoubleBufferedPanel _drawPanel;
-        private BindingSource _bindingSource = new BindingSource();
+        private readonly BindingSource _bindingSource = new BindingSource();
 
         public Form1(PresentationModel presentationModel)
         {
             InitializeComponent();
             _presentModel = presentationModel;
+            _presentModel._checkListChanged += DoCheckListChanged;
+            _presentModel.Model.ShapesList.ListChanged += UpdateDrawPanel;
             _bindingSource.DataSource = _presentModel.Model.ShapesList;
             _dataGridView.DataSource = _bindingSource;
-            _presentModel.Model.ShapesList.ListChanged += UpdateDataGrid;
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
             CreateAndInitializeComponents();
         }
 
-        /* 有形狀變動時需要更新data grid */
-        private void UpdateDataGrid(object sender, ListChangedEventArgs e)
+        /* on check list changed */
+        private void DoCheckListChanged()
+        {
+            for (int i = 0; i < _toolStripButtons.Count; i++)
+            {
+                _toolStripButtons[i].Checked = _presentModel.CheckList[i];
+            }
+        }
+
+        /* 有形狀變動時重畫 */
+        private void UpdateDrawPanel(object sender, ListChangedEventArgs e)
         {
             _drawPanel.Invalidate();
         }
@@ -33,7 +42,7 @@ namespace PowerPoint
         /* 在畫布上鬆開滑鼠按鍵時的event */
         private void DoDrawPanelMouseUp(object sender, MouseEventArgs e)
         {
-            _presentModel.DoMouseUp(e, _toolStripButtons);
+            _presentModel.DoMouseUp(e);
             Cursor = Cursors.Default;
         }
 
@@ -68,7 +77,7 @@ namespace PowerPoint
         {
             if (_dataGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                _presentModel.Model.ShapesList.RemoveAt(e.RowIndex);
+                _presentModel.Model.RemoveAt(e.RowIndex);
                 _drawPanel.Invalidate();
             }
         }

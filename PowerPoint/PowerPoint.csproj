@@ -82,11 +82,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Properties\DataSources\Circle.datasource" />
-    <None Include="Properties\DataSources\IShape.datasource" />
-    <None Include="Properties\DataSources\Line.datasource" />
-    <None Include="Properties\DataSources\Rectangle.datasource" />
-    <None Include="Properties\DataSources\Shape.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
