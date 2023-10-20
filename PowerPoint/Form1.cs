@@ -11,12 +11,16 @@ namespace PowerPoint
         private List<ToolStripButton> _toolStripButtons;
         private readonly PresentationModel _presentModel;
         private DoubleBufferedPanel _drawPanel;
+        private BindingSource _bindingSource = new BindingSource();
+        private BindingContext _bindingContext = new BindingContext();
 
         public Form1(PresentationModel presentationModel)
         {
             InitializeComponent();
             _presentModel = presentationModel;
-            _presentModel.Model.ShapesList.ListChanged += new ListChangedEventHandler(UpdateDataGrid);
+            _bindingSource.DataSource = _presentModel.Model.ShapesList;
+            _dataGridView.DataSource = _bindingSource;
+            // _presentModel.Model.ShapesList.ListChanged += UpdateDataGrid;
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
             CreateAndInitializeComponents();
         }
@@ -24,22 +28,13 @@ namespace PowerPoint
         /* 有形狀變動時需要更新data grid */
         private void UpdateDataGrid(object sender, ListChangedEventArgs e)
         {
-            if (_presentModel.Model.ShapesList.Count < _dataGridView.Rows.Count)
-            {
-                _dataGridView.Rows.RemoveAt(e.NewIndex);
-                return;
-            }
-            const int DELETE_COLUMN = 0;
             const int SHAPE_COLUMN = 1;
             const int INFO_COLUMN = 2;
-            if (_presentModel.Model.ShapesList.Count > _dataGridView.Rows.Count)
+            for (int i = 0; i < _presentModel.Model.ShapesList.Count; i++)
             {
-                int rowIndex = _dataGridView.Rows.Add();
-                _dataGridView.Rows[rowIndex].Cells[DELETE_COLUMN].Value = new DataGridViewButtonCell();
+                _dataGridView.Rows[i].Cells[SHAPE_COLUMN].Value = _presentModel.Model.ShapesList[i].GetShapeName();
+                _dataGridView.Rows[i].Cells[INFO_COLUMN].Value = _presentModel.Model.ShapesList[i].GetInfo();
             }
-            var row = _dataGridView.Rows[e.NewIndex];
-            row.Cells[SHAPE_COLUMN].Value = _presentModel.Model.ShapesList[e.NewIndex].GetShapeName();
-            row.Cells[INFO_COLUMN].Value = _presentModel.Model.ShapesList[e.NewIndex].GetInfo();
             _drawPanel.Invalidate();
         }
 
