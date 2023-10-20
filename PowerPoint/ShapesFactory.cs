@@ -6,7 +6,7 @@ namespace PowerPoint
     class ShapesFactory
     {
         /* create random shape */
-        public IShape CreateRandomShape(ShapeType type)
+        public Shape CreateRandomShape(ShapeType type)
         {
             const int POS_LOW = 150;
             const int POS_HIGH = 350;
@@ -19,9 +19,9 @@ namespace PowerPoint
         }
 
         /* create shape */
-        public IShape CreateShape(ShapeType type, Point pointFirst, Point pointSecond)
+        public Shape CreateShape(ShapeType type, Point pointFirst, Point pointSecond)
         {
-            IShape shape = null;
+            Shape shape = null;
             switch (type)
             {
                 case ShapeType.Rectangle:

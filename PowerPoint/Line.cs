@@ -3,10 +3,8 @@ using System.Drawing;
 
 namespace PowerPoint
 {
-    class Line : IShape
+    class Line : Shape
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private Point _startPoint = new Point();
         private Point _endPoint = new Point();
 
@@ -52,31 +50,22 @@ namespace PowerPoint
         }
 
         /* get info */
-        public string GetInfo()
+        public override string GetInfo()
         {
             const string FORMAT = "({0},{1})({2},{3})";
             return string.Format(FORMAT, StartPoint.X, StartPoint.Y, EndPoint.X, EndPoint.Y);
         }
 
         /* get shape name */
-        public string GetShapeName()
+        public override string GetShapeName()
         {
             return SHAPE_NAME;
         }
 
         /* draw line */
-        public void Draw(Graphics graphics, Pen pen)
+        public override void Draw(Graphics graphics, Pen pen)
         {
             graphics.DrawLine(pen, StartPoint, EndPoint);
-        }
-
-        /* notify */
-        private void NotifyPropertyChanged(string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
     }
 }

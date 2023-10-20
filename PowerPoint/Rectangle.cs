@@ -4,10 +4,8 @@ using System.Drawing;
 
 namespace PowerPoint
 {
-    class Rectangle : IShape
+    class Rectangle : Shape
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private Point _topLeftPoint = new Point();
         private Point _size = new Point();
 
@@ -55,31 +53,22 @@ namespace PowerPoint
         }
 
         /* get info */
-        public string GetInfo()
+        public override string GetInfo()
         {
             const string FORMAT = "({0},{1})({2},{3})";
             return string.Format(FORMAT, TopLeftPoint.X, TopLeftPoint.Y, TopLeftPoint.X + Size.X, TopLeftPoint.Y + Size.Y);
         }
 
         /* get shape name */
-        public string GetShapeName()
+        public override string GetShapeName()
         {
             return SHAPE_NAME;
         }
 
         /* draw rectangle */
-        public void Draw(Graphics graphics, Pen pen)
+        public override void Draw(Graphics graphics, Pen pen)
         {
             graphics.DrawRectangle(pen, TopLeftPoint.X, TopLeftPoint.Y, Size.X, Size.Y);
-        }
-
-        /* notify */
-        private void NotifyPropertyChanged(string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
     }
 }

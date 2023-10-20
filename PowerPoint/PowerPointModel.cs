@@ -7,14 +7,14 @@ namespace PowerPoint
     {
         private readonly ShapesFactory _factory = new ShapesFactory();
 
-        public BindingList<IShape> ShapesList
+        public BindingList<Shape> ShapesList
         {
             get;
         }
 
         public PowerPointModel()
         {
-            ShapesList = new BindingList<IShape>
+            ShapesList = new BindingList<Shape>
             {
                 AllowNew = true,
                 AllowRemove = true,
@@ -33,7 +33,7 @@ namespace PowerPoint
         }
 
         /* create shape */
-        public IShape CreateShape(ShapeType type, Point pointFirst, Point pointSecond)
+        public Shape CreateShape(ShapeType type, Point pointFirst, Point pointSecond)
         {
             return _factory.CreateShape(type, pointFirst, pointSecond);
         }

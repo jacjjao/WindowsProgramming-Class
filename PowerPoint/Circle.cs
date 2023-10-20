@@ -4,10 +4,8 @@ using System.Drawing;
 
 namespace PowerPoint
 {
-    class Circle : IShape
+    class Circle : Shape
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private int _radius;
         private Point _position = new Point();
 
@@ -49,31 +47,22 @@ namespace PowerPoint
         const string SHAPE_NAME = "圓形";
 
         /* get info */
-        public string GetInfo()
+        public override string GetInfo()
         {
             const string FORMAT = "({0},{1})";
             return string.Format(FORMAT, Position.X, Position.Y);
         }
 
         /* get shape name */
-        public string GetShapeName()
+        public override string GetShapeName()
         {
             return SHAPE_NAME;
         }
 
         /* draw circle */
-        public void Draw(Graphics graphics, Pen pen)
+        public override void Draw(Graphics graphics, Pen pen)
         {
             graphics.DrawEllipse(pen, Position.X - Radius, Position.Y - Radius, Radius + Radius, Radius + Radius);
-        }
-
-        /* notify */
-        private void NotifyPropertyChanged(string propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
     }
 }

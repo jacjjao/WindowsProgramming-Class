@@ -12,7 +12,6 @@ namespace PowerPoint
         private readonly PresentationModel _presentModel;
         private DoubleBufferedPanel _drawPanel;
         private BindingSource _bindingSource = new BindingSource();
-        private BindingContext _bindingContext = new BindingContext();
 
         public Form1(PresentationModel presentationModel)
         {
@@ -20,7 +19,7 @@ namespace PowerPoint
             _presentModel = presentationModel;
             _bindingSource.DataSource = _presentModel.Model.ShapesList;
             _dataGridView.DataSource = _bindingSource;
-            // _presentModel.Model.ShapesList.ListChanged += UpdateDataGrid;
+            _presentModel.Model.ShapesList.ListChanged += UpdateDataGrid;
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
             CreateAndInitializeComponents();
         }
@@ -28,13 +27,6 @@ namespace PowerPoint
         /* 有形狀變動時需要更新data grid */
         private void UpdateDataGrid(object sender, ListChangedEventArgs e)
         {
-            const int SHAPE_COLUMN = 1;
-            const int INFO_COLUMN = 2;
-            for (int i = 0; i < _presentModel.Model.ShapesList.Count; i++)
-            {
-                _dataGridView.Rows[i].Cells[SHAPE_COLUMN].Value = _presentModel.Model.ShapesList[i].GetShapeName();
-                _dataGridView.Rows[i].Cells[INFO_COLUMN].Value = _presentModel.Model.ShapesList[i].GetInfo();
-            }
             _drawPanel.Invalidate();
         }
 
