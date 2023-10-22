@@ -29,7 +29,7 @@ namespace PowerPoint
         public abstract string GetShapeName();
 
         /* draw */
-        public abstract void Draw(System.Drawing.Graphics graphics, System.Drawing.Pen pen);
+        public abstract void Draw(IGraphics graphics);
 
         /* notify */
         protected void NotifyPropertyChanged(string propertyName = "")

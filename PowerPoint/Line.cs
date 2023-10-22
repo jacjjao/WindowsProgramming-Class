@@ -63,9 +63,9 @@ namespace PowerPoint
         }
 
         /* draw line */
-        public override void Draw(Graphics graphics, Pen pen)
+        public override void Draw(IGraphics graphics)
         {
-            graphics.DrawLine(pen, StartPoint, EndPoint);
+            graphics.DrawLine(StartPoint, EndPoint);
         }
     }
 }

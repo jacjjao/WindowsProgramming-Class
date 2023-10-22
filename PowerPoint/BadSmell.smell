@@ -211,7 +211,12 @@
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Form1Initialize.cs</RelativePath>
+                <RelativePath>FormGraphicsAdapter.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>IGraphics.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -272,7 +277,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1167</ProductionLoc>
+          <ProductionLoc>1254</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

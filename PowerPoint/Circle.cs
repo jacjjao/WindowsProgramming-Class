@@ -60,10 +60,9 @@ namespace PowerPoint
         }
 
         /* draw circle */
-        public override void Draw(Graphics graphics, Pen pen)
+        public override void Draw(IGraphics graphics)
         {
-            const int TWO = 2;
-            graphics.DrawEllipse(pen, Position.X - Radius.X, Position.Y - Radius.Y, Radius.X * TWO, Radius.Y * TWO);
+            graphics.DrawCircle(Position, Radius);
         }
     }
 }

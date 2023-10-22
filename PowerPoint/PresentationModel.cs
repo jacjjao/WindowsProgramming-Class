@@ -18,12 +18,6 @@ namespace PowerPoint
             set;
         }
 
-        public Pen DrawPen
-        {
-            get;
-            set;
-        }
-
         public List<bool> CheckList
         {
             get;
@@ -42,8 +36,6 @@ namespace PowerPoint
         {
             Model = model;
             SelectedShapeType = ShapeType.None;
-            const float WIDTH = 1.0f;
-            DrawPen = new Pen(Color.Red, WIDTH);
             CheckList = new List<bool>(new bool[TOOL_STRIP_BUTTON_COUNT]);
         }
 
@@ -65,10 +57,28 @@ namespace PowerPoint
             DoListChange();
         }
 
-        /* 畫出所有形狀 */
-        public void DrawAll(Graphics graphics)
+        /* add shape */
+        public void AddShape(ShapeType type)
         {
-            Model.DrawAll(graphics, DrawPen);
+            Model.AddShape(type);
+        }
+
+        /* remove at */
+        public void RemoveAt(int index)
+        {
+            Model.RemoveAt(index);
+        }
+
+        /* get draw pen */
+        public System.Drawing.Pen GetDrawPen()
+        {
+            return Model.DrawPen;
+        }
+
+        /* 畫出所有形狀 */
+        public void DrawAll(IGraphics graphics)
+        {
+            Model.DrawAll(graphics);
         }
 
         /* 在draw panel上放開滑鼠按鈕的event */

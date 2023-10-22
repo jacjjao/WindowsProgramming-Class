@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using Point = System.Drawing.Point;
+using Pen = System.Drawing.Pen;
 
 namespace PowerPoint
 {
@@ -12,6 +13,12 @@ namespace PowerPoint
             get;
         }
 
+        public Pen DrawPen
+        {
+            get;
+            set;
+        }
+
         public PowerPointModel()
         {
             ShapesList = new BindingList<Shape>
@@ -21,14 +28,16 @@ namespace PowerPoint
                 RaiseListChangedEvents = true,
                 AllowEdit = true
             };
+            const float WIDTH = 1.0f;
+            DrawPen = new Pen(System.Drawing.Color.Red, WIDTH);
         }
 
         /* draw all */
-        public void DrawAll(System.Drawing.Graphics graphics, System.Drawing.Pen pen)
+        public void DrawAll(IGraphics graphics)
         {
             for (int i = 0; i < ShapesList.Count; i++)
             {
-                ShapesList[i].Draw(graphics, pen);
+                ShapesList[i].Draw(graphics);
             }
         }
 

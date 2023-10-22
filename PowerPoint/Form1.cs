@@ -11,17 +11,48 @@ namespace PowerPoint
         private readonly PresentationModel _presentModel;
         private DoubleBufferedPanel _drawPanel;
         private readonly BindingSource _bindingSource = new BindingSource();
+        private FormGraphicsAdapter _graphics;
 
         public Form1(PresentationModel presentationModel)
         {
             InitializeComponent();
             _presentModel = presentationModel;
             _presentModel._checkListChanged += DoCheckListChanged;
-            _presentModel.Model.ShapesList.ListChanged += UpdateDrawPanel;
+            _presentModel.Model.ShapesList.ListChanged += DoListChanged;
             _bindingSource.DataSource = _presentModel.Model.ShapesList;
             _dataGridView.DataSource = _bindingSource;
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
-            CreateAndInitializeComponents();
+            CreateToolStripButtonList();
+            CreateDrawPanel();
+        }
+
+        /* create toolstrip button list */
+        private void CreateToolStripButtonList()
+        {
+            _toolStripButtons = new List<ToolStripButton>();
+            foreach (var item in _toolStrip1.Items)
+            {
+                if (item is ToolStripButton)
+                {
+                    var button = (ToolStripButton)item;
+                    _toolStripButtons.Add(button);
+                }
+            }
+        }
+
+        /* create draw panel */
+        private void CreateDrawPanel()
+        {
+            _drawPanel = new DoubleBufferedPanel
+            {
+                Dock = DockStyle.Fill,
+                BackColor = System.Drawing.Color.White
+            };
+            _tableLayoutPanel1.Controls.Add(_drawPanel);
+            _drawPanel.MouseUp += DoDrawPanelMouseUp;
+            _drawPanel.MouseMove += DoDrawPanelMouseMove;
+            _drawPanel.MouseDown += DoDrawPanelMouseDown;
+            _drawPanel.Paint += DrawPanelOnDraw;
         }
 
         /* on check list changed */
@@ -34,7 +65,7 @@ namespace PowerPoint
         }
 
         /* 有形狀變動時重畫 */
-        private void UpdateDrawPanel(object sender, ListChangedEventArgs e)
+        private void DoListChanged(object sender, ListChangedEventArgs e)
         {
             _drawPanel.Invalidate();
         }
@@ -61,7 +92,9 @@ namespace PowerPoint
         /* 畫出所有的形狀 */
         private void DrawPanelOnDraw(object sender, PaintEventArgs e)
         {
-            _presentModel.DrawAll(e.Graphics);
+            _graphics = new FormGraphicsAdapter(e.Graphics);
+            _graphics.DrawPen = _presentModel.GetDrawPen();
+            _presentModel.DrawAll(_graphics);
         }
 
         /* 處理"新增"按鈕被按的event */
@@ -69,7 +102,7 @@ namespace PowerPoint
         {
             if (_shapeComboBox.SelectedIndex < 0)
                 return;
-            _presentModel.Model.AddShape((ShapeType)_shapeComboBox.SelectedIndex);
+            _presentModel.AddShape((ShapeType)_shapeComboBox.SelectedIndex);
         }
 
         /* 處理DataGridView上的"刪除"按鈕被按的event */
@@ -77,7 +110,7 @@ namespace PowerPoint
         {
             if (_dataGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                _presentModel.Model.RemoveAt(e.RowIndex);
+                _presentModel.RemoveAt(e.RowIndex);
                 _drawPanel.Invalidate();
             }
         }
