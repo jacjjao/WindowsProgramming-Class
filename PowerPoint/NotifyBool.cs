@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace PowerPoint
 {
@@ -13,8 +8,8 @@ namespace PowerPoint
 
         private bool _value;
 
-        public bool Value 
-        { 
+        public bool Value
+        {
             get
             {
                 return _value;
@@ -26,6 +21,7 @@ namespace PowerPoint
             }
         }
 
+        /* fire PropertyChangedEvent */
         protected void NotifyPropertyChanged(string propertyName = "")
         {
             if (PropertyChanged != null)

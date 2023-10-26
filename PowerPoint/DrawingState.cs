@@ -11,6 +11,7 @@ namespace PowerPoint
         private bool _mousePressed = false;
         private ShapeType _type = ShapeType.None;
 
+        /* mouse down */
         public void MouseDown(BindingList<Shape> list, Point pos)
         {
             if (_type == ShapeType.None)
@@ -22,6 +23,7 @@ namespace PowerPoint
             list.Add(_factory.CreateShape(_type, _drawStartPos, _drawEndPos));
         }
 
+        /* mouse move */
         public void MouseMove(BindingList<Shape> list, Point pos)
         {
             if (!_mousePressed)
@@ -32,6 +34,7 @@ namespace PowerPoint
             list[list.Count - 1] = _factory.CreateShape(_type, _drawStartPos, _drawEndPos);
         }
 
+        /* mouse up */
         public void MouseUp(BindingList<Shape> list, Point pos)
         {
             if (!_mousePressed)
@@ -42,7 +45,8 @@ namespace PowerPoint
             _type = ShapeType.None;
         }
 
-        public void SelectShapeType(ShapeType type)
+        /* select shape type */
+        public void SetShapeType(ShapeType type)
         {
             _type = type;
         }

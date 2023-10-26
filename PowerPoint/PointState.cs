@@ -5,42 +5,26 @@ namespace PowerPoint
 {
     class PointState : IState
     {
-        Shape _selectedShape = null;
+        // Shape _selectedShape = null;
 
+        /* mouse down */
         public void MouseDown(BindingList<Shape> list, Point pos)
-        {/*
-            _selectedShape = null;
-            foreach (var shape in list)
-            {
-                if (shape.DoMouseDown(pos))
-                {
-                    shape.Selected = true;
-                    _selectedShape = shape;
-                }
-                else
-                {
-                    shape.Selected = false;
-                }
-            } */
+        {
         }
 
+        /* mouse move */
         public void MouseMove(BindingList<Shape> list, Point pos)
-        {/*
-            if (_selectedShape == null)
-            {
-                return;
-            }
-            _selectedShape.DoMouseMove(pos); */
+        {
         }
 
+        /* mouse up */
         public void MouseUp(BindingList<Shape> list, Point pos)
         {
-            // _selectedShape.DoMouseUp(pos);
         }
 
-        public void SelectShapeType(ShapeType type)
+        /* select shape type */
+        public void SetShapeType(ShapeType type)
         {
-
         }
     }
 }

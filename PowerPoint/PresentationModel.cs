@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -17,49 +16,22 @@ namespace PowerPoint
             get;
         }
 
-        public NotifyBool LineCheck
-        {
-            get;
-            set;
-        }
-
-        public NotifyBool RectangleCheck
-        {
-            get;
-            set;
-        }
-
-        public NotifyBool CircleCheck
-        {
-            get;
-            set;
-        }
-
-        public NotifyBool PointerCheck
-        {
-            get;
-            set;
-        }
-
         public PresentationModel(PowerPointModel model)
         {
             Model = model;
-            LineCheck = new NotifyBool();
-            RectangleCheck = new NotifyBool();
-            CircleCheck = new NotifyBool();
-            PointerCheck = new NotifyBool();
-            CheckList = new BindingList<NotifyBool>
+            CheckList = new BindingList<NotifyBool>()
             {
-                LineCheck,
-                RectangleCheck,
-                CircleCheck,
-                PointerCheck
+                new NotifyBool(),
+                new NotifyBool(),
+                new NotifyBool(),
+                new NotifyBool(),
             };
         }
 
         /* 更新toolstrip button上的Checked屬性 */
-        public ShapeType DoToolStripButtonClick(int index, ShapeType type)
+        public ShapeType DoToolStripButtonClick(int index, ShapeType type, IState state)
         {
+            Model.State = state;
             for (int i = 0; i < CheckList.Count; i++)
             {
                 if (i == index)
@@ -72,7 +44,7 @@ namespace PowerPoint
                 }
             }
             type = CheckList[index].Value ? type : ShapeType.None;
-            Model.State.SelectShapeType(type);
+            Model.State.SetShapeType(type);
             return type;
         }
 
@@ -115,8 +87,9 @@ namespace PowerPoint
         /* 在draw panel上放開滑鼠按鈕的event */
         public void DoMouseUp(MouseEventArgs e)
         {
+            const int THREE = 3;
             Model.DoMouseUp(e);
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < THREE; i++)
             {
                 CheckList[i].Value = false;
             }

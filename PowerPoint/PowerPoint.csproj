@@ -73,7 +73,7 @@
     <Compile Include="Rectangle.cs" />
     <Compile Include="Shape.cs" />
     <Compile Include="ShapesFactory.cs" />
-    <Compile Include="ToolStripBindableButton.cs">
+    <Compile Include="BindableToolStripButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Form1.resx">

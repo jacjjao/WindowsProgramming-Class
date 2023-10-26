@@ -48,16 +48,19 @@ namespace PowerPoint
             }
         }
 
+        /* mouse down */
         public void DoMouseDown(MouseEventArgs e)
         {
             State.MouseDown(ShapesList, e.Location);
         }
 
+        /* mouse move */
         public void DoMouseMove(MouseEventArgs e)
         {
             State.MouseMove(ShapesList, e.Location);
         }
 
+        /* mouse up */
         public void DoMouseUp(MouseEventArgs e)
         {
             State.MouseUp(ShapesList, e.Location);

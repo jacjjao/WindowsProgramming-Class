@@ -73,7 +73,7 @@ namespace PowerPoint
             this._tableLayoutPanel1.ColumnCount = 3;
             this._tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.3139F));
             this._tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.6861F));
-            this._tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 257F));
+            this._tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 258F));
             this._tableLayoutPanel1.Controls.Add(this._dataGroup, 2, 0);
             this._tableLayoutPanel1.Controls.Add(this._flowLayoutPanel1, 0, 0);
             this._tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -89,11 +89,11 @@ namespace PowerPoint
             // 
             this._dataGroup.Controls.Add(this._splitContainer1);
             this._dataGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._dataGroup.Location = new System.Drawing.Point(1014, 2);
+            this._dataGroup.Location = new System.Drawing.Point(1013, 2);
             this._dataGroup.Margin = new System.Windows.Forms.Padding(2);
             this._dataGroup.Name = "_dataGroup";
             this._dataGroup.Padding = new System.Windows.Forms.Padding(2);
-            this._dataGroup.Size = new System.Drawing.Size(254, 664);
+            this._dataGroup.Size = new System.Drawing.Size(255, 664);
             this._dataGroup.TabIndex = 0;
             this._dataGroup.TabStop = false;
             this._dataGroup.Text = "資料顯示";
@@ -114,7 +114,7 @@ namespace PowerPoint
             // _splitContainer1.Panel2
             // 
             this._splitContainer1.Panel2.Controls.Add(this._dataGridView);
-            this._splitContainer1.Size = new System.Drawing.Size(250, 645);
+            this._splitContainer1.Size = new System.Drawing.Size(251, 645);
             this._splitContainer1.SplitterDistance = 45;
             this._splitContainer1.SplitterWidth = 2;
             this._splitContainer1.TabIndex = 0;
@@ -165,7 +165,7 @@ namespace PowerPoint
             this._dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this._dataGridView.RowTemplate.Height = 28;
             this._dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._dataGridView.Size = new System.Drawing.Size(250, 598);
+            this._dataGridView.Size = new System.Drawing.Size(251, 598);
             this._dataGridView.TabIndex = 0;
             this._dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DoDataGridViewButtonCellClick);
             // 
@@ -243,7 +243,7 @@ namespace PowerPoint
             this._slideButton1.Size = new System.Drawing.Size(128, 79);
             this._slideButton1.TabIndex = 0;
             this._slideButton1.UseVisualStyleBackColor = true;
-            this._slideButton1.Paint += new System.Windows.Forms.PaintEventHandler(this._slideButton1_Paint);
+            this._slideButton1.Paint += new System.Windows.Forms.PaintEventHandler(this.DoSlideButton1Paint);
             // 
             // _tableLayoutPanel2
             // 
