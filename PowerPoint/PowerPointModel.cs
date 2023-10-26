@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
-using Pen = System.Drawing.Pen;
 using System.Windows.Forms;
+using Pen = System.Drawing.Pen;
 
 namespace PowerPoint
 {

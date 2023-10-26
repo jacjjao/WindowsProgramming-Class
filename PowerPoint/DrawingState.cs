@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.ComponentModel;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint
@@ -18,7 +12,7 @@ namespace PowerPoint
         private ShapeType _type = ShapeType.None;
 
         public void MouseDown(BindingList<Shape> list, Point pos)
-        { 
+        {
             if (_type == ShapeType.None)
             {
                 return;

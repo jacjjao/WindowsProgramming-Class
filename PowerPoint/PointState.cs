@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint
@@ -13,7 +8,7 @@ namespace PowerPoint
         Shape _selectedShape = null;
 
         public void MouseDown(BindingList<Shape> list, Point pos)
-        {
+        {/*
             _selectedShape = null;
             foreach (var shape in list)
             {
@@ -26,26 +21,26 @@ namespace PowerPoint
                 {
                     shape.Selected = false;
                 }
-            }
+            } */
         }
 
         public void MouseMove(BindingList<Shape> list, Point pos)
-        {
+        {/*
             if (_selectedShape == null)
             {
                 return;
             }
-            _selectedShape.DoMouseMove(pos);
+            _selectedShape.DoMouseMove(pos); */
         }
 
         public void MouseUp(BindingList<Shape> list, Point pos)
         {
-            _selectedShape.DoMouseUp(pos);
+            // _selectedShape.DoMouseUp(pos);
         }
 
         public void SelectShapeType(ShapeType type)
         {
-            
+
         }
     }
 }

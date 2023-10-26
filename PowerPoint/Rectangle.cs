@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Drawing;
 
 namespace PowerPoint
@@ -69,11 +68,6 @@ namespace PowerPoint
         public override void Draw(IGraphics graphics)
         {
             graphics.DrawRectangle(TopLeftPoint, Size);
-        }
-
-        public override bool DoMouseDown(Point mousePoint)
-        {
-            throw new NotImplementedException();
         }
     }
 }

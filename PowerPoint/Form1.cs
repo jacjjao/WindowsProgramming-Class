@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace PowerPoint
 {
     public partial class Form1 : Form
     {
-        private List<ToolStripButton> _toolStripButtons;
+        private List<ToolStripButton> _toolStripButtons = new List<ToolStripButton>();
         private readonly PresentationModel _presentModel;
         private DoubleBufferedPanel _drawPanel;
         private readonly BindingSource _bindingSource = new BindingSource();
@@ -18,7 +18,6 @@ namespace PowerPoint
         {
             InitializeComponent();
             _presentModel = presentationModel;
-            _presentModel._checkListChanged += DoCheckListChanged;
             _presentModel.Model.ShapesList.ListChanged += DoListChanged;
             _bindingSource.DataSource = _presentModel.Model.ShapesList;
             _dataGridView.DataSource = _bindingSource;
@@ -30,15 +29,41 @@ namespace PowerPoint
         /* create toolstrip button list */
         private void CreateToolStripButtonList()
         {
-            _toolStripButtons = new List<ToolStripButton>();
-            foreach (var item in _toolStrip1.Items)
+            var lineButton = new ToolStripBindableButton
             {
-                if (item is ToolStripButton)
-                {
-                    var button = (ToolStripButton)item;
-                    _toolStripButtons.Add(button);
-                }
-            }
+                Text = "/"
+            };
+            lineButton.DataBindings.Add(new Binding("Checked", _presentModel.LineCheck, ".Value"));
+            lineButton.Click += DoToolStripButtonLineClick;
+            _toolStrip1.Items.Add(lineButton);
+            _toolStripButtons.Add(lineButton);
+
+            var RectangleButton = new ToolStripBindableButton
+            { 
+                Text = "[]"
+            };
+            RectangleButton.DataBindings.Add(new Binding("Checked", _presentModel.RectangleCheck, ".Value"));
+            RectangleButton.Click += DoToolStripButtonRectangleClick;
+            _toolStrip1.Items.Add(RectangleButton);
+            _toolStripButtons.Add(RectangleButton);
+
+            var CircleButton = new ToolStripBindableButton
+            {
+                Text = "O"
+            };
+            CircleButton.DataBindings.Add(new Binding("Checked", _presentModel.CircleCheck, ".Value"));
+            CircleButton.Click += DoToolStripButtonCircleClick;
+            _toolStrip1.Items.Add(CircleButton);
+            _toolStripButtons.Add(CircleButton);
+
+            var PointerButton = new ToolStripBindableButton
+            {
+                Text = "->"
+            };
+            PointerButton.DataBindings.Add(new Binding("Checked", _presentModel.PointerCheck, ".Value"));
+            PointerButton.Click += DoToolStripButtonPointerClick;
+            _toolStrip1.Items.Add(PointerButton);
+            _toolStripButtons.Add(PointerButton);
         }
 
         /* create draw panel */
@@ -54,15 +79,6 @@ namespace PowerPoint
             _drawPanel.MouseMove += DoDrawPanelMouseMove;
             _drawPanel.MouseDown += DoDrawPanelMouseDown;
             _drawPanel.Paint += DrawPanelOnDraw;
-        }
-
-        /* on check list changed */
-        private void DoCheckListChanged()
-        {
-            for (int i = 0; i < _toolStripButtons.Count; i++)
-            {
-                _toolStripButtons[i].Checked = _presentModel.CheckList[i];
-            }
         }
 
         /* 有形狀變動時重畫 */
@@ -123,20 +139,10 @@ namespace PowerPoint
             Cursor = type == ShapeType.None ? Cursors.Default : Cursors.Cross;
         }
 
-        /* 更新toolstrip button的Check屬性 */
-        private void RefreshModelCheckList()
-        {
-            for (int i = 0; i < _toolStripButtons.Count; i++)
-            {
-                _toolStripButtons[i].Checked = _presentModel.CheckList[i];
-            }
-        }
-
         /* '/' button被點擊時的event */
         private void DoToolStripButtonLineClick(object sender, EventArgs e)
         {
             ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.Line);
-            RefreshModelCheckList();
             ChangeCursor(type);
         }
 
@@ -144,7 +150,6 @@ namespace PowerPoint
         private void DoToolStripButtonRectangleClick(object sender, EventArgs e)
         {
             ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.Rectangle);
-            RefreshModelCheckList();
             ChangeCursor(type);
         }
 
@@ -152,14 +157,12 @@ namespace PowerPoint
         private void DoToolStripButtonCircleClick(object sender, EventArgs e)
         {
             ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.Circle);
-            RefreshModelCheckList();
             ChangeCursor(type);
         }
 
         private void DoToolStripButtonPointerClick(object sender, EventArgs e)
         {
-            //_presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.Circle);
-            RefreshModelCheckList();
+            _presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.None);
         }
 
         private void _slideButton1_Paint(object sender, PaintEventArgs e)

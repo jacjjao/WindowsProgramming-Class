@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Color = System.Drawing.Color;
 using Point = System.Drawing.Point;
-using Color = System.Drawing.Color;
 
 namespace PowerPoint
 {
@@ -15,7 +10,7 @@ namespace PowerPoint
 
         /* draw line */
         void DrawLine(Point firstPoint, Point secondPoint);
-        
+
         /* draw rectangle */
         void DrawRectangle(Point position, Point size);
 

@@ -1,6 +1,4 @@
 ﻿using System.ComponentModel;
-using Point = System.Drawing.Point;
-using System.Windows;
 
 namespace PowerPoint
 {
@@ -28,19 +26,6 @@ namespace PowerPoint
         {
             get;
             set;
-        }
-
-        public abstract bool DoMouseDown(Point mousePosition);
-
-        public abstract void DoMouseMove(Point mousePosition);
-
-        public abstract void DoMouseUp(Point mousePosition);
-
-        public abstract Rect GetHitBox(Point mousePosition);
-
-        public void DrawHitBox()
-        {
-
         }
 
         /* get info */

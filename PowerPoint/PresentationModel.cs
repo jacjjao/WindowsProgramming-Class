@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,12 +7,7 @@ namespace PowerPoint
 {
     public class PresentationModel
     {
-        public delegate void CheckListChangedEventHandler();
-        public event CheckListChangedEventHandler _checkListChanged;
-
-        public const int TOOL_STRIP_BUTTON_COUNT = 4;
-
-        public List<bool> CheckList
+        public BindingList<NotifyBool> CheckList
         {
             get;
         }
@@ -21,10 +17,44 @@ namespace PowerPoint
             get;
         }
 
+        public NotifyBool LineCheck
+        {
+            get;
+            set;
+        }
+
+        public NotifyBool RectangleCheck
+        {
+            get;
+            set;
+        }
+
+        public NotifyBool CircleCheck
+        {
+            get;
+            set;
+        }
+
+        public NotifyBool PointerCheck
+        {
+            get;
+            set;
+        }
+
         public PresentationModel(PowerPointModel model)
         {
             Model = model;
-            CheckList = new List<bool>(new bool[TOOL_STRIP_BUTTON_COUNT]);
+            LineCheck = new NotifyBool();
+            RectangleCheck = new NotifyBool();
+            CircleCheck = new NotifyBool();
+            PointerCheck = new NotifyBool();
+            CheckList = new BindingList<NotifyBool>
+            {
+                LineCheck,
+                RectangleCheck,
+                CircleCheck,
+                PointerCheck
+            };
         }
 
         /* 更新toolstrip button上的Checked屬性 */
@@ -34,16 +64,15 @@ namespace PowerPoint
             {
                 if (i == index)
                 {
-                    CheckList[i] = !CheckList[i];
+                    CheckList[i].Value = !CheckList[i].Value;
                 }
                 else
                 {
-                    CheckList[i] = false;
+                    CheckList[i].Value = false;
                 }
             }
-            type = CheckList[index] ? type : ShapeType.None;
+            type = CheckList[index].Value ? type : ShapeType.None;
             Model.State.SelectShapeType(type);
-            DoListChange();
             return type;
         }
 
@@ -87,19 +116,9 @@ namespace PowerPoint
         public void DoMouseUp(MouseEventArgs e)
         {
             Model.DoMouseUp(e);
-            for (int i = 0; i < CheckList.Count; i++)
+            for (int i = 0; i < 3; i++)
             {
-                CheckList[i] = false;
-            }
-            DoListChange();
-        }
-
-        /* fire event */
-        private void DoListChange()
-        {
-            if (_checkListChanged != null)
-            {
-                _checkListChanged();
+                CheckList[i].Value = false;
             }
         }
     }

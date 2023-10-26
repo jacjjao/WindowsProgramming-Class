@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace PowerPoint
 {
@@ -66,11 +65,6 @@ namespace PowerPoint
         public override void Draw(IGraphics graphics)
         {
             graphics.DrawLine(StartPoint, EndPoint);
-        }
-
-        public override bool DoMouseDown(Point mousePoint)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }
