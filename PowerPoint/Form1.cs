@@ -103,17 +103,23 @@ namespace PowerPoint
             _drawPanel.Paint += DrawPanelOnDraw;
         }
 
-        /* 有形狀變動時重畫 */
-        private void DoListChanged(object sender, ListChangedEventArgs e)
+        private void Redraw()
         {
             _drawPanel.Invalidate();
             _slideButton1.Invalidate();
+        }
+
+        /* 有形狀變動時重畫 */
+        private void DoListChanged(object sender, ListChangedEventArgs e)
+        {
+            Redraw();
         }
 
         /* 在畫布上鬆開滑鼠按鍵時的event */
         private void DoDrawPanelMouseUp(object sender, MouseEventArgs e)
         {
             _presentModel.DoMouseUp(e);
+            Redraw();
             Cursor = Cursors.Default;
         }
 
@@ -121,12 +127,14 @@ namespace PowerPoint
         private void DoDrawPanelMouseMove(object sender, MouseEventArgs e)
         {
             _presentModel.DoMouseMove(e);
+            Redraw();
         }
 
         /* 在畫布上點擊滑鼠時的event */
         private void DoDrawPanelMouseDown(object sender, MouseEventArgs e)
         {
             _presentModel.DoMouseDown(e);
+            Redraw();
         }
 
         /* 畫出所有的形狀 */
@@ -151,7 +159,7 @@ namespace PowerPoint
             if (_dataGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 _presentModel.RemoveAt(e.RowIndex);
-                _drawPanel.Invalidate();
+                Redraw();
             }
         }
 

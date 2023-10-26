@@ -17,6 +17,7 @@ namespace PowerPoint
             set
             {
                 _radius = value;
+                UpdateHitBox();
                 NotifyPropertyChanged();
             }
         }
@@ -30,6 +31,7 @@ namespace PowerPoint
             set
             {
                 _position = value;
+                UpdateHitBox();
                 NotifyPropertyChanged();
             }
         }
@@ -41,6 +43,7 @@ namespace PowerPoint
             _position.Y = Math.Abs(pointFirst.Y + pointSecond.Y) / TWO;
             _radius.X = Math.Abs(pointSecond.X - pointFirst.X) / TWO;
             _radius.Y = Math.Abs(pointSecond.Y - pointFirst.Y) / TWO;
+            UpdateHitBox();
         }
 
         const string SHAPE_NAME = "圓形";
@@ -62,6 +65,42 @@ namespace PowerPoint
         public override void Draw(IGraphics graphics)
         {
             graphics.DrawCircle(Position, Radius);
+        }
+
+        public override bool Contains(Point mousePosition)
+        {
+            var difference = new Point
+            {
+                X = Math.Abs(mousePosition.X - Position.X),
+                Y = Math.Abs(mousePosition.Y - Position.Y)
+            };
+            double dx = difference.X;
+            double dy = difference.Y;
+            double mouseToOrigin = Math.Sqrt(dx * dx + dy * dy);
+
+            double theta = Math.Atan(dy / dx);
+            double rx = Radius.X;
+            double ry = Radius.Y;
+            double x = rx * Math.Sin(theta);
+            double y = ry * Math.Sin(theta);
+            double distance = Math.Sqrt(x * x + y * y);
+
+            return mouseToOrigin <= distance;
+        }
+
+        private void UpdateHitBox()
+        {
+            const int TWO = 2;
+            _hitBox.Width = Radius.X * TWO;
+            _hitBox.Height = Radius.Y * TWO;
+            _hitBox.X = Position.X - Radius.X;
+            _hitBox.Y = Position.Y - Radius.Y;
+        }
+
+        public override void Move(int dx, int dy)
+        {
+            _position.X += dx;
+            _position.Y += dy;
         }
     }
 }

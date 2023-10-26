@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System;
 
 namespace PowerPoint
 {
@@ -16,6 +17,7 @@ namespace PowerPoint
             set
             {
                 _startPoint = value;
+                UpdateHitBox();
                 NotifyPropertyChanged();
             }
         }
@@ -28,6 +30,7 @@ namespace PowerPoint
             set
             {
                 _endPoint = value;
+                UpdateHitBox();
                 NotifyPropertyChanged();
             }
         }
@@ -46,6 +49,7 @@ namespace PowerPoint
                 StartPoint = pointSecond;
                 EndPoint = pointFirst;
             }
+            UpdateHitBox();
         }
 
         /* get info */
@@ -65,6 +69,27 @@ namespace PowerPoint
         public override void Draw(IGraphics graphics)
         {
             graphics.DrawLine(StartPoint, EndPoint);
+        }
+
+        public override bool Contains(Point mousePosition)
+        {
+            return mousePosition.X >= _hitBox.X && mousePosition.X <= _hitBox.X + _hitBox.Width && mousePosition.Y >= _hitBox.Y && mousePosition.Y <= _hitBox.Y + _hitBox.Height;
+        }
+
+        private void UpdateHitBox()
+        {
+            _hitBox.X = StartPoint.X;
+            _hitBox.Y = Math.Min(StartPoint.Y, EndPoint.Y);
+            _hitBox.Width = Math.Max(0, EndPoint.X - StartPoint.X);
+            _hitBox.Height = Math.Max(StartPoint.Y, EndPoint.Y) - Math.Min(StartPoint.Y, EndPoint.Y);
+        }
+
+        public override void Move(int dx, int dy)
+        {
+            _startPoint.X += dx;
+            _startPoint.Y += dy;
+            _endPoint.X += dx;
+            _endPoint.Y += dy;
         }
     }
 }

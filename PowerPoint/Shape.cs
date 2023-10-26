@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel;
+using Rect = System.Windows.Rect;
+using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {
@@ -27,6 +29,19 @@ namespace PowerPoint
             get;
             set;
         }
+
+        protected Rect _hitBox = new Rect();
+        public Rect HitBox
+        {
+            get
+            {
+                return _hitBox;
+            }
+        }
+
+        public abstract bool Contains(Point mousePosition);
+
+        public abstract void Move(int dx, int dy);
 
         /* get info */
         public abstract string GetInfo();
