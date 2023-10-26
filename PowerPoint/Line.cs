@@ -67,5 +67,10 @@ namespace PowerPoint
         {
             graphics.DrawLine(StartPoint, EndPoint);
         }
+
+        public override bool DoMouseDown(Point mousePoint)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

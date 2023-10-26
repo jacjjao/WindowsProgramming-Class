@@ -70,5 +70,10 @@ namespace PowerPoint
         {
             graphics.DrawRectangle(TopLeftPoint, Size);
         }
+
+        public override bool DoMouseDown(Point mousePoint)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

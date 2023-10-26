@@ -64,5 +64,10 @@ namespace PowerPoint
         {
             graphics.DrawCircle(Position, Radius);
         }
+
+        public override bool DoMouseDown(Point mousePoint)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

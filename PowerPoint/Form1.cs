@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace PowerPoint
 {
@@ -68,6 +69,7 @@ namespace PowerPoint
         private void DoListChanged(object sender, ListChangedEventArgs e)
         {
             _drawPanel.Invalidate();
+            _slideButton1.Invalidate();
         }
 
         /* 在畫布上鬆開滑鼠按鍵時的event */
@@ -116,16 +118,9 @@ namespace PowerPoint
         }
 
         /* change cursor */
-        private void ChangeCursor()
+        private void ChangeCursor(ShapeType type)
         {
-            if (_presentModel.SelectedShapeType != ShapeType.None)
-            {
-                Cursor = Cursors.Cross;
-            }
-            else
-            {
-                Cursor = Cursors.Default;
-            }
+            Cursor = type == ShapeType.None ? Cursors.Default : Cursors.Cross;
         }
 
         /* 更新toolstrip button的Check屬性 */
@@ -140,25 +135,41 @@ namespace PowerPoint
         /* '/' button被點擊時的event */
         private void DoToolStripButtonLineClick(object sender, EventArgs e)
         {
-            _presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.Line);
+            ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.Line);
             RefreshModelCheckList();
-            ChangeCursor();
+            ChangeCursor(type);
         }
 
         /* '[]' button被點擊時的event */
         private void DoToolStripButtonRectangleClick(object sender, EventArgs e)
         {
-            _presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.Rectangle);
+            ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.Rectangle);
             RefreshModelCheckList();
-            ChangeCursor();
+            ChangeCursor(type);
         }
 
         /* 'O' button被點擊時的event */
         private void DoToolStripButtonCircleClick(object sender, EventArgs e)
         {
-            _presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.Circle);
+            ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.Circle);
             RefreshModelCheckList();
-            ChangeCursor();
+            ChangeCursor(type);
+        }
+
+        private void DoToolStripButtonPointerClick(object sender, EventArgs e)
+        {
+            //_presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.Circle);
+            RefreshModelCheckList();
+        }
+
+        private void _slideButton1_Paint(object sender, PaintEventArgs e)
+        {
+            float scaleX = (float)_slideButton1.Width / (float)_drawPanel.Width;
+            float scaleY = (float)_slideButton1.Height / (float)_drawPanel.Height;
+            e.Graphics.ScaleTransform(scaleX, scaleY);
+            _graphics = new FormGraphicsAdapter(e.Graphics);
+            _graphics.DrawPen = _presentModel.GetDrawPen();
+            _presentModel.DrawAll(_graphics);
         }
     }
 }

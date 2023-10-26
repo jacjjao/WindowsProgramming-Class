@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {
@@ -10,13 +9,7 @@ namespace PowerPoint
         public delegate void CheckListChangedEventHandler();
         public event CheckListChangedEventHandler _checkListChanged;
 
-        public const int TOOL_STRIP_BUTTON_COUNT = 3;
-
-        public ShapeType SelectedShapeType
-        {
-            get;
-            set;
-        }
+        public const int TOOL_STRIP_BUTTON_COUNT = 4;
 
         public List<bool> CheckList
         {
@@ -28,19 +21,14 @@ namespace PowerPoint
             get;
         }
 
-        private Point _drawStartPos;
-        private Point _drawEndPos;
-        private bool _mousePressed = false;
-
         public PresentationModel(PowerPointModel model)
         {
             Model = model;
-            SelectedShapeType = ShapeType.None;
             CheckList = new List<bool>(new bool[TOOL_STRIP_BUTTON_COUNT]);
         }
 
         /* 更新toolstrip button上的Checked屬性 */
-        public void DoToolStripButtonClick(int index, ShapeType type)
+        public ShapeType DoToolStripButtonClick(int index, ShapeType type)
         {
             for (int i = 0; i < CheckList.Count; i++)
             {
@@ -53,8 +41,10 @@ namespace PowerPoint
                     CheckList[i] = false;
                 }
             }
-            SelectedShapeType = CheckList[index] ? type : ShapeType.None;
+            type = CheckList[index] ? type : ShapeType.None;
+            Model.State.SelectShapeType(type);
             DoListChange();
+            return type;
         }
 
         /* add shape */
@@ -70,7 +60,7 @@ namespace PowerPoint
         }
 
         /* get draw pen */
-        public System.Drawing.Pen GetDrawPen()
+        public Pen GetDrawPen()
         {
             return Model.DrawPen;
         }
@@ -81,43 +71,27 @@ namespace PowerPoint
             Model.DrawAll(graphics);
         }
 
-        /* 在draw panel上放開滑鼠按鈕的event */
-        public void DoMouseUp(MouseEventArgs e)
+        /* 在draw panel上按下滑鼠的event */
+        public void DoMouseDown(MouseEventArgs e)
         {
-            if (!_mousePressed)
-                return;
-            _mousePressed = false;
-            _drawEndPos = e.Location;
-            Model.ShapesList[Model.ShapesList.Count - 1] = Model.CreateShape(SelectedShapeType, _drawStartPos, _drawEndPos);
-            SelectedShapeType = ShapeType.None;
-            for (int i = 0; i < CheckList.Count; i++)
-            {
-                CheckList[i] = false;
-            }
-            DoListChange();
+            Model.DoMouseDown(e);
         }
 
         /* 滑鼠在draw panel移動時的event */
         public void DoMouseMove(MouseEventArgs e)
         {
-            if (!_mousePressed)
-            {
-                return;
-            }
-            _drawEndPos = e.Location;
-            Model.ShapesList[Model.ShapesList.Count - 1] = Model.CreateShape(SelectedShapeType, _drawStartPos, _drawEndPos);
+            Model.DoMouseMove(e);
         }
 
-        /* 在draw panel上按下滑鼠的event */
-        public void DoMouseDown(MouseEventArgs e)
+        /* 在draw panel上放開滑鼠按鈕的event */
+        public void DoMouseUp(MouseEventArgs e)
         {
-            if (SelectedShapeType == ShapeType.None)
+            Model.DoMouseUp(e);
+            for (int i = 0; i < CheckList.Count; i++)
             {
-                return;
+                CheckList[i] = false;
             }
-            _mousePressed = true;
-            _drawStartPos = _drawEndPos = e.Location;
-            Model.AddShape(SelectedShapeType, _drawStartPos, _drawEndPos);
+            DoListChange();
         }
 
         /* fire event */

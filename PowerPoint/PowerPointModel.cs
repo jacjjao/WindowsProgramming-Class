@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
-using Point = System.Drawing.Point;
 using Pen = System.Drawing.Pen;
+using System.Windows.Forms;
 
 namespace PowerPoint
 {
@@ -19,6 +19,12 @@ namespace PowerPoint
             set;
         }
 
+        public IState State
+        {
+            get;
+            set;
+        }
+
         public PowerPointModel()
         {
             ShapesList = new BindingList<Shape>
@@ -28,6 +34,7 @@ namespace PowerPoint
                 RaiseListChangedEvents = true,
                 AllowEdit = true
             };
+            State = new DrawingState();
             const float WIDTH = 1.0f;
             DrawPen = new Pen(System.Drawing.Color.Red, WIDTH);
         }
@@ -41,22 +48,25 @@ namespace PowerPoint
             }
         }
 
-        /* create shape */
-        public Shape CreateShape(ShapeType type, Point pointFirst, Point pointSecond)
+        public void DoMouseDown(MouseEventArgs e)
         {
-            return _factory.CreateShape(type, pointFirst, pointSecond);
+            State.MouseDown(ShapesList, e.Location);
+        }
+
+        public void DoMouseMove(MouseEventArgs e)
+        {
+            State.MouseMove(ShapesList, e.Location);
+        }
+
+        public void DoMouseUp(MouseEventArgs e)
+        {
+            State.MouseUp(ShapesList, e.Location);
         }
 
         /* add shape */
         public void AddShape(ShapeType type)
         {
             ShapesList.Add(_factory.CreateRandomShape(type));
-        }
-
-        /* add shape */
-        public void AddShape(ShapeType type, Point pointFirst, Point pointSecond)
-        {
-            ShapesList.Add(_factory.CreateShape(type, pointFirst, pointSecond));
         }
 
         /* remove at */
