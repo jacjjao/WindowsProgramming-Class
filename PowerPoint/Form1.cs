@@ -23,11 +23,11 @@ namespace PowerPoint
             _dataGridView.DataSource = _bindingSource;
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
             CreateToolStripButtonListFirst();
-            CreateToolStripButtonListSecond(); 
+            CreateToolStripButtonListSecond();
             CreateToolStripButtonListThird();
             CreateToolStripButtonListFourth();
             CreateDrawPanel();
-            this.KeyPreview = true;
+            KeyPreview = true;
         }
 
         /* create toolstrip button list */
@@ -50,10 +50,9 @@ namespace PowerPoint
         {
             const string CHECKED = "Checked";
             const string VALUE = ".Value";
-            const string RECTANGLE = "[]";
             const int ONE = 1;
             var rectangleButton = new BindableToolStripButton();
-            rectangleButton.Text = RECTANGLE;
+            rectangleButton.Image = Properties.Resources.Rectangle;
             rectangleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[ONE], VALUE);
             rectangleButton.Click += DoToolStripButtonRectangleClick;
             _toolStrip1.Items.Add(rectangleButton);
@@ -68,9 +67,7 @@ namespace PowerPoint
             const string VALUE = ".Value";
             const int TWO = 2;
             var circleButton = new BindableToolStripButton();
-            // circleButton.Text = CIRCLE;
-            circleButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            circleButton.Image = (Image)Properties.Resources.ResourceManager.GetObject("Bitmap1");
+            circleButton.Text = CIRCLE;
             circleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[TWO], VALUE);
             circleButton.Click += DoToolStripButtonCircleClick;
             _toolStrip1.Items.Add(circleButton);
@@ -82,10 +79,9 @@ namespace PowerPoint
         {
             const string CHECKED = "Checked";
             const string VALUE = ".Value";
-            const string POINTER = "->";
             const int THREE = 3;
             var pointerButton = new BindableToolStripButton();
-            pointerButton.Text = POINTER;
+            pointerButton.Image = Properties.Resources.Pointer;
             pointerButton.DataBindings.Add(CHECKED, _presentModel.CheckList[THREE], VALUE);
             pointerButton.Click += DoToolStripButtonPointerClick;
             _toolStrip1.Items.Add(pointerButton);
@@ -98,7 +94,7 @@ namespace PowerPoint
             _drawPanel = new DoubleBufferedPanel
             {
                 Dock = DockStyle.Fill,
-                BackColor = System.Drawing.Color.White
+                BackColor = Color.White
             };
             _tableLayoutPanel1.Controls.Add(_drawPanel);
             _drawPanel.MouseUp += DoDrawPanelMouseUp;

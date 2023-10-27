@@ -71,8 +71,8 @@ namespace PowerPoint
         {
             var difference = new Point
             {
-                X = Math.Abs(mousePosition.X - Position.X),
-                Y = Math.Abs(mousePosition.Y - Position.Y)
+                X = mousePosition.X - Position.X,
+                Y = mousePosition.Y - Position.Y
             };
             double dx = difference.X;
             double dy = difference.Y;
@@ -81,7 +81,7 @@ namespace PowerPoint
             double theta = Math.Atan(dy / dx);
             double rx = Radius.X;
             double ry = Radius.Y;
-            double x = rx * Math.Sin(theta);
+            double x = rx * Math.Cos(theta);
             double y = ry * Math.Sin(theta);
             double distance = Math.Sqrt(x * x + y * y);
 

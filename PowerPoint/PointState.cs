@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using System.Linq;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint
@@ -16,12 +15,18 @@ namespace PowerPoint
             _mousePressed = true;
             _position = pos;
             _selectedShape = null;
+            bool found = false;
             for (int i = list.Count - 1; i >= 0; i--)
             {
-                if (list[i].Contains(pos))
+                if (!found && list[i].Contains(pos))
                 {
+                    list[i].Selected = true;
                     _selectedShape = list[i];
-                    break;
+                    found = true;
+                }
+                else
+                {
+                    list[i].Selected = false;
                 }
             }
         }

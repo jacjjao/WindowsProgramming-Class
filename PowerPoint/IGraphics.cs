@@ -16,5 +16,7 @@ namespace PowerPoint
 
         /* draw circle */
         void DrawCircle(Point center, Point radius);
+
+        void DrawHitBox(System.Drawing.Rectangle rect, float radius);
     }
 }

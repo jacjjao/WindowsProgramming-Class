@@ -44,7 +44,7 @@ namespace PowerPoint
         {
             for (int i = 0; i < ShapesList.Count; i++)
             {
-                ShapesList[i].Draw(graphics);
+                ShapesList[i].DrawShape(graphics);
             }
         }
 

@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using Rect = System.Windows.Rect;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint
@@ -30,13 +29,19 @@ namespace PowerPoint
             set;
         }
 
-        protected Rect _hitBox = new Rect();
-        public Rect HitBox
+        protected System.Drawing.Rectangle _hitBox = new System.Drawing.Rectangle();
+        public System.Drawing.Rectangle HitBox
         {
             get
             {
                 return _hitBox;
             }
+        }
+
+        public int ResizeCircleRadius
+        {
+            get;
+            set;
         }
 
         public abstract bool Contains(Point mousePosition);
@@ -51,6 +56,20 @@ namespace PowerPoint
 
         /* draw */
         public abstract void Draw(IGraphics graphics);
+
+        public void DrawHitBox(IGraphics graphics)
+        {
+            graphics.DrawHitBox(HitBox, 10.0f);
+        }
+
+        public void DrawShape(IGraphics graphics)
+        {
+            Draw(graphics);
+            if (Selected)
+            {
+                DrawHitBox(graphics);
+            }
+        }
 
         /* notify */
         protected void NotifyPropertyChanged(string propertyName = "")
