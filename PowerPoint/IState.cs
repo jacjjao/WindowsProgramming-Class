@@ -16,5 +16,7 @@ namespace PowerPoint
 
         /* select shape type */
         void SetShapeType(ShapeType type);
+
+        void RemoveSelectedShape(BindingList<Shape> list);
     }
 }

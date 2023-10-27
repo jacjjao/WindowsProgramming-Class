@@ -101,6 +101,7 @@ namespace PowerPoint
         {
             _position.X += dx;
             _position.Y += dy;
+            UpdateHitBox();
         }
     }
 }

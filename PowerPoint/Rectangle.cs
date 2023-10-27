@@ -90,6 +90,7 @@ namespace PowerPoint
         {
             _topLeftPoint.X += dx;
             _topLeftPoint.Y += dy;
+            updateHitBox();
         }
     }
 }

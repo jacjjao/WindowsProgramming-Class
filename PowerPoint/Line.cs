@@ -78,9 +78,9 @@ namespace PowerPoint
 
         private void UpdateHitBox()
         {
-            _hitBox.X = StartPoint.X;
+            _hitBox.X = Math.Min(EndPoint.X, StartPoint.X);
             _hitBox.Y = Math.Min(StartPoint.Y, EndPoint.Y);
-            _hitBox.Width = Math.Max(0, EndPoint.X - StartPoint.X);
+            _hitBox.Width = Math.Max(EndPoint.X, StartPoint.X) - Math.Min(EndPoint.X, StartPoint.X);
             _hitBox.Height = Math.Max(StartPoint.Y, EndPoint.Y) - Math.Min(StartPoint.Y, EndPoint.Y);
         }
 
@@ -90,6 +90,7 @@ namespace PowerPoint
             _startPoint.Y += dy;
             _endPoint.X += dx;
             _endPoint.Y += dy;
+            UpdateHitBox();
         }
     }
 }

@@ -50,5 +50,10 @@ namespace PowerPoint
         {
             _type = type;
         }
+
+        public void RemoveSelectedShape(BindingList<Shape> list)
+        {
+
+        }
     }
 }

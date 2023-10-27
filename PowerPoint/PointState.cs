@@ -43,6 +43,12 @@ namespace PowerPoint
             _mousePressed = false;
         }
 
+        public void RemoveSelectedShape(BindingList<Shape> list)
+        {
+            list.Remove(_selectedShape);
+            _selectedShape = null;
+        }
+
         /* select shape type */
         public void SetShapeType(ShapeType type)
         {

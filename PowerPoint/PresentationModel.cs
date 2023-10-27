@@ -94,5 +94,10 @@ namespace PowerPoint
                 CheckList[i].Value = false;
             }
         }
+
+        public void DoKeyDown(KeyEventArgs e)
+        {
+            Model.DoKeyDown(e);
+        }
     }
 }

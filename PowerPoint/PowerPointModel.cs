@@ -77,5 +77,13 @@ namespace PowerPoint
         {
             ShapesList.RemoveAt(index);
         }
+
+        public void DoKeyDown(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                State.RemoveSelectedShape(ShapesList);
+            }
+        }
     }
 }

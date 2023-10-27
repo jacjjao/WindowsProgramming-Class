@@ -22,10 +22,11 @@ namespace PowerPoint
             _dataGridView.DataSource = _bindingSource;
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
             CreateToolStripButtonListFirst();
-            CreateToolStripButtonListSecond();
+            CreateToolStripButtonListSecond(); 
             CreateToolStripButtonListThird();
             CreateToolStripButtonListFourth();
             CreateDrawPanel();
+            this.KeyPreview = true;
         }
 
         /* create toolstrip button list */
@@ -205,6 +206,11 @@ namespace PowerPoint
             _graphics = new FormGraphicsAdapter(e.Graphics);
             _graphics.DrawPen = _presentModel.GetDrawPen();
             _presentModel.DrawAll(_graphics);
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            _presentModel.DoKeyDown(e);
         }
     }
 }
