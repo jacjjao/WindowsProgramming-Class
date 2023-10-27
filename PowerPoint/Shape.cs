@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint
@@ -29,6 +30,19 @@ namespace PowerPoint
             set;
         }
 
+        private float _scaleCircleRadius = 10.0f;
+        public float ScaleCircleRadius
+        {
+            get
+            {
+                return _scaleCircleRadius;
+            }
+            set
+            {
+                _scaleCircleRadius = value;
+            }
+        }
+
         protected System.Drawing.Rectangle _hitBox = new System.Drawing.Rectangle();
         public System.Drawing.Rectangle HitBox
         {
@@ -47,6 +61,46 @@ namespace PowerPoint
         public abstract bool Contains(Point mousePosition);
 
         public abstract void Move(int dx, int dy);
+
+        public abstract void Resize(int dx, int dy);
+
+        private bool CircleHitDetection(int x, int y, int cx, int cy)
+        {
+            int dx = x - cx;
+            int dy = y - cy;
+            return Math.Sqrt(dx * dx + dy * dy) <= ScaleCircleRadius;
+        }
+
+        public int ScaleCircleClick(int mx, int my)
+        {
+            int x = HitBox.X;
+            int y = HitBox.Y;
+            int stepX = HitBox.Width / 2;
+            int stepY = HitBox.Height / 2;
+            int cnt = 0;
+            for (int i = 0; i < 8; i++)
+            {
+                if (i == 4)
+                {
+                    x += stepX;
+                    cnt++;
+                }
+
+                if (CircleHitDetection(mx, my, x, y))
+                {
+                    return i;
+                }
+
+                x += stepX;
+                if (cnt++ >= 2)
+                {
+                    x = HitBox.X;
+                    y += stepY;
+                    cnt = 0;
+                }
+            }
+            return -1;
+        }
 
         /* get info */
         public abstract string GetInfo();

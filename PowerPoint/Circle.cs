@@ -5,18 +5,18 @@ namespace PowerPoint
 {
     class Circle : Shape
     {
-        private Point _radius = new Point();
+        private Point _diameter = new Point();
         private Point _position = new Point();
 
-        public Point Radius
+        public Point Diameter
         {
             get
             {
-                return _radius;
+                return _diameter;
             }
             set
             {
-                _radius = value;
+                _diameter = value;
                 UpdateHitBox();
                 NotifyPropertyChanged();
             }
@@ -41,8 +41,8 @@ namespace PowerPoint
             const int TWO = 2;
             _position.X = Math.Abs(pointFirst.X + pointSecond.X) / TWO;
             _position.Y = Math.Abs(pointFirst.Y + pointSecond.Y) / TWO;
-            _radius.X = Math.Abs(pointSecond.X - pointFirst.X) / TWO;
-            _radius.Y = Math.Abs(pointSecond.Y - pointFirst.Y) / TWO;
+            _diameter.X = Math.Abs(pointSecond.X - pointFirst.X);
+            _diameter.Y = Math.Abs(pointSecond.Y - pointFirst.Y);
             UpdateHitBox();
         }
 
@@ -64,7 +64,7 @@ namespace PowerPoint
         /* draw circle */
         public override void Draw(IGraphics graphics)
         {
-            graphics.DrawCircle(Position, Radius);
+            graphics.DrawCircle(Position, Diameter);
         }
 
         public override bool Contains(Point mousePosition)
@@ -79,8 +79,8 @@ namespace PowerPoint
             double mouseToOrigin = Math.Sqrt(dx * dx + dy * dy);
 
             double theta = Math.Atan(dy / dx);
-            double rx = Radius.X;
-            double ry = Radius.Y;
+            double rx = Diameter.X / 2.0;
+            double ry = Diameter.Y / 2.0;
             double x = rx * Math.Cos(theta);
             double y = ry * Math.Sin(theta);
             double distance = Math.Sqrt(x * x + y * y);
@@ -90,17 +90,25 @@ namespace PowerPoint
 
         private void UpdateHitBox()
         {
-            const int TWO = 2;
-            _hitBox.Width = Radius.X * TWO;
-            _hitBox.Height = Radius.Y * TWO;
-            _hitBox.X = Position.X - Radius.X;
-            _hitBox.Y = Position.Y - Radius.Y;
+            _hitBox.Width = Diameter.X;
+            _hitBox.Height = Diameter.Y;
+            _hitBox.X = Position.X - Diameter.X / 2;
+            _hitBox.Y = Position.Y - Diameter.Y / 2;
         }
 
         public override void Move(int dx, int dy)
         {
             _position.X += dx;
             _position.Y += dy;
+            UpdateHitBox();
+        }
+
+        public override void Resize(int dx, int dy)
+        {
+            _diameter.X = Math.Max(_diameter.X + dx, 10);
+            _diameter.Y = Math.Max(_diameter.Y + dy, 10);
+            // _position.X -= dx;
+            // _position.Y -= dy;
             UpdateHitBox();
         }
     }

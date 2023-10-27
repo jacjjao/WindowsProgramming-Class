@@ -92,5 +92,12 @@ namespace PowerPoint
             _topLeftPoint.Y += dy;
             updateHitBox();
         }
+
+        public override void Resize(int dx, int dy)
+        {
+            _size.X = Math.Max(_size.X + dx, 10);
+            _size.Y = Math.Max(_size.Y + dy, 10);
+            updateHitBox();
+        }
     }
 }

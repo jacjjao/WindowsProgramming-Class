@@ -29,10 +29,9 @@ namespace PowerPoint
         }
 
         /* draw circle */
-        public void DrawCircle(Point center, Point radius)
+        public void DrawCircle(Point center, Point diameter)
         {
-            const int TWO = 2;
-            _graphics.DrawEllipse(DrawPen, center.X - radius.X, center.Y - radius.Y, radius.X * TWO, radius.Y * TWO);
+            _graphics.DrawEllipse(DrawPen, center.X - diameter.X / 2, center.Y - diameter.Y / 2, diameter.X, diameter.Y);
         }
 
         /* draw line */
