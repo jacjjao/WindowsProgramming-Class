@@ -29,9 +29,8 @@ namespace PowerPoint
         }
 
         /* 更新toolstrip button上的Checked屬性 */
-        public ShapeType DoToolStripButtonClick(int index, ShapeType type, IState state)
+        public ShapeType DoToolStripButtonClick(int index, ShapeType type)
         {
-            Model.State = state;
             for (int i = 0; i < CheckList.Count; i++)
             {
                 if (i == index)
@@ -98,6 +97,11 @@ namespace PowerPoint
         public void DoKeyDown(KeyEventArgs e)
         {
             Model.DoKeyDown(e);
+        }
+
+        public void SetState(IState state)
+        {
+            Model.State = state;
         }
     }
 }

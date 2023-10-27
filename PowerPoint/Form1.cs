@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace PowerPoint
 {
     public partial class Form1 : Form
     {
-        private List<ToolStripButton> _toolStripButtons = new List<ToolStripButton>();
+        private Dictionary<ToolStripButton, int> _toolStripButtons = new Dictionary<ToolStripButton, int>();
         private readonly PresentationModel _presentModel;
         private DoubleBufferedPanel _drawPanel;
         private readonly BindingSource _bindingSource = new BindingSource();
@@ -41,7 +42,7 @@ namespace PowerPoint
             lineButton.DataBindings.Add(CHECKED, _presentModel.CheckList[ZERO], VALUE);
             lineButton.Click += DoToolStripButtonLineClick;
             _toolStrip1.Items.Add(lineButton);
-            _toolStripButtons.Add(lineButton);
+            _toolStripButtons.Add(lineButton, ZERO);
         }
 
         /* 分割出來的不然會太長 */
@@ -56,7 +57,7 @@ namespace PowerPoint
             rectangleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[ONE], VALUE);
             rectangleButton.Click += DoToolStripButtonRectangleClick;
             _toolStrip1.Items.Add(rectangleButton);
-            _toolStripButtons.Add(rectangleButton);
+            _toolStripButtons.Add(rectangleButton, ONE);
         }
 
         /* 分割出來的不然會太長 */
@@ -67,11 +68,13 @@ namespace PowerPoint
             const string VALUE = ".Value";
             const int TWO = 2;
             var circleButton = new BindableToolStripButton();
-            circleButton.Text = CIRCLE;
+            // circleButton.Text = CIRCLE;
+            circleButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            circleButton.Image = (Image)Properties.Resources.ResourceManager.GetObject("Bitmap1");
             circleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[TWO], VALUE);
             circleButton.Click += DoToolStripButtonCircleClick;
             _toolStrip1.Items.Add(circleButton);
-            _toolStripButtons.Add(circleButton);
+            _toolStripButtons.Add(circleButton, TWO);
         }
 
         /* 分割出來的不然會太長 */
@@ -86,7 +89,7 @@ namespace PowerPoint
             pointerButton.DataBindings.Add(CHECKED, _presentModel.CheckList[THREE], VALUE);
             pointerButton.Click += DoToolStripButtonPointerClick;
             _toolStrip1.Items.Add(pointerButton);
-            _toolStripButtons.Add(pointerButton);
+            _toolStripButtons.Add(pointerButton, THREE);
         }
 
         /* create draw panel */
@@ -173,28 +176,32 @@ namespace PowerPoint
         /* '/' button被點擊時的event */
         private void DoToolStripButtonLineClick(object sender, EventArgs e)
         {
-            ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.Line, new DrawingState());
+            _presentModel.SetState(new DrawingState());
+            ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons[(ToolStripButton)sender], ShapeType.Line);
             ChangeCursor(type);
         }
 
         /* '[]' button被點擊時的event */
         private void DoToolStripButtonRectangleClick(object sender, EventArgs e)
         {
-            ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.Rectangle, new DrawingState());
+            _presentModel.SetState(new DrawingState());
+            ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons[(ToolStripButton)sender], ShapeType.Rectangle);
             ChangeCursor(type);
         }
 
         /* 'O' button被點擊時的event */
         private void DoToolStripButtonCircleClick(object sender, EventArgs e)
         {
-            ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.Circle, new DrawingState());
+            _presentModel.SetState(new DrawingState());
+            ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons[(ToolStripButton)sender], ShapeType.Circle);
             ChangeCursor(type);
         }
 
         /* button pointer click */
         private void DoToolStripButtonPointerClick(object sender, EventArgs e)
         {
-            _presentModel.DoToolStripButtonClick(_toolStripButtons.FindIndex((button) => button.Equals(sender)), ShapeType.None, new PointState());
+            _presentModel.SetState(new PointState());
+            _presentModel.DoToolStripButtonClick(_toolStripButtons[(ToolStripButton)sender], ShapeType.None);
         }
 
         /* slide button1 paint */
