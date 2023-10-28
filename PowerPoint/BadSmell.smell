@@ -204,6 +204,22 @@
             </Smell>
             <Smell>
               <Id>2</Id>
+              <SmellType>Unsuitable naming(名不符實)-DoRedraw(redraw)</SmellType>
+              <HashCode>UnsuitableNaming.Form1.DoRedraw.DoRedraw</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>Form1.cs</File>
+              <Line>107</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>3</Id>
               <SmellType>Unsuitable naming(名不符實)-NotifyBool(bool)</SmellType>
               <HashCode>UnsuitableNaming.PowerPoint.NotifyBool.NotifyBool</HashCode>
               <Severity>Red</Severity>
@@ -220,7 +236,11 @@
             </Smell>
           </Reviews>
           <HashCodeIgnoreList />
-          <HashCodeRequestIgnoreList />
+          <HashCodeRequestIgnoreList>
+            <string>UnsuitableNaming.PowerPoint.BindableToolStripButton.BindableToolStripButton</string>
+            <string>UnsuitableNaming.Form1.DoRedraw.DoRedraw</string>
+            <string>UnsuitableNaming.PowerPoint.NotifyBool.NotifyBool</string>
+          </HashCodeRequestIgnoreList>
           <AnalysisFileManager>
             <AnalysisFiles>
               <AnalysisFile>
@@ -335,7 +355,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1385</ProductionLoc>
+          <ProductionLoc>1587</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

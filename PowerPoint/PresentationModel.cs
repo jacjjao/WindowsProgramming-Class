@@ -94,11 +94,13 @@ namespace PowerPoint
             }
         }
 
+        /* keydown */
         public void DoKeyDown(KeyEventArgs e)
         {
             Model.DoKeyDown(e);
         }
 
+        /* set state */
         public void SetState(IState state)
         {
             Model.State = state;

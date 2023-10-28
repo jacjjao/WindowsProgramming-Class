@@ -71,11 +71,7 @@ namespace PowerPoint
             graphics.DrawLine(StartPoint, EndPoint);
         }
 
-        public override bool Contains(Point mousePosition)
-        {
-            return mousePosition.X >= _hitBox.X && mousePosition.X <= _hitBox.X + _hitBox.Width && mousePosition.Y >= _hitBox.Y && mousePosition.Y <= _hitBox.Y + _hitBox.Height;
-        }
-
+        /* update hit box */
         private void UpdateHitBox()
         {
             _hitBox.X = Math.Min(EndPoint.X, StartPoint.X);
@@ -84,19 +80,13 @@ namespace PowerPoint
             _hitBox.Height = Math.Max(StartPoint.Y, EndPoint.Y) - Math.Min(StartPoint.Y, EndPoint.Y);
         }
 
-        public override void Move(int dx, int dy)
+        /* move */
+        public override void Move(int differenceX, int differenceY)
         {
-            _startPoint.X += dx;
-            _startPoint.Y += dy;
-            _endPoint.X += dx;
-            _endPoint.Y += dy;
-            UpdateHitBox();
-        }
-
-        public override void Resize(int dx, int dy)
-        {
-            _endPoint.X = Math.Max(_endPoint.X + dx, 10);
-            _endPoint.Y = Math.Max(_endPoint.Y + dy, 10);
+            _startPoint.X += differenceX;
+            _startPoint.Y += differenceY;
+            _endPoint.X += differenceX;
+            _endPoint.Y += differenceY;
             UpdateHitBox();
         }
     }

@@ -69,21 +69,11 @@ namespace PowerPoint
             graphics.DrawRectangle(Position, Size);
         }
 
-        public override bool Contains(Point mousePosition)
+        /* move */
+        public override void Move(int differenceX, int differenceY)
         {
-            return mousePosition.X >= Position.X && mousePosition.X <= Position.X + Size.X && mousePosition.Y >= Position.Y && mousePosition.Y <= Position.Y + Size.Y;
-        }
-
-        public override void Move(int dx, int dy)
-        {
-            _hitBox.X += dx;
-            _hitBox.Y += dy;
-        }
-
-        public override void Resize(int dx, int dy)
-        {
-            _hitBox.Width = Math.Max(_hitBox.Width + dx, 50);
-            _hitBox.Height = Math.Max(_hitBox.Height + dy, 50);
+            _hitBox.X += differenceX;
+            _hitBox.Y += differenceY;
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Drawing;
 namespace PowerPoint
 {
     class Circle : Shape
-    {      
+    {
         public Point Diameter
         {
             get
@@ -23,7 +23,8 @@ namespace PowerPoint
         {
             get
             {
-                return new Point(HitBox.X + HitBox.Width / 2, HitBox.Y + HitBox.Height / 2);
+                const int TWO = 2;
+                return new Point(HitBox.X + HitBox.Width / TWO, HitBox.Y + HitBox.Height / TWO);
             }
             set
             {
@@ -59,46 +60,35 @@ namespace PowerPoint
         /* draw circle */
         public override void Draw(IGraphics graphics)
         {
-            if (Selected)
-            {
-                graphics.DrawHitBox(HitBox, ScaleCircleRadius);
-            }
             graphics.DrawCircle(Center, Diameter);
         }
 
+        /* contain */
         public override bool Contains(Point mousePosition)
         {
-            var difference = new Point
-            {
-                X = mousePosition.X - Center.X,
-                Y = mousePosition.Y - Center.Y
-            };
-            double dx = difference.X;
-            double dy = difference.Y;
-            double mouseToOrigin = Math.Sqrt(dx * dx + dy * dy);
+            var difference = new Point();
+            difference.X = mousePosition.X - Center.X;
+            difference.Y = mousePosition.Y - Center.Y;
+            double differenceX = difference.X;
+            double differenceY = difference.Y;
+            double mouseToOrigin = Math.Sqrt(differenceX * differenceX + differenceY * differenceY);
 
-            double theta = Math.Atan(dy / dx);
-            double rx = Diameter.X / 2.0;
-            double ry = Diameter.Y / 2.0;
-            double x = rx * Math.Cos(theta);
-            double y = ry * Math.Sin(theta);
-            double distance = Math.Sqrt(x * x + y * y);
+            const double TWO = 2.0;
+            double angle = Math.Atan(differenceY / differenceX);
+            double radiusX = Diameter.X / TWO;
+            double radiusY = Diameter.Y / TWO;
+            double lengthX = radiusX * Math.Cos(angle);
+            double lengthY = radiusY * Math.Sin(angle);
+            double distance = Math.Sqrt(lengthX * lengthX + lengthY * lengthY);
 
             return mouseToOrigin <= distance;
         }
 
-        public override void Move(int dx, int dy)
+        /* move */
+        public override void Move(int differenceX, int differenceY)
         {
-            _hitBox.X += dx;
-            _hitBox.Y += dy;
-        }
-
-        public override void Resize(int dx, int dy)
-        {
-            _hitBox.Width += dx;
-            _hitBox.Height += dy;
-            _hitBox.Width = Math.Max(_hitBox.Width, 50);
-            _hitBox.Height = Math.Max(_hitBox.Height, 50);
+            _hitBox.X += differenceX;
+            _hitBox.Y += differenceY;
         }
     }
 }
