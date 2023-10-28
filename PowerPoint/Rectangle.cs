@@ -5,19 +5,16 @@ namespace PowerPoint
 {
     class Rectangle : Shape
     {
-        private Point _topLeftPoint = new Point();
-        private Point _size = new Point();
-
-        public Point TopLeftPoint
+        public Point Position
         {
             get
             {
-                return _topLeftPoint;
+                return new Point(HitBox.X, HitBox.Y);
             }
             set
             {
-                _topLeftPoint = value;
-                updateHitBox();
+                _hitBox.X = value.X;
+                _hitBox.Y = value.Y;
                 NotifyPropertyChanged();
             }
         }
@@ -25,12 +22,12 @@ namespace PowerPoint
         {
             get
             {
-                return _size;
+                return new Point(HitBox.Width, HitBox.Height);
             }
             set
             {
-                _size = value;
-                updateHitBox();
+                _hitBox.Width = value.X;
+                _hitBox.Height = value.Y;
                 NotifyPropertyChanged();
             }
         }
@@ -39,26 +36,25 @@ namespace PowerPoint
 
         public Rectangle()
         {
-            TopLeftPoint = new Point();
+            Position = new Point();
             Size = new Point();
         }
 
         public Rectangle(Point pointFirst, Point pointSecond)
         {
-            TopLeftPoint = new Point(Math.Min(pointFirst.X, pointSecond.X), Math.Min(pointFirst.Y, pointSecond.Y));
+            Position = new Point(Math.Min(pointFirst.X, pointSecond.X), Math.Min(pointFirst.Y, pointSecond.Y));
             Size = new Point
             {
                 X = Math.Max(pointFirst.X, pointSecond.X) - Math.Min(pointFirst.X, pointSecond.X),
                 Y = Math.Max(pointFirst.Y, pointSecond.Y) - Math.Min(pointFirst.Y, pointSecond.Y)
             };
-            updateHitBox();
         }
 
         /* get info */
         public override string GetInfo()
         {
             const string FORMAT = "({0},{1})({2},{3})";
-            return string.Format(FORMAT, TopLeftPoint.X, TopLeftPoint.Y, TopLeftPoint.X + Size.X, TopLeftPoint.Y + Size.Y);
+            return string.Format(FORMAT, Position.X, Position.Y, Position.X + Size.X, Position.Y + Size.Y);
         }
 
         /* get shape name */
@@ -70,34 +66,24 @@ namespace PowerPoint
         /* draw rectangle */
         public override void Draw(IGraphics graphics)
         {
-            graphics.DrawRectangle(TopLeftPoint, Size);
+            graphics.DrawRectangle(Position, Size);
         }
 
         public override bool Contains(Point mousePosition)
         {
-            return mousePosition.X >= TopLeftPoint.X && mousePosition.X <= TopLeftPoint.X + Size.X && mousePosition.Y >= TopLeftPoint.Y && mousePosition.Y <= TopLeftPoint.Y + Size.Y;
-        }
-
-        private void updateHitBox()
-        {
-            _hitBox.X = TopLeftPoint.X;
-            _hitBox.Y = TopLeftPoint.Y;
-            _hitBox.Width = Size.X;
-            _hitBox.Height = Size.Y;
+            return mousePosition.X >= Position.X && mousePosition.X <= Position.X + Size.X && mousePosition.Y >= Position.Y && mousePosition.Y <= Position.Y + Size.Y;
         }
 
         public override void Move(int dx, int dy)
         {
-            _topLeftPoint.X += dx;
-            _topLeftPoint.Y += dy;
-            updateHitBox();
+            _hitBox.X += dx;
+            _hitBox.Y += dy;
         }
 
         public override void Resize(int dx, int dy)
         {
-            _size.X = Math.Max(_size.X + dx, 10);
-            _size.Y = Math.Max(_size.Y + dy, 10);
-            updateHitBox();
+            _hitBox.Width = Math.Max(_hitBox.Width + dx, 50);
+            _hitBox.Height = Math.Max(_hitBox.Height + dy, 50);
         }
     }
 }

@@ -126,7 +126,7 @@ namespace PowerPoint
         }
 
         /* notify */
-        protected void NotifyPropertyChanged(string propertyName = "")
+        public void NotifyPropertyChanged(string propertyName = "")
         {
             if (PropertyChanged != null)
             {

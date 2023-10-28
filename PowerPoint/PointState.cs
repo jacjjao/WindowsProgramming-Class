@@ -95,6 +95,7 @@ namespace PowerPoint
         public void MouseUp(BindingList<Shape> list, Point pos)
         {
             _mousePressed = false;
+            _selectedShape?.NotifyPropertyChanged();
         }
 
         public void RemoveSelectedShape(BindingList<Shape> list)
