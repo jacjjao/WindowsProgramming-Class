@@ -56,7 +56,7 @@
     <Compile Include="FormGraphicsAdapter.cs" />
     <Compile Include="IGraphics.cs" />
     <Compile Include="IState.cs" />
-    <Compile Include="NotifyBool.cs" />
+    <Compile Include="NotifyBoolean.cs" />
     <Compile Include="PointState.cs" />
     <Compile Include="Shapes.cs" />
     <Compile Include="ShapeType.cs" />

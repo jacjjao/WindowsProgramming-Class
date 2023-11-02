@@ -6,7 +6,7 @@ namespace PowerPoint
 {
     public class PresentationModel
     {
-        public BindingList<NotifyBool> CheckList
+        public BindingList<NotifyBoolean> CheckList
         {
             get;
         }
@@ -19,12 +19,12 @@ namespace PowerPoint
         public PresentationModel(PowerPointModel model)
         {
             Model = model;
-            CheckList = new BindingList<NotifyBool>()
+            CheckList = new BindingList<NotifyBoolean>()
             {
-                new NotifyBool(),
-                new NotifyBool(),
-                new NotifyBool(),
-                new NotifyBool(),
+                new NotifyBoolean(),
+                new NotifyBoolean(),
+                new NotifyBoolean(),
+                new NotifyBoolean(),
             };
         }
 

@@ -105,6 +105,29 @@
   <project key="-1717211300">
     <configuration>DEBUG;TRACE</configuration>
   </project>
+  <sourcecode name="NotifyBool.cs" parser="StyleCop.CSharp.CsParser">
+    <timestamps>
+      <styleCop>2023/09/15 13:46:53.002</styleCop>
+      <settingsFile>0001/01/01 00:00:00.000</settingsFile>
+      <sourceFile>2023/10/27 12:37:54.499</sourceFile>
+      <parser>2023/09/15 13:46:53.002</parser>
+      <KellyPalRules.KellyPalAnalyzer>2023/09/15 13:46:53.002</KellyPalRules.KellyPalAnalyzer>
+      <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
+    </timestamps>
+    <violations>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
+        <context>Unsuitable naming(名不符實)-NotifyBool(bool)</context>
+        <line>5</line>
+        <index>61</index>
+        <endIndex>766</endIndex>
+        <startLine>5</startLine>
+        <startColumn>5</startColumn>
+        <endLine>32</endLine>
+        <endColumn>5</endColumn>
+        <warning>False</warning>
+      </violation>
+    </violations>
+  </sourcecode>
   <project key="247155517">
     <configuration>DEBUG;TRACE</configuration>
   </project>
@@ -168,24 +191,12 @@
     <timestamps>
       <styleCop>2023/09/15 13:46:53.002</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/11/02 10:54:00.961</sourceFile>
+      <sourceFile>2023/11/02 12:26:13.554</sourceFile>
       <parser>2023/09/15 13:46:53.002</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 13:46:53.002</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
     </timestamps>
-    <violations>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
-        <context>Unsuitable naming(名不符實)-DoRedraw(redraw)</context>
-        <line>107</line>
-        <index>4348</index>
-        <endIndex>4471</endIndex>
-        <startLine>107</startLine>
-        <startColumn>9</startColumn>
-        <endLine>111</endLine>
-        <endColumn>9</endColumn>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <violations />
   </sourcecode>
   <sourcecode name="Form1.Designer.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
@@ -242,28 +253,16 @@
     </timestamps>
     <violations />
   </sourcecode>
-  <sourcecode name="NotifyBool.cs" parser="StyleCop.CSharp.CsParser">
+  <sourcecode name="NotifyBoolean.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2023/09/15 13:46:53.002</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/10/27 12:37:54.499</sourceFile>
+      <sourceFile>2023/11/02 12:26:28.200</sourceFile>
       <parser>2023/09/15 13:46:53.002</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 13:46:53.002</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
     </timestamps>
-    <violations>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
-        <context>Unsuitable naming(名不符實)-NotifyBool(bool)</context>
-        <line>5</line>
-        <index>61</index>
-        <endIndex>766</endIndex>
-        <startLine>5</startLine>
-        <startColumn>5</startColumn>
-        <endLine>32</endLine>
-        <endColumn>5</endColumn>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <violations />
   </sourcecode>
   <sourcecode name="PointState.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
@@ -291,7 +290,7 @@
     <timestamps>
       <styleCop>2023/09/15 13:46:53.002</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/11/02 10:39:53.286</sourceFile>
+      <sourceFile>2023/11/02 12:26:28.584</sourceFile>
       <parser>2023/09/15 13:46:53.002</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 13:46:53.002</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>

@@ -202,44 +202,10 @@
               <Comment />
               <Auto>false</Auto>
             </Smell>
-            <Smell>
-              <Id>2</Id>
-              <SmellType>Unsuitable naming(名不符實)-DoRedraw(redraw)</SmellType>
-              <HashCode>UnsuitableNaming.Form1.DoRedraw.DoRedraw</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>107</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>3</Id>
-              <SmellType>Unsuitable naming(名不符實)-NotifyBool(bool)</SmellType>
-              <HashCode>UnsuitableNaming.PowerPoint.NotifyBool.NotifyBool</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>NotifyBool.cs</File>
-              <Line>5</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
           </Reviews>
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList>
             <string>UnsuitableNaming.PowerPoint.BindableToolStripButton.BindableToolStripButton</string>
-            <string>UnsuitableNaming.Form1.DoRedraw.DoRedraw</string>
-            <string>UnsuitableNaming.PowerPoint.NotifyBool.NotifyBool</string>
           </HashCodeRequestIgnoreList>
           <AnalysisFileManager>
             <AnalysisFiles>
@@ -294,7 +260,7 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>NotifyBool.cs</RelativePath>
+                <RelativePath>NotifyBoolean.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>

@@ -2,7 +2,7 @@
 
 namespace PowerPoint
 {
-    public class NotifyBool : INotifyPropertyChanged
+    public class NotifyBoolean : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
