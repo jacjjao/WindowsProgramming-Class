@@ -32,7 +32,7 @@ namespace PowerPoint
                 return;
             }
             _drawEndPos = pos;
-            list.Content[list.Content.Count - 1] = _factory.CreateShape(_type, _drawStartPos, _drawEndPos);
+            list[list.Count - 1] = _factory.CreateShape(_type, _drawStartPos, _drawEndPos);
         }
 
         /* mouse up */
@@ -42,7 +42,7 @@ namespace PowerPoint
                 return;
             _mousePressed = false;
             _drawEndPos = pos;
-            list.Content[list.Content.Count - 1] = _factory.CreateShape(_type, _drawStartPos, _drawEndPos);
+            list[list.Count - 1] = _factory.CreateShape(_type, _drawStartPos, _drawEndPos);
             _type = ShapeType.None;
         }
     }

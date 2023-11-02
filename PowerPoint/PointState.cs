@@ -16,17 +16,17 @@ namespace PowerPoint
             _previousMousePosition = pos;
             _selectedShape = null;
             bool found = false;
-            for (int i = list.Content.Count - 1; i >= 0; i--)
+            for (int i = list.Count - 1; i >= 0; i--)
             {
-                if (!found && list.Content[i].Contains(pos))
+                if (!found && list[i].Contains(pos))
                 {
-                    list.Content[i].Selected = true;
-                    _selectedShape = list.Content[i];
+                    list[i].Selected = true;
+                    _selectedShape = list[i];
                     found = true;
                 }
                 else
                 {
-                    list.Content[i].Selected = false;
+                    list[i].Selected = false;
                 }
             }
         }
@@ -60,7 +60,7 @@ namespace PowerPoint
         /* remove selected shape */
         public void RemoveSelectedShape(Shapes list)
         {
-            list.Content.Remove(_selectedShape);
+            list.Remove(_selectedShape);
             _selectedShape = null;
         }
     }

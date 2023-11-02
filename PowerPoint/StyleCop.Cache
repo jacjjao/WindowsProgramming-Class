@@ -157,7 +157,7 @@
     <timestamps>
       <styleCop>2023/09/15 13:46:53.002</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/11/02 10:43:00.973</sourceFile>
+      <sourceFile>2023/11/02 10:53:45.627</sourceFile>
       <parser>2023/09/15 13:46:53.002</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 13:46:53.002</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -168,7 +168,7 @@
     <timestamps>
       <styleCop>2023/09/15 13:46:53.002</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/11/02 10:39:53.278</sourceFile>
+      <sourceFile>2023/11/02 10:54:00.961</sourceFile>
       <parser>2023/09/15 13:46:53.002</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 13:46:53.002</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -177,8 +177,8 @@
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
         <context>Unsuitable naming(名不符實)-DoRedraw(redraw)</context>
         <line>107</line>
-        <index>4364</index>
-        <endIndex>4487</endIndex>
+        <index>4348</index>
+        <endIndex>4471</endIndex>
         <startLine>107</startLine>
         <startColumn>9</startColumn>
         <endLine>111</endLine>
@@ -269,7 +269,7 @@
     <timestamps>
       <styleCop>2023/09/15 13:46:53.002</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/11/02 10:50:08.880</sourceFile>
+      <sourceFile>2023/11/02 10:54:24.525</sourceFile>
       <parser>2023/09/15 13:46:53.002</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 13:46:53.002</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -368,18 +368,12 @@
     <timestamps>
       <styleCop>2023/09/15 13:46:53.002</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/11/02 10:49:30.205</sourceFile>
+      <sourceFile>2023/11/02 10:53:23.532</sourceFile>
       <parser>2023/09/15 13:46:53.002</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 13:46:53.002</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
     </timestamps>
-    <violations>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="Method2" ruleCheckId="MT0002">
-        <context>ICS(函式-2)</context>
-        <line>63</line>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <violations />
   </sourcecode>
   <sourcecode name="ShapesFactory.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>

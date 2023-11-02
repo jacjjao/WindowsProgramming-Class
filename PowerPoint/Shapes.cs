@@ -8,54 +8,36 @@ using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {
-    public class Shapes
+    public class Shapes : BindingList<Shape>
     {
         private readonly ShapesFactory _factory = new ShapesFactory();
 
-        private BindingList<Shape> _list;
-        public BindingList<Shape> Content
-        {
-            get
-            {
-                return _list;
-            }
-        }
-
         public Shapes()
         {
-            _list = new BindingList<Shape>()
-            {
-                AllowNew = true,
-                AllowRemove = true,
-                RaiseListChangedEvents = true,
-                AllowEdit = true
-            };
+            AllowNew = true;
+            AllowRemove = true;
+            RaiseListChangedEvents = true;
+            AllowEdit = true;
         }
 
         /* add shape */
         public void AddRandomShape(ShapeType type)
         {
-            _list.Add(_factory.CreateRandomShape(type));
+            Add(_factory.CreateRandomShape(type));
         }
 
         /* add shape */
         public void AddShape(ShapeType type, Point pointFirst, Point pointSecond)
         {
-            _list.Add(_factory.CreateShape(type, pointFirst, pointSecond));
-        }
-
-        /* remove at */
-        public void RemoveAt(int index)
-        {
-            _list.RemoveAt(index);
+            Add(_factory.CreateShape(type, pointFirst, pointSecond));
         }
 
         /* draw all */
         public void DrawAll(IGraphics graphics)
         {
-            for (int i = 0; i < _list.Count; i++)
+            for (int i = 0; i < Count; i++)
             {
-                _list[i].DrawShape(graphics);
+                this[i].DrawShape(graphics);
             }
         }
     }
