@@ -12,49 +12,38 @@ namespace PowerPoint
         private ShapeType _type = ShapeType.None;
 
         /* mouse down */
-        public void MouseDown(BindingList<Shape> list, Point pos)
+        public void MouseDown(Shapes list, Point pos, ShapeType type)
         {
-            if (_type == ShapeType.None)
+            if (type == ShapeType.None)
             {
                 return;
             }
+            _type = type;
             _mousePressed = true;
             _drawStartPos = _drawEndPos = pos;
-            list.Add(_factory.CreateShape(_type, _drawStartPos, _drawEndPos));
+            list.AddShape(_type, pos, pos);
         }
 
         /* mouse move */
-        public void MouseMove(BindingList<Shape> list, Point pos)
+        public void MouseMove(Shapes list, Point pos)
         {
             if (!_mousePressed)
             {
                 return;
             }
             _drawEndPos = pos;
-            list[list.Count - 1] = _factory.CreateShape(_type, _drawStartPos, _drawEndPos);
+            list.Content[list.Content.Count - 1] = _factory.CreateShape(_type, _drawStartPos, _drawEndPos);
         }
 
         /* mouse up */
-        public void MouseUp(BindingList<Shape> list, Point pos)
+        public void MouseUp(Shapes list, Point pos)
         {
             if (!_mousePressed)
                 return;
             _mousePressed = false;
             _drawEndPos = pos;
-            list[list.Count - 1] = _factory.CreateShape(_type, _drawStartPos, _drawEndPos);
+            list.Content[list.Content.Count - 1] = _factory.CreateShape(_type, _drawStartPos, _drawEndPos);
             _type = ShapeType.None;
-        }
-
-        /* select shape type */
-        public void SetShapeType(ShapeType type)
-        {
-            _type = type;
-        }
-
-        /* remove selected shape */
-        public void RemoveSelectedShape(BindingList<Shape> list)
-        {
-
         }
     }
 }

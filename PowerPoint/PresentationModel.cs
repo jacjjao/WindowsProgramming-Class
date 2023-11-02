@@ -43,14 +43,14 @@ namespace PowerPoint
                 }
             }
             type = CheckList[index].Value ? type : ShapeType.None;
-            Model.State.SetShapeType(type);
+            Model.SelectedShape = type;
             return type;
         }
 
         /* add shape */
-        public void AddShape(ShapeType type)
+        public void AddRandomShape(ShapeType type)
         {
-            Model.AddShape(type);
+            Model.AddRandomShape(type);
         }
 
         /* remove at */

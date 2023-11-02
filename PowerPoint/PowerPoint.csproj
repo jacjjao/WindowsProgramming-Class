@@ -58,6 +58,7 @@
     <Compile Include="IState.cs" />
     <Compile Include="NotifyBool.cs" />
     <Compile Include="PointState.cs" />
+    <Compile Include="Shapes.cs" />
     <Compile Include="ShapeType.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

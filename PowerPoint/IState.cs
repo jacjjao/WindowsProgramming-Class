@@ -6,18 +6,12 @@ namespace PowerPoint
     public interface IState
     {
         /* mouse down */
-        void MouseDown(BindingList<Shape> list, Point pos);
+        void MouseDown(Shapes list, Point pos, ShapeType type);
 
         /* mouse move */
-        void MouseMove(BindingList<Shape> list, Point pos);
+        void MouseMove(Shapes list, Point pos);
 
         /* mouse up */
-        void MouseUp(BindingList<Shape> list, Point pos);
-
-        /* select shape type */
-        void SetShapeType(ShapeType type);
-
-        /* remove selected shape */
-        void RemoveSelectedShape(BindingList<Shape> list);
+        void MouseUp(Shapes list, Point pos);
     }
 }

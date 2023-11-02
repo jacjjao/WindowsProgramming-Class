@@ -5,34 +5,34 @@ namespace PowerPoint
 {
     class PointState : IState
     {
-        Shape _selectedShape = null;
+        private Shape _selectedShape = null;
         private Point _previousMousePosition = new Point();
         private bool _mousePressed = false;
 
         /* mouse down */
-        public void MouseDown(BindingList<Shape> list, Point pos)
+        public void MouseDown(Shapes list, Point pos, ShapeType type)
         {
             _mousePressed = true;
             _previousMousePosition = pos;
             _selectedShape = null;
             bool found = false;
-            for (int i = list.Count - 1; i >= 0; i--)
+            for (int i = list.Content.Count - 1; i >= 0; i--)
             {
-                if (!found && list[i].Contains(pos))
+                if (!found && list.Content[i].Contains(pos))
                 {
-                    list[i].Selected = true;
-                    _selectedShape = list[i];
+                    list.Content[i].Selected = true;
+                    _selectedShape = list.Content[i];
                     found = true;
                 }
                 else
                 {
-                    list[i].Selected = false;
+                    list.Content[i].Selected = false;
                 }
             }
         }
 
         /* mouse move */
-        public void MouseMove(BindingList<Shape> list, Point pos)
+        public void MouseMove(Shapes list, Point pos)
         {
             if (!_mousePressed)
             {
@@ -48,7 +48,7 @@ namespace PowerPoint
         }
 
         /* mouse up */
-        public void MouseUp(BindingList<Shape> list, Point pos)
+        public void MouseUp(Shapes list, Point pos)
         {
             _mousePressed = false;
             if (_selectedShape != null)
@@ -58,15 +58,10 @@ namespace PowerPoint
         }
 
         /* remove selected shape */
-        public void RemoveSelectedShape(BindingList<Shape> list)
+        public void RemoveSelectedShape(Shapes list)
         {
-            list.Remove(_selectedShape);
+            list.Content.Remove(_selectedShape);
             _selectedShape = null;
-        }
-
-        /* select shape type */
-        public void SetShapeType(ShapeType type)
-        {
         }
     }
 }

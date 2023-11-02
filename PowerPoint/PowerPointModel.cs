@@ -6,11 +6,13 @@ namespace PowerPoint
 {
     public class PowerPointModel
     {
-        private readonly ShapesFactory _factory = new ShapesFactory();
-
-        public BindingList<Shape> ShapesList
+        private Shapes _list = new Shapes();
+        public Shapes ShapeList
         {
-            get;
+            get
+            {
+                return _list;
+            }
         }
 
         public Pen DrawPen
@@ -25,15 +27,14 @@ namespace PowerPoint
             set;
         }
 
+        public ShapeType SelectedShape
+        {
+            get;
+            set;
+        }
+
         public PowerPointModel()
         {
-            ShapesList = new BindingList<Shape>
-            {
-                AllowNew = true,
-                AllowRemove = true,
-                RaiseListChangedEvents = true,
-                AllowEdit = true
-            };
             State = new DrawingState();
             const float WIDTH = 1.0f;
             DrawPen = new Pen(System.Drawing.Color.Red, WIDTH);
@@ -42,48 +43,47 @@ namespace PowerPoint
         /* draw all */
         public void DrawAll(IGraphics graphics)
         {
-            for (int i = 0; i < ShapesList.Count; i++)
-            {
-                ShapesList[i].DrawShape(graphics);
-            }
+            ShapeList.DrawAll(graphics);
         }
 
         /* mouse down */
         public void DoMouseDown(MouseEventArgs e)
         {
-            State.MouseDown(ShapesList, e.Location);
+            State.MouseDown(ShapeList, e.Location, SelectedShape);
         }
 
         /* mouse move */
         public void DoMouseMove(MouseEventArgs e)
         {
-            State.MouseMove(ShapesList, e.Location);
+            State.MouseMove(ShapeList, e.Location);
         }
 
         /* mouse up */
         public void DoMouseUp(MouseEventArgs e)
         {
-            State.MouseUp(ShapesList, e.Location);
+            State.MouseUp(ShapeList, e.Location);
         }
 
         /* add shape */
-        public void AddShape(ShapeType type)
+        public void AddRandomShape(ShapeType type)
         {
-            ShapesList.Add(_factory.CreateRandomShape(type));
+            ShapeList.AddRandomShape(type);
+            SelectedShape = type;
         }
 
         /* remove at */
         public void RemoveAt(int index)
         {
-            ShapesList.RemoveAt(index);
+            ShapeList.RemoveAt(index);
         }
 
         /* keydown */
         public void DoKeyDown(KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete)
+            if (e.KeyCode == Keys.Delete && State is PointState)
             {
-                State.RemoveSelectedShape(ShapesList);
+                var state = (PointState)State;
+                state.RemoveSelectedShape(ShapeList);
             }
         }
     }

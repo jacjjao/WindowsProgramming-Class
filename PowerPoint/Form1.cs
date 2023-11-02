@@ -18,8 +18,8 @@ namespace PowerPoint
         {
             InitializeComponent();
             _presentModel = presentationModel;
-            _presentModel.Model.ShapesList.ListChanged += DoListChanged;
-            _bindingSource.DataSource = _presentModel.Model.ShapesList;
+            _presentModel.Model.ShapeList.Content.ListChanged += DoListChanged;
+            _bindingSource.DataSource = _presentModel.Model.ShapeList.Content;
             _dataGridView.DataSource = _bindingSource;
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
             CreateToolStripButtonListFirst();
@@ -151,7 +151,7 @@ namespace PowerPoint
         {
             if (_shapeComboBox.SelectedIndex < 0)
                 return;
-            _presentModel.AddShape((ShapeType)_shapeComboBox.SelectedIndex);
+            _presentModel.AddRandomShape((ShapeType)_shapeComboBox.SelectedIndex);
         }
 
         /* 處理DataGridView上的"刪除"按鈕被按的event */
