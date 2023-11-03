@@ -64,11 +64,13 @@ namespace PowerPoint
             _list.Add(_factory.CreateShape(type, pointFirst, pointSecond));
         }
 
+        /* remove */
         public void Remove(Shape shape)
         {
             _list.Remove(shape);
         }
 
+        /* remove at */
         public void RemoveAt(int index)
         {
             _list.RemoveAt(index);
