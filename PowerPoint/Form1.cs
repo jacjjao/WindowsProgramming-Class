@@ -18,8 +18,8 @@ namespace PowerPoint
         {
             InitializeComponent();
             _presentModel = presentationModel;
-            _presentModel.Model.ShapeList.ListChanged += DoListChanged;
-            _bindingSource.DataSource = _presentModel.Model.ShapeList;
+            _presentModel.Model.ShapeList.Content.ListChanged += DoListChanged;
+            _bindingSource.DataSource = _presentModel.Model.ShapeList.Content;
             _dataGridView.DataSource = _bindingSource;
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
             CreateToolStripButtonListFirst();
