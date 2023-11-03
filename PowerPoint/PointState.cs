@@ -14,21 +14,7 @@ namespace PowerPoint
         {
             _mousePressed = true;
             _previousMousePosition = pos;
-            _selectedShape = null;
-            bool found = false;
-            for (int i = list.Count - 1; i >= 0; i--)
-            {
-                if (!found && list[i].Contains(pos))
-                {
-                    list[i].Selected = true;
-                    _selectedShape = list[i];
-                    found = true;
-                }
-                else
-                {
-                    list[i].Selected = false;
-                }
-            }
+            _selectedShape = list.FindContain(pos);
         }
 
         /* mouse move */

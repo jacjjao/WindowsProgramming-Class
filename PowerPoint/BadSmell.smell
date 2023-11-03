@@ -202,38 +202,6 @@
               <Comment />
               <Auto>false</Auto>
             </Smell>
-            <Smell>
-              <Id>2</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>20 目前物件 PowerPoint.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Shapes，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Shapes.Count 以及 PowerPoint.Shapes.Count</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\hjaco\Desktop\WindowsProgramming\PowerPoint\PointState.cs</File>
-              <Line>20</Line>
-              <StartLine>20</StartLine>
-              <StartCol>20</StartCol>
-              <EndLine>20</EndLine>
-              <EndCol>51</EndCol>
-              <Comment>目前物件 PowerPoint.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Shapes，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Shapes.Count 以及 PowerPoint.Shapes.Count</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>3</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>24 目前物件 PowerPoint.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Shapes，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.Shapes.Count 以及 PowerPoint.Shapes.Count 以及 PowerPoint.Shapes.Count</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\hjaco\Desktop\WindowsProgramming\PowerPoint\PointState.cs</File>
-              <Line>24</Line>
-              <StartLine>23</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>24</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>目前物件 PowerPoint.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Shapes，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.Shapes.Count 以及 PowerPoint.Shapes.Count 以及 PowerPoint.Shapes.Count</Comment>
-              <Auto>false</Auto>
-            </Smell>
           </Reviews>
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList>
@@ -358,7 +326,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1653</ProductionLoc>
+          <ProductionLoc>1660</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

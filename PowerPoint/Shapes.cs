@@ -76,6 +76,27 @@ namespace PowerPoint
             _list.RemoveAt(index);
         }
 
+        /* find contain */
+        public Shape FindContain(Point point)
+        {
+            Shape result = null;
+            bool found = false;
+            foreach (var shape in _list.Reverse())
+            {
+                if (!found && shape.Contains(point))
+                {
+                    shape.Selected = true;
+                    result = shape;
+                    found = true;
+                }
+                else
+                {
+                    shape.Selected = false;
+                }
+            }
+            return result;
+        }
+
         /* draw all */
         public void DrawAll(IGraphics graphics)
         {
