@@ -151,7 +151,7 @@ namespace PowerPoint
         {
             if (_shapeComboBox.SelectedIndex < 0)
                 return;
-            _presentModel.AddRandomShape((ShapeType)_shapeComboBox.SelectedIndex);
+            _presentModel.AddRandomShape((ShapeType)_shapeComboBox.SelectedIndex, _drawPanel.Width, _drawPanel.Height);
         }
 
         /* 處理DataGridView上的"刪除"按鈕被按的event */
