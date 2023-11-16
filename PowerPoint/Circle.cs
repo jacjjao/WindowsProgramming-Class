@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace PowerPoint
 {
-    class Circle : Shape
+    public class Circle : Shape
     {
         public Point Diameter
         {
@@ -72,6 +72,11 @@ namespace PowerPoint
             double differenceX = difference.X;
             double differenceY = difference.Y;
             double mouseToOrigin = Math.Sqrt(differenceX * differenceX + differenceY * differenceY);
+
+            if (mouseToOrigin == 0.0)
+            {
+                return true;
+            }
 
             const double TWO = 2.0;
             double angle = Math.Atan(differenceY / differenceX);

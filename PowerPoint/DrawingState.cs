@@ -1,9 +1,8 @@
-﻿using System.ComponentModel;
-using Point = System.Drawing.Point;
+﻿using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {
-    class DrawingState : IState
+    public class DrawingState : IState
     {
         private readonly ShapesFactory _factory = new ShapesFactory();
         private Point _drawStartPos = new Point();
@@ -43,7 +42,6 @@ namespace PowerPoint
             _mousePressed = false;
             _drawEndPos = pos;
             list[list.Count - 1] = _factory.CreateShape(_type, _drawStartPos, _drawEndPos);
-            _type = ShapeType.None;
         }
     }
 }
