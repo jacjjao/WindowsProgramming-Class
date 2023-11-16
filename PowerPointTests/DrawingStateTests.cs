@@ -1,4 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PowerPoint;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Drawing;
 
 namespace PowerPoint.Tests
@@ -25,6 +31,13 @@ namespace PowerPoint.Tests
         [TestMethod()]
         public void MouseDownTest()
         {
+            _state.MouseDown(_list, _p1, ShapeType.None);
+            Assert.AreEqual(0, _list.Count);
+            Assert.IsFalse((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
+            Assert.AreNotEqual(_p1, _statePrivate.GetFieldOrProperty("_drawStartPos"));
+            Assert.AreNotEqual(_p1, _statePrivate.GetFieldOrProperty("_drawEndPos"));
+            Assert.AreEqual(ShapeType.None, _statePrivate.GetFieldOrProperty("_type"));
+
             _state.MouseDown(_list, _p1, ShapeType.Circle);
             Assert.AreEqual(1, _list.Count);
             Assert.IsTrue(_list[0] is Circle);
@@ -40,6 +53,13 @@ namespace PowerPoint.Tests
         [TestMethod()]
         public void MouseMoveTest()
         {
+            _state.MouseMove(_list, _p2);
+            Assert.AreEqual(0, _list.Count);
+            Assert.IsFalse((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
+            Assert.AreNotEqual(_p1, _statePrivate.GetFieldOrProperty("_drawStartPos"));
+            Assert.AreNotEqual(_p2, _statePrivate.GetFieldOrProperty("_drawEndPos"));
+            Assert.AreEqual(ShapeType.None, _statePrivate.GetFieldOrProperty("_type"));
+
             _state.MouseDown(_list, _p1, ShapeType.Circle);
             _state.MouseMove(_list, _p2);
             Assert.AreEqual(1, _list.Count);
@@ -59,6 +79,13 @@ namespace PowerPoint.Tests
         [TestMethod()]
         public void MouseUpTest()
         {
+            _state.MouseUp(_list, _p2);
+            Assert.AreEqual(0, _list.Count);
+            Assert.IsFalse((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
+            Assert.AreNotEqual(_p1, _statePrivate.GetFieldOrProperty("_drawStartPos"));
+            Assert.AreNotEqual(_p2, _statePrivate.GetFieldOrProperty("_drawEndPos"));
+            Assert.AreEqual(ShapeType.None, _statePrivate.GetFieldOrProperty("_type"));
+
             _state.MouseDown(_list, _p1, ShapeType.Circle);
             _state.MouseUp(_list, _p2);
             Assert.IsTrue(_list.Count == 1);

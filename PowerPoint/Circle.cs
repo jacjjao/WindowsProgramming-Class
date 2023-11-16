@@ -19,17 +19,32 @@ namespace PowerPoint
             }
         }
 
-        public Point Center
+        public Point Radius
         {
             get
             {
                 const int TWO = 2;
-                return new Point(HitBox.X + HitBox.Width / TWO, HitBox.Y + HitBox.Height / TWO);
+                return new Point(HitBox.Width / TWO, HitBox.Height / TWO);
             }
             set
             {
-                _hitBox.X = value.X;
-                _hitBox.Y = value.Y;
+                const int TWO = 2;
+                _hitBox.Width = value.X * TWO;
+                _hitBox.Height = value.Y * TWO;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public Point Center
+        {
+            get
+            {
+                return new Point(HitBox.X + Radius.X, HitBox.Y + Radius.Y);
+            }
+            set
+            {
+                _hitBox.X = value.X - Radius.X;
+                _hitBox.Y = value.Y - Radius.Y;
                 NotifyPropertyChanged();
             }
         }
@@ -78,10 +93,9 @@ namespace PowerPoint
                 return true;
             }
 
-            const double TWO = 2.0;
             double angle = Math.Atan(differenceY / differenceX);
-            double radiusX = Diameter.X / TWO;
-            double radiusY = Diameter.Y / TWO;
+            double radiusX = Radius.X;
+            double radiusY = Radius.Y;
             double lengthX = radiusX * Math.Cos(angle);
             double lengthY = radiusY * Math.Sin(angle);
             double distance = Math.Sqrt(lengthX * lengthX + lengthY * lengthY);

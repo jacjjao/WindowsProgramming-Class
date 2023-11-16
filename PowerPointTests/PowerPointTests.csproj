@@ -59,7 +59,16 @@
   <ItemGroup>
     <Compile Include="CircleTests.cs" />
     <Compile Include="DrawingStateTests.cs" />
+    <Compile Include="FormGraphicsAdapterTests.cs" />
+    <Compile Include="LineTests.cs" />
+    <Compile Include="PointStateTests.cs" />
+    <Compile Include="PowerPointModelTests.cs" />
+    <Compile Include="PresentationModelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RectangleTests.cs" />
+    <Compile Include="ShapesFactoryTests.cs" />
+    <Compile Include="ShapesTests.cs" />
+    <Compile Include="ShapeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace PowerPoint
 {
-    class Line : Shape
+    public class Line : Shape
     {
         private Point _startPoint = new Point();
         private Point _endPoint = new Point();

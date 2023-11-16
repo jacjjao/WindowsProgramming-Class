@@ -2,7 +2,7 @@
 
 namespace PowerPoint
 {
-    class FormGraphicsAdapter : IGraphics
+    public class FormGraphicsAdapter : IGraphics
     {
         private Graphics _graphics;
 

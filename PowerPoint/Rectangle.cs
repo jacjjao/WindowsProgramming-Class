@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace PowerPoint
 {
-    class Rectangle : Shape
+    public class Rectangle : Shape
     {
         public Point Position
         {

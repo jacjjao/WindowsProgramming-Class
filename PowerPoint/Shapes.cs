@@ -1,5 +1,9 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint
@@ -7,11 +11,10 @@ namespace PowerPoint
     public class Shapes
     {
         private readonly ShapesFactory _factory = new ShapesFactory();
-        private BindingList<Shape> _list;
 
         public Shapes()
         {
-            _list = new BindingList<Shape>
+            Content = new BindingList<Shape>
             {
                 AllowNew = true,
                 AllowRemove = true,
@@ -24,11 +27,11 @@ namespace PowerPoint
         {
             get
             {
-                return _list[index];
+                return Content[index];
             }
             set
             {
-                _list[index] = value;
+                Content[index] = value;
             }
         }
 
@@ -36,40 +39,34 @@ namespace PowerPoint
         {
             get
             {
-                return _list.Count;
+                return Content.Count;
             }
         }
 
-        public BindingList<Shape> Content
-        {
-            get
-            {
-                return _list;
-            }
-        }
+        public BindingList<Shape> Content { get; }
 
         /* add shape */
         public void AddRandomShape(ShapeType type, int screenWidth, int screenHeight)
         {
-            _list.Add(_factory.CreateRandomShape(type, screenWidth, screenHeight));
+            Content.Add(_factory.CreateRandomShape(type, screenWidth, screenHeight));
         }
 
         /* add shape */
         public void AddShape(ShapeType type, Point pointFirst, Point pointSecond)
         {
-            _list.Add(_factory.CreateShape(type, pointFirst, pointSecond));
+            Content.Add(_factory.CreateShape(type, pointFirst, pointSecond));
         }
 
         /* remove */
         public void Remove(Shape shape)
         {
-            _list.Remove(shape);
+            Content.Remove(shape);
         }
 
         /* remove at */
         public void RemoveAt(int index)
         {
-            _list.RemoveAt(index);
+            Content.RemoveAt(index);
         }
 
         /* find contain */
@@ -77,7 +74,7 @@ namespace PowerPoint
         {
             Shape result = null;
             bool found = false;
-            foreach (var shape in _list.Reverse())
+            foreach (var shape in Content.Reverse())
             {
                 if (!found && shape.Contains(point))
                 {
@@ -96,9 +93,9 @@ namespace PowerPoint
         /* draw all */
         public void DrawAll(IGraphics graphics)
         {
-            for (int i = 0; i < _list.Count; i++)
+            for (int i = 0; i < Content.Count; i++)
             {
-                _list[i].DrawShape(graphics);
+                Content[i].DrawShape(graphics);
             }
         }
     }

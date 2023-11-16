@@ -1,8 +1,9 @@
-﻿using Point = System.Drawing.Point;
+﻿using System.ComponentModel;
+using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {
-    class PointState : IState
+    public class PointState : IState
     {
         private Shape _selectedShape = null;
         private Point _previousMousePosition = new Point();
@@ -28,7 +29,7 @@ namespace PowerPoint
             if (_selectedShape != null)
             {
                 _selectedShape.Move(differenceX, differenceY);
-            }
+            }    
             _previousMousePosition = pos;
         }
 
