@@ -10,7 +10,7 @@ namespace PowerPoint
 {
     public class Shapes
     {
-        private readonly ShapesFactory _factory = new ShapesFactory();
+        private readonly ShapesFactory _factory = new ShapesFactory(new RandomGenerator());
 
         public Shapes()
         {

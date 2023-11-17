@@ -89,5 +89,12 @@ namespace PowerPoint
             _endPoint.Y += differenceY;
             UpdateHitBox();
         }
+
+        /* contains */
+        public override bool Contains(Point mousePosition)
+        {
+            var size = new Point(EndPoint.X - StartPoint.X, Math.Abs(EndPoint.Y - StartPoint.Y));
+            return mousePosition.X >= StartPoint.X && mousePosition.X <= StartPoint.X + size.X && mousePosition.Y >= StartPoint.Y && mousePosition.Y <= StartPoint.Y + size.Y;
+        }
     }
 }

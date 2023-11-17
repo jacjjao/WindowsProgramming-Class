@@ -39,10 +39,7 @@ namespace PowerPoint
         }
 
         /* 檢查游標有沒有在shape裡 */
-        public virtual bool Contains(Point mousePosition)
-        {
-            return mousePosition.X >= _hitBox.X && mousePosition.X <= _hitBox.X + _hitBox.Width && mousePosition.Y >= _hitBox.Y && mousePosition.Y <= _hitBox.Y + _hitBox.Height;
-        }
+        public abstract bool Contains(Point mousePosition);
 
         /* move */
         public abstract void Move(int differenceX, int differenceY);

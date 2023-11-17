@@ -5,15 +5,21 @@ namespace PowerPoint
 {
     public class ShapesFactory
     {
+        readonly IRandom _random;
+
+        public ShapesFactory(IRandom random)
+        {
+            _random = random;
+        }
+
         /* create random shape */
         public Shape CreateRandomShape(ShapeType type, int screenWidth, int screenHeight)
         {
             const int SIZE_LOW = 10;
             int sizeHigh = Math.Min(screenWidth, screenHeight);
             const int POS_LOW = 0;
-            var random = new Random();
-            var size = new Point(random.Next(SIZE_LOW, sizeHigh), random.Next(SIZE_LOW, sizeHigh));
-            var startPoint = new Point(random.Next(POS_LOW, screenWidth - size.X), random.Next(POS_LOW, screenHeight - size.Y));
+            var size = new Point(_random.Next(SIZE_LOW, sizeHigh), _random.Next(SIZE_LOW, sizeHigh));
+            var startPoint = new Point(_random.Next(POS_LOW, screenWidth - size.X), _random.Next(POS_LOW, screenHeight - size.Y));
             var endPoint = new Point(startPoint.X + size.X, startPoint.Y + size.Y);
             return CreateShape(type, startPoint, endPoint);
         }

@@ -55,9 +55,11 @@
     <Compile Include="DrawingState.cs" />
     <Compile Include="FormGraphicsAdapter.cs" />
     <Compile Include="IGraphics.cs" />
+    <Compile Include="IRandom.cs" />
     <Compile Include="IState.cs" />
     <Compile Include="NotifyBoolean.cs" />
     <Compile Include="PointState.cs" />
+    <Compile Include="RandomGenerator.cs" />
     <Compile Include="Shapes.cs" />
     <Compile Include="ShapeType.cs" />
     <Compile Include="Form1.cs">

@@ -34,12 +34,6 @@ namespace PowerPoint
 
         private const string SHAPE_NAME = "矩形";
 
-        public Rectangle()
-        {
-            Position = new Point();
-            Size = new Point();
-        }
-
         public Rectangle(Point pointFirst, Point pointSecond)
         {
             Position = new Point(Math.Min(pointFirst.X, pointSecond.X), Math.Min(pointFirst.Y, pointSecond.Y));
@@ -74,6 +68,12 @@ namespace PowerPoint
         {
             _hitBox.X += differenceX;
             _hitBox.Y += differenceY;
+        }
+
+        /* contains */
+        public override bool Contains(Point mousePosition)
+        {
+            return mousePosition.X >= Position.X && mousePosition.X <= Position.X + Size.X && mousePosition.Y >= Position.Y && mousePosition.Y <= Position.Y + Size.Y;
         }
     }
 }

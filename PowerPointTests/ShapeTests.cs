@@ -2,6 +2,7 @@
 using PowerPoint;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,13 @@ using System.Threading.Tasks;
 namespace PowerPoint.Tests
 {
     class MockShape : Shape
-    {
+    { 
+        /* contains */
+        public override bool Contains(Point mousePosition)
+        {
+            throw new NotImplementedException();
+        }
+
         /* draw */
         public override void Draw(IGraphics graphics)
         {
@@ -46,54 +53,24 @@ namespace PowerPoint.Tests
             _shape = new MockShape();
         }
 
-        [TestProperty("MockShape", "Info")]
+        [TestMethod()]
         public void InfoTest()
         {
             Assert.AreEqual("GetInfo", _shape.Info);
         }
 
-        [TestProperty("MockShape", "Name")]
+        [TestMethod()]
         public void NameTest()
         {
-            Assert.AreEqual("GetShapeName", _shape.Info);
+            Assert.AreEqual("GetShapeName", _shape.Name);
         }
 
-        [TestProperty("MockShape", "Selected")]
+        [TestMethod()]
         public void SelectedTest()
         {
             Assert.IsFalse(_shape.Selected);
             _shape.Selected = true;
             Assert.IsTrue(_shape.Selected);
-        }
-
-        [TestMethod()]
-        public void ContainsTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void MoveTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void GetInfoTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void GetShapeNameTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void DrawTest()
-        {
-            Assert.Fail();
         }
 
         [TestMethod()]
@@ -105,7 +82,13 @@ namespace PowerPoint.Tests
         [TestMethod()]
         public void NotifyPropertyChangedTest()
         {
-            Assert.Fail();
+            object obj = null;
+            _shape.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(delegate (object sender, System.ComponentModel.PropertyChangedEventArgs args)
+            {
+                obj = sender;
+            });
+            _shape.NotifyPropertyChanged();
+            Assert.AreEqual(_shape, obj);
         }
     }
 }

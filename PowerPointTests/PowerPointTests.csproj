@@ -61,6 +61,8 @@
     <Compile Include="DrawingStateTests.cs" />
     <Compile Include="FormGraphicsAdapterTests.cs" />
     <Compile Include="LineTests.cs" />
+    <Compile Include="MockGraphicsAdapter.cs" />
+    <Compile Include="MockRandom.cs" />
     <Compile Include="PointStateTests.cs" />
     <Compile Include="PowerPointModelTests.cs" />
     <Compile Include="PresentationModelTests.cs" />
