@@ -33,11 +33,11 @@ namespace PowerPoint.Tests
         {
             _state.MouseDown(_list, _p1, ShapeType.None);
             Assert.AreEqual(0, _list.Count);
-            Assert.IsFalse((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
+            Assert.IsFalse((bool)_statePrivate.GetFieldOrProperty("_mousePressed")); 
             Assert.AreNotEqual(_p1, _statePrivate.GetFieldOrProperty("_drawStartPos"));
             Assert.AreNotEqual(_p1, _statePrivate.GetFieldOrProperty("_drawEndPos"));
             Assert.AreEqual(ShapeType.None, _statePrivate.GetFieldOrProperty("_type"));
-
+            
             _state.MouseDown(_list, _p1, ShapeType.Circle);
             Assert.AreEqual(1, _list.Count);
             Assert.IsTrue(_list[0] is Circle);
