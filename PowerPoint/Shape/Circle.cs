@@ -15,7 +15,6 @@ namespace PowerPoint
             {
                 _hitBox.Width = value.X;
                 _hitBox.Height = value.Y;
-                NotifyPropertyChanged();
             }
         }
 
@@ -31,7 +30,6 @@ namespace PowerPoint
                 const int TWO = 2;
                 _hitBox.Width = value.X * TWO;
                 _hitBox.Height = value.Y * TWO;
-                NotifyPropertyChanged();
             }
         }
 
@@ -45,7 +43,6 @@ namespace PowerPoint
             {
                 _hitBox.X = value.X - Radius.X;
                 _hitBox.Y = value.Y - Radius.Y;
-                NotifyPropertyChanged();
             }
         }
 
@@ -114,7 +111,6 @@ namespace PowerPoint
             _hitBox.Y = Math.Min(pointFirst.Y, pointSecond.Y);
             _hitBox.Width = Math.Abs(pointSecond.X - pointFirst.X);
             _hitBox.Height = Math.Abs(pointSecond.Y - pointFirst.Y);
-            NotifyPropertyChanged();
         }
     }
 }

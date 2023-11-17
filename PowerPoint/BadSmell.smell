@@ -982,17 +982,7 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Circle.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
                 <RelativePath>DoubleBufferedPanel.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>DrawingState.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -1007,27 +997,17 @@
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>FormGraphicsAdapter.cs</RelativePath>
+                <RelativePath>Graphics\FormGraphicsAdapter.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>IGraphics.cs</RelativePath>
+                <RelativePath>Graphics\IGraphics.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>IRandom.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>IState.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Line.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -1043,11 +1023,6 @@
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>NotifyBoolean.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>PointState.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -1077,49 +1052,54 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Rectangle.cs</RelativePath>
+                <RelativePath>Shape\Circle.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Shape.cs</RelativePath>
+                <RelativePath>Shape\Line.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Shapes.cs</RelativePath>
+                <RelativePath>Shape\Rectangle.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ShapesFactory.cs</RelativePath>
+                <RelativePath>Shape\Shape.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ShapeType.cs</RelativePath>
+                <RelativePath>Shape\Shapes.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>CircleTests.cs</RelativePath>
-                <ProjectName>PowerPointTests</ProjectName>
-                <AnalysisFileType>Test</AnalysisFileType>
+                <RelativePath>Shape\ShapesFactory.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>DrawingStateTests.cs</RelativePath>
-                <ProjectName>PowerPointTests</ProjectName>
-                <AnalysisFileType>Test</AnalysisFileType>
+                <RelativePath>Shape\ShapeType.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>FormGraphicsAdapterTests.cs</RelativePath>
-                <ProjectName>PowerPointTests</ProjectName>
-                <AnalysisFileType>Test</AnalysisFileType>
+                <RelativePath>State\DrawingState.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>LineTests.cs</RelativePath>
-                <ProjectName>PowerPointTests</ProjectName>
-                <AnalysisFileType>Test</AnalysisFileType>
+                <RelativePath>State\IState.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>State\PointState.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>MockGraphicsAdapter.cs</RelativePath>
@@ -1132,19 +1112,14 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>PointStateTests.cs</RelativePath>
+                <RelativePath>Model\PowerPointModelTests.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
-                <AnalysisFileType>Test</AnalysisFileType>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>PowerPointModelTests.cs</RelativePath>
+                <RelativePath>Model\PresentationModelTests.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
-                <AnalysisFileType>Test</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>PresentationModelTests.cs</RelativePath>
-                <ProjectName>PowerPointTests</ProjectName>
-                <AnalysisFileType>Test</AnalysisFileType>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
@@ -1157,24 +1132,44 @@
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>RectangleTests.cs</RelativePath>
+                <RelativePath>Shape\CircleTests.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
-                <AnalysisFileType>Test</AnalysisFileType>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ShapesFactoryTests.cs</RelativePath>
+                <RelativePath>Shape\LineTests.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
-                <AnalysisFileType>Test</AnalysisFileType>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ShapesTests.cs</RelativePath>
+                <RelativePath>Shape\RectangleTests.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
-                <AnalysisFileType>Test</AnalysisFileType>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ShapeTests.cs</RelativePath>
+                <RelativePath>Shape\ShapesFactoryTests.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
-                <AnalysisFileType>Test</AnalysisFileType>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Shape\ShapesTests.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Shape\ShapeTests.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>State\DrawingStateTests.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>State\PointStateTests.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>

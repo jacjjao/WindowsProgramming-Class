@@ -106,6 +106,8 @@ namespace PowerPoint.Tests
         public void NotifyPropertyChangedTest()
         {
             object obj = null;
+            _shape.NotifyPropertyChanged();
+            Assert.IsNull(obj);
             _shape.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(delegate (object sender, System.ComponentModel.PropertyChangedEventArgs args)
             {
                 obj = sender;

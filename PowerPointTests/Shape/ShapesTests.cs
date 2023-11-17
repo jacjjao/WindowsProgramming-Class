@@ -40,6 +40,17 @@ namespace PowerPoint.Tests
         }
 
         [TestMethod()]
+        public void IndexerTest()
+        {
+            int screenWidth = 800;
+            int screenHeight = 600;
+            _list.AddRandomShape(ShapeType.Rectangle, screenWidth, screenHeight);
+            var shape = new Rectangle(new Point(0, 0), new Point(10, 10));
+            _list[0] = shape;
+            Assert.AreEqual(shape, _list[0]);
+        }
+
+        [TestMethod()]
         public void AddShapeTest()
         {
             var p1 = new Point(0, 0);

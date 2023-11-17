@@ -18,7 +18,6 @@ namespace PowerPoint
             {
                 _startPoint = value;
                 UpdateHitBox();
-                NotifyPropertyChanged();
             }
         }
         public Point EndPoint
@@ -31,7 +30,6 @@ namespace PowerPoint
             {
                 _endPoint = value;
                 UpdateHitBox();
-                NotifyPropertyChanged();
             }
         }
 
