@@ -44,6 +44,9 @@ namespace PowerPoint
         /* move */
         public abstract void Move(int differenceX, int differenceY);
 
+        /* resize */
+        public abstract void Resize(Point pointFirst, Point pointSecond);
+
         /* get info */
         public abstract string GetInfo();
 

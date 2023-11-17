@@ -40,6 +40,12 @@ namespace PowerPoint.Tests
         {
             throw new NotImplementedException();
         }
+
+        /* resize */
+        public override void Resize(Point pointFirst, Point pointSecond)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     [TestClass()]

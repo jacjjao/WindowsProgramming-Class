@@ -51,10 +51,7 @@ namespace PowerPoint
 
         public Circle(Point pointFirst, Point pointSecond)
         {
-            _hitBox.X = Math.Min(pointFirst.X, pointSecond.X);
-            _hitBox.Y = Math.Min(pointFirst.Y, pointSecond.Y);
-            _hitBox.Width = Math.Abs(pointSecond.X - pointFirst.X);
-            _hitBox.Height = Math.Abs(pointSecond.Y - pointFirst.Y);
+            Resize(pointFirst, pointSecond);
         }
 
         const string SHAPE_NAME = "圓形";
@@ -108,6 +105,16 @@ namespace PowerPoint
         {
             _hitBox.X += differenceX;
             _hitBox.Y += differenceY;
+        }
+
+        /* resize */
+        public override void Resize(Point pointFirst, Point pointSecond)
+        {
+            _hitBox.X = Math.Min(pointFirst.X, pointSecond.X);
+            _hitBox.Y = Math.Min(pointFirst.Y, pointSecond.Y);
+            _hitBox.Width = Math.Abs(pointSecond.X - pointFirst.X);
+            _hitBox.Height = Math.Abs(pointSecond.Y - pointFirst.Y);
+            NotifyPropertyChanged();
         }
     }
 }

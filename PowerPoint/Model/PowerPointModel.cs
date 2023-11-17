@@ -6,7 +6,7 @@ namespace PowerPoint
 {
     public class PowerPointModel
     {
-        private Shapes _list = new Shapes();
+        readonly Shapes _list = new Shapes();
         public Shapes ShapeList
         {
             get
@@ -15,29 +15,37 @@ namespace PowerPoint
             }
         }
 
+        const float DEFAULT_WIDTH = 1.0f;
+        Pen _pen = new Pen(System.Drawing.Color.Red, DEFAULT_WIDTH);
         public Pen DrawPen
         {
-            get;
-            set;
+            get
+            {
+                return _pen;
+            }
+            set
+            {
+                _pen = value;
+            }
         }
 
+        IState _state = new DrawingState();
         public IState State
         {
-            get;
-            set;
+            get
+            {
+                return _state;
+            }
+            set
+            {
+                _state = value;
+            }
         }
 
         public ShapeType SelectedShape
         {
             get;
             set;
-        }
-
-        public PowerPointModel()
-        {
-            State = new DrawingState();
-            const float WIDTH = 1.0f;
-            DrawPen = new Pen(System.Drawing.Color.Red, WIDTH);
         }
 
         /* draw all */
@@ -67,14 +75,14 @@ namespace PowerPoint
         /* add shape */
         public void AddRandomShape(ShapeType type, int screenWidth, int screenHeight)
         {
-            ShapeList.AddRandomShape(type, screenWidth, screenHeight);
+            _list.AddRandomShape(type, screenWidth, screenHeight);
             SelectedShape = type;
         }
 
         /* remove at */
         public void RemoveAt(int index)
         {
-            ShapeList.RemoveAt(index);
+            _list.RemoveAt(index);
         }
 
         /* keydown */

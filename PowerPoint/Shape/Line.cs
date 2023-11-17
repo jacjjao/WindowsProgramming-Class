@@ -39,17 +39,7 @@ namespace PowerPoint
 
         public Line(Point pointFirst, Point pointSecond)
         {
-            if (pointFirst.X <= pointSecond.X)
-            {
-                StartPoint = pointFirst;
-                EndPoint = pointSecond;
-            }
-            else
-            {
-                StartPoint = pointSecond;
-                EndPoint = pointFirst;
-            }
-            UpdateHitBox();
+            Resize(pointFirst, pointSecond);
         }
 
         /* get info */
@@ -88,6 +78,21 @@ namespace PowerPoint
             _endPoint.X += differenceX;
             _endPoint.Y += differenceY;
             UpdateHitBox();
+        }
+
+        /* resize */
+        public override void Resize(Point pointFirst, Point pointSecond)
+        {
+            if (pointFirst.X <= pointSecond.X)
+            {
+                StartPoint = pointFirst;
+                EndPoint = pointSecond;
+            }
+            else
+            {
+                StartPoint = pointSecond;
+                EndPoint = pointFirst;
+            }
         }
 
         /* contains */

@@ -15,7 +15,6 @@ namespace PowerPoint
             {
                 _hitBox.X = value.X;
                 _hitBox.Y = value.Y;
-                NotifyPropertyChanged();
             }
         }
         public Point Size
@@ -28,7 +27,6 @@ namespace PowerPoint
             {
                 _hitBox.Width = value.X;
                 _hitBox.Height = value.Y;
-                NotifyPropertyChanged();
             }
         }
 
@@ -36,12 +34,7 @@ namespace PowerPoint
 
         public Rectangle(Point pointFirst, Point pointSecond)
         {
-            Position = new Point(Math.Min(pointFirst.X, pointSecond.X), Math.Min(pointFirst.Y, pointSecond.Y));
-            Size = new Point
-            {
-                X = Math.Max(pointFirst.X, pointSecond.X) - Math.Min(pointFirst.X, pointSecond.X),
-                Y = Math.Max(pointFirst.Y, pointSecond.Y) - Math.Min(pointFirst.Y, pointSecond.Y)
-            };
+            Resize(pointFirst, pointSecond);
         }
 
         /* get info */
@@ -68,6 +61,17 @@ namespace PowerPoint
         {
             _hitBox.X += differenceX;
             _hitBox.Y += differenceY;
+        }
+        
+        /* resize */
+        public override void Resize(Point pointFirst, Point pointSecond)
+        {
+            Position = new Point(Math.Min(pointFirst.X, pointSecond.X), Math.Min(pointFirst.Y, pointSecond.Y));
+            Size = new Point
+            {
+                X = Math.Max(pointFirst.X, pointSecond.X) - Math.Min(pointFirst.X, pointSecond.X),
+                Y = Math.Max(pointFirst.Y, pointSecond.Y) - Math.Min(pointFirst.Y, pointSecond.Y)
+            };
         }
 
         /* contains */

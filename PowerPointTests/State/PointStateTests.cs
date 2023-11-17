@@ -49,19 +49,39 @@ namespace PowerPoint.Tests
 
             _state.MouseDown(_list, _p1, ShapeType.None);
             _state.MouseMove(_list, _p2);
-            Assert.Fail();
+            Assert.IsTrue((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
+            Assert.AreEqual(_p2, _statePrivate.GetFieldOrProperty("_previousMousePosition"));
+            Assert.AreEqual(_list[1], _statePrivate.GetFieldOrProperty("_selectedShape"));
+
+            var p = new Point(-10, -10);
+            _state.MouseDown(_list, p, ShapeType.None);
+            _state.MouseMove(_list, _p2);
+            Assert.IsTrue((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
+            Assert.AreEqual(_p2, _statePrivate.GetFieldOrProperty("_previousMousePosition"));
+            Assert.IsNull(_statePrivate.GetFieldOrProperty("_selectedShape"));
         }
 
         [TestMethod()]
         public void MouseUpTest()
         {
-            Assert.Fail();
+            _state.MouseUp(_list, _p2);
+            Assert.IsFalse((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
+
+            _state.MouseDown(_list, _p1, ShapeType.None);
+            _state.MouseMove(_list, _p2);
+            _state.MouseUp(_list, _p2);
+            Assert.IsFalse((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
         }
 
         [TestMethod()]
         public void RemoveSelectedShapeTest()
         {
-            Assert.Fail();
+            var shouldRemain = _list[0];
+            _state.MouseDown(_list, new Point(10, 10), ShapeType.None);
+            _state.RemoveSelectedShape(_list);
+            Assert.AreEqual(1, _list.Count);
+            Assert.AreEqual(shouldRemain, _list[0]);
+            Assert.IsNull(_statePrivate.GetFieldOrProperty("_selectedShape"));
         }
     }
 }

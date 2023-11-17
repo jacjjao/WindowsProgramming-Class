@@ -5,7 +5,6 @@ namespace PowerPoint
 {
     public class DrawingState : IState
     {
-        private readonly ShapesFactory _factory = new ShapesFactory(new RandomGenerator());
         private Point _drawStartPos = new Point();
         private Point _drawEndPos = new Point();
         private bool _mousePressed = false;
@@ -32,7 +31,7 @@ namespace PowerPoint
                 return;
             }
             _drawEndPos = pos;
-            list[list.Count - 1] = _factory.CreateShape(_type, _drawStartPos, _drawEndPos);
+            list[list.Count - 1].Resize(_drawStartPos, _drawEndPos);
         }
 
         /* mouse up */
@@ -42,7 +41,8 @@ namespace PowerPoint
                 return;
             _mousePressed = false;
             _drawEndPos = pos;
-            list[list.Count - 1] = _factory.CreateShape(_type, _drawStartPos, _drawEndPos);
+            list[list.Count - 1].Resize(_drawStartPos, _drawEndPos);
+            list[list.Count - 1].NotifyPropertyChanged();
         }
     }
 }
