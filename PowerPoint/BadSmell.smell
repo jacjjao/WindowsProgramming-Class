@@ -236,6 +236,54 @@
             </Smell>
             <Smell>
               <Id>4</Id>
+              <SmellType>ICS(變數-2)</SmellType>
+              <HashCode>Variable2.Next.High</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>IRandom.cs</File>
+              <Line>12</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(變數-2) 區域變數-函式參數命名規則與 class 成員變數相似，僅差在不以底線開始</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>5</Id>
+              <SmellType>ICS(函式-2)</SmellType>
+              <HashCode>Method2.IRandom.Next</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>IRandom.cs</File>
+              <Line>12</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(函式-2) 每個函式表示一種操作，因此一律使用動詞做為第一個單字</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>6</Id>
+              <SmellType>ICS(函式-2)</SmellType>
+              <HashCode>Method2.RandomGenerator.Next</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>RandomGenerator.cs</File>
+              <Line>14</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(函式-2) 每個函式表示一種操作，因此一律使用動詞做為第一個單字</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>7</Id>
               <SmellType>ICS(縮排與換行-1)</SmellType>
               <HashCode>IndentAndNewLine1.Content.        public BindingList&lt;Shape&gt; Content { get; }</HashCode>
               <Severity>Red</Severity>
@@ -251,7 +299,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>5</Id>
+              <Id>8</Id>
               <SmellType>ICS(縮排與換行-2)</SmellType>
               <HashCode>IndentAndNewLine2.Content.        public BindingList&lt;Shape&gt; Content { get; }</HashCode>
               <Severity>Red</Severity>
@@ -267,7 +315,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>6</Id>
+              <Id>9</Id>
               <SmellType>ICS(縮排與換行-3)</SmellType>
               <HashCode>IndentAndNewLine3.Content.        public BindingList&lt;Shape&gt; Content { get; }</HashCode>
               <Severity>Red</Severity>
@@ -283,125 +331,12 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>7</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "CircleTest" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.CircleTests.cs.Unresolved warnings(忽視警告)-The method "CircleTest" lack of comments.15</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>..\PowerPointTests\PowerPointTests</Project>
-              <File>CircleTests.cs</File>
-              <Line>15</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>8</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "PropertySet" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.CircleTests.cs.Unresolved warnings(忽視警告)-The method "PropertySet" lack of comments.25</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>..\PowerPointTests\PowerPointTests</Project>
-              <File>CircleTests.cs</File>
-              <Line>25</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>9</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "GetInfoTest" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.CircleTests.cs.Unresolved warnings(忽視警告)-The method "GetInfoTest" lack of comments.42</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>..\PowerPointTests\PowerPointTests</Project>
-              <File>CircleTests.cs</File>
-              <Line>42</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
               <Id>10</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "GetShapeNameTest" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.CircleTests.cs.Unresolved warnings(忽視警告)-The method "GetShapeNameTest" lack of comments.51</HashCode>
+              <SmellType>A syntax error has been discovered in file C:\Users\user\Desktop\視窗程式設計\PowerPointTests\MockGraphicsAdapter.cs on line 21.</SmellType>
               <Severity>Red</Severity>
               <Weight>1</Weight>
-              <Project>..\PowerPointTests\PowerPointTests</Project>
-              <File>CircleTests.cs</File>
-              <Line>51</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>11</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "DrawTest" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.CircleTests.cs.Unresolved warnings(忽視警告)-The method "DrawTest" lack of comments.60</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>..\PowerPointTests\PowerPointTests</Project>
-              <File>CircleTests.cs</File>
-              <Line>60</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>12</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "ContainsTest" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.CircleTests.cs.Unresolved warnings(忽視警告)-The method "ContainsTest" lack of comments.66</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>..\PowerPointTests\PowerPointTests</Project>
-              <File>CircleTests.cs</File>
-              <Line>66</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>13</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "MoveTest" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.CircleTests.cs.Unresolved warnings(忽視警告)-The method "MoveTest" lack of comments.80</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>..\PowerPointTests\PowerPointTests</Project>
-              <File>CircleTests.cs</File>
-              <Line>80</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>14</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "Initialize" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.DrawingStateTests.cs.Unresolved warnings(忽視警告)-The method "Initialize" lack of comments.21</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>..\PowerPointTests\PowerPointTests</Project>
-              <File>DrawingStateTests.cs</File>
+              <Project>PowerPointTests</Project>
+              <File>MockGraphicsAdapter.cs</File>
               <Line>21</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
@@ -411,46 +346,110 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>15</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "MouseDownTest" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.DrawingStateTests.cs.Unresolved warnings(忽視警告)-The method "MouseDownTest" lack of comments.31</HashCode>
+              <Id>11</Id>
+              <SmellType>ICS(縮排與換行-1)</SmellType>
+              <HashCode>IndentAndNewLine1.value.        public List&lt;int&gt; value = new List&lt;int&gt; { 100, 50, 0, 0 };</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
-              <Project>..\PowerPointTests\PowerPointTests</Project>
-              <File>DrawingStateTests.cs</File>
-              <Line>31</Line>
+              <Project>PowerPointTests</Project>
+              <File>MockRandom.cs</File>
+              <Line>12</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-1) 左大括號一律換行</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>12</Id>
+              <SmellType>ICS(縮排與換行-3)</SmellType>
+              <HashCode>IndentAndNewLine3.value.        public List&lt;int&gt; value = new List&lt;int&gt; { 100, 50, 0, 0 };</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPointTests</Project>
+              <File>MockRandom.cs</File>
+              <Line>12</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-3) 左大括號後，一律換行撰寫程式碼</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>13</Id>
+              <SmellType>Literal constants(字面常數)-100</SmellType>
+              <HashCode>LiteralConstants.value.100</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPointTests</Project>
+              <File>MockRandom.cs</File>
+              <Line>12</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
               <EndCol>0</EndCol>
               <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>14</Id>
+              <SmellType>Literal constants(字面常數)-50</SmellType>
+              <HashCode>LiteralConstants.value.50</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPointTests</Project>
+              <File>MockRandom.cs</File>
+              <Line>12</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>15</Id>
+              <SmellType>ICS(變數-1)</SmellType>
+              <HashCode>Variable1.MockRandom.value</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPointTests</Project>
+              <File>MockRandom.cs</File>
+              <Line>12</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(變數-1) Class 成員變數以底線開始，底線後第一個字母小寫，若由多個單字組成，從第二個單字開始，每個單字的第一個字母大寫，其餘小寫。 不以底線區隔單字</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
               <Id>16</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "MouseMoveTest" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.DrawingStateTests.cs.Unresolved warnings(忽視警告)-The method "MouseMoveTest" lack of comments.53</HashCode>
+              <SmellType>ICS(類別宣告-1)</SmellType>
+              <HashCode>ClassDeclaration1.MockRandom.value</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
-              <Project>..\PowerPointTests\PowerPointTests</Project>
-              <File>DrawingStateTests.cs</File>
-              <Line>53</Line>
+              <Project>PowerPointTests</Project>
+              <File>MockRandom.cs</File>
+              <Line>12</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
               <EndCol>0</EndCol>
-              <Comment />
+              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
               <Id>17</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "MouseUpTest" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.DrawingStateTests.cs.Unresolved warnings(忽視警告)-The method "MouseUpTest" lack of comments.79</HashCode>
+              <SmellType>Unsuitable naming(名不符實)-v(v)</SmellType>
+              <HashCode>UnsuitableNaming.MockRandom.Next.v</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
-              <Project>..\PowerPointTests\PowerPointTests</Project>
-              <File>DrawingStateTests.cs</File>
-              <Line>79</Line>
+              <Project>PowerPointTests</Project>
+              <File>MockRandom.cs</File>
+              <Line>17</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -460,45 +459,45 @@
             </Smell>
             <Smell>
               <Id>18</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "Initialize" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.LineTests.cs.Unresolved warnings(忽視警告)-The method "Initialize" lack of comments.18</HashCode>
+              <SmellType>ICS(變數-2)</SmellType>
+              <HashCode>Variable2.Next.High</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
-              <Project>..\PowerPointTests\PowerPointTests</Project>
-              <File>LineTests.cs</File>
-              <Line>18</Line>
+              <Project>PowerPointTests</Project>
+              <File>MockRandom.cs</File>
+              <Line>15</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
               <EndCol>0</EndCol>
-              <Comment />
+              <Comment>ICS(變數-2) 區域變數-函式參數命名規則與 class 成員變數相似，僅差在不以底線開始</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
               <Id>19</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "LineTest" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.LineTests.cs.Unresolved warnings(忽視警告)-The method "LineTest" lack of comments.25</HashCode>
+              <SmellType>ICS(函式-2)</SmellType>
+              <HashCode>Method2.MockRandom.Next</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
-              <Project>..\PowerPointTests\PowerPointTests</Project>
-              <File>LineTests.cs</File>
-              <Line>25</Line>
+              <Project>PowerPointTests</Project>
+              <File>MockRandom.cs</File>
+              <Line>15</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
               <EndCol>0</EndCol>
-              <Comment />
+              <Comment>ICS(函式-2) 每個函式表示一種操作，因此一律使用動詞做為第一個單字</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
               <Id>20</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "GetInfoTest" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.LineTests.cs.Unresolved warnings(忽視警告)-The method "GetInfoTest" lack of comments.39</HashCode>
+              <SmellType>Unresolved warnings(忽視警告)-The method "FormGraphicsAdapterTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.FormGraphicsAdapterTests.cs.Unresolved warnings(忽視警告)-The method "FormGraphicsAdapterTest" lack of comments.14</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>..\PowerPointTests\PowerPointTests</Project>
-              <File>LineTests.cs</File>
-              <Line>39</Line>
+              <File>FormGraphicsAdapterTests.cs</File>
+              <Line>14</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -508,6 +507,134 @@
             </Smell>
             <Smell>
               <Id>21</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "ClearAllTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.FormGraphicsAdapterTests.cs.Unresolved warnings(忽視警告)-The method "ClearAllTest" lack of comments.20</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>FormGraphicsAdapterTests.cs</File>
+              <Line>20</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>22</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "DrawCircleTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.FormGraphicsAdapterTests.cs.Unresolved warnings(忽視警告)-The method "DrawCircleTest" lack of comments.26</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>FormGraphicsAdapterTests.cs</File>
+              <Line>26</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>23</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "DrawLineTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.FormGraphicsAdapterTests.cs.Unresolved warnings(忽視警告)-The method "DrawLineTest" lack of comments.32</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>FormGraphicsAdapterTests.cs</File>
+              <Line>32</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>24</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "DrawRectangleTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.FormGraphicsAdapterTests.cs.Unresolved warnings(忽視警告)-The method "DrawRectangleTest" lack of comments.38</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>FormGraphicsAdapterTests.cs</File>
+              <Line>38</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>25</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "DrawHitBoxTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.FormGraphicsAdapterTests.cs.Unresolved warnings(忽視警告)-The method "DrawHitBoxTest" lack of comments.44</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>FormGraphicsAdapterTests.cs</File>
+              <Line>44</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>26</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "Initialize" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.LineTests.cs.Unresolved warnings(忽視警告)-The method "Initialize" lack of comments.19</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>LineTests.cs</File>
+              <Line>19</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>27</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "LineTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.LineTests.cs.Unresolved warnings(忽視警告)-The method "LineTest" lack of comments.27</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>LineTests.cs</File>
+              <Line>27</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>28</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "GetInfoTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.LineTests.cs.Unresolved warnings(忽視警告)-The method "GetInfoTest" lack of comments.40</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>LineTests.cs</File>
+              <Line>40</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>29</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "GetShapeNameTest" lack of comments</SmellType>
               <HashCode>..\PowerPointTests\PowerPointTests.LineTests.cs.Unresolved warnings(忽視警告)-The method "GetShapeNameTest" lack of comments.47</HashCode>
               <Severity>Red</Severity>
@@ -523,14 +650,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>22</Id>
+              <Id>30</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "DrawTest" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.LineTests.cs.Unresolved warnings(忽視警告)-The method "DrawTest" lack of comments.54</HashCode>
+              <HashCode>..\PowerPointTests\PowerPointTests.LineTests.cs.Unresolved warnings(忽視警告)-The method "DrawTest" lack of comments.53</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>..\PowerPointTests\PowerPointTests</Project>
               <File>LineTests.cs</File>
-              <Line>54</Line>
+              <Line>53</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -539,19 +666,307 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>23</Id>
+              <Id>31</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "MoveTest" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.LineTests.cs.Unresolved warnings(忽視警告)-The method "MoveTest" lack of comments.60</HashCode>
+              <HashCode>..\PowerPointTests\PowerPointTests.LineTests.cs.Unresolved warnings(忽視警告)-The method "MoveTest" lack of comments.70</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>..\PowerPointTests\PowerPointTests</Project>
               <File>LineTests.cs</File>
-              <Line>60</Line>
+              <Line>70</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
               <EndCol>0</EndCol>
               <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>32</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "ContainsTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.LineTests.cs.Unresolved warnings(忽視警告)-The method "ContainsTest" lack of comments.81</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>LineTests.cs</File>
+              <Line>81</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>33</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "Initialize" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.PointStateTests.cs.Unresolved warnings(忽視警告)-The method "Initialize" lack of comments.21</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>PointStateTests.cs</File>
+              <Line>21</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>34</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "MouseDownTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.PointStateTests.cs.Unresolved warnings(忽視警告)-The method "MouseDownTest" lack of comments.33</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>PointStateTests.cs</File>
+              <Line>33</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>35</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "MouseMoveTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.PointStateTests.cs.Unresolved warnings(忽視警告)-The method "MouseMoveTest" lack of comments.42</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>PointStateTests.cs</File>
+              <Line>42</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>36</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "MouseUpTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.PointStateTests.cs.Unresolved warnings(忽視警告)-The method "MouseUpTest" lack of comments.55</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>PointStateTests.cs</File>
+              <Line>55</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>37</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "RemoveSelectedShapeTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.PointStateTests.cs.Unresolved warnings(忽視警告)-The method "RemoveSelectedShapeTest" lack of comments.61</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>PointStateTests.cs</File>
+              <Line>61</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>38</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "RandomGeneratorTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.RandomGeneratorTests.cs.Unresolved warnings(忽視警告)-The method "RandomGeneratorTest" lack of comments.14</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>RandomGeneratorTests.cs</File>
+              <Line>14</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>39</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "NextTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.RandomGeneratorTests.cs.Unresolved warnings(忽視警告)-The method "NextTest" lack of comments.21</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>RandomGeneratorTests.cs</File>
+              <Line>21</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>40</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "Initialize" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.ShapesTests.cs.Unresolved warnings(忽視警告)-The method "Initialize" lack of comments.17</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>ShapesTests.cs</File>
+              <Line>17</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>41</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "ShapesTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.ShapesTests.cs.Unresolved warnings(忽視警告)-The method "ShapesTest" lack of comments.23</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>ShapesTests.cs</File>
+              <Line>23</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>42</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "AddRandomShapeTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.ShapesTests.cs.Unresolved warnings(忽視警告)-The method "AddRandomShapeTest" lack of comments.32</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>ShapesTests.cs</File>
+              <Line>32</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>43</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "AddShapeTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.ShapesTests.cs.Unresolved warnings(忽視警告)-The method "AddShapeTest" lack of comments.42</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>ShapesTests.cs</File>
+              <Line>42</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>44</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "RemoveTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.ShapesTests.cs.Unresolved warnings(忽視警告)-The method "RemoveTest" lack of comments.55</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>ShapesTests.cs</File>
+              <Line>55</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>45</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "RemoveAtTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.ShapesTests.cs.Unresolved warnings(忽視警告)-The method "RemoveAtTest" lack of comments.66</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>ShapesTests.cs</File>
+              <Line>66</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>46</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "FindContainTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.ShapesTests.cs.Unresolved warnings(忽視警告)-The method "FindContainTest" lack of comments.77</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>ShapesTests.cs</File>
+              <Line>77</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>47</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "DrawAllTest" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.ShapesTests.cs.Unresolved warnings(忽視警告)-The method "DrawAllTest" lack of comments.93</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>ShapesTests.cs</File>
+              <Line>93</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>48</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>21 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.IRandom.Next(int, int) 以及 PowerPoint.IRandom.Next(int, int)</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\user\Desktop\視窗程式設計\PowerPoint\ShapesFactory.cs</File>
+              <Line>21</Line>
+              <StartLine>21</StartLine>
+              <StartCol>16</StartCol>
+              <EndLine>21</EndLine>
+              <EndCol>129</EndCol>
+              <Comment>目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.IRandom.Next(int, int) 以及 PowerPoint.IRandom.Next(int, int)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>49</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>22 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.IRandom.Next(int, int) 以及 PowerPoint.IRandom.Next(int, int) 以及 PowerPoint.IRandom.Next(int, int) 以及 PowerPoint.IRandom.Next(int, int)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\user\Desktop\視窗程式設計\PowerPoint\ShapesFactory.cs</File>
+              <Line>22</Line>
+              <StartLine>22</StartLine>
+              <StartCol>16</StartCol>
+              <EndLine>22</EndLine>
+              <EndCol>82</EndCol>
+              <Comment>目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.IRandom.Next(int, int) 以及 PowerPoint.IRandom.Next(int, int) 以及 PowerPoint.IRandom.Next(int, int) 以及 PowerPoint.IRandom.Next(int, int)</Comment>
               <Auto>false</Auto>
             </Smell>
           </Reviews>
@@ -602,6 +1017,11 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>IRandom.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>IState.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
@@ -612,22 +1032,22 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>Model\PowerPointModel.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Model\PresentationModel.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>NotifyBoolean.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>PointState.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>PowerPointModel.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>PresentationModel.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -650,6 +1070,11 @@
                 <RelativePath>Properties\Settings.Designer.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>RandomGenerator.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Rectangle.cs</RelativePath>
@@ -697,6 +1122,16 @@
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>MockGraphicsAdapter.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>MockRandom.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>PointStateTests.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
@@ -715,6 +1150,11 @@
                 <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>RandomGeneratorTests.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>RectangleTests.cs</RelativePath>
@@ -738,8 +1178,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1707</ProductionLoc>
-          <TestLoc>736</TestLoc>
+          <ProductionLoc>1773</ProductionLoc>
+          <TestLoc>965</TestLoc>
         </CodeReview>
       </Data>
     </div>

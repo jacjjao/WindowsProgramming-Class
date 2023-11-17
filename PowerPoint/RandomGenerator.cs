@@ -8,12 +8,7 @@ namespace PowerPoint
 {
     public class RandomGenerator : IRandom 
     {
-        Random _random;
-
-        public RandomGenerator(Random random = default(Random))
-        {
-            _random = random;
-        }
+        Random _random = new Random();
 
         /* next random number integer in range [low, high) */
         public int Next(int low, int high)
