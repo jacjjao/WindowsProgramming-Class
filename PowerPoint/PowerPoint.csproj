@@ -69,8 +69,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Line.cs" />
-    <Compile Include="PowerPointModel.cs" />
-    <Compile Include="PresentationModel.cs" />
+    <Compile Include="Model\PowerPointModel.cs" />
+    <Compile Include="Model\PresentationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rectangle.cs" />

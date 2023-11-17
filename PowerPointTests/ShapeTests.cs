@@ -20,7 +20,7 @@ namespace PowerPoint.Tests
         /* draw */
         public override void Draw(IGraphics graphics)
         {
-            throw new NotImplementedException();
+            graphics.DrawRectangle(new Point(), new Point());
         }
 
         /* get info */
@@ -76,7 +76,24 @@ namespace PowerPoint.Tests
         [TestMethod()]
         public void DrawShapeTest()
         {
-            Assert.Fail();
+            var graphics = new PowerPointTests.MockGraphicsAdapter();
+            bool rectDraw = false;
+            graphics.drawRectangle = delegate (Point p1, Point p2)
+            {
+                rectDraw = true;
+            };
+            _shape.DrawShape(graphics);
+            Assert.IsTrue(rectDraw);
+            rectDraw = false;
+            bool hitboxDraw = false;
+            graphics.drawHitBox = delegate (System.Drawing.Rectangle rectangle, float radius)
+            {
+                hitboxDraw = true;
+            };
+            _shape.Selected = true;
+            _shape.DrawShape(graphics);
+            Assert.IsTrue(rectDraw);
+            Assert.IsTrue(hitboxDraw);
         }
 
         [TestMethod()]

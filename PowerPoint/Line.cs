@@ -94,7 +94,8 @@ namespace PowerPoint
         public override bool Contains(Point mousePosition)
         {
             var size = new Point(EndPoint.X - StartPoint.X, Math.Abs(EndPoint.Y - StartPoint.Y));
-            return mousePosition.X >= StartPoint.X && mousePosition.X <= StartPoint.X + size.X && mousePosition.Y >= StartPoint.Y && mousePosition.Y <= StartPoint.Y + size.Y;
+            var position = new Point(StartPoint.X, Math.Min(StartPoint.Y, EndPoint.Y));
+            return mousePosition.X >= position.X && mousePosition.X <= position.X + size.X && mousePosition.Y >= position.Y && mousePosition.Y <= position.Y + size.Y;
         }
     }
 }
