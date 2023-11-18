@@ -142,7 +142,6 @@ namespace PowerPoint
         private void DrawPanelOnDraw(object sender, PaintEventArgs e)
         {
             _graphics = new FormGraphicsAdapter(e.Graphics);
-            _graphics.DrawPen = _presentModel.GetDrawPen();
             _presentModel.DrawAll(_graphics);
         }
 
@@ -208,7 +207,6 @@ namespace PowerPoint
             float scaleY = (float)_slideButton1.Height / (float)_drawPanel.Height;
             e.Graphics.ScaleTransform(scaleX, scaleY);
             _graphics = new FormGraphicsAdapter(e.Graphics);
-            _graphics.DrawPen = _presentModel.GetDrawPen();
             _presentModel.DrawAll(_graphics);
         }
 

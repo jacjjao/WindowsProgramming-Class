@@ -6,10 +6,9 @@ namespace PowerPointTests
     public class MockGraphicsAdapter : PowerPoint.IGraphics
     {
         public Action<Color> clearAll = null;
-        public Action<Point, Point> drawCircle = null;
-        public Action<Rectangle, float> drawHitBox = null;
+        public Action<int, int, int, int> drawEllipse = null;
         public Action<Point, Point> drawLine = null;
-        public Action<Point, Point> drawRectangle = null;
+        public Action<int, int, int, int> drawRectangle = null;
 
         /* clear all */
         public void ClearAll(Color color)
@@ -18,27 +17,21 @@ namespace PowerPointTests
         }
 
         /* draw circle */
-        public void DrawCircle(Point center, Point radius)
+        public void DrawEllipse(Pen pen, int x, int y, int width, int height)
         {
-            drawCircle.Invoke(center, radius);
-        }
-
-        /* draw hit box */
-        public void DrawHitBox(Rectangle rectangle, int radius)
-        {
-            drawHitBox.Invoke(rectangle, radius);
+            drawEllipse.Invoke(x, y, width, height);
         }
 
         /* draw line */
-        public void DrawLine(Point firstPoint, Point secondPoint)
+        public void DrawLine(Pen pen, Point firstPoint, Point secondPoint)
         {
             drawLine.Invoke(firstPoint, secondPoint);
         }
 
         /* draw rectangle */
-        public void DrawRectangle(Point position, Point size)
+        public void DrawRectangle(Pen pen, int x, int y, int width, int height)
         {
-            drawRectangle.Invoke(position, size);
+            drawRectangle.Invoke(x, y, width, height);
         }
     }
 }

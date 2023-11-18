@@ -48,6 +48,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ResizeDirection.cs" />
     <Compile Include="Shape\Circle.cs" />
     <Compile Include="DoubleBufferedPanel.cs">
       <SubType>Component</SubType>

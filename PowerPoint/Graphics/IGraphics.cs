@@ -1,5 +1,4 @@
-﻿using Color = System.Drawing.Color;
-using Point = System.Drawing.Point;
+﻿using System.Drawing;
 
 namespace PowerPoint
 {
@@ -9,15 +8,12 @@ namespace PowerPoint
         void ClearAll(Color color);
 
         /* draw line */
-        void DrawLine(Point firstPoint, Point secondPoint);
+        void DrawLine(Pen pen, Point firstPoint, Point secondPoint);
 
         /* draw rectangle */
-        void DrawRectangle(Point position, Point size);
+        void DrawRectangle(Pen pen, int x, int y, int width, int height);
 
         /* draw circle */
-        void DrawCircle(Point center, Point radius);
-
-        /* draw hitbox */
-        void DrawHitBox(System.Drawing.Rectangle rectangle, int radius);
+        void DrawEllipse(Pen pen, int x, int y, int width, int height);
     }
 }

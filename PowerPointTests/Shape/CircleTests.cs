@@ -63,14 +63,16 @@ namespace PowerPoint.Tests
             bool executed = false;
             var graphics = new PowerPointTests.MockGraphicsAdapter
             {
-                drawCircle = delegate (Point center, Point diameter)
+                drawEllipse = delegate (int x, int y, int width, int height)
                 {
                     executed = true;
-                    Assert.AreEqual(center, _circle.Center);
-                    Assert.AreEqual(diameter, _circle.Diameter);
+                    Assert.AreEqual(_circle.Center.X, x + width / 2);
+                    Assert.AreEqual(_circle.Center.Y, y + height / 2);
+                    Assert.AreEqual(_circle.Diameter.X, width);
+                    Assert.AreEqual(_circle.Diameter.Y, height);
                 }
             };
-            _circle.Draw(graphics);
+            _circle.Draw(new Pen(Color.Red), graphics);
             Assert.IsTrue(executed);
         }
 

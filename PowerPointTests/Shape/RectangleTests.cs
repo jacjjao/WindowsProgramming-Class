@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Drawing;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint.Tests
@@ -49,14 +50,16 @@ namespace PowerPoint.Tests
             bool executed = false;
             var graphics = new PowerPointTests.MockGraphicsAdapter
             {
-                drawRectangle = delegate (Point position, Point size)
+                drawRectangle = delegate (int x, int y, int width, int height)
                 {
                     executed = true;
-                    Assert.AreEqual(position, _rect.Position);
-                    Assert.AreEqual(size, _rect.Size);
+                    Assert.AreEqual(_rect.Position.X, x);
+                    Assert.AreEqual(_rect.Position.Y, y);
+                    Assert.AreEqual(_rect.Size.X, width);
+                    Assert.AreEqual(_rect.Size.Y, height);
                 }
             };
-            _rect.Draw(graphics);
+            _rect.Draw(new Pen(Color.Red), graphics);
             Assert.IsTrue(executed);
         }
 

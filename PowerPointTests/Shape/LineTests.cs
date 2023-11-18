@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Drawing;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint.Tests
@@ -62,7 +63,7 @@ namespace PowerPoint.Tests
                     Assert.AreEqual(_line.EndPoint, end);
                 }
             };
-            _line.Draw(graphics);
+            _line.Draw(new Pen(Color.Red), graphics);
             Assert.IsTrue(executed);
         }
 

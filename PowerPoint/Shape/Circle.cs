@@ -67,9 +67,9 @@ namespace PowerPoint
         }
 
         /* draw circle */
-        public override void Draw(IGraphics graphics)
+        public override void Draw(Pen pen, IGraphics graphics)
         {
-            graphics.DrawCircle(Center, Diameter);
+            graphics.DrawEllipse(pen, Center.X - Radius.X, Center.Y - Radius.Y, Diameter.X, Diameter.Y);
         }
 
         /* contain */

@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Point = System.Drawing.Point;
 
@@ -80,7 +81,7 @@ namespace PowerPoint.Tests
             int count = 0;
             var graphics = new PowerPointTests.MockGraphicsAdapter
             {
-                drawRectangle = delegate (Point p1, Point p2)
+                drawRectangle = delegate (int x, int y, int width, int height)
                 {
                     count++;
                 }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using Point = System.Drawing.Point;
 
@@ -90,11 +91,11 @@ namespace PowerPoint
         }
 
         /* draw all */
-        public void DrawAll(IGraphics graphics)
+        public void DrawAll(Pen pen, IGraphics graphics)
         {
             for (int i = 0; i < Content.Count; i++)
             {
-                Content[i].DrawShape(graphics);
+                Content[i].DrawShape(pen, graphics);
             }
         }
     }

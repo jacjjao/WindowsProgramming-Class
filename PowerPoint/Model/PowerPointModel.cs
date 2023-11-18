@@ -50,7 +50,7 @@ namespace PowerPoint
         /* draw all */
         public void DrawAll(IGraphics graphics)
         {
-            ShapeList.DrawAll(graphics);
+            ShapeList.DrawAll(DrawPen, graphics);
         }
 
         /* mouse down */

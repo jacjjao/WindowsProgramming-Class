@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Drawing;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint.Tests
@@ -113,11 +114,11 @@ namespace PowerPoint.Tests
             int lineIdx = 0;
             var graphics = new PowerPointTests.MockGraphicsAdapter
             {
-                drawCircle = delegate (Point center, Point diameter)
+                drawEllipse = delegate (int x, int y, int width, int height)
                 {
                     circleIdx = ++idx;
                 },
-                drawRectangle = delegate (Point position, Point size)
+                drawRectangle = delegate (int x, int y, int width, int height)
                 {
                     rectIdx = ++idx;
                 },
@@ -131,7 +132,7 @@ namespace PowerPoint.Tests
             _list.AddRandomShape(ShapeType.Circle, screenWidth, screenHeight);
             _list.AddRandomShape(ShapeType.Rectangle, screenWidth, screenHeight);
             _list.AddRandomShape(ShapeType.Line, screenWidth, screenHeight);
-            _list.DrawAll(graphics);
+            _list.DrawAll(new Pen(Color.Red), graphics);
             Assert.AreEqual(1, circleIdx);
             Assert.AreEqual(2, rectIdx);
             Assert.AreEqual(3, lineIdx);

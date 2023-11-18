@@ -72,7 +72,7 @@ namespace PowerPoint.Tests
         {
             var g = new PowerPointTests.MockGraphicsAdapter();
             bool draw = false;
-            g.drawRectangle = delegate (Point pos, Point size)
+            g.drawRectangle = delegate (int x, int y, int width, int height)
             {
                 draw = true;
             };

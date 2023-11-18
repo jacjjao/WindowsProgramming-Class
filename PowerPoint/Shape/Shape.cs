@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using System.Drawing;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint
@@ -6,6 +8,8 @@ namespace PowerPoint
     public abstract class Shape : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        const int RADIUS = 10;
 
         public string Info
         {
@@ -54,17 +58,82 @@ namespace PowerPoint
         public abstract string GetShapeName();
 
         /* draw */
-        public abstract void Draw(IGraphics graphics);
+        public abstract void Draw(Pen pen, IGraphics graphics);
+
+        /* draw hit box */
+        private void DrawHitBox(IGraphics graphics)
+        {
+            const float WIDTH = 1.0f;
+            const int TWO = 2;
+            var pen = new Pen(Color.Gray, WIDTH);
+            pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            graphics.DrawRectangle(pen, HitBox.X, HitBox.Y, HitBox.Width, HitBox.Height);
+            int stepX = HitBox.Width / TWO;
+            int stepY = HitBox.Height / TWO;
+            pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            int diameter = RADIUS * TWO;
+            graphics.DrawEllipse(pen, HitBox.X - RADIUS, HitBox.Y - RADIUS, diameter, diameter);
+            graphics.DrawEllipse(pen, HitBox.X + stepX - RADIUS, HitBox.Y - RADIUS, diameter, diameter);
+            graphics.DrawEllipse(pen, HitBox.X + (TWO * stepX) - RADIUS, HitBox.Y - RADIUS, diameter, diameter);
+            graphics.DrawEllipse(pen, HitBox.X - RADIUS, HitBox.Y + stepY - RADIUS, diameter, diameter);
+            graphics.DrawEllipse(pen, HitBox.X + (TWO * stepX) - RADIUS, HitBox.Y + stepY - RADIUS, diameter, diameter);
+            graphics.DrawEllipse(pen, HitBox.X - RADIUS, HitBox.Y + TWO * stepY - RADIUS, diameter, diameter);
+            graphics.DrawEllipse(pen, HitBox.X + stepX - RADIUS, HitBox.Y + TWO * stepY - RADIUS, diameter, diameter);
+            graphics.DrawEllipse(pen, HitBox.X + (TWO * stepX) - RADIUS, HitBox.Y + TWO * stepY - RADIUS, diameter, diameter);
+        }
+
+        /* in circle */
+        private bool InCircle(Point center, Point point)
+        {
+            int x = point.X - center.X;
+            int y = point.Y - center.Y;
+            return Math.Sqrt(x * x + y * y) <= RADIUS;
+        }
+
+        /* get resize direction */
+        public ResizeDirection GetResizeDirection(Point mousePosition)
+        {
+            const int TWO = 2;
+            var pos = new Point(HitBox.X, HitBox.Y);
+            if (InCircle(pos, mousePosition))
+                return ResizeDirection.TopLeft;
+            pos.X = HitBox.X + HitBox.Width / TWO;
+            if (InCircle(pos, mousePosition))
+                return ResizeDirection.TopMiddle;
+            pos.X = HitBox.X + HitBox.Width;
+            if (InCircle(pos, mousePosition))
+                return ResizeDirection.TopRight;
+
+            pos.X = HitBox.X;
+            pos.Y = HitBox.Y + HitBox.Height / TWO;
+            if (InCircle(pos, mousePosition))
+                return ResizeDirection.MiddleLeft;
+            pos.X = HitBox.X + HitBox.Width;
+            if (InCircle(pos, mousePosition))
+                return ResizeDirection.MiddleRight;
+
+            pos.X = HitBox.X;
+            pos.Y = HitBox.Y + HitBox.Height;
+            if (InCircle(pos, mousePosition))
+                return ResizeDirection.BottomLeft;
+            pos.X = HitBox.X + HitBox.Width / TWO;
+            if (InCircle(pos, mousePosition))
+                return ResizeDirection.BottomMiddle;
+            pos.X = HitBox.X + HitBox.Width;
+            if (InCircle(pos, mousePosition))
+                return ResizeDirection.BottomRight;
+
+            return ResizeDirection.None;
+        }
 
         /* draw shape */
-        public void DrawShape(IGraphics graphics)
+        public void DrawShape(Pen pen, IGraphics graphics)
         {
-            const int RADIUS = 10;
             if (Selected)
             {
-                graphics.DrawHitBox(HitBox, RADIUS);
+                DrawHitBox(graphics);
             }
-            Draw(graphics);
+            Draw(pen, graphics);
         }
 
         /* notify */

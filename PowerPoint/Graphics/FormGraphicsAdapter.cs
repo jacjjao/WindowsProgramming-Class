@@ -6,20 +6,9 @@ namespace PowerPoint
     {
         private Graphics _graphics;
 
-        public Pen DrawPen
-        {
-            get;
-            set;
-        }
-
         public FormGraphicsAdapter(Graphics graphics)
         {
             _graphics = graphics;
-            const float WIDTH = 1.0f;
-            DrawPen = new Pen(Color.Red)
-            {
-                Width = WIDTH
-            };
         }
 
         /* clear all */
@@ -29,44 +18,21 @@ namespace PowerPoint
         }
 
         /* draw circle */
-        public void DrawCircle(Point center, Point diameter)
+        public void DrawEllipse(Pen pen, int x, int y, int width, int height)
         {
-            const int TWO = 2;
-            _graphics.DrawEllipse(DrawPen, center.X - diameter.X / TWO, center.Y - diameter.Y / TWO, diameter.X, diameter.Y);
+            _graphics.DrawEllipse(pen, x, y, width, height);
         }
 
         /* draw line */
-        public void DrawLine(Point firstPoint, Point secondPoint)
+        public void DrawLine(Pen pen, Point firstPoint, Point secondPoint)
         {
-            _graphics.DrawLine(DrawPen, firstPoint, secondPoint);
+            _graphics.DrawLine(pen, firstPoint, secondPoint);
         }
 
         /* draw rectangle */
-        public void DrawRectangle(Point position, Point size)
+        public void DrawRectangle(Pen pen, int x, int y, int width, int height)
         {
-            _graphics.DrawRectangle(DrawPen, position.X, position.Y, size.X, size.Y);
-        }
-
-        /* draw hitbox */
-        public void DrawHitBox(System.Drawing.Rectangle rectangle, int radius)
-        {
-            const float WIDTH = 1.0f;
-            const int TWO = 2;
-            var pen = new Pen(Color.Gray, WIDTH);
-            pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            _graphics.DrawRectangle(pen, rectangle);
-            int stepX = rectangle.Width / TWO;
-            int stepY = rectangle.Height / TWO;
-            pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            int diameter = radius * TWO;
-            _graphics.DrawEllipse(pen, rectangle.X - radius, rectangle.Y - radius, diameter, diameter);
-            _graphics.DrawEllipse(pen, rectangle.X + stepX - radius, rectangle.Y - radius, diameter, diameter);
-            _graphics.DrawEllipse(pen, rectangle.X + (TWO * stepX) - radius, rectangle.Y - radius, diameter, diameter);
-            _graphics.DrawEllipse(pen, rectangle.X - radius, rectangle.Y + stepY - radius, diameter, diameter);
-            _graphics.DrawEllipse(pen, rectangle.X + (TWO * stepX) - radius, rectangle.Y + stepY - radius, diameter, diameter);
-            _graphics.DrawEllipse(pen, rectangle.X - radius, rectangle.Y + TWO * stepY - radius, diameter, diameter);
-            _graphics.DrawEllipse(pen, rectangle.X + stepX - radius, rectangle.Y + TWO * stepY - radius, diameter, diameter);
-            _graphics.DrawEllipse(pen, rectangle.X + (TWO * stepX) - radius, rectangle.Y + TWO * stepY - radius, diameter, diameter);
+            _graphics.DrawRectangle(pen, x, y, width, height);
         }
     }
 }
