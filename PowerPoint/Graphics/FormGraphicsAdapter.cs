@@ -48,7 +48,7 @@ namespace PowerPoint
         }
 
         /* draw hitbox */
-        public void DrawHitBox(System.Drawing.Rectangle rectangle, float radius)
+        public void DrawHitBox(System.Drawing.Rectangle rectangle, int radius)
         {
             const float WIDTH = 1.0f;
             const int TWO = 2;
@@ -58,7 +58,7 @@ namespace PowerPoint
             int stepX = rectangle.Width / TWO;
             int stepY = rectangle.Height / TWO;
             pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            float diameter = radius * TWO;
+            int diameter = radius * TWO;
             _graphics.DrawEllipse(pen, rectangle.X - radius, rectangle.Y - radius, diameter, diameter);
             _graphics.DrawEllipse(pen, rectangle.X + stepX - radius, rectangle.Y - radius, diameter, diameter);
             _graphics.DrawEllipse(pen, rectangle.X + (TWO * stepX) - radius, rectangle.Y - radius, diameter, diameter);

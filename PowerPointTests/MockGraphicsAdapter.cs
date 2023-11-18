@@ -24,7 +24,7 @@ namespace PowerPointTests
         }
 
         /* draw hit box */
-        public void DrawHitBox(Rectangle rectangle, float radius)
+        public void DrawHitBox(Rectangle rectangle, int radius)
         {
             drawHitBox.Invoke(rectangle, radius);
         }

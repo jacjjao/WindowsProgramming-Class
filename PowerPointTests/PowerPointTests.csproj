@@ -60,7 +60,6 @@
   <ItemGroup>
     <Compile Include="BindableToolStripButtonTest.cs" />
     <Compile Include="DoubleBufferedPanelTest.cs" />
-    <Compile Include="Graphics\FormGraphicsAdapterTests.cs" />
     <Compile Include="NotifyBooleanTest.cs" />
     <Compile Include="Shape\CircleTests.cs" />
     <Compile Include="State\DrawingStateTests.cs" />

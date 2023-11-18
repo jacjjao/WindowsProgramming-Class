@@ -59,7 +59,7 @@ namespace PowerPoint
         /* draw shape */
         public void DrawShape(IGraphics graphics)
         {
-            const float RADIUS = 10.0f;
+            const int RADIUS = 10;
             if (Selected)
             {
                 graphics.DrawHitBox(HitBox, RADIUS);
