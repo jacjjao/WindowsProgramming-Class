@@ -81,7 +81,7 @@ namespace PowerPoint.Tests
             int count = 0;
             var graphics = new PowerPointTests.MockGraphicsAdapter
             {
-                drawRectangle = delegate (int x, int y, int width, int height)
+                drawRectangle = delegate (System.Drawing.Rectangle rect)
                 {
                     count++;
                 }

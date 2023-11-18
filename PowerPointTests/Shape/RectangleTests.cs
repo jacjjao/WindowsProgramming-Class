@@ -50,13 +50,13 @@ namespace PowerPoint.Tests
             bool executed = false;
             var graphics = new PowerPointTests.MockGraphicsAdapter
             {
-                drawRectangle = delegate (int x, int y, int width, int height)
+                drawRectangle = delegate (System.Drawing.Rectangle rect)
                 {
                     executed = true;
-                    Assert.AreEqual(_rect.Position.X, x);
-                    Assert.AreEqual(_rect.Position.Y, y);
-                    Assert.AreEqual(_rect.Size.X, width);
-                    Assert.AreEqual(_rect.Size.Y, height);
+                    Assert.AreEqual(_rect.Position.X, rect.X);
+                    Assert.AreEqual(_rect.Position.Y, rect.Y);
+                    Assert.AreEqual(_rect.Size.X, rect.Width);
+                    Assert.AreEqual(_rect.Size.Y, rect.Height);
                 }
             };
             _rect.Draw(new Pen(Color.Red), graphics);

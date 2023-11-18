@@ -114,11 +114,11 @@ namespace PowerPoint.Tests
             int lineIdx = 0;
             var graphics = new PowerPointTests.MockGraphicsAdapter
             {
-                drawEllipse = delegate (int x, int y, int width, int height)
+                drawEllipse = delegate (System.Drawing.Rectangle rect)
                 {
                     circleIdx = ++idx;
                 },
-                drawRectangle = delegate (int x, int y, int width, int height)
+                drawRectangle = delegate (System.Drawing.Rectangle rect)
                 {
                     rectIdx = ++idx;
                 },

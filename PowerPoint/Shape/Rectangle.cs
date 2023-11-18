@@ -53,7 +53,7 @@ namespace PowerPoint
         /* draw rectangle */
         public override void Draw(Pen pen, IGraphics graphics)
         {
-            graphics.DrawRectangle(pen, Position.X, Position.Y, Size.X, Size.Y);
+            graphics.DrawRectangle(pen, _hitBox);
         }
 
         /* move */

@@ -6,9 +6,9 @@ namespace PowerPointTests
     public class MockGraphicsAdapter : PowerPoint.IGraphics
     {
         public Action<Color> clearAll = null;
-        public Action<int, int, int, int> drawEllipse = null;
+        public Action<Rectangle> drawEllipse = null;
         public Action<Point, Point> drawLine = null;
-        public Action<int, int, int, int> drawRectangle = null;
+        public Action<Rectangle> drawRectangle = null;
 
         /* clear all */
         public void ClearAll(Color color)
@@ -17,9 +17,9 @@ namespace PowerPointTests
         }
 
         /* draw circle */
-        public void DrawEllipse(Pen pen, int x, int y, int width, int height)
+        public void DrawEllipse(Pen pen, Rectangle rect)
         {
-            drawEllipse.Invoke(x, y, width, height);
+            drawEllipse.Invoke(rect);
         }
 
         /* draw line */
@@ -29,9 +29,9 @@ namespace PowerPointTests
         }
 
         /* draw rectangle */
-        public void DrawRectangle(Pen pen, int x, int y, int width, int height)
+        public void DrawRectangle(Pen pen, Rectangle rect)
         {
-            drawRectangle.Invoke(x, y, width, height);
+            drawRectangle.Invoke(rect);
         }
     }
 }

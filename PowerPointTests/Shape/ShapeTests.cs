@@ -15,7 +15,7 @@ namespace PowerPoint.Tests
         /* draw */
         public override void Draw(Pen pen, IGraphics graphics)
         {
-            graphics.DrawRectangle(pen, 0, 0, 0, 0);
+            graphics.DrawRectangle(pen, new System.Drawing.Rectangle());
         }
 
         /* get info */
@@ -84,7 +84,7 @@ namespace PowerPoint.Tests
         {
             var graphics = new PowerPointTests.MockGraphicsAdapter();
             bool rectDraw = false;
-            graphics.drawRectangle = delegate (int x, int y, int width, int height)
+            graphics.drawRectangle = delegate (System.Drawing.Rectangle rect)
             {
                 rectDraw = true;
             };
@@ -92,7 +92,7 @@ namespace PowerPoint.Tests
             Assert.IsTrue(rectDraw);
             rectDraw = false;
             bool hitboxDraw = false;
-            graphics.drawEllipse = delegate (int x, int y, int width, int height)
+            graphics.drawEllipse = delegate (System.Drawing.Rectangle rect)
             {
                 hitboxDraw = true;
             };

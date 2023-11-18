@@ -204,6 +204,54 @@
             </Smell>
             <Smell>
               <Id>2</Id>
+              <SmellType>Long method(過長函式)</SmellType>
+              <HashCode>LongMethod.Shape.DrawHitBox.30IGraphics graphics;</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>30</Weight>
+              <Project>PowerPoint</Project>
+              <File>Shape.cs</File>
+              <Line>64</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>3</Id>
+              <SmellType>Long method(過長函式)</SmellType>
+              <HashCode>LongMethod.Shape.GetResizeDirection.34Point mousePosition;</HashCode>
+              <Severity>Red</Severity>
+              <Weight>34</Weight>
+              <Project>PowerPoint</Project>
+              <File>Shape.cs</File>
+              <Line>104</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>4</Id>
+              <SmellType>Long method(過長函式)</SmellType>
+              <HashCode>LongMethod.Shape.ResizeBasedOnDirection.39ResizeDirection direction;int differenceX;int differenceY;</HashCode>
+              <Severity>Red</Severity>
+              <Weight>39</Weight>
+              <Project>PowerPoint</Project>
+              <File>Shape.cs</File>
+              <Line>224</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>5</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>21 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</HashCode>
               <Severity>Warning</Severity>
@@ -219,7 +267,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>3</Id>
+              <Id>6</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>22 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</HashCode>
               <Severity>Red</Severity>
@@ -317,6 +365,11 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>ResizeDirection.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Shape\Circle.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
@@ -375,11 +428,6 @@
                 <RelativePath>DoubleBufferedPanelTest.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Graphics\FormGraphicsAdapterTests.cs</RelativePath>
-                <ProjectName>PowerPointTests</ProjectName>
-                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>MockGraphicsAdapter.cs</RelativePath>
@@ -458,8 +506,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1755</ProductionLoc>
-          <TestLoc>1311</TestLoc>
+          <ProductionLoc>1946</ProductionLoc>
+          <TestLoc>1312</TestLoc>
         </CodeReview>
       </Data>
     </div>

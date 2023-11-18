@@ -18,9 +18,9 @@ namespace PowerPoint
         }
 
         /* draw circle */
-        public void DrawEllipse(Pen pen, int x, int y, int width, int height)
+        public void DrawEllipse(Pen pen, System.Drawing.Rectangle rectangle)
         {
-            _graphics.DrawEllipse(pen, x, y, width, height);
+            _graphics.DrawEllipse(pen, rectangle);
         }
 
         /* draw line */
@@ -30,9 +30,9 @@ namespace PowerPoint
         }
 
         /* draw rectangle */
-        public void DrawRectangle(Pen pen, int x, int y, int width, int height)
+        public void DrawRectangle(Pen pen, System.Drawing.Rectangle rectangle)
         {
-            _graphics.DrawRectangle(pen, x, y, width, height);
+            _graphics.DrawRectangle(pen, rectangle);
         }
     }
 }
