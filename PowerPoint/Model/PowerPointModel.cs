@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using Pen = System.Drawing.Pen;
 
 namespace PowerPoint
@@ -70,6 +69,7 @@ namespace PowerPoint
         public void DoMouseUp(MouseEventArgs e)
         {
             State.MouseUp(ShapeList, e.Location);
+            SelectedShape = ShapeType.None;
         }
 
         /* add shape */

@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using Point = System.Drawing.Point;
+﻿using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {
@@ -29,7 +28,7 @@ namespace PowerPoint
             if (_selectedShape != null)
             {
                 _selectedShape.Move(differenceX, differenceY);
-            }    
+            }
             _previousMousePosition = pos;
         }
 

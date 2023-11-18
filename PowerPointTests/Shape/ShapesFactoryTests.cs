@@ -1,28 +1,24 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class ShapesFactoryTests
     {
         PowerPointTests.MockRandom _random;
         ShapesFactory _factory;
 
-        [TestInitialize()]
+        /* initialize */
+        [TestInitialize]
         public void Initialize()
         {
             _random = new PowerPointTests.MockRandom();
             _factory = new ShapesFactory(_random);
         }
 
-        [TestMethod()]
+        /* create random shape */
+        [TestMethod]
         public void CreateRandomShapeTest()
         {
             int screenWidth = 800, screenHeight = 600;
@@ -35,7 +31,8 @@ namespace PowerPoint.Tests
             Assert.AreEqual(_random.value[3], rect.Position.Y);
         }
 
-        [TestMethod()]
+        /* create shape */
+        [TestMethod]
         public void CreateShapeTest()
         {
             var p1 = new Point(0, 0);

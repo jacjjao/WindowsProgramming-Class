@@ -1,22 +1,17 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
 namespace PowerPoint.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class CircleTests
     {
         Point _p1;
         Point _p2;
         Circle _circle;
-
-        [TestInitialize()]
+        
+        /* initialize */
+        [TestInitialize]
         public void Initialize()
         {
             _p1 = new Point(0, 0);
@@ -24,14 +19,16 @@ namespace PowerPoint.Tests
             _circle = new Circle(_p1, _p2);
         }
 
-        [TestMethod()]
+        /* constructor */
+        [TestMethod]
         public void CircleTest()
         {
             Assert.AreEqual(_p2, _circle.Diameter);
             Assert.AreEqual(new Point(_p2.X / 2, _p2.Y / 2), _circle.Center);
         }
 
-        [TestMethod()]
+        /* property */
+        [TestMethod]
         public void PropertySet()
         {
             var pos = new Point(500, 500);
@@ -45,19 +42,22 @@ namespace PowerPoint.Tests
             Assert.AreEqual(radius, _circle.Radius);
         }
 
-        [TestMethod()]
+        /* GetInfo */
+        [TestMethod]
         public void GetInfoTest()
         {
             Assert.AreEqual("(50,25)", _circle.GetInfo());
         }
 
-        [TestMethod()]
+        /* GetShapeName */
+        [TestMethod]
         public void GetShapeNameTest()
         {
             Assert.AreEqual("圓形", _circle.GetShapeName());
         }
 
-        [TestMethod()]
+        /* draw */
+        [TestMethod]
         public void DrawTest()
         {
             bool executed = false;
@@ -74,7 +74,8 @@ namespace PowerPoint.Tests
             Assert.IsTrue(executed);
         }
 
-        [TestMethod()]
+        /* contains */
+        [TestMethod]
         public void ContainsTest()
         {
             Assert.IsTrue(_circle.Contains(_circle.Center));
@@ -84,7 +85,8 @@ namespace PowerPoint.Tests
             Assert.IsFalse(_circle.Contains(_p2));
         }
 
-        [TestMethod()]
+        /* move */
+        [TestMethod]
         public void MoveTest()
         {
             _circle.Move(50, 25);

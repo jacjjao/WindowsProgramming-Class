@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint
@@ -43,7 +39,10 @@ namespace PowerPoint
             }
         }
 
-        public BindingList<Shape> Content { get; }
+        public BindingList<Shape> Content 
+        { 
+            get; 
+        }
 
         /* add shape */
         public void AddRandomShape(ShapeType type, int screenWidth, int screenHeight)

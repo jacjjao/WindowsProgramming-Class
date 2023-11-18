@@ -1,22 +1,17 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class RectangleTests
     {
         Point _p1;
         Point _p2;
         Rectangle _rect;
 
-        [TestInitialize()]
+        /* initialize */
+        [TestInitialize]
         public void Initialize()
         {
             _p1 = new Point(0, 0);
@@ -24,27 +19,31 @@ namespace PowerPoint.Tests
             _rect = new Rectangle(_p1, _p2);
         }
 
-        [TestMethod()]
+        /* constructor */
+        [TestMethod]
         public void RectangleTest()
         {
             Assert.AreEqual(_p1, _rect.Position);
             Assert.AreEqual(_p2, _rect.Size);
         }
 
-        [TestMethod()]
+        /* GetInfo */
+        [TestMethod]
         public void GetInfoTest()
         {
             var str = string.Format("({0},{1})({2},{3})", _p1.X, _p1.Y, _p2.X, _p2.Y);
             Assert.AreEqual(str, _rect.GetInfo());
         }
 
-        [TestMethod()]
+        /* GetShapeName */
+        [TestMethod]
         public void GetShapeNameTest()
         {
             Assert.AreEqual("矩形", _rect.GetShapeName());
         }
 
-        [TestMethod()]
+        /* draw */
+        [TestMethod]
         public void DrawTest()
         {
             bool executed = false;
@@ -61,14 +60,16 @@ namespace PowerPoint.Tests
             Assert.IsTrue(executed);
         }
 
-        [TestMethod()]
+        /* move */
+        [TestMethod]
         public void MoveTest()
         {
             _rect.Move(_p2.X, _p2.Y);
             Assert.AreEqual(_p2, _rect.Position);
         }
 
-        [TestMethod()]
+        /* contains */
+        [TestMethod]
         public void ContainsTest()
         {
             Assert.IsTrue(_rect.Contains(new Point(50, 100)));

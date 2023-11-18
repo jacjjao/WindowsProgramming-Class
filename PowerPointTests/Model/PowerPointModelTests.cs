@@ -1,28 +1,73 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint.Tests
 {
-    [TestClass()]
+    class MockState : IState
+    {
+        public Action<Shapes, Point, ShapeType> mouseDown = null;
+        public Action<Shapes, Point> mouseMove = null;
+        public Action<Shapes, Point> mouseUp = null;
+
+        /* mouse down */
+        public void MouseDown(Shapes list, Point pos, ShapeType type)
+        {
+            mouseDown.Invoke(list, pos, type);
+        }
+
+        /* mouse move */
+        public void MouseMove(Shapes list, Point pos)
+        {
+            mouseMove.Invoke(list, pos);
+        }
+
+        /* mouse up */
+        public void MouseUp(Shapes list, Point pos)
+        {
+            mouseUp.Invoke(list, pos);
+        }
+    }
+
+    [TestClass]
     public class PowerPointModelTests
     {
         PowerPointModel _model;
         PrivateObject _modelPrivate;
 
-        [TestInitialize()]
+        /* initialize */
+        [TestInitialize]
         public void Initialize()
         {
             _model = new PowerPointModel();
             _modelPrivate = new PrivateObject(_model);
         }
 
-        [TestMethod()]
+        /* property */
+        [TestMethod]
+        public void PropertyTest()
+        {
+            Assert.IsNotNull(_model.ShapeList);
+
+            Assert.IsNotNull(_model.DrawPen);
+            const float width = 10.0f;
+            var color = System.Drawing.Color.Black;
+            var pen = new System.Drawing.Pen(color, width);
+            _model.DrawPen = pen;
+            Assert.AreEqual(color, _model.DrawPen.Color);
+            Assert.AreEqual(width, _model.DrawPen.Width);
+
+            var state = new PointState();
+            _model.State = state;
+            Assert.AreEqual(state, _model.State);
+
+            _model.SelectedShape = ShapeType.Line;
+            Assert.AreEqual(ShapeType.Line, _model.SelectedShape);
+        }
+
+        /* draw all */
+        [TestMethod]
         public void DrawAllTest()
         {
             var list = (Shapes)_modelPrivate.GetFieldOrProperty("_list");
@@ -44,40 +89,121 @@ namespace PowerPoint.Tests
             Assert.AreEqual(list.Count, count);
         }
 
-        [TestMethod()]
+        /* do mouse down */
+        [TestMethod]
         public void DoMouseDownTest()
         {
-            Assert.Fail();
+            bool executed = false;
+            var location = new Point(50, 100);
+            var args = new MouseEventArgs(MouseButtons.Left, 1, location.X, location.Y, 0);
+            _model.SelectedShape = ShapeType.Rectangle;
+            var state = new MockState
+            {
+                mouseDown = delegate (Shapes list, Point loc, ShapeType type)
+                {
+                    executed = true;
+                    Assert.AreEqual(location, loc);
+                    Assert.AreEqual(_model.SelectedShape, type);
+                    Assert.AreEqual(_model.ShapeList, list);
+                }
+            };
+            _model.State = state;
+            _model.DoMouseDown(args);
+            Assert.IsTrue(executed);
         }
 
-        [TestMethod()]
+        /* do mouse move */
+        [TestMethod]
         public void DoMouseMoveTest()
         {
-            Assert.Fail();
+            bool executed = false;
+            var location = new Point(50, 100);
+            var args = new MouseEventArgs(MouseButtons.Left, 1, location.X, location.Y, 0);
+            var state = new MockState
+            {
+                mouseMove = delegate (Shapes list, Point loc)
+                {
+                    executed = true;
+                    Assert.AreEqual(location, loc);
+                    Assert.AreEqual(_model.ShapeList, list);
+                }
+            };
+            _model.State = state;
+            _model.DoMouseMove(args);
+            Assert.IsTrue(executed);
         }
 
-        [TestMethod()]
+        /* do mouse up */
+        [TestMethod]
         public void DoMouseUpTest()
         {
-            Assert.Fail();
+            bool executed = false;
+            var location = new Point(50, 100);
+            var args = new MouseEventArgs(MouseButtons.Left, 1, location.X, location.Y, 0);
+            var state = new MockState
+            {
+                mouseUp = delegate (Shapes list, Point loc)
+                {
+                    executed = true;
+                    Assert.AreEqual(location, loc);
+                    Assert.AreEqual(_model.ShapeList, list);
+                }
+            };
+            _model.State = state;
+            _model.SelectedShape = ShapeType.Rectangle;
+            _model.DoMouseUp(args);
+            Assert.IsTrue(executed);
+            Assert.AreEqual(ShapeType.None, _model.SelectedShape);
         }
 
-        [TestMethod()]
+        /* add random shape */
+        [TestMethod]
         public void AddRandomShapeTest()
         {
-            Assert.Fail();
+            _model.AddRandomShape(ShapeType.Rectangle, 800, 600);
+            Assert.AreEqual(1, _model.ShapeList.Count);
+            Assert.IsTrue(_model.ShapeList[0] is Rectangle);
         }
 
-        [TestMethod()]
+        /* remove at */
+        [TestMethod]
         public void RemoveAtTest()
         {
-            Assert.Fail();
+            const int screenWidth = 800;
+            const int screenHeight = 600;
+            _model.AddRandomShape(ShapeType.Rectangle, screenWidth, screenHeight);
+            _model.AddRandomShape(ShapeType.Circle, screenWidth, screenHeight);
+            var remain = _model.ShapeList[1];
+            _model.RemoveAt(0);
+            Assert.AreEqual(1, _model.ShapeList.Count);
+            Assert.AreEqual(remain, _model.ShapeList[0]);
         }
 
-        [TestMethod()]
+        /* do key down */
+        [TestMethod]
         public void DoKeyDownTest()
         {
-            Assert.Fail();
+            const int screenWidth = 800;
+            const int screenHeight = 600;
+            _model.AddRandomShape(ShapeType.Rectangle, screenWidth, screenHeight);
+            _model.AddRandomShape(ShapeType.Circle, screenWidth, screenHeight);
+
+            var keyArgs = new KeyEventArgs(Keys.Escape);
+            _model.State = new DrawingState();
+            _model.DoKeyDown(keyArgs);
+            Assert.AreEqual(2, _model.ShapeList.Count);
+
+            keyArgs = new KeyEventArgs(Keys.Delete);
+            _model.DoKeyDown(keyArgs);
+            Assert.AreEqual(2, _model.ShapeList.Count);
+
+            _model.State = new PointState();
+            int x = _model.ShapeList[0].HitBox.X + _model.ShapeList[0].HitBox.Width / 2;
+            int y = _model.ShapeList[0].HitBox.Y + _model.ShapeList[0].HitBox.Height / 2;
+            var mouseArgs = new MouseEventArgs(MouseButtons.Left, 1, x, y, 0);
+            _model.DoMouseDown(mouseArgs);
+            _model.DoKeyDown(keyArgs);
+            Assert.AreEqual(1, _model.ShapeList.Count);
         }
     }
 }

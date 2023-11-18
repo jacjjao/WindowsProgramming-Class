@@ -1,80 +1,165 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Point = System.Drawing.Point;
 
 namespace PowerPoint.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class PresentationModelTests
     {
-        [TestMethod()]
+        PowerPointModel _m;
+        PresentationModel _model;
+
+        /* initialize */
+        [TestInitialize]
+        public void Initialize()
+        {
+            _m = new PowerPointModel();
+            _model = new PresentationModel(_m);
+        }
+        
+        /* constructor */
+        [TestMethod]
         public void PresentationModelTest()
         {
-            Assert.Fail();
+            const int LEN = 4;
+            Assert.AreEqual(LEN, _model.CheckList.Count);
+            Assert.AreEqual(_m, _model.Model);
         }
 
-        [TestMethod()]
+        /* DoToolStripButtonClick */
+        [TestMethod]
         public void DoToolStripButtonClickTest()
         {
-            Assert.Fail();
+            var type = _model.DoToolStripButtonClick(1, ShapeType.Circle);
+            Assert.IsTrue(_model.CheckList[1].Value);
+            Assert.AreEqual(ShapeType.Circle, type);
+
+            type = _model.DoToolStripButtonClick(1, ShapeType.Circle);
+            Assert.IsFalse(_model.CheckList[1].Value);
+            Assert.AreEqual(ShapeType.None, type);
         }
 
-        [TestMethod()]
+        /* AddRandomShape */
+        [TestMethod]
         public void AddRandomShapeTest()
         {
-            Assert.Fail();
+            _model.AddRandomShape(ShapeType.Circle, 800, 600);
+            Assert.AreEqual(1, _m.ShapeList.Count);
         }
 
-        [TestMethod()]
+        /* remove at */
+        [TestMethod]
         public void RemoveAtTest()
         {
-            Assert.Fail();
+            _model.AddRandomShape(ShapeType.Circle, 800, 600);
+            _model.AddRandomShape(ShapeType.Circle, 800, 600);
+            var remain = _m.ShapeList[1];
+            _model.RemoveAt(0);
+            Assert.AreEqual(1, _m.ShapeList.Count);
+            Assert.AreEqual(remain, _m.ShapeList[0]);
         }
 
-        [TestMethod()]
+        /* get draw pen */
+        [TestMethod]
         public void GetDrawPenTest()
         {
-            Assert.Fail();
+            Assert.AreEqual(_model.GetDrawPen(), _m.DrawPen);
         }
 
-        [TestMethod()]
+        /* draw all */
+        [TestMethod]
         public void DrawAllTest()
         {
-            Assert.Fail();
+            var g = new PowerPointTests.MockGraphicsAdapter();
+            bool draw = false;
+            g.drawRectangle = delegate (Point pos, Point size)
+            {
+                draw = true;
+            };
+            _model.AddRandomShape(ShapeType.Rectangle, 800, 600);
+            _model.DrawAll(g);
+            Assert.IsTrue(draw);
         }
 
-        [TestMethod()]
+        /* do mouse down */
+        [TestMethod]
         public void DoMouseDownTest()
         {
-            Assert.Fail();
+            var executed = false;
+            var state = new MockState
+            {
+                mouseDown = delegate (Shapes shape, Point p, ShapeType type)
+                {
+                    executed = true;
+                }
+            };
+            _m.State = state;
+            _model.DoMouseDown(new System.Windows.Forms.MouseEventArgs(System.Windows.Forms.MouseButtons.Left, 0, 0, 0, 0));
+            Assert.IsTrue(executed);
         }
 
-        [TestMethod()]
+        /* do mouse move */
+        [TestMethod]
         public void DoMouseMoveTest()
         {
-            Assert.Fail();
+            var executed = false;
+            var state = new MockState
+            {
+                mouseMove = delegate (Shapes shape, Point p)
+                {
+                    executed = true;
+                }
+            };
+            _m.State = state;
+            _model.DoMouseMove(new System.Windows.Forms.MouseEventArgs(System.Windows.Forms.MouseButtons.Left, 0, 0, 0, 0));
+            Assert.IsTrue(executed);
         }
 
-        [TestMethod()]
+        /* do mouse up */
+        [TestMethod]
         public void DoMouseUpTest()
         {
-            Assert.Fail();
+            var executed = false;
+            var state = new MockState
+            {
+                mouseUp = delegate (Shapes shape, Point p)
+                {
+                    executed = true;
+                }
+            };
+            _m.State = state;
+            _model.DoMouseUp(new System.Windows.Forms.MouseEventArgs(System.Windows.Forms.MouseButtons.Left, 0, 0, 0, 0));
+            Assert.IsTrue(executed);
+            for (int i = 0; i < 3; i++)
+            {
+                Assert.IsFalse(_model.CheckList[i].Value);
+            }
         }
 
-        [TestMethod()]
+        /* do key down */
+        [TestMethod]
         public void DoKeyDownTest()
         {
-            Assert.Fail();
+            _model.AddRandomShape(ShapeType.Rectangle, 800, 600);
+            _model.SetState(new PointState());
+            int x = _m.ShapeList[0].HitBox.X + _m.ShapeList[0].HitBox.Width / 2;
+            int y = _m.ShapeList[0].HitBox.Y + _m.ShapeList[0].HitBox.Height / 2;
+            _model.DoMouseDown(new System.Windows.Forms.MouseEventArgs(System.Windows.Forms.MouseButtons.Left, 1, x, y, 0));
+            _model.DoKeyDown(new System.Windows.Forms.KeyEventArgs(System.Windows.Forms.Keys.Delete));
+            Assert.AreEqual(0, _m.ShapeList.Count);
         }
 
-        [TestMethod()]
+        /* set state */
+        [TestMethod]
         public void SetStateTest()
         {
-            Assert.Fail();
+            var state = new PointState();
+            _model.SetState(state);
+            Assert.AreEqual(state, _m.State);
+            for (int i = 0; i < _m.ShapeList.Count; i++)
+            {
+                Assert.IsFalse(_m.ShapeList[i].Selected);
+            }
         }
     }
 }

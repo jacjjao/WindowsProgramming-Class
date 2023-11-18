@@ -81,19 +81,15 @@ namespace PowerPoint
             double differenceX = difference.X;
             double differenceY = difference.Y;
             double mouseToOrigin = Math.Sqrt(differenceX * differenceX + differenceY * differenceY);
-
-            if (mouseToOrigin == 0.0)
-            {
+            const double ZERO = 0.0;
+            if (mouseToOrigin == ZERO)
                 return true;
-            }
-
             double angle = Math.Atan(differenceY / differenceX);
             double radiusX = Radius.X;
             double radiusY = Radius.Y;
             double lengthX = radiusX * Math.Cos(angle);
             double lengthY = radiusY * Math.Sin(angle);
             double distance = Math.Sqrt(lengthX * lengthX + lengthY * lengthY);
-
             return mouseToOrigin <= distance;
         }
 

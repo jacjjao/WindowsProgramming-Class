@@ -1,15 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class PointStateTests
     {
         PointState _state;
@@ -18,7 +12,8 @@ namespace PowerPoint.Tests
         Point _p2;
         Shapes _list;
 
-        [TestInitialize()]
+        /* initialize */
+        [TestInitialize]
         public void Initialize()
         {
             _state = new PointState();
@@ -30,7 +25,8 @@ namespace PowerPoint.Tests
             _list.AddShape(ShapeType.Rectangle, new Point(0, 0), _p2);
         }
 
-        [TestMethod()]
+        /* mouse down */
+        [TestMethod]
         public void MouseDownTest()
         {
             _state.MouseDown(_list, _p1, ShapeType.None);
@@ -39,7 +35,8 @@ namespace PowerPoint.Tests
             Assert.AreEqual(_list[1], _statePrivate.GetFieldOrProperty("_selectedShape"));
         }
 
-        [TestMethod()]
+        /* mouse move */
+        [TestMethod]
         public void MouseMoveTest()
         {
             _state.MouseMove(_list, _p2);
@@ -61,7 +58,8 @@ namespace PowerPoint.Tests
             Assert.IsNull(_statePrivate.GetFieldOrProperty("_selectedShape"));
         }
 
-        [TestMethod()]
+        /* mouse up */
+        [TestMethod]
         public void MouseUpTest()
         {
             _state.MouseUp(_list, _p2);
@@ -73,7 +71,8 @@ namespace PowerPoint.Tests
             Assert.IsFalse((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
         }
 
-        [TestMethod()]
+        /* remove selected */
+        [TestMethod]
         public void RemoveSelectedShapeTest()
         {
             var shouldRemain = _list[0];

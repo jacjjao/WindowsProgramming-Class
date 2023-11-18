@@ -104,6 +104,10 @@ namespace PowerPoint
         public void SetState(IState state)
         {
             Model.State = state;
+            for (int i = 0; i < Model.ShapeList.Count; i++)
+            {
+                Model.ShapeList[i].Selected = false;
+            }
         }
     }
 }

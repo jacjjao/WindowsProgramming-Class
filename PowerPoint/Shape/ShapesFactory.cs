@@ -18,8 +18,8 @@ namespace PowerPoint
             const int SIZE_LOW = 10;
             int sizeHigh = Math.Min(screenWidth, screenHeight);
             const int POS_LOW = 0;
-            var size = new Point(_random.Next(SIZE_LOW, sizeHigh), _random.Next(SIZE_LOW, sizeHigh));
-            var startPoint = new Point(_random.Next(POS_LOW, screenWidth - size.X), _random.Next(POS_LOW, screenHeight - size.Y));
+            var size = new Point(_random.GetNext(SIZE_LOW, sizeHigh), _random.GetNext(SIZE_LOW, sizeHigh));
+            var startPoint = new Point(_random.GetNext(POS_LOW, screenWidth - size.X), _random.GetNext(POS_LOW, screenHeight - size.Y));
             var endPoint = new Point(startPoint.X + size.X, startPoint.Y + size.Y);
             return CreateShape(type, startPoint, endPoint);
         }

@@ -1,22 +1,17 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class LineTests
     {
         Point _p1;
         Point _p2;
         Line _line;
 
-        [TestInitialize()]
+        /* initialize */
+        [TestInitialize]
         public void Initialize()
         {
             _p1 = new Point(0, 0);
@@ -24,7 +19,8 @@ namespace PowerPoint.Tests
             _line = new Line(_p1, _p2);
         }
 
-        [TestMethod()]
+        /* constructor */
+        [TestMethod]
         public void LineTest()
         {
             Assert.AreEqual(_p1, _line.StartPoint);
@@ -37,20 +33,23 @@ namespace PowerPoint.Tests
             Assert.AreEqual(p3, _line.EndPoint);
         }
 
-        [TestMethod()]
+        /* GetInfo */
+        [TestMethod]
         public void GetInfoTest()
         {
             var str = string.Format("({0},{1})({2},{3})", _p1.X, _p1.Y, _p2.X, _p2.Y);
             Assert.AreEqual(str, _line.GetInfo());
         }
 
-        [TestMethod()]
+        /* GetShapeName */
+        [TestMethod]
         public void GetShapeNameTest()
         {
             Assert.AreEqual("線", _line.GetShapeName());
         }
 
-        [TestMethod()]
+        /* draw */
+        [TestMethod]
         public void DrawTest()
         {
             bool executed = false;
@@ -67,7 +66,8 @@ namespace PowerPoint.Tests
             Assert.IsTrue(executed);
         }
 
-        [TestMethod()]
+        /* move */
+        [TestMethod]
         public void MoveTest()
         {
             int dx = 100, dy = 50;
@@ -78,7 +78,8 @@ namespace PowerPoint.Tests
             Assert.AreEqual(p4, _line.EndPoint);
         }
 
-        [TestMethod()]
+        /* contains */
+        [TestMethod]
         public void ContainsTest()
         {
             Assert.IsTrue(_line.Contains(new Point(50, 50)));

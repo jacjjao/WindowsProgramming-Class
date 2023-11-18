@@ -62,7 +62,7 @@ namespace PowerPoint
             _hitBox.X += differenceX;
             _hitBox.Y += differenceY;
         }
-        
+
         /* resize */
         public override void Resize(Point pointFirst, Point pointSecond)
         {

@@ -47,6 +47,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -57,6 +58,10 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="BindableToolStripButtonTest.cs" />
+    <Compile Include="DoubleBufferedPanelTest.cs" />
+    <Compile Include="Graphics\FormGraphicsAdapterTests.cs" />
+    <Compile Include="NotifyBooleanTest.cs" />
     <Compile Include="Shape\CircleTests.cs" />
     <Compile Include="State\DrawingStateTests.cs" />
     <Compile Include="Shape\LineTests.cs" />

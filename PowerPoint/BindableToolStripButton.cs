@@ -8,14 +8,16 @@ namespace PowerPoint
 
         private BindingContext _bindingContext;
 
+        public BindableToolStripButton()
+        {
+            _dataBindings = new ControlBindingsCollection(this);
+            _bindingContext = new BindingContext();
+        }
+
         public ControlBindingsCollection DataBindings
         {
             get
             {
-                if (_dataBindings == null)
-                {
-                    _dataBindings = new ControlBindingsCollection(this);
-                }
                 return _dataBindings;
             }
         }
@@ -24,10 +26,6 @@ namespace PowerPoint
         {
             get
             {
-                if (_bindingContext == null)
-                {
-                    _bindingContext = new BindingContext();
-                }
                 return _bindingContext;
             }
             set

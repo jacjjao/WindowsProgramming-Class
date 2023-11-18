@@ -1,16 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PowerPoint.Tests
 {
     class MockShape : Shape
-    { 
+    {
         /* contains */
         public override bool Contains(Point mousePosition)
         {
@@ -53,25 +48,29 @@ namespace PowerPoint.Tests
     {
         MockShape _shape;
 
-        [TestInitialize()]
+        /* initialize */
+        [TestInitialize]
         public void Initialize()
         {
             _shape = new MockShape();
         }
 
-        [TestMethod()]
+        /* Info property */
+        [TestMethod]
         public void InfoTest()
         {
             Assert.AreEqual("GetInfo", _shape.Info);
         }
 
-        [TestMethod()]
+        /* Name property */
+        [TestMethod]
         public void NameTest()
         {
             Assert.AreEqual("GetShapeName", _shape.Name);
         }
 
-        [TestMethod()]
+        /* Selected property */
+        [TestMethod]
         public void SelectedTest()
         {
             Assert.IsFalse(_shape.Selected);
@@ -79,7 +78,8 @@ namespace PowerPoint.Tests
             Assert.IsTrue(_shape.Selected);
         }
 
-        [TestMethod()]
+        /* draw shape */
+        [TestMethod]
         public void DrawShapeTest()
         {
             var graphics = new PowerPointTests.MockGraphicsAdapter();
@@ -102,7 +102,8 @@ namespace PowerPoint.Tests
             Assert.IsTrue(hitboxDraw);
         }
 
-        [TestMethod()]
+        /* notify property changed */
+        [TestMethod]
         public void NotifyPropertyChangedTest()
         {
             object obj = null;

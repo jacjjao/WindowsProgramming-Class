@@ -1,26 +1,22 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class ShapesTests
     {
         Shapes _list;
 
-        [TestInitialize()]
+        /* initialize */
+        [TestInitialize]
         public void Initialize()
         {
             _list = new Shapes();
         }
 
-        [TestMethod()]
+        /* constructor */
+        [TestMethod]
         public void ShapesTest()
         {
             Assert.IsTrue(_list.Content.AllowNew);
@@ -29,7 +25,8 @@ namespace PowerPoint.Tests
             Assert.IsTrue(_list.Content.AllowEdit);
         }
 
-        [TestMethod()]
+        /* add random shape */
+        [TestMethod]
         public void AddRandomShapeTest()
         {
             int screenWidth = 800;
@@ -39,7 +36,8 @@ namespace PowerPoint.Tests
             Assert.IsTrue(_list[0] is Rectangle);
         }
 
-        [TestMethod()]
+        /* operator [] */
+        [TestMethod]
         public void IndexerTest()
         {
             int screenWidth = 800;
@@ -50,7 +48,8 @@ namespace PowerPoint.Tests
             Assert.AreEqual(shape, _list[0]);
         }
 
-        [TestMethod()]
+        /* add shape */
+        [TestMethod]
         public void AddShapeTest()
         {
             var p1 = new Point(0, 0);
@@ -63,7 +62,8 @@ namespace PowerPoint.Tests
             Assert.AreEqual(p2, line.EndPoint);
         }
 
-        [TestMethod()]
+        /* remove */
+        [TestMethod]
         public void RemoveTest()
         {
             _list.AddRandomShape(ShapeType.Circle, 100, 100);
@@ -74,7 +74,8 @@ namespace PowerPoint.Tests
             Assert.AreEqual(s2, _list[0]);
         }
 
-        [TestMethod()]
+        /* remove at */
+        [TestMethod]
         public void RemoveAtTest()
         {
             _list.AddRandomShape(ShapeType.Circle, 100, 100);
@@ -85,7 +86,8 @@ namespace PowerPoint.Tests
             Assert.AreEqual(s2, _list[0]);
         }
 
-        [TestMethod()]
+        /* find contain */
+        [TestMethod]
         public void FindContainTest()
         {
             Assert.AreEqual(null, _list.FindContain(new Point()));
@@ -101,7 +103,8 @@ namespace PowerPoint.Tests
             Assert.AreEqual(null, _list.FindContain(new Point(-100, -100)));
         }
 
-        [TestMethod()]
+        /* draw all */
+        [TestMethod]
         public void DrawAllTest()
         {
             int idx = 0;

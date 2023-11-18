@@ -1,14 +1,13 @@
-﻿using System.ComponentModel;
-using Point = System.Drawing.Point;
+﻿using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {
     public class DrawingState : IState
     {
-        private Point _drawStartPos = new Point();
-        private Point _drawEndPos = new Point();
-        private bool _mousePressed = false;
-        private ShapeType _type = ShapeType.None;
+        Point _drawStartPos = new Point();
+        Point _drawEndPos = new Point();
+        bool _mousePressed = false;
+        ShapeType _type = ShapeType.None;
 
         /* mouse down */
         public void MouseDown(Shapes list, Point pos, ShapeType type)
