@@ -29,7 +29,7 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void MouseDownTest()
         {
-            _state.MouseDown(_list, _p1, ShapeType.None);
+            _state.MouseDown(_list, _p1);
             Assert.IsTrue((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
             Assert.AreEqual(_p1, _statePrivate.GetFieldOrProperty("_previousMousePosition"));
             Assert.AreEqual(_list[1], _statePrivate.GetFieldOrProperty("_selectedShape"));
@@ -44,17 +44,17 @@ namespace PowerPoint.Tests
             Assert.AreNotEqual(_p2, _statePrivate.GetFieldOrProperty("_previousMousePosition"));
             Assert.IsNull(_statePrivate.GetFieldOrProperty("_selectedShape"));
 
-            _state.MouseDown(_list, _p1, ShapeType.None);
+            _state.MouseDown(_list, _p1);
             _state.MouseMove(_list, _p2);
             Assert.IsTrue((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
             Assert.AreEqual(_p2, _statePrivate.GetFieldOrProperty("_previousMousePosition"));
             Assert.AreEqual(_list[1], _statePrivate.GetFieldOrProperty("_selectedShape"));
 
             var p = new Point(-10, -10);
-            _state.MouseDown(_list, p, ShapeType.None);
+            _state.MouseDown(_list, p);
             _state.MouseMove(_list, _p2);
             Assert.IsTrue((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
-            Assert.AreEqual(_p2, _statePrivate.GetFieldOrProperty("_previousMousePosition"));
+            Assert.AreEqual(p, _statePrivate.GetFieldOrProperty("_previousMousePosition"));
             Assert.IsNull(_statePrivate.GetFieldOrProperty("_selectedShape"));
         }
 
@@ -65,7 +65,7 @@ namespace PowerPoint.Tests
             _state.MouseUp(_list, _p2);
             Assert.IsFalse((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
 
-            _state.MouseDown(_list, _p1, ShapeType.None);
+            _state.MouseDown(_list, _p1);
             _state.MouseMove(_list, _p2);
             _state.MouseUp(_list, _p2);
             Assert.IsFalse((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
@@ -76,7 +76,7 @@ namespace PowerPoint.Tests
         public void RemoveSelectedShapeTest()
         {
             var shouldRemain = _list[0];
-            _state.MouseDown(_list, new Point(10, 10), ShapeType.None);
+            _state.MouseDown(_list, new Point(10, 10));
             _state.RemoveSelectedShape(_list);
             Assert.AreEqual(1, _list.Count);
             Assert.AreEqual(shouldRemain, _list[0]);

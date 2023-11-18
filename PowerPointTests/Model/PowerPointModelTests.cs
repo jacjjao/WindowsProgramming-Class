@@ -8,26 +8,29 @@ namespace PowerPoint.Tests
 {
     class MockState : IState
     {
-        public Action<Shapes, Point, ShapeType> mouseDown = null;
+        public Action<Shapes, Point> mouseDown = null;
         public Action<Shapes, Point> mouseMove = null;
         public Action<Shapes, Point> mouseUp = null;
 
         /* mouse down */
-        public void MouseDown(Shapes list, Point pos, ShapeType type)
+        public Cursor MouseDown(Shapes list, Point pos)
         {
-            mouseDown.Invoke(list, pos, type);
+            mouseDown.Invoke(list, pos);
+            return Cursors.Default;
         }
 
         /* mouse move */
-        public void MouseMove(Shapes list, Point pos)
+        public Cursor MouseMove(Shapes list, Point pos)
         {
             mouseMove.Invoke(list, pos);
+            return Cursors.Default;
         }
 
         /* mouse up */
-        public void MouseUp(Shapes list, Point pos)
+        public Cursor MouseUp(Shapes list, Point pos)
         {
             mouseUp.Invoke(list, pos);
+            return Cursors.Default;
         }
     }
 
@@ -100,11 +103,10 @@ namespace PowerPoint.Tests
             _model.SelectedShape = ShapeType.Rectangle;
             var state = new MockState
             {
-                mouseDown = delegate (Shapes list, Point loc, ShapeType type)
+                mouseDown = delegate (Shapes list, Point loc)
                 {
                     executed = true;
                     Assert.AreEqual(location, loc);
-                    Assert.AreEqual(_model.SelectedShape, type);
                     Assert.AreEqual(_model.ShapeList, list);
                 }
             };

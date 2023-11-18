@@ -1,4 +1,5 @@
 ﻿using Point = System.Drawing.Point;
+using System.Windows.Forms;
 
 namespace PowerPoint
 {
@@ -9,39 +10,48 @@ namespace PowerPoint
         bool _mousePressed = false;
         ShapeType _type = ShapeType.None;
 
-        /* mouse down */
-        public void MouseDown(Shapes list, Point pos, ShapeType type)
+        /* set type */
+        public void SetShapeType(ShapeType type)
         {
-            if (type == ShapeType.None)
-            {
-                return;
-            }
             _type = type;
+        }
+
+        /* mouse down */
+        public Cursor MouseDown(Shapes list, Point pos)
+        {
+            // _type = type;
+            if (_type == ShapeType.None)
+            {
+                return Cursors.Default;
+            }
             _mousePressed = true;
             _drawStartPos = _drawEndPos = pos;
             list.AddShape(_type, pos, pos);
+            return Cursors.Cross;
         }
 
         /* mouse move */
-        public void MouseMove(Shapes list, Point pos)
+        public Cursor MouseMove(Shapes list, Point pos)
         {
             if (!_mousePressed)
             {
-                return;
+                return _type == ShapeType.None ? Cursors.Default : Cursors.Cross;
             }
             _drawEndPos = pos;
             list[list.Count - 1].Resize(_drawStartPos, _drawEndPos);
+            return Cursors.Cross;
         }
 
         /* mouse up */
-        public void MouseUp(Shapes list, Point pos)
+        public Cursor MouseUp(Shapes list, Point pos)
         {
             if (!_mousePressed)
-                return;
+                return Cursors.Default;
             _mousePressed = false;
             _drawEndPos = pos;
             list[list.Count - 1].Resize(_drawStartPos, _drawEndPos);
             list[list.Count - 1].NotifyPropertyChanged();
+            return Cursors.Default;
         }
     }
 }

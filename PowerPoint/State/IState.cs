@@ -1,16 +1,17 @@
 ﻿using Point = System.Drawing.Point;
+using Cursor = System.Windows.Forms.Cursor;
 
 namespace PowerPoint
 {
     public interface IState
     {
         /* mouse down */
-        void MouseDown(Shapes list, Point pos, ShapeType type);
+        Cursor MouseDown(Shapes list, Point pos);
 
         /* mouse move */
-        void MouseMove(Shapes list, Point pos);
+        Cursor MouseMove(Shapes list, Point pos);
 
         /* mouse up */
-        void MouseUp(Shapes list, Point pos);
+        Cursor MouseUp(Shapes list, Point pos);
     }
 }

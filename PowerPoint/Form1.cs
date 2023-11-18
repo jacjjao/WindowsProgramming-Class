@@ -119,22 +119,21 @@ namespace PowerPoint
         /* 在畫布上鬆開滑鼠按鍵時的event */
         private void DoDrawPanelMouseUp(object sender, MouseEventArgs e)
         {
-            _presentModel.DoMouseUp(e);
+            Cursor = _presentModel.DoMouseUp(e);
             Draw();
-            Cursor = Cursors.Default;
         }
 
         /* 在畫布上移動滑鼠時的event */
         private void DoDrawPanelMouseMove(object sender, MouseEventArgs e)
         {
-            _presentModel.DoMouseMove(e);
+            Cursor = _presentModel.DoMouseMove(e);
             Draw();
         }
 
         /* 在畫布上點擊滑鼠時的event */
         private void DoDrawPanelMouseDown(object sender, MouseEventArgs e)
         {
-            _presentModel.DoMouseDown(e);
+            Cursor = _presentModel.DoMouseDown(e);
             Draw();
         }
 

@@ -41,10 +41,21 @@ namespace PowerPoint
             }
         }
 
+        ShapeType _selectType = ShapeType.None;
         public ShapeType SelectedShape
         {
-            get;
-            set;
+            get
+            {
+                return _selectType;
+            }
+            set
+            {
+                _selectType = value;
+                if (State is DrawingState)
+                {
+                    ((DrawingState)State).SetShapeType(_selectType);
+                }
+            }
         }
 
         /* draw all */
@@ -54,22 +65,22 @@ namespace PowerPoint
         }
 
         /* mouse down */
-        public void DoMouseDown(MouseEventArgs e)
+        public Cursor DoMouseDown(MouseEventArgs e)
         {
-            State.MouseDown(ShapeList, e.Location, SelectedShape);
+            return State.MouseDown(ShapeList, e.Location);
         }
 
         /* mouse move */
-        public void DoMouseMove(MouseEventArgs e)
+        public Cursor DoMouseMove(MouseEventArgs e)
         {
-            State.MouseMove(ShapeList, e.Location);
+            return State.MouseMove(ShapeList, e.Location);
         }
 
         /* mouse up */
-        public void DoMouseUp(MouseEventArgs e)
+        public Cursor DoMouseUp(MouseEventArgs e)
         {
-            State.MouseUp(ShapeList, e.Location);
             SelectedShape = ShapeType.None;
+            return State.MouseUp(ShapeList, e.Location);
         }
 
         /* add shape */

@@ -88,7 +88,7 @@ namespace PowerPoint.Tests
             var executed = false;
             var state = new MockState
             {
-                mouseDown = delegate (Shapes shape, Point p, ShapeType type)
+                mouseDown = delegate (Shapes shape, Point p)
                 {
                     executed = true;
                 }

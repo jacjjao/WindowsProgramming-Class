@@ -60,6 +60,12 @@ namespace PowerPoint
         /* draw */
         public abstract void Draw(Pen pen, IGraphics graphics);
 
+        /* is in hitbox */
+        public bool IsInHitBox(Point point)
+        {
+            return point.X >= HitBox.X && point.X <= HitBox.X + HitBox.Width && point.Y >= HitBox.Y && point.Y <= HitBox.Y + HitBox.Height;
+        }
+
         /* draw hit box */
         private void DrawHitBox(IGraphics graphics)
         {
@@ -90,6 +96,32 @@ namespace PowerPoint
             graphics.DrawEllipse(pen, rectangle);
             rectangle.X = HitBox.X + HitBox.Width - RADIUS;
             graphics.DrawEllipse(pen, rectangle);
+        }
+
+        /* in circle */
+        public bool IsInCircle(ResizeDirection direction, Point point)
+        {
+            const int TWO = 2;
+            switch (direction)
+            {
+                case ResizeDirection.TopLeft:
+                    return IsInCircle(new Point(HitBox.X, HitBox.Y), point);
+                case ResizeDirection.TopMiddle:
+                    return IsInCircle(new Point(HitBox.X + HitBox.Width / TWO, HitBox.Y), point);
+                case ResizeDirection.TopRight:
+                    return IsInCircle(new Point(HitBox.X + HitBox.Width, HitBox.Y), point);
+                case ResizeDirection.MiddleLeft:
+                    return IsInCircle(new Point(HitBox.X, HitBox.Y + HitBox.Height / TWO), point);
+                case ResizeDirection.MiddleRight:
+                    return IsInCircle(new Point(HitBox.X + HitBox.Width, HitBox.Y + HitBox.Height / TWO), point);
+                case ResizeDirection.BottomLeft:
+                    return IsInCircle(new Point(HitBox.X, HitBox.Y + HitBox.Height), point);
+                case ResizeDirection.BottomMiddle:
+                    return IsInCircle(new Point(HitBox.X + HitBox.Width / TWO, HitBox.Y + HitBox.Height), point);
+                case ResizeDirection.BottomRight:
+                    return IsInCircle(new Point(HitBox.X + HitBox.Width, HitBox.Y + HitBox.Height), point);
+            }
+            return false;
         }
 
         /* in circle */

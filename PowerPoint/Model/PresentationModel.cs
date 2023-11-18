@@ -72,26 +72,26 @@ namespace PowerPoint
         }
 
         /* 在draw panel上按下滑鼠的event */
-        public void DoMouseDown(MouseEventArgs e)
+        public Cursor DoMouseDown(MouseEventArgs e)
         {
-            Model.DoMouseDown(e);
+            return Model.DoMouseDown(e);
         }
 
         /* 滑鼠在draw panel移動時的event */
-        public void DoMouseMove(MouseEventArgs e)
+        public Cursor DoMouseMove(MouseEventArgs e)
         {
-            Model.DoMouseMove(e);
+            return Model.DoMouseMove(e);
         }
 
         /* 在draw panel上放開滑鼠按鈕的event */
-        public void DoMouseUp(MouseEventArgs e)
+        public Cursor DoMouseUp(MouseEventArgs e)
         {
             const int THREE = 3;
-            Model.DoMouseUp(e);
             for (int i = 0; i < THREE; i++)
             {
                 CheckList[i].Value = false;
             }
+            return Model.DoMouseUp(e);
         }
 
         /* keydown */
