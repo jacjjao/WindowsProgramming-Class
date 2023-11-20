@@ -173,9 +173,9 @@ namespace PowerPoint
         {
             pointFirst.X += differenceX;
             pointFirst.Y += differenceY;
-            if (pointFirst.X > pointSecond.X && pointFirst.Y < pointSecond.Y)
+            if (pointFirst.X > pointSecond.X)
                 return ResizeDirection.TopRight;
-            else if (pointFirst.X < pointSecond.X && pointFirst.Y > pointSecond.Y)
+            else if (pointFirst.Y > pointSecond.Y)
                 return ResizeDirection.BottomLeft;
             return ResizeDirection.TopLeft;
         }
@@ -194,9 +194,9 @@ namespace PowerPoint
         {
             pointSecond.X += differenceX;
             pointFirst.Y += differenceY;
-            if (pointFirst.X > pointSecond.X && pointFirst.Y < pointSecond.Y)
+            if (pointFirst.X > pointSecond.X)
                 return ResizeDirection.TopLeft;
-            else if (pointFirst.X < pointSecond.X && pointFirst.Y > pointSecond.Y)
+            else if (pointFirst.Y > pointSecond.Y)
                 return ResizeDirection.BottomRight;
             return ResizeDirection.TopRight;
         }
@@ -224,9 +224,9 @@ namespace PowerPoint
         {
             pointFirst.X += differenceX;
             pointSecond.Y += differenceY;
-            if (pointFirst.X > pointSecond.X && pointFirst.Y < pointSecond.Y)
+            if (pointFirst.X > pointSecond.X)
                 return ResizeDirection.BottomRight;
-            else if (pointFirst.X < pointSecond.X && pointFirst.Y > pointSecond.Y)
+            else if (pointFirst.Y > pointSecond.Y)
                 return ResizeDirection.TopLeft;
             return ResizeDirection.BottomLeft;
         }
@@ -245,9 +245,9 @@ namespace PowerPoint
         {
             pointSecond.X += differenceX;
             pointSecond.Y += differenceY;
-            if (pointFirst.X > pointSecond.X && pointFirst.Y < pointSecond.Y)
+            if (pointFirst.X > pointSecond.X)
                 return ResizeDirection.BottomLeft;
-            else if (pointFirst.X < pointSecond.X && pointFirst.Y > pointSecond.Y)
+            else if (pointFirst.Y > pointSecond.Y)
                 return ResizeDirection.TopRight;
             return ResizeDirection.BottomRight;
         }
@@ -257,13 +257,11 @@ namespace PowerPoint
         {
             var pointFirst = new Point(HitBox.X, HitBox.Y);
             var pointSecond = new Point(pointFirst.X + HitBox.Width, pointFirst.Y + HitBox.Height);
-            if (direction == ResizeDirection.None)
-            {
-                Move(differenceX, differenceY);
-                return ResizeDirection.None;
-            }
             switch (direction)
             {
+                case ResizeDirection.None:
+                    Move(differenceX, differenceY);
+                    return ResizeDirection.None;
                 case ResizeDirection.TopLeft:
                     direction = OffsetTopLeft(ref pointFirst, ref pointSecond, differenceX, differenceY);
                     break;
@@ -288,6 +286,8 @@ namespace PowerPoint
                 case ResizeDirection.BottomRight:
                     direction = OffsetBottomRight(ref pointFirst, ref pointSecond, differenceX, differenceY);
                     break;
+                default:
+                    throw new ArgumentException();
             }
             Resize(pointFirst, pointSecond);
             return direction;

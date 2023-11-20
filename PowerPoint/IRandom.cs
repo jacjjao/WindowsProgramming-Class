@@ -2,7 +2,7 @@
 {
     public interface IRandom
     {
-        /* next */
+        /* get next */
         int GetNext(int low, int high);
     }
 }

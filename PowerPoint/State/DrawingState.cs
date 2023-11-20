@@ -1,5 +1,5 @@
-﻿using Point = System.Drawing.Point;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {

@@ -1,5 +1,5 @@
-﻿using Point = System.Drawing.Point;
-using Cursor = System.Windows.Forms.Cursor;
+﻿using Cursor = System.Windows.Forms.Cursor;
+using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {

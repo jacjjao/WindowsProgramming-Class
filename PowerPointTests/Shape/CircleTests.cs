@@ -9,7 +9,7 @@ namespace PowerPoint.Tests
         Point _p1;
         Point _p2;
         Circle _circle;
-        
+
         /* initialize */
         [TestInitialize]
         public void Initialize()

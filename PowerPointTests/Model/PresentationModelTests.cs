@@ -16,7 +16,7 @@ namespace PowerPoint.Tests
             _m = new PowerPointModel();
             _model = new PresentationModel(_m);
         }
-        
+
         /* constructor */
         [TestMethod]
         public void PresentationModelTest()

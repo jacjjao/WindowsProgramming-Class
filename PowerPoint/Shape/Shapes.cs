@@ -40,9 +40,9 @@ namespace PowerPoint
             }
         }
 
-        public BindingList<Shape> Content 
-        { 
-            get; 
+        public BindingList<Shape> Content
+        {
+            get;
         }
 
         /* add shape */

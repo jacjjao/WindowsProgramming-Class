@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace PowerPoint.Tests
 {
@@ -40,7 +41,7 @@ namespace PowerPoint.Tests
             Assert.IsTrue(_list[0] is Circle);
             var circle = (Circle)_list[0];
             Assert.AreEqual(_p1, circle.Center);
-            Assert.AreEqual(new System.Drawing.Point(0, 0), circle.Diameter);
+            Assert.AreEqual(new Point(0, 0), circle.Diameter);
             Assert.IsTrue((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
             Assert.AreEqual(_p1, _statePrivate.GetFieldOrProperty("_drawStartPos"));
             Assert.AreEqual(_p1, _statePrivate.GetFieldOrProperty("_drawEndPos"));
@@ -51,16 +52,22 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void MouseMoveTest()
         {
-            _state.MouseMove(_list, _p2);
+            var cursor = _state.MouseMove(_list, _p2);
             Assert.AreEqual(0, _list.Count);
+            Assert.AreEqual(Cursors.Default, cursor);
             Assert.IsFalse((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
             Assert.AreNotEqual(_p1, _statePrivate.GetFieldOrProperty("_drawStartPos"));
             Assert.AreNotEqual(_p2, _statePrivate.GetFieldOrProperty("_drawEndPos"));
             Assert.AreEqual(ShapeType.None, _statePrivate.GetFieldOrProperty("_type"));
 
             _state.SetShapeType(ShapeType.Circle);
+            cursor = _state.MouseMove(_list, _p2);
+            Assert.AreEqual(Cursors.Cross, cursor);
+
+            _state.SetShapeType(ShapeType.Circle);
             _state.MouseDown(_list, _p1);
-            _state.MouseMove(_list, _p2);
+            cursor = _state.MouseMove(_list, _p2);
+            Assert.AreEqual(Cursors.Cross, cursor);
             Assert.AreEqual(1, _list.Count);
             Assert.IsTrue(_list[0] is Circle);
             var circle = (Circle)_list[0];

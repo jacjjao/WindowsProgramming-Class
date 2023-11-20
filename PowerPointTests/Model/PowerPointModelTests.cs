@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 using Point = System.Drawing.Point;
 

@@ -1,5 +1,5 @@
-﻿using Point = System.Drawing.Point;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {
@@ -47,16 +47,14 @@ namespace PowerPoint
             }
             _selectedShape = list.FindContain(pos);
             _direction = ResizeDirection.None;
-            return Cursors.SizeAll;
+            return _selectedShape == null ? Cursors.Default : Cursors.SizeAll;
         }
 
         /* mouse move */
         public Cursor MouseMove(Shapes list, Point pos)
         {
             if (_selectedShape == null)
-            {
                 return Cursors.Default;
-            }
             if (!_mousePressed)
             {
                 const int DIRECTION_NUMBER = 8;
@@ -65,11 +63,9 @@ namespace PowerPoint
                 for (int i = 0; i < DIRECTION_NUMBER; i++)
                 {
                     if (_selectedShape.IsInCircle(direction, pos))
-                    {
                         return GetCursor(direction);
-                    }
                     direction = (ResizeDirection)((int)direction + ONE);
-                }   
+                }
                 return _selectedShape.IsInHitBox(pos) ? Cursors.SizeAll : Cursors.Default;
             }
             int differenceX = pos.X - _previousMousePosition.X;
@@ -86,7 +82,7 @@ namespace PowerPoint
             if (_selectedShape != null)
             {
                 _selectedShape.NotifyPropertyChanged();
-                return _selectedShape.Contains(pos) ? Cursors.Default : Cursors.SizeAll;
+                return _selectedShape.Contains(pos) ? Cursors.SizeAll : Cursors.Default;
             }
             return Cursors.Default;
         }

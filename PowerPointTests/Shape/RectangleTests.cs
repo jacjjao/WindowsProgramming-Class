@@ -75,6 +75,8 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void ContainsTest()
         {
+            Assert.IsTrue(_rect.Contains(_p1));
+            Assert.IsTrue(_rect.Contains(_p2));
             Assert.IsTrue(_rect.Contains(new Point(50, 100)));
             Assert.IsFalse(_rect.Contains(new Point(-1, -1)));
             Assert.IsFalse(_rect.Contains(new Point(50, -1)));
