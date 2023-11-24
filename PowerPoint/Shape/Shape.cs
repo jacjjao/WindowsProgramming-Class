@@ -62,7 +62,7 @@ namespace PowerPoint
             pointFirst.Y += differenceY;
             if (pointFirst.X > pointSecond.X)
                 return ResizeDirection.TopRight;
-            else if (pointFirst.Y > pointSecond.Y)
+            if (pointFirst.Y > pointSecond.Y)
                 return ResizeDirection.BottomLeft;
             return ResizeDirection.TopLeft;
         }
@@ -83,7 +83,7 @@ namespace PowerPoint
             pointFirst.Y += differenceY;
             if (pointFirst.X > pointSecond.X)
                 return ResizeDirection.TopLeft;
-            else if (pointFirst.Y > pointSecond.Y)
+            if (pointFirst.Y > pointSecond.Y)
                 return ResizeDirection.BottomRight;
             return ResizeDirection.TopRight;
         }
@@ -113,7 +113,7 @@ namespace PowerPoint
             pointSecond.Y += differenceY;
             if (pointFirst.X > pointSecond.X)
                 return ResizeDirection.BottomRight;
-            else if (pointFirst.Y > pointSecond.Y)
+            if (pointFirst.Y > pointSecond.Y)
                 return ResizeDirection.TopLeft;
             return ResizeDirection.BottomLeft;
         }
@@ -134,7 +134,7 @@ namespace PowerPoint
             pointSecond.Y += differenceY;
             if (pointFirst.X > pointSecond.X)
                 return ResizeDirection.BottomLeft;
-            else if (pointFirst.Y > pointSecond.Y)
+            if (pointFirst.Y > pointSecond.Y)
                 return ResizeDirection.TopRight;
             return ResizeDirection.BottomRight;
         }
