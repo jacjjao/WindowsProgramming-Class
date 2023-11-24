@@ -127,7 +127,7 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void IsInHitBoxTest()
         {
-            var hitbox = new System.Drawing.Rectangle
+            var hitbox = new HitBox
             {
                 X = 0,
                 Y = 0,
@@ -146,7 +146,7 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void IsInCircleTest()
         {
-            var hitbox = new System.Drawing.Rectangle
+            var hitbox = new HitBox
             {
                 X = 0,
                 Y = 0,
@@ -171,7 +171,7 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void GetResizeDirectionTest()
         {
-            var hitbox = new System.Drawing.Rectangle
+            var hitbox = new HitBox
             {
                 X = 0,
                 Y = 0,
@@ -194,7 +194,7 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void ResizeBasedOnDirectionTest()
         {
-            var hitbox = new System.Drawing.Rectangle
+            var hitbox = new HitBox
             {
                 X = 0,
                 Y = 0,

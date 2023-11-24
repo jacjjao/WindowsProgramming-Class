@@ -53,6 +53,7 @@
     <Compile Include="DoubleBufferedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Shape\HitBox.cs" />
     <Compile Include="State\DrawingState.cs" />
     <Compile Include="Graphics\FormGraphicsAdapter.cs" />
     <Compile Include="Graphics\IGraphics.cs" />

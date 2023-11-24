@@ -69,7 +69,7 @@ namespace PowerPoint
         /* draw circle */
         public override void Draw(Pen pen, IGraphics graphics)
         {
-            graphics.DrawEllipse(pen, _hitBox);
+            graphics.DrawEllipse(pen, _hitBox.Rect);
         }
 
         /* contain */
