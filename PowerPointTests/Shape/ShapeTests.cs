@@ -1,5 +1,4 @@
-﻿using PowerPoint;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Drawing;
 
@@ -182,7 +181,7 @@ namespace PowerPoint.Tests
             _shapePrivate.SetFieldOrProperty("_hitBox", hitbox);
             Assert.AreEqual(ResizeDirection.TopLeft, _shape.GetResizeDirection(new Point(0, 0)));
             Assert.AreEqual(ResizeDirection.TopMiddle, _shape.GetResizeDirection(new Point(50, 0)));
-            Assert.AreEqual(ResizeDirection.TopRight,_shape.GetResizeDirection( new Point(100, 0)));
+            Assert.AreEqual(ResizeDirection.TopRight, _shape.GetResizeDirection(new Point(100, 0)));
             Assert.AreEqual(ResizeDirection.MiddleLeft, _shape.GetResizeDirection(new Point(0, 50)));
             Assert.AreEqual(ResizeDirection.MiddleRight, _shape.GetResizeDirection(new Point(100, 50)));
             Assert.AreEqual(ResizeDirection.BottomLeft, _shape.GetResizeDirection(new Point(0, 100)));
@@ -202,10 +201,10 @@ namespace PowerPoint.Tests
                 Width = 100,
                 Height = 100
             };
-            var resetShape = new Action(() => _shapePrivate.SetFieldOrProperty("_hitBox", hitbox)); 
+            var resetShape = new Action(() => _shapePrivate.SetFieldOrProperty("_hitBox", hitbox));
             int dx = 10, dy = -10;
             int bigdx = 10000, bigdy = 10000;
-            
+
             // None
             resetShape.Invoke();
             var dir = _shape.ResizeBasedOnDirection(ResizeDirection.None, dx, dy);
@@ -233,7 +232,7 @@ namespace PowerPoint.Tests
             dir = _shape.ResizeBasedOnDirection(ResizeDirection.TopLeft, 0, bigdy);
             Assert.AreEqual(ResizeDirection.BottomLeft, dir);
 
-            
+
 
             // TopMiddle
             resetShape.Invoke();
@@ -357,8 +356,8 @@ namespace PowerPoint.Tests
             try
             {
                 _shape.ResizeBasedOnDirection((ResizeDirection)invalid, 0, 0);
-            }  
-            catch(Exception e)
+            }
+            catch (Exception e)
             {
                 thrown = e;
             }

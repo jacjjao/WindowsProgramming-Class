@@ -50,6 +50,21 @@ namespace PowerPoint
             return _selectedShape == null ? Cursors.Default : Cursors.SizeAll;
         }
 
+        /* do shape resize */
+        private Cursor DoShapeResize(Point pos)
+        {
+            const int DIRECTION_NUMBER = 8;
+            const int ONE = 1;
+            ResizeDirection direction = ResizeDirection.TopLeft;
+            for (int i = 0; i < DIRECTION_NUMBER; i++)
+            {
+                if (_selectedShape.IsInCircle(direction, pos))
+                    return GetCursor(direction);
+                direction = (ResizeDirection)((int)direction + ONE);
+            }
+            return _selectedShape.IsInHitBox(pos) ? Cursors.SizeAll : Cursors.Default;
+        }
+
         /* mouse move */
         public Cursor MouseMove(Shapes list, Point pos)
         {
@@ -57,16 +72,7 @@ namespace PowerPoint
                 return Cursors.Default;
             if (!_mousePressed)
             {
-                const int DIRECTION_NUMBER = 8;
-                const int ONE = 1;
-                ResizeDirection direction = ResizeDirection.TopLeft;
-                for (int i = 0; i < DIRECTION_NUMBER; i++)
-                {
-                    if (_selectedShape.IsInCircle(direction, pos))
-                        return GetCursor(direction);
-                    direction = (ResizeDirection)((int)direction + ONE);
-                }
-                return _selectedShape.IsInHitBox(pos) ? Cursors.SizeAll : Cursors.Default;
+                return DoShapeResize(pos);
             }
             int differenceX = pos.X - _previousMousePosition.X;
             int differenceY = pos.Y - _previousMousePosition.Y;

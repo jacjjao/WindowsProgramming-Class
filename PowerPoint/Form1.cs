@@ -37,7 +37,7 @@ namespace PowerPoint
             const string CHECKED = "Checked";
             const string VALUE = ".Value";
             const int ZERO = 0;
-            var lineButton = new BindableToolStripButton();
+            var lineButton = new BindToolStripButton();
             lineButton.Text = SLASH;
             lineButton.DataBindings.Add(CHECKED, _presentModel.CheckList[ZERO], VALUE);
             lineButton.Click += DoToolStripButtonLineClick;
@@ -51,7 +51,7 @@ namespace PowerPoint
             const string CHECKED = "Checked";
             const string VALUE = ".Value";
             const int ONE = 1;
-            var rectangleButton = new BindableToolStripButton();
+            var rectangleButton = new BindToolStripButton();
             rectangleButton.Image = Properties.Resources.Rectangle;
             rectangleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[ONE], VALUE);
             rectangleButton.Click += DoToolStripButtonRectangleClick;
@@ -66,7 +66,7 @@ namespace PowerPoint
             const string CHECKED = "Checked";
             const string VALUE = ".Value";
             const int TWO = 2;
-            var circleButton = new BindableToolStripButton();
+            var circleButton = new BindToolStripButton();
             circleButton.Text = CIRCLE;
             circleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[TWO], VALUE);
             circleButton.Click += DoToolStripButtonCircleClick;
@@ -80,7 +80,7 @@ namespace PowerPoint
             const string CHECKED = "Checked";
             const string VALUE = ".Value";
             const int THREE = 3;
-            var pointerButton = new BindableToolStripButton();
+            var pointerButton = new BindToolStripButton();
             pointerButton.Image = Properties.Resources.Pointer;
             pointerButton.DataBindings.Add(CHECKED, _presentModel.CheckList[THREE], VALUE);
             pointerButton.Click += DoToolStripButtonPointerClick;

@@ -66,6 +66,41 @@ namespace PowerPoint
             return point.X >= HitBox.X && point.X <= HitBox.X + HitBox.Width && point.Y >= HitBox.Y && point.Y <= HitBox.Y + HitBox.Height;
         }
 
+        /* draw upper hitbox */
+        private void DrawUpperHitBox(IGraphics graphics, Pen pen, ref System.Drawing.Rectangle rectangle)
+        {
+            const int TWO = 2;
+            graphics.DrawEllipse(pen, rectangle);
+            rectangle.X = HitBox.X + HitBox.Width / TWO - RADIUS;
+            graphics.DrawEllipse(pen, rectangle);
+            rectangle.X = HitBox.X + HitBox.Width - RADIUS;
+            graphics.DrawEllipse(pen, rectangle);
+        }
+
+        /* draw middle hitbox */
+        private void DrawMiddleHitBox(IGraphics graphics, Pen pen, ref System.Drawing.Rectangle rectangle)
+        {
+            const int TWO = 2;
+            rectangle.X = HitBox.X - RADIUS;
+            rectangle.Y = HitBox.Y + HitBox.Height / TWO - RADIUS;
+            graphics.DrawEllipse(pen, rectangle);
+            rectangle.X = HitBox.X + HitBox.Width - RADIUS;
+            graphics.DrawEllipse(pen, rectangle);
+        }
+
+        /* draw bottom hitbox */
+        private void DrawBottomHitBox(IGraphics graphics, Pen pen, ref System.Drawing.Rectangle rectangle)
+        {
+            const int TWO = 2;
+            rectangle.X = HitBox.X - RADIUS;
+            rectangle.Y = HitBox.Y + HitBox.Height - RADIUS;
+            graphics.DrawEllipse(pen, rectangle);
+            rectangle.X = HitBox.X + HitBox.Width / TWO - RADIUS;
+            graphics.DrawEllipse(pen, rectangle);
+            rectangle.X = HitBox.X + HitBox.Width - RADIUS;
+            graphics.DrawEllipse(pen, rectangle);
+        }
+
         /* draw hit box */
         private void DrawHitBox(IGraphics graphics)
         {
@@ -77,25 +112,9 @@ namespace PowerPoint
             pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
 
             var rectangle = new System.Drawing.Rectangle(_hitBox.X - RADIUS, _hitBox.Y - RADIUS, RADIUS * TWO, RADIUS * TWO);
-            graphics.DrawEllipse(pen, rectangle);
-            rectangle.X = HitBox.X + HitBox.Width / TWO - RADIUS;
-            graphics.DrawEllipse(pen, rectangle);
-            rectangle.X = HitBox.X + HitBox.Width - RADIUS;
-            graphics.DrawEllipse(pen, rectangle);
-
-            rectangle.X = HitBox.X - RADIUS;
-            rectangle.Y = HitBox.Y + HitBox.Height / TWO - RADIUS;
-            graphics.DrawEllipse(pen, rectangle);
-            rectangle.X = HitBox.X + HitBox.Width - RADIUS;
-            graphics.DrawEllipse(pen, rectangle);
-
-            rectangle.X = HitBox.X - RADIUS;
-            rectangle.Y = HitBox.Y + HitBox.Height - RADIUS;
-            graphics.DrawEllipse(pen, rectangle);
-            rectangle.X = HitBox.X + HitBox.Width / TWO - RADIUS;
-            graphics.DrawEllipse(pen, rectangle);
-            rectangle.X = HitBox.X + HitBox.Width - RADIUS;
-            graphics.DrawEllipse(pen, rectangle);
+            DrawUpperHitBox(graphics, pen, ref rectangle);
+            DrawMiddleHitBox(graphics, pen, ref rectangle);
+            DrawBottomHitBox(graphics, pen, ref rectangle);
         }
 
         /* in circle */
@@ -132,11 +151,10 @@ namespace PowerPoint
             return Math.Sqrt(lengthX * lengthX + lengthY * lengthY) <= RADIUS;
         }
 
-        /* get resize direction */
-        public ResizeDirection GetResizeDirection(Point mousePosition)
+        /* test upper hitbox */
+        private ResizeDirection TestUpperHitBox(Point mousePosition, ref Point pos)
         {
             const int TWO = 2;
-            var pos = new Point(HitBox.X, HitBox.Y);
             if (IsInCircle(pos, mousePosition))
                 return ResizeDirection.TopLeft;
             pos.X = HitBox.X + HitBox.Width / TWO;
@@ -145,7 +163,13 @@ namespace PowerPoint
             pos.X = HitBox.X + HitBox.Width;
             if (IsInCircle(pos, mousePosition))
                 return ResizeDirection.TopRight;
+            return ResizeDirection.None;
+        }
 
+        /* test middle hitbox */
+        private ResizeDirection TestMiddleHitBox(Point mousePosition, ref Point pos)
+        {
+            const int TWO = 2;
             pos.X = HitBox.X;
             pos.Y = HitBox.Y + HitBox.Height / TWO;
             if (IsInCircle(pos, mousePosition))
@@ -153,7 +177,13 @@ namespace PowerPoint
             pos.X = HitBox.X + HitBox.Width;
             if (IsInCircle(pos, mousePosition))
                 return ResizeDirection.MiddleRight;
+            return ResizeDirection.None;
+        }
 
+        /* test bottom hitbox */
+        private ResizeDirection TestBottomHitBox(Point mousePosition, ref Point pos)
+        {
+            const int TWO = 2;
             pos.X = HitBox.X;
             pos.Y = HitBox.Y + HitBox.Height;
             if (IsInCircle(pos, mousePosition))
@@ -164,8 +194,21 @@ namespace PowerPoint
             pos.X = HitBox.X + HitBox.Width;
             if (IsInCircle(pos, mousePosition))
                 return ResizeDirection.BottomRight;
-
             return ResizeDirection.None;
+        }
+
+        /* get resize direction */
+        public ResizeDirection GetResizeDirection(Point mousePosition)
+        {
+            var pos = new Point(HitBox.X, HitBox.Y);
+            var direction = TestUpperHitBox(mousePosition, ref pos);
+            if (direction != ResizeDirection.None)
+                return direction;
+            direction = TestMiddleHitBox(mousePosition, ref pos);
+            if (direction != ResizeDirection.None)
+                return direction;
+            direction = TestBottomHitBox(mousePosition, ref pos);
+            return direction;
         }
 
         /* resize top left */

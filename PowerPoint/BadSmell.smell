@@ -188,13 +188,13 @@
           <Reviews>
             <Smell>
               <Id>1</Id>
-              <SmellType>Unsuitable naming(名不符實)-BindableToolStripButton(bindable)</SmellType>
-              <HashCode>UnsuitableNaming.PowerPoint.BindableToolStripButton.BindableToolStripButton</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
+              <SmellType>Large class(過大類別)</SmellType>
+              <HashCode>LargeClass.PowerPoint.Shape.316</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>316</Weight>
               <Project>PowerPoint</Project>
-              <File>BindableToolStripButton.cs</File>
-              <Line>5</Line>
+              <File>Shape.cs</File>
+              <Line>8</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -205,12 +205,12 @@
             <Smell>
               <Id>2</Id>
               <SmellType>Long method(過長函式)</SmellType>
-              <HashCode>LongMethod.Shape.DrawHitBox.30IGraphics graphics;</HashCode>
+              <HashCode>LongMethod.Shape.IsInCircle.24ResizeDirection direction;Point point;</HashCode>
               <Severity>Warning</Severity>
-              <Weight>30</Weight>
+              <Weight>24</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>70</Line>
+              <Line>121</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -221,12 +221,12 @@
             <Smell>
               <Id>3</Id>
               <SmellType>Long method(過長函式)</SmellType>
-              <HashCode>LongMethod.Shape.IsInCircle.24ResizeDirection direction;Point point;</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>24</Weight>
+              <HashCode>LongMethod.Shape.ResizeBasedOnDirection.39ResizeDirection direction;int differenceX;int differenceY;</HashCode>
+              <Severity>Red</Severity>
+              <Weight>39</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>102</Line>
+              <Line>299</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -236,60 +236,12 @@
             </Smell>
             <Smell>
               <Id>4</Id>
-              <SmellType>Long method(過長函式)</SmellType>
-              <HashCode>LongMethod.Shape.GetResizeDirection.34Point mousePosition;</HashCode>
-              <Severity>Red</Severity>
-              <Weight>34</Weight>
-              <Project>PowerPoint</Project>
-              <File>Shape.cs</File>
-              <Line>136</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>5</Id>
-              <SmellType>Long method(過長函式)</SmellType>
-              <HashCode>LongMethod.Shape.ResizeBasedOnDirection.39ResizeDirection direction;int differenceX;int differenceY;</HashCode>
-              <Severity>Red</Severity>
-              <Weight>39</Weight>
-              <Project>PowerPoint</Project>
-              <File>Shape.cs</File>
-              <Line>256</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>6</Id>
-              <SmellType>Long method(過長函式)</SmellType>
-              <HashCode>LongMethod.PointState.MouseMove.23Shapes list;Point pos;</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>23</Weight>
-              <Project>PowerPoint</Project>
-              <File>PointState.cs</File>
-              <Line>54</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>7</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>21 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
-              <File>C:\Users\user\Desktop\視窗程式設計\PowerPoint\Shape\ShapesFactory.cs</File>
+              <File>C:\Users\hjaco\Desktop\WindowsProgramming\PowerPoint\Shape\ShapesFactory.cs</File>
               <Line>21</Line>
               <StartLine>21</StartLine>
               <StartCol>16</StartCol>
@@ -299,13 +251,13 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>8</Id>
+              <Id>5</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>22 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
-              <File>C:\Users\user\Desktop\視窗程式設計\PowerPoint\Shape\ShapesFactory.cs</File>
+              <File>C:\Users\hjaco\Desktop\WindowsProgramming\PowerPoint\Shape\ShapesFactory.cs</File>
               <Line>22</Line>
               <StartLine>22</StartLine>
               <StartCol>16</StartCol>
@@ -317,19 +269,15 @@
           </Reviews>
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList>
-            <string>UnsuitableNaming.PowerPoint.BindableToolStripButton.BindableToolStripButton</string>
-            <string>LongMethod.Shape.DrawHitBox.30IGraphics graphics;</string>
-            <string>LongMethod.Shape.GetResizeDirection.34Point mousePosition;</string>
             <string>LongMethod.Shape.ResizeBasedOnDirection.39ResizeDirection direction;int differenceX;int differenceY;</string>
             <string>21 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</string>
             <string>22 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</string>
             <string>LongMethod.Shape.IsInCircle.24ResizeDirection direction;Point point;</string>
-            <string>LongMethod.PointState.MouseMove.23Shapes list;Point pos;</string>
           </HashCodeRequestIgnoreList>
           <AnalysisFileManager>
             <AnalysisFiles>
               <AnalysisFile>
-                <RelativePath>BindableToolStripButton.cs</RelativePath>
+                <RelativePath>BindToolStripButton.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -459,7 +407,7 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>BindableToolStripButtonTest.cs</RelativePath>
+                <RelativePath>BindToolStripButtonTest.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
@@ -545,8 +493,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>2033</ProductionLoc>
-          <TestLoc>1621</TestLoc>
+          <ProductionLoc>2082</ProductionLoc>
+          <TestLoc>1620</TestLoc>
         </CodeReview>
       </Data>
     </div>

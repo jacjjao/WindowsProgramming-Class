@@ -4,13 +4,13 @@ using System.Windows.Forms;
 namespace PowerPoint.Tests
 {
     [TestClass]
-    public class BindableToolStripButtonTest
+    public class BindToolStripButtonTest
     {
         /* constructor and property */
         [TestMethod]
         public void BasicTest()
         {
-            var button = new BindableToolStripButton();
+            var button = new BindToolStripButton();
             Assert.IsNotNull(button.DataBindings);
             var context = new BindingContext();
             button.BindingContext = context;

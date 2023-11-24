@@ -2,13 +2,13 @@
 
 namespace PowerPoint
 {
-    public class BindableToolStripButton : ToolStripButton, IBindableComponent
+    public class BindToolStripButton : ToolStripButton, IBindableComponent
     {
         private ControlBindingsCollection _dataBindings;
 
         private BindingContext _bindingContext;
 
-        public BindableToolStripButton()
+        public BindToolStripButton()
         {
             _dataBindings = new ControlBindingsCollection(this);
             _bindingContext = new BindingContext();
