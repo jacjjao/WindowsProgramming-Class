@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint.Tests
@@ -156,10 +157,7 @@ namespace PowerPoint.Tests
             var state = new PointState();
             _model.SetState(state);
             Assert.AreEqual(state, _m.State);
-            for (int i = 0; i < _m.ShapeList.Count; i++)
-            {
-                Assert.IsFalse(_m.ShapeList[i].Selected);
-            }
+            Assert.IsTrue(_m.ShapeList.Content.All((shape) => shape.Selected == false));
         }
     }
 }

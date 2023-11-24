@@ -334,12 +334,29 @@
     <timestamps>
       <styleCop>2023/09/15 13:46:53.002</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/11/24 11:00:05.241</sourceFile>
+      <sourceFile>2023/11/24 13:40:50.138</sourceFile>
       <parser>2023/09/15 13:46:53.002</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 13:46:53.002</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
     </timestamps>
     <violations />
+  </sourcecode>
+  <sourcecode name="HitBox.cs" parser="StyleCop.CSharp.CsParser">
+    <timestamps>
+      <styleCop>2023/09/15 13:46:53.002</styleCop>
+      <settingsFile>0001/01/01 00:00:00.000</settingsFile>
+      <sourceFile>2023/11/24 13:41:05.212</sourceFile>
+      <parser>2023/09/15 13:46:53.002</parser>
+      <KellyPalRules.KellyPalAnalyzer>2023/09/15 13:46:53.002</KellyPalRules.KellyPalAnalyzer>
+      <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
+    </timestamps>
+    <violations>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LongMethod" ruleCheckId="LM0001">
+        <context>Long method(過長函式)</context>
+        <line>75</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
   </sourcecode>
   <sourcecode name="Line.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
@@ -356,7 +373,7 @@
     <timestamps>
       <styleCop>2023/09/15 13:46:53.002</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/11/24 11:00:05.257</sourceFile>
+      <sourceFile>2023/11/24 13:41:12.807</sourceFile>
       <parser>2023/09/15 13:46:53.002</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 13:46:53.002</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -367,25 +384,15 @@
     <timestamps>
       <styleCop>2023/09/15 13:46:53.002</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/11/24 11:35:00.916</sourceFile>
+      <sourceFile>2023/11/24 13:41:28.226</sourceFile>
       <parser>2023/09/15 13:46:53.002</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 13:46:53.002</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
     </timestamps>
     <violations>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LargeClass" ruleCheckId="LC0001">
-        <context>Large class(過大類別)</context>
-        <line>8</line>
-        <warning>False</warning>
-      </violation>
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LongMethod" ruleCheckId="LM0001">
         <context>Long method(過長函式)</context>
-        <line>121</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LongMethod" ruleCheckId="LM0001">
-        <context>Long method(過長函式)</context>
-        <line>299</line>
+        <line>143</line>
         <warning>False</warning>
       </violation>
     </violations>

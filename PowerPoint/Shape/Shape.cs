@@ -5,11 +5,9 @@ using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {
-    public abstract class Shape : INotifyPropertyChanged
+    public abstract partial class Shape : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        const int RADIUS = 10;
 
         public string Info
         {
@@ -31,15 +29,6 @@ namespace PowerPoint
         {
             get;
             set;
-        }
-
-        protected HitBox _hitBox = new HitBox();
-        public HitBox HitBox
-        {
-            get
-            {
-                return _hitBox;
-            }
         }
 
         /* 檢查游標有沒有在shape裡 */
@@ -64,24 +53,6 @@ namespace PowerPoint
         public bool IsInHitBox(Point point)
         {
             return point.X >= HitBox.X && point.X <= HitBox.X + HitBox.Width && point.Y >= HitBox.Y && point.Y <= HitBox.Y + HitBox.Height;
-        }
-
-        /* draw hit box */
-        private void DrawHitBox(IGraphics graphics)
-        {
-            HitBox.Draw(graphics);
-        }
-
-        /* in circle */
-        public bool IsInCircle(ResizeDirection direction, Point point)
-        {
-            return HitBox.IsInCircle(direction, point);
-        }
-
-        /* get resize direction */
-        public ResizeDirection GetResizeDirection(Point mousePosition)
-        {
-            return HitBox.GetResizeDirection(mousePosition);
         }
 
         /* resize top left */
