@@ -87,7 +87,6 @@ namespace PowerPoint
         public void AddRandomShape(ShapeType type, int screenWidth, int screenHeight)
         {
             _list.AddRandomShape(type, screenWidth, screenHeight);
-            SelectedShape = type;
         }
 
         /* remove at */
