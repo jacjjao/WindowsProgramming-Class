@@ -8,6 +8,11 @@ namespace PowerPoint
 {
     public partial class Form1 : Form
     {
+        const int LINE_BUTTON_INDEX = 0;
+        const int RECTANGLE_BUTTON_INDEX = 1;
+        const int CIRCLE_BUTTON_INDEX = 2;
+        const int POINTER_BUTTON_INDEX = 3;
+
         private Dictionary<ToolStripButton, int> _toolStripButtons = new Dictionary<ToolStripButton, int>();
         private readonly PresentationModel _presentModel;
         private DoubleBufferedPanel _drawPanel;
@@ -36,13 +41,12 @@ namespace PowerPoint
             const string SLASH = "/";
             const string CHECKED = "Checked";
             const string VALUE = ".Value";
-            const int ZERO = 0;
             var lineButton = new BindToolStripButton();
             lineButton.Text = SLASH;
-            lineButton.DataBindings.Add(CHECKED, _presentModel.CheckList[ZERO], VALUE);
+            lineButton.DataBindings.Add(CHECKED, _presentModel.CheckList[LINE_BUTTON_INDEX], VALUE);
             lineButton.Click += DoToolStripButtonLineClick;
             _toolStrip1.Items.Add(lineButton);
-            _toolStripButtons.Add(lineButton, ZERO);
+            _toolStripButtons.Add(lineButton, LINE_BUTTON_INDEX);
         }
 
         /* 分割出來的不然會太長 */
@@ -50,13 +54,12 @@ namespace PowerPoint
         {
             const string CHECKED = "Checked";
             const string VALUE = ".Value";
-            const int ONE = 1;
             var rectangleButton = new BindToolStripButton();
             rectangleButton.Image = Properties.Resources.Rectangle;
-            rectangleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[ONE], VALUE);
+            rectangleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[RECTANGLE_BUTTON_INDEX], VALUE);
             rectangleButton.Click += DoToolStripButtonRectangleClick;
             _toolStrip1.Items.Add(rectangleButton);
-            _toolStripButtons.Add(rectangleButton, ONE);
+            _toolStripButtons.Add(rectangleButton, RECTANGLE_BUTTON_INDEX);
         }
 
         /* 分割出來的不然會太長 */
@@ -65,13 +68,12 @@ namespace PowerPoint
             const string CIRCLE = "O";
             const string CHECKED = "Checked";
             const string VALUE = ".Value";
-            const int TWO = 2;
             var circleButton = new BindToolStripButton();
             circleButton.Text = CIRCLE;
-            circleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[TWO], VALUE);
+            circleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[CIRCLE_BUTTON_INDEX], VALUE);
             circleButton.Click += DoToolStripButtonCircleClick;
             _toolStrip1.Items.Add(circleButton);
-            _toolStripButtons.Add(circleButton, TWO);
+            _toolStripButtons.Add(circleButton, CIRCLE_BUTTON_INDEX);
         }
 
         /* 分割出來的不然會太長 */
@@ -79,13 +81,13 @@ namespace PowerPoint
         {
             const string CHECKED = "Checked";
             const string VALUE = ".Value";
-            const int THREE = 3;
             var pointerButton = new BindToolStripButton();
             pointerButton.Image = Properties.Resources.Pointer;
-            pointerButton.DataBindings.Add(CHECKED, _presentModel.CheckList[THREE], VALUE);
+            pointerButton.DataBindings.Add(CHECKED, _presentModel.CheckList[POINTER_BUTTON_INDEX], VALUE);
             pointerButton.Click += DoToolStripButtonPointerClick;
+            pointerButton.Checked = true;
             _toolStrip1.Items.Add(pointerButton);
-            _toolStripButtons.Add(pointerButton, THREE);
+            _toolStripButtons.Add(pointerButton, POINTER_BUTTON_INDEX);
         }
 
         /* create draw panel */
@@ -121,6 +123,10 @@ namespace PowerPoint
         {
             Cursor = _presentModel.DoMouseUp(e);
             Draw();
+            if (!(_presentModel.Model.State is PointState))
+            {
+                _toolStrip1.Items[POINTER_BUTTON_INDEX].PerformClick();
+            }
         }
 
         /* 在畫布上移動滑鼠時的event */
@@ -195,8 +201,16 @@ namespace PowerPoint
         /* button pointer click */
         private void DoToolStripButtonPointerClick(object sender, EventArgs e)
         {
-            _presentModel.SetState(new PointState());
-            _presentModel.DoToolStripButtonClick(_toolStripButtons[(ToolStripButton)sender], ShapeType.None);
+            var pointerButton = (ToolStripButton)sender;
+            _presentModel.DoToolStripButtonClick(_toolStripButtons[pointerButton], ShapeType.None);
+            if (pointerButton.Checked)
+            {
+                _presentModel.SetState(new PointState());
+            }
+            else
+            {
+                _presentModel.SetState(new DrawingState());
+            }
         }
 
         /* slide button1 paint */

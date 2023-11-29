@@ -28,7 +28,7 @@ namespace PowerPoint
             }
         }
 
-        IState _state = new DrawingState();
+        IState _state = new PointState();
         public IState State
         {
             get
