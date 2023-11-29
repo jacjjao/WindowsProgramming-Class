@@ -36,12 +36,6 @@ namespace PowerPoint
             this._shapeComboBox = new System.Windows.Forms.ComboBox();
             this._addButton = new System.Windows.Forms.Button();
             this._dataGridView = new System.Windows.Forms.DataGridView();
-            this._deleteColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this._shapeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._infoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._infoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._shapeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this._slideButton1 = new System.Windows.Forms.Button();
             this._tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -50,6 +44,12 @@ namespace PowerPoint
             this._infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this._deleteColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this._shapeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._infoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._infoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._shapeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._tableLayoutPanel1.SuspendLayout();
             this._dataGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer1)).BeginInit();
@@ -57,7 +57,6 @@ namespace PowerPoint
             this._splitContainer1.Panel2.SuspendLayout();
             this._splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._shapeBindingSource)).BeginInit();
             this._flowLayoutPanel1.SuspendLayout();
             this._tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer2)).BeginInit();
@@ -65,6 +64,7 @@ namespace PowerPoint
             this._splitContainer2.Panel2.SuspendLayout();
             this._splitContainer2.SuspendLayout();
             this._menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._shapeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // _tableLayoutPanel1
@@ -73,7 +73,7 @@ namespace PowerPoint
             this._tableLayoutPanel1.ColumnCount = 3;
             this._tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.3139F));
             this._tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.6861F));
-            this._tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 266F));
+            this._tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 269F));
             this._tableLayoutPanel1.Controls.Add(this._dataGroup, 2, 0);
             this._tableLayoutPanel1.Controls.Add(this._flowLayoutPanel1, 0, 0);
             this._tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -89,11 +89,11 @@ namespace PowerPoint
             // 
             this._dataGroup.Controls.Add(this._splitContainer1);
             this._dataGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._dataGroup.Location = new System.Drawing.Point(1005, 2);
+            this._dataGroup.Location = new System.Drawing.Point(1002, 2);
             this._dataGroup.Margin = new System.Windows.Forms.Padding(2);
             this._dataGroup.Name = "_dataGroup";
             this._dataGroup.Padding = new System.Windows.Forms.Padding(2);
-            this._dataGroup.Size = new System.Drawing.Size(263, 664);
+            this._dataGroup.Size = new System.Drawing.Size(266, 664);
             this._dataGroup.TabIndex = 0;
             this._dataGroup.TabStop = false;
             this._dataGroup.Text = "資料顯示";
@@ -114,7 +114,7 @@ namespace PowerPoint
             // _splitContainer1.Panel2
             // 
             this._splitContainer1.Panel2.Controls.Add(this._dataGridView);
-            this._splitContainer1.Size = new System.Drawing.Size(259, 645);
+            this._splitContainer1.Size = new System.Drawing.Size(262, 645);
             this._splitContainer1.SplitterDistance = 44;
             this._splitContainer1.SplitterWidth = 2;
             this._splitContainer1.TabIndex = 0;
@@ -138,7 +138,7 @@ namespace PowerPoint
             this._addButton.Location = new System.Drawing.Point(2, 2);
             this._addButton.Margin = new System.Windows.Forms.Padding(2);
             this._addButton.Name = "_addButton";
-            this._addButton.Size = new System.Drawing.Size(63, 43);
+            this._addButton.Size = new System.Drawing.Size(63, 40);
             this._addButton.TabIndex = 0;
             this._addButton.Text = "新增";
             this._addButton.UseVisualStyleBackColor = true;
@@ -165,64 +165,9 @@ namespace PowerPoint
             this._dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this._dataGridView.RowTemplate.Height = 28;
             this._dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._dataGridView.Size = new System.Drawing.Size(259, 599);
+            this._dataGridView.Size = new System.Drawing.Size(262, 599);
             this._dataGridView.TabIndex = 0;
             this._dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DoDataGridViewButtonCellClick);
-            // 
-            // _deleteColumn
-            // 
-            this._deleteColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this._deleteColumn.HeaderText = "刪除";
-            this._deleteColumn.MinimumWidth = 8;
-            this._deleteColumn.Name = "_deleteColumn";
-            this._deleteColumn.ReadOnly = true;
-            this._deleteColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this._deleteColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this._deleteColumn.Text = "刪除";
-            this._deleteColumn.UseColumnTextForButtonValue = true;
-            this._deleteColumn.Width = 54;
-            // 
-            // _shapeColumn
-            // 
-            this._shapeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this._shapeColumn.DataPropertyName = "Name";
-            this._shapeColumn.HeaderText = "形狀";
-            this._shapeColumn.MinimumWidth = 8;
-            this._shapeColumn.Name = "_shapeColumn";
-            this._shapeColumn.ReadOnly = true;
-            this._shapeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this._shapeColumn.Width = 54;
-            // 
-            // _infoColumn
-            // 
-            this._infoColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this._infoColumn.DataPropertyName = "Info";
-            this._infoColumn.HeaderText = "資訊";
-            this._infoColumn.MinimumWidth = 8;
-            this._infoColumn.Name = "_infoColumn";
-            this._infoColumn.ReadOnly = true;
-            this._infoColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this._infoColumn.Width = 54;
-            // 
-            // _infoDataGridViewTextBoxColumn
-            // 
-            this._infoDataGridViewTextBoxColumn.DataPropertyName = "Info";
-            this._infoDataGridViewTextBoxColumn.HeaderText = "Info";
-            this._infoDataGridViewTextBoxColumn.Name = "_infoDataGridViewTextBoxColumn";
-            this._infoDataGridViewTextBoxColumn.ReadOnly = true;
-            this._infoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // _nameDataGridViewTextBoxColumn
-            // 
-            this._nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this._nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this._nameDataGridViewTextBoxColumn.Name = "_nameDataGridViewTextBoxColumn";
-            this._nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this._nameDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // _shapeBindingSource
-            // 
-            this._shapeBindingSource.DataSource = typeof(PowerPoint.Shape);
             // 
             // _flowLayoutPanel1
             // 
@@ -320,6 +265,60 @@ namespace PowerPoint
             this._toolStrip1.TabIndex = 0;
             this._toolStrip1.Text = "toolStrip1";
             // 
+            // _deleteColumn
+            // 
+            this._deleteColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this._deleteColumn.HeaderText = "刪除";
+            this._deleteColumn.MinimumWidth = 8;
+            this._deleteColumn.Name = "_deleteColumn";
+            this._deleteColumn.ReadOnly = true;
+            this._deleteColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this._deleteColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this._deleteColumn.Text = "刪除";
+            this._deleteColumn.UseColumnTextForButtonValue = true;
+            this._deleteColumn.Width = 54;
+            // 
+            // _shapeColumn
+            // 
+            this._shapeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this._shapeColumn.DataPropertyName = "Name";
+            this._shapeColumn.HeaderText = "形狀";
+            this._shapeColumn.MinimumWidth = 8;
+            this._shapeColumn.Name = "_shapeColumn";
+            this._shapeColumn.ReadOnly = true;
+            this._shapeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this._shapeColumn.Width = 54;
+            // 
+            // _infoColumn
+            // 
+            this._infoColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this._infoColumn.DataPropertyName = "Info";
+            this._infoColumn.HeaderText = "資訊";
+            this._infoColumn.MinimumWidth = 8;
+            this._infoColumn.Name = "_infoColumn";
+            this._infoColumn.ReadOnly = true;
+            this._infoColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // _infoDataGridViewTextBoxColumn
+            // 
+            this._infoDataGridViewTextBoxColumn.DataPropertyName = "Info";
+            this._infoDataGridViewTextBoxColumn.HeaderText = "Info";
+            this._infoDataGridViewTextBoxColumn.Name = "_infoDataGridViewTextBoxColumn";
+            this._infoDataGridViewTextBoxColumn.ReadOnly = true;
+            this._infoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // _nameDataGridViewTextBoxColumn
+            // 
+            this._nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this._nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this._nameDataGridViewTextBoxColumn.Name = "_nameDataGridViewTextBoxColumn";
+            this._nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this._nameDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // _shapeBindingSource
+            // 
+            this._shapeBindingSource.DataSource = typeof(PowerPoint.Shape);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -337,7 +336,6 @@ namespace PowerPoint
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer1)).EndInit();
             this._splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._shapeBindingSource)).EndInit();
             this._flowLayoutPanel1.ResumeLayout(false);
             this._tableLayoutPanel2.ResumeLayout(false);
             this._tableLayoutPanel2.PerformLayout();
@@ -349,6 +347,7 @@ namespace PowerPoint
             this._splitContainer2.ResumeLayout(false);
             this._menuStrip1.ResumeLayout(false);
             this._menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._shapeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
