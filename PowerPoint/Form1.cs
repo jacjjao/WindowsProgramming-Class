@@ -98,7 +98,7 @@ namespace PowerPoint
                 Dock = DockStyle.Fill,
                 BackColor = Color.White
             };
-            _tableLayoutPanel1.Controls.Add(_drawPanel);
+            splitContainer2.Panel1.Controls.Add(_drawPanel);
             _drawPanel.MouseUp += DoDrawPanelMouseUp;
             _drawPanel.MouseMove += DoDrawPanelMouseMove;
             _drawPanel.MouseDown += DoDrawPanelMouseDown;
@@ -211,16 +211,6 @@ namespace PowerPoint
             {
                 _presentModel.SetState(new DrawingState());
             }
-        }
-
-        /* slide button1 paint */
-        private void DoSlideButton1Paint(object sender, PaintEventArgs e)
-        {
-            float scaleX = (float)_slideButton1.Width / (float)_drawPanel.Width;
-            float scaleY = (float)_slideButton1.Height / (float)_drawPanel.Height;
-            e.Graphics.ScaleTransform(scaleX, scaleY);
-            _graphics = new FormGraphicsAdapter(e.Graphics);
-            _presentModel.DrawAll(_graphics);
         }
 
         /* keydown */
