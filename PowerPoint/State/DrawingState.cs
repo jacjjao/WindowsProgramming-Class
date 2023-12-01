@@ -10,6 +10,12 @@ namespace PowerPoint
         bool _mousePressed = false;
         ShapeType _type = ShapeType.None;
 
+        public CommandManager Manager
+        {
+            get;
+            set;
+        }
+
         /* set type */
         public void SetShapeType(ShapeType type)
         {
@@ -19,7 +25,6 @@ namespace PowerPoint
         /* mouse down */
         public Cursor MouseDown(Shapes list, Point pos)
         {
-            // _type = type;
             if (_type == ShapeType.None)
             {
                 return Cursors.Default;
@@ -51,6 +56,17 @@ namespace PowerPoint
             _drawEndPos = pos;
             list[list.Count - 1].Resize(_drawStartPos, _drawEndPos);
             list[list.Count - 1].NotifyPropertyChanged();
+            if (Manager != null)
+            {
+                Manager.AddCommand(new AddCommand
+                {
+                    AddRandom = false,
+                    PointFirst = _drawStartPos,
+                    PointSecond = _drawEndPos,
+                    Type = _type,
+                    AddShape = list[list.Count - 1]
+                });
+            }
             return Cursors.Default;
         }
     }

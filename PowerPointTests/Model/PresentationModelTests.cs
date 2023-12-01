@@ -22,7 +22,7 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void PresentationModelTest()
         {
-            const int LEN = 4;
+            const int LEN = 6;
             Assert.AreEqual(LEN, _model.CheckList.Count);
             Assert.AreEqual(_m, _model.Model);
         }

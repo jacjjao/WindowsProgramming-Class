@@ -45,14 +45,18 @@ namespace PowerPoint
             set;
         }
 
-        private Shape _shape = null;
+        public Shape AddShape
+        {
+            get;
+            set;
+        }
 
         public void Execute(Shapes list)
         {
-            if (_shape != null)
+            if (AddShape != null)
             {
-                _shape.Selected = false;
-                list.Content.Add(_shape);
+                AddShape.Selected = false;
+                list.Content.Add(AddShape);
                 return;
             }
             if (AddRandom)
@@ -63,14 +67,14 @@ namespace PowerPoint
             {
                 list.AddShape(Type, PointFirst, PointSecond);
             }
-            _shape = list.Content.Last();
+            AddShape = list.Content.Last();
         }
 
         public void Unexecute(Shapes list)
         {
-            if (_shape != null)
+            if (AddShape != null)
             {
-                list.Remove(_shape);
+                list.Remove(AddShape);
             }
         }
     }

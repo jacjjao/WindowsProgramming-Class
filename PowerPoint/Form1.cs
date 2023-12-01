@@ -207,7 +207,7 @@ namespace PowerPoint
         /* '/' button被點擊時的event */
         private void DoToolStripButtonLineClick(object sender, EventArgs e)
         {
-            _presentModel.SetState(new DrawingState());
+            _presentModel.SetState(new DrawingState { Manager = _presentModel.Model.Manager });
             ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons[(ToolStripButton)sender], ShapeType.Line);
             ChangeCursor(type);
         }
@@ -215,7 +215,7 @@ namespace PowerPoint
         /* '[]' button被點擊時的event */
         private void DoToolStripButtonRectangleClick(object sender, EventArgs e)
         {
-            _presentModel.SetState(new DrawingState());
+            _presentModel.SetState(new DrawingState { Manager = _presentModel.Model.Manager });
             ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons[(ToolStripButton)sender], ShapeType.Rectangle);
             ChangeCursor(type);
         }
@@ -223,7 +223,7 @@ namespace PowerPoint
         /* 'O' button被點擊時的event */
         private void DoToolStripButtonCircleClick(object sender, EventArgs e)
         {
-            _presentModel.SetState(new DrawingState());
+            _presentModel.SetState(new DrawingState { Manager = _presentModel.Model.Manager });
             ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons[(ToolStripButton)sender], ShapeType.Circle);
             ChangeCursor(type);
         }
@@ -239,7 +239,7 @@ namespace PowerPoint
             }
             else
             {
-                _presentModel.SetState(new DrawingState());
+                _presentModel.SetState(new DrawingState { Manager = _presentModel.Model.Manager });
             }
         }
 
@@ -261,6 +261,16 @@ namespace PowerPoint
         private void Form1KeyDown(object sender, KeyEventArgs e)
         {
             _presentModel.DoKeyDown(e);
+        }
+
+        /* slide button paint */
+        private void DoSlideButtonPaint(object sender, PaintEventArgs e)
+        {
+            var adapter = new FormGraphicsAdapter(e.Graphics);
+            float scaleX = (float)_slideButton1.Width / (float)_drawPanel.Width;
+            float scaleY = (float)_slideButton1.Height / (float)_drawPanel.Height;
+            e.Graphics.ScaleTransform(scaleX, scaleY);
+            _presentModel.DrawAll(adapter);
         }
     }
 }

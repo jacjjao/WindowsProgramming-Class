@@ -49,6 +49,11 @@ namespace PowerPoint
                 _direction = _selectedShape.GetResizeDirection(pos);
                 if (_direction != ResizeDirection.None)
                 {
+                    _commandBuffer = new MoveCommand
+                    {
+                        ScaleDirect = _direction,
+                        SelectShape = _selectedShape
+                    };
                     return GetCursor(_direction);
                 }
             }
@@ -57,8 +62,7 @@ namespace PowerPoint
             {
                 _commandBuffer = new MoveCommand
                 {
-                    MoveX = 0,
-                    MoveY = 0,
+                    ScaleDirect = ResizeDirection.None,
                     SelectShape = _selectedShape
                 };
             }
@@ -92,10 +96,19 @@ namespace PowerPoint
             }
             int differenceX = pos.X - _previousMousePosition.X;
             int differenceY = pos.Y - _previousMousePosition.Y;
-            _commandBuffer.MoveX += differenceX;
-            _commandBuffer.MoveY += differenceY;
             _previousMousePosition = pos;
             _direction = _selectedShape.ResizeBasedOnDirection(_direction, differenceX, differenceY);
+            if (_direction == ResizeDirection.None)
+            {
+                _commandBuffer.MoveX += differenceX;
+                _commandBuffer.MoveY += differenceY;
+            }
+            else
+            {
+                _commandBuffer.ScaleDirect = _direction;
+                _commandBuffer.ScaleX += differenceX;
+                _commandBuffer.ScaleY += differenceY;
+            }
             return GetCursor(_direction);
         }
 
@@ -106,7 +119,7 @@ namespace PowerPoint
             if (_selectedShape != null)
             {
                 _selectedShape.NotifyPropertyChanged();
-                if (Manager != null)
+                if (Manager != null && (_commandBuffer.MoveX != 0 || _commandBuffer.MoveY != 0 || _commandBuffer.ScaleX != 0 || _commandBuffer.ScaleY != 0))
                     Manager.AddCommand(_commandBuffer);
                 return _selectedShape.Contains(pos) ? Cursors.SizeAll : Cursors.Default;
             }

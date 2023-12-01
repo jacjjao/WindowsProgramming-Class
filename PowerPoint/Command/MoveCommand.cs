@@ -38,14 +38,28 @@ namespace PowerPoint
             set;
         }
 
+        public ResizeDirection ScaleDirect
+        {
+            get;
+            set;
+        }
+
         public void Execute(Shapes list)
         {
             SelectShape.Move(MoveX, MoveY);
+            if (ScaleDirect != ResizeDirection.None)
+            {
+                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, ScaleX, ScaleY);
+            }
         }
 
         public void Unexecute(Shapes list)
         {
             SelectShape.Move(-MoveX, -MoveY);
+            if (ScaleDirect != ResizeDirection.None)
+            {
+                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, -ScaleX, -ScaleY);
+            }
         }
     }
 }
