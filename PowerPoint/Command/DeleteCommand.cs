@@ -8,24 +8,25 @@ namespace PowerPoint
 {
     class DeleteCommand : ICommand
     {
-        Shape _shape;
-        int _index;
+        Shape _shape = null;
 
-        public void Execute(Shapes list, Shape shape)
+        public int DeleteIndex
         {
-            _index = list.Content.IndexOf(shape);
-            if (_index >= 0)
-            {
-                list.RemoveAt(_index);
-                _shape = shape;
-            }
+            get;
+            set;
+        }
+
+        public void Execute(Shapes list)
+        {
+            _shape = list[DeleteIndex];
+            list.RemoveAt(DeleteIndex);
         }
 
         public void Unexecute(Shapes list)
         {
             if (_shape != null)
             {
-                list.Content.Insert(_index, _shape);
+                list.Content.Insert(DeleteIndex, _shape);
                 _shape = null;
             }  
         }

@@ -192,6 +192,7 @@ namespace PowerPoint
             // 
             this.splitContainer3.Panel2.Controls.Add(this._dataGridView);
             this.splitContainer3.Size = new System.Drawing.Size(242, 697);
+            this.splitContainer3.SplitterDistance = 53;
             this.splitContainer3.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -201,7 +202,7 @@ namespace PowerPoint
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(242, 50);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(242, 53);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // _addButton
@@ -250,7 +251,7 @@ namespace PowerPoint
             this._dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this._dataGridView.RowTemplate.Height = 28;
             this._dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._dataGridView.Size = new System.Drawing.Size(242, 643);
+            this._dataGridView.Size = new System.Drawing.Size(242, 640);
             this._dataGridView.TabIndex = 0;
             this._dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DoDataGridViewButtonCellClick);
             // 

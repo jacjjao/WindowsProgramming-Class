@@ -25,6 +25,8 @@ namespace PowerPoint
                 new NotifyBoolean(),
                 new NotifyBoolean(),
                 new NotifyBoolean(),
+                new NotifyBoolean(),
+                new NotifyBoolean(),
             };
         }
 

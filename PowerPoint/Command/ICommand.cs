@@ -8,7 +8,7 @@ namespace PowerPoint
 {
     public interface ICommand
     {
-        void Execute(Shapes list, Shape shape);
+        void Execute(Shapes list);
 
         void Unexecute(Shapes list);
     }

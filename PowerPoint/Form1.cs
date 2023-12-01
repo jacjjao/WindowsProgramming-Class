@@ -12,6 +12,8 @@ namespace PowerPoint
         const int RECTANGLE_BUTTON_INDEX = 1;
         const int CIRCLE_BUTTON_INDEX = 2;
         const int POINTER_BUTTON_INDEX = 3;
+        const int UNDO_BUTTON_INDEX = 4;
+        const int REDO_BUTTON_INDEX = 5;
 
         private Dictionary<ToolStripButton, int> _toolStripButtons = new Dictionary<ToolStripButton, int>();
         private readonly PresentationModel _presentModel;
@@ -27,16 +29,18 @@ namespace PowerPoint
             _bindingSource.DataSource = _presentModel.Model.ShapeList.Content;
             _dataGridView.DataSource = _bindingSource;
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
-            CreateToolStripButtonListFirst();
-            CreateToolStripButtonListSecond();
-            CreateToolStripButtonListThird();
-            CreateToolStripButtonListFourth();
+            CreateToolStripButtonListLine();
+            CreateToolStripButtonListRectangle();
+            CreateToolStripButtonListCircle();
+            CreateToolStripButtonListPointer();
+            CreateToolStripButtonListUndo();
+            CreateToolStripButtonListRedo();
             CreateDrawPanel();
             KeyPreview = true;
         }
 
         /* create toolstrip button list */
-        private void CreateToolStripButtonListFirst()
+        private void CreateToolStripButtonListLine()
         {
             const string SLASH = "/";
             const string CHECKED = "Checked";
@@ -50,7 +54,7 @@ namespace PowerPoint
         }
 
         /* 分割出來的不然會太長 */
-        private void CreateToolStripButtonListSecond()
+        private void CreateToolStripButtonListRectangle()
         {
             const string CHECKED = "Checked";
             const string VALUE = ".Value";
@@ -63,7 +67,7 @@ namespace PowerPoint
         }
 
         /* 分割出來的不然會太長 */
-        private void CreateToolStripButtonListThird()
+        private void CreateToolStripButtonListCircle()
         {
             const string CIRCLE = "O";
             const string CHECKED = "Checked";
@@ -77,7 +81,7 @@ namespace PowerPoint
         }
 
         /* 分割出來的不然會太長 */
-        private void CreateToolStripButtonListFourth()
+        private void CreateToolStripButtonListPointer()
         {
             const string CHECKED = "Checked";
             const string VALUE = ".Value";
@@ -88,6 +92,32 @@ namespace PowerPoint
             pointerButton.Checked = true;
             _toolStrip1.Items.Add(pointerButton);
             _toolStripButtons.Add(pointerButton, POINTER_BUTTON_INDEX);
+        }
+
+        /* 分割出來的不然會太長 */
+        private void CreateToolStripButtonListUndo()
+        {
+            const string CHECKED = "Checked";
+            const string VALUE = ".Value";
+            var undoButton = new BindToolStripButton();
+            undoButton.Text = "<-";
+            undoButton.DataBindings.Add(CHECKED, _presentModel.CheckList[UNDO_BUTTON_INDEX], VALUE);
+            undoButton.Click += DoToolStripButtonUndoClick;
+            _toolStrip1.Items.Add(undoButton);
+            _toolStripButtons.Add(undoButton, UNDO_BUTTON_INDEX);
+        }
+
+        /* 分割出來的不然會太長 */
+        private void CreateToolStripButtonListRedo()
+        {
+            const string CHECKED = "Checked";
+            const string VALUE = ".Value";
+            var redoButton = new BindToolStripButton();
+            redoButton.Text = "->";
+            redoButton.DataBindings.Add(CHECKED, _presentModel.CheckList[REDO_BUTTON_INDEX], VALUE);
+            redoButton.Click += DoToolStripButtonRedoClick;
+            _toolStrip1.Items.Add(redoButton);
+            _toolStripButtons.Add(redoButton, REDO_BUTTON_INDEX);
         }
 
         /* create draw panel */
@@ -211,6 +241,18 @@ namespace PowerPoint
             {
                 _presentModel.SetState(new DrawingState());
             }
+        }
+
+        /* button undo click */
+        private void DoToolStripButtonUndoClick(object sender, EventArgs e)
+        {
+            _presentModel.Model.Manager.Undo();
+        }
+
+        /* button undo click */
+        private void DoToolStripButtonRedoClick(object sender, EventArgs e)
+        {
+            _presentModel.Model.Manager.Redo();
         }
 
         /* keydown */

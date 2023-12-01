@@ -58,6 +58,20 @@ namespace PowerPoint
             }
         }
 
+        CommandManager _manager = null;
+        public CommandManager Manager
+        {
+            get
+            {
+                return _manager;
+            }
+        }
+
+        public PowerPointModel()
+        {
+            _manager = new CommandManager(_list);
+        }
+
         /* draw all */
         public void DrawAll(IGraphics graphics)
         {
@@ -86,13 +100,25 @@ namespace PowerPoint
         /* add shape */
         public void AddRandomShape(ShapeType type, int screenWidth, int screenHeight)
         {
-            _list.AddRandomShape(type, screenWidth, screenHeight);
+            AddCommand command = new AddCommand
+            {
+                AddRandom = true,
+                Type = type,
+                ScreenWidth = screenWidth,
+                ScreenHeight = screenHeight
+            };
+            _manager.Execute(command);
         }
 
         /* remove at */
         public void RemoveAt(int index)
         {
-            _list.RemoveAt(index);
+            // _list.RemoveAt(index);
+            DeleteCommand command = new DeleteCommand
+            {
+                DeleteIndex = index
+            };
+            _manager.Execute(command);
         }
 
         /* keydown */

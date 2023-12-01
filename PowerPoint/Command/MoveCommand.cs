@@ -8,7 +8,11 @@ namespace PowerPoint
 {
     class MoveCommand : ICommand
     {
-        Shape _shape = null;
+        public Shape SelectShape
+        {
+            get;
+            set;
+        }
         
         public int MoveX
         {
@@ -22,15 +26,14 @@ namespace PowerPoint
             set;
         }
 
-        public void Execute(Shapes list, Shape shape)
+        public void Execute(Shapes list)
         {
-            _shape = shape;
-            shape.Move(MoveX, MoveY);
+            SelectShape.Move(MoveX, MoveY);
         }
 
         public void Unexecute(Shapes list)
         {
-            _shape.Move(-MoveX, -MoveY);
+            SelectShape.Move(-MoveX, -MoveY);
         }
     }
 }
