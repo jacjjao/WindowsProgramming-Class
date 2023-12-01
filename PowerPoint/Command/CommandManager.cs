@@ -21,6 +21,11 @@ namespace PowerPoint
         public void Execute(ICommand command)
         {
             command.Execute(_list);
+            AddCommand(command);
+        }
+
+        public void AddCommand(ICommand command)
+        {
             _commandHistory.Push(command);
             _commandBuffer.Clear();
         }

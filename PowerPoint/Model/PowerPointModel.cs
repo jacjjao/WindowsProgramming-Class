@@ -28,7 +28,7 @@ namespace PowerPoint
             }
         }
 
-        IState _state = new PointState();
+        IState _state;
         public IState State
         {
             get
@@ -70,6 +70,10 @@ namespace PowerPoint
         public PowerPointModel()
         {
             _manager = new CommandManager(_list);
+            State = new PointState
+            {
+                Manager = _manager
+            };
         }
 
         /* draw all */

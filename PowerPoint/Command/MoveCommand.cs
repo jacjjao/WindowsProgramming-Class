@@ -26,6 +26,18 @@ namespace PowerPoint
             set;
         }
 
+        public int ScaleX
+        {
+            get;
+            set;
+        }
+
+        public int ScaleY
+        {
+            get;
+            set;
+        }
+
         public void Execute(Shapes list)
         {
             SelectShape.Move(MoveX, MoveY);

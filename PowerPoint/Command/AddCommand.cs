@@ -51,6 +51,7 @@ namespace PowerPoint
         {
             if (_shape != null)
             {
+                _shape.Selected = false;
                 list.Content.Add(_shape);
                 return;
             }

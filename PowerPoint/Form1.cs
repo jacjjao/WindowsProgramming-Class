@@ -235,7 +235,7 @@ namespace PowerPoint
             _presentModel.DoToolStripButtonClick(_toolStripButtons[pointerButton], ShapeType.None);
             if (pointerButton.Checked)
             {
-                _presentModel.SetState(new PointState());
+                _presentModel.SetState(new PointState { Manager = _presentModel.Model.Manager });
             }
             else
             {
@@ -247,12 +247,14 @@ namespace PowerPoint
         private void DoToolStripButtonUndoClick(object sender, EventArgs e)
         {
             _presentModel.Model.Manager.Undo();
+            Draw();
         }
 
         /* button undo click */
         private void DoToolStripButtonRedoClick(object sender, EventArgs e)
         {
             _presentModel.Model.Manager.Redo();
+            Draw();
         }
 
         /* keydown */
