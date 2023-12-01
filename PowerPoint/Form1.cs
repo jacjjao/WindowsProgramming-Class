@@ -37,6 +37,7 @@ namespace PowerPoint
             CreateToolStripButtonListRedo();
             CreateDrawPanel();
             KeyPreview = true;
+            OnResize(EventArgs.Empty);
         }
 
         /* create toolstrip button list */
@@ -125,7 +126,7 @@ namespace PowerPoint
         {
             _drawPanel = new DoubleBufferedPanel
             {
-                Dock = DockStyle.Fill,
+                Dock = DockStyle.None,
                 BackColor = Color.White
             };
             splitContainer2.Panel1.Controls.Add(_drawPanel);
@@ -271,6 +272,34 @@ namespace PowerPoint
             float scaleY = (float)_slideButton1.Height / (float)_drawPanel.Height;
             e.Graphics.ScaleTransform(scaleX, scaleY);
             _presentModel.DrawAll(adapter);
+        }
+
+        private void SlideButtonResize(object sender, EventArgs e)
+        {
+            _slideButton1.Height = _slideButton1.Width / 16 * 9;
+        }
+
+        private void SplitContainer2Panel1Resize(object sender, EventArgs e)
+        {
+            if (_drawPanel != null)
+            {
+                const float TARGET_ASPECT_RATIO = 16.0f / 9.0f;
+                float aspectRatio = (float)splitContainer2.Panel1.Width / (float)splitContainer2.Panel1.Height;
+                if (aspectRatio < TARGET_ASPECT_RATIO)
+                {
+                    _drawPanel.Width = splitContainer2.Panel1.Width;
+                    _drawPanel.Height = _drawPanel.Width / 16 * 9;
+                }
+                else
+                {
+                    _drawPanel.Height = splitContainer2.Panel1.Height;
+                    _drawPanel.Width = _drawPanel.Height * 16 / 9;
+                }
+                var loc = _drawPanel.Location;
+                loc.X = splitContainer2.Panel1.Width / 2 - _drawPanel.Width / 2;
+                loc.Y = splitContainer2.Panel1.Height / 2 - _drawPanel.Height / 2;
+                _drawPanel.Location = loc;
+            }
         }
     }
 }

@@ -49,7 +49,9 @@ namespace PowerPoint
             SelectShape.Move(MoveX, MoveY);
             if (ScaleDirect != ResizeDirection.None)
             {
-                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, ScaleX, ScaleY);
+                const int ZERO = 0;
+                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, ScaleX, ZERO);
+                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, ZERO, ScaleY);
             }
         }
 
@@ -58,7 +60,9 @@ namespace PowerPoint
             SelectShape.Move(-MoveX, -MoveY);
             if (ScaleDirect != ResizeDirection.None)
             {
-                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, -ScaleX, -ScaleY);
+                const int ZERO = 0;
+                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, -ScaleX, ZERO);
+                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, ZERO, -ScaleY);
             }
         }
     }

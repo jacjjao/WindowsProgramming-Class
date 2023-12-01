@@ -101,6 +101,7 @@ namespace PowerPoint
             // 
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Location = new System.Drawing.Point(3, 3);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -140,17 +141,20 @@ namespace PowerPoint
             this._slideButton1.TabIndex = 0;
             this._slideButton1.UseVisualStyleBackColor = true;
             this._slideButton1.Paint += new System.Windows.Forms.PaintEventHandler(this.DoSlideButtonPaint);
+            this._slideButton1.Resize += new System.EventHandler(this.SlideButtonResize);
             // 
             // splitContainer2
             // 
             this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.splitter1);
+            this.splitContainer2.Panel1.Resize += new System.EventHandler(this.SplitContainer2Panel1Resize);
             // 
             // splitContainer2.Panel2
             // 
@@ -431,11 +435,7 @@ namespace PowerPoint
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel _tableLayoutPanel1;
-        private System.Windows.Forms.ComboBox _shapeComboBox;
-        private System.Windows.Forms.Button _addButton;
-        private System.Windows.Forms.DataGridView _dataGridView;
         private System.Windows.Forms.TableLayoutPanel _tableLayoutPanel2;
-        private System.Windows.Forms.Button _slideButton1;
         private System.Windows.Forms.SplitContainer _splitContainer2;
         private System.Windows.Forms.MenuStrip _menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem _infoToolStripMenuItem;
@@ -444,16 +444,20 @@ namespace PowerPoint
         private System.Windows.Forms.BindingSource _shapeBindingSource;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button _slideButton1;
         private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button _addButton;
+        private System.Windows.Forms.ComboBox _shapeComboBox;
+        private System.Windows.Forms.DataGridView _dataGridView;
         private System.Windows.Forms.DataGridViewButtonColumn _deleteColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _shapeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _infoColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _infoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Splitter splitter1;
     }
 }
 
