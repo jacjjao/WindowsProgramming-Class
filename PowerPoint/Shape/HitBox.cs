@@ -9,7 +9,7 @@ namespace PowerPoint
 {
     public abstract partial class Shape
     {
-        const int RADIUS = 10;
+        const int RADIUS = 6;
 
         protected System.Drawing.Rectangle _hitBox = new System.Drawing.Rectangle();
         public System.Drawing.Rectangle HitBox

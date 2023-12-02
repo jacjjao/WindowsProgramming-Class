@@ -26,18 +26,6 @@ namespace PowerPoint
             set;
         }
 
-        public int ScaleX
-        {
-            get;
-            set;
-        }
-
-        public int ScaleY
-        {
-            get;
-            set;
-        }
-
         public ResizeDirection ScaleDirect
         {
             get;
@@ -52,24 +40,16 @@ namespace PowerPoint
 
         public void Execute(Shapes list)
         {
-            SelectShape.Move(MoveX, MoveY);
-            if (ScaleDirect != ResizeDirection.None)
-            {
-                const int ZERO = 0;
-                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, ScaleX, ZERO);
-                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, ZERO, ScaleY);
-            }
+            const int ZERO = 0;
+            ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, MoveX, ZERO);
+            ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, ZERO, MoveY);
         }
 
         public void Unexecute(Shapes list)
         {
-            SelectShape.Move(-MoveX, -MoveY);
-            if (ScaleDirect != ResizeDirection.None)
-            {
-                const int ZERO = 0;
-                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, -ScaleX, ZERO);
-                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, ZERO, -ScaleY);
-            }
+            const int ZERO = 0;
+            ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, -MoveX, ZERO);
+            ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, ZERO, -MoveY);
         }
 
         public void Combine(MoveCommand other)
@@ -80,9 +60,6 @@ namespace PowerPoint
             }
             MoveX += other.MoveX;
             MoveY += other.MoveY;
-            ScaleX += other.ScaleX;
-            ScaleY += other.ScaleY;
-            ScaleDirect = other.ScaleDirect;
         }
     }
 }

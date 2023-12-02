@@ -21,11 +21,13 @@ namespace PowerPoint
         public void Execute(ICommand command)
         {
             command.Execute(_list);
-            if (command is MoveCommand && ((MoveCommand)command).CombinePreviousCommand && _undo.Count > 0 && _undo.Last() is MoveCommand)
+            if (command is MoveCommand && ((MoveCommand)command).CombinePreviousCommand && _undo.Count > 0 && _undo.Peek() is MoveCommand)
             {
-                ((MoveCommand)_undo.Last()).Combine((MoveCommand)command);
+                var moveCommandOne = (MoveCommand)_undo.Pop();
+                var moveCommandTwo = (MoveCommand)command;
+                moveCommandTwo.Combine(moveCommandOne);
             }
-            else if (!(command is DrawCommand))
+            if (!(command is DrawCommand))
             {
                 AddCommand(command);
             }

@@ -8,8 +8,8 @@ namespace PowerPoint
         Shape _selectedShape = null;
         Point _previousMousePosition = new Point();
         bool _mousePressed = false;
+        bool _mouseMoved = false;
         ResizeDirection _direction = ResizeDirection.None;
-        MoveCommand _commandBuffer = null;
 
         public CommandManager Manager
         {
@@ -43,29 +43,17 @@ namespace PowerPoint
         public Cursor MouseDown(Shapes list, Point pos)
         {
             _mousePressed = true;
+            _mouseMoved = false;
             _previousMousePosition = pos;
             if (_selectedShape != null)
             {
                 _direction = _selectedShape.GetResizeDirection(pos);
                 if (_direction != ResizeDirection.None)
                 {
-                    _commandBuffer = new MoveCommand
-                    {
-                        ScaleDirect = _direction,
-                        SelectShape = _selectedShape
-                    };
                     return GetCursor(_direction);
                 }
             }
             _selectedShape = list.FindContain(pos);
-            if (_selectedShape != null)
-            {
-                _commandBuffer = new MoveCommand
-                {
-                    ScaleDirect = ResizeDirection.None,
-                    SelectShape = _selectedShape
-                };
-            }
             _direction = ResizeDirection.None;
             return _selectedShape == null ? Cursors.Default : Cursors.SizeAll;
         }
@@ -94,21 +82,18 @@ namespace PowerPoint
             {
                 return DoShapeResize(pos);
             }
-            int differenceX = pos.X - _previousMousePosition.X;
-            int differenceY = pos.Y - _previousMousePosition.Y;
+            var command = new MoveCommand
+            {
+                SelectShape = _selectedShape,
+                ScaleDirect = _direction,
+                CombinePreviousCommand = _mouseMoved,
+                MoveX = pos.X - _previousMousePosition.X,
+                MoveY = pos.Y - _previousMousePosition.Y,
+            };
+            _mouseMoved = true;
             _previousMousePosition = pos;
-            _direction = _selectedShape.ResizeBasedOnDirection(_direction, differenceX, differenceY);
-            if (_direction == ResizeDirection.None)
-            {
-                _commandBuffer.MoveX += differenceX;
-                _commandBuffer.MoveY += differenceY;
-            }
-            else
-            {
-                _commandBuffer.ScaleDirect = _direction;
-                _commandBuffer.ScaleX += differenceX;
-                _commandBuffer.ScaleY += differenceY;
-            }
+            Manager.Execute(command);
+            _direction = command.ScaleDirect;
             return GetCursor(_direction);
         }
 
@@ -119,8 +104,6 @@ namespace PowerPoint
             if (_selectedShape != null)
             {
                 _selectedShape.NotifyPropertyChanged();
-                if (Manager != null && (_commandBuffer.MoveX != 0 || _commandBuffer.MoveY != 0 || _commandBuffer.ScaleX != 0 || _commandBuffer.ScaleY != 0))
-                    Manager.AddCommand(_commandBuffer);
                 return _selectedShape.Contains(pos) ? Cursors.SizeAll : Cursors.Default;
             }
             return Cursors.Default;
