@@ -98,7 +98,6 @@ namespace PowerPoint.Tests
         {
             bool executed = false;
             var location = new Point(50, 100);
-            var args = new MouseEventArgs(MouseButtons.Left, 1, location.X, location.Y, 0);
             _model.SelectedShape = ShapeType.Rectangle;
             var state = new MockState
             {
@@ -110,7 +109,7 @@ namespace PowerPoint.Tests
                 }
             };
             _model.State = state;
-            _model.DoMouseDown(args);
+            _model.DoMouseDown(location);
             Assert.IsTrue(executed);
         }
 
@@ -120,7 +119,6 @@ namespace PowerPoint.Tests
         {
             bool executed = false;
             var location = new Point(50, 100);
-            var args = new MouseEventArgs(MouseButtons.Left, 1, location.X, location.Y, 0);
             var state = new MockState
             {
                 mouseMove = delegate (Shapes list, Point loc)
@@ -131,7 +129,7 @@ namespace PowerPoint.Tests
                 }
             };
             _model.State = state;
-            _model.DoMouseMove(args);
+            _model.DoMouseMove(location);
             Assert.IsTrue(executed);
         }
 
@@ -141,7 +139,6 @@ namespace PowerPoint.Tests
         {
             bool executed = false;
             var location = new Point(50, 100);
-            var args = new MouseEventArgs(MouseButtons.Left, 1, location.X, location.Y, 0);
             var state = new MockState
             {
                 mouseUp = delegate (Shapes list, Point loc)
@@ -153,7 +150,7 @@ namespace PowerPoint.Tests
             };
             _model.State = state;
             _model.SelectedShape = ShapeType.Rectangle;
-            _model.DoMouseUp(args);
+            _model.DoMouseUp(location);
             Assert.IsTrue(executed);
             Assert.AreEqual(ShapeType.None, _model.SelectedShape);
         }
@@ -202,8 +199,7 @@ namespace PowerPoint.Tests
             _model.State = new PointState();
             int x = _model.ShapeList[0].HitBox.X + _model.ShapeList[0].HitBox.Width / 2;
             int y = _model.ShapeList[0].HitBox.Y + _model.ShapeList[0].HitBox.Height / 2;
-            var mouseArgs = new MouseEventArgs(MouseButtons.Left, 1, x, y, 0);
-            _model.DoMouseDown(mouseArgs);
+            _model.DoMouseDown(new Point(x, y));
             _model.DoKeyDown(keyArgs);
             Assert.AreEqual(1, _model.ShapeList.Count);
         }

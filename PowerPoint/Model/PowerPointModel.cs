@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using Pen = System.Drawing.Pen;
+using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {
@@ -83,22 +84,22 @@ namespace PowerPoint
         }
 
         /* mouse down */
-        public Cursor DoMouseDown(MouseEventArgs e)
+        public Cursor DoMouseDown(Point position)
         {
-            return State.MouseDown(ShapeList, e.Location);
+            return State.MouseDown(ShapeList, position);
         }
 
         /* mouse move */
-        public Cursor DoMouseMove(MouseEventArgs e)
+        public Cursor DoMouseMove(Point position)
         {
-            return State.MouseMove(ShapeList, e.Location);
+            return State.MouseMove(ShapeList, position);
         }
 
         /* mouse up */
-        public Cursor DoMouseUp(MouseEventArgs e)
+        public Cursor DoMouseUp(Point position)
         {
             SelectedShape = ShapeType.None;
-            return State.MouseUp(ShapeList, e.Location);
+            return State.MouseUp(ShapeList, position);
         }
 
         /* add shape */

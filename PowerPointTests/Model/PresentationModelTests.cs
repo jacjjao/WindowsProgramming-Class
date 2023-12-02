@@ -95,7 +95,7 @@ namespace PowerPoint.Tests
                 }
             };
             _m.State = state;
-            _model.DoMouseDown(new System.Windows.Forms.MouseEventArgs(System.Windows.Forms.MouseButtons.Left, 0, 0, 0, 0));
+            _model.DoMouseDown(new Point(0, 0));
             Assert.IsTrue(executed);
         }
 
@@ -112,7 +112,7 @@ namespace PowerPoint.Tests
                 }
             };
             _m.State = state;
-            _model.DoMouseMove(new System.Windows.Forms.MouseEventArgs(System.Windows.Forms.MouseButtons.Left, 0, 0, 0, 0));
+            _model.DoMouseMove(new Point(0, 0));
             Assert.IsTrue(executed);
         }
 
@@ -129,7 +129,7 @@ namespace PowerPoint.Tests
                 }
             };
             _m.State = state;
-            _model.DoMouseUp(new System.Windows.Forms.MouseEventArgs(System.Windows.Forms.MouseButtons.Left, 0, 0, 0, 0));
+            _model.DoMouseUp(new Point(0, 0));
             Assert.IsTrue(executed);
             for (int i = 0; i < 3; i++)
             {
@@ -145,7 +145,7 @@ namespace PowerPoint.Tests
             _model.SetState(new PointState());
             int x = _m.ShapeList[0].HitBox.X + _m.ShapeList[0].HitBox.Width / 2;
             int y = _m.ShapeList[0].HitBox.Y + _m.ShapeList[0].HitBox.Height / 2;
-            _model.DoMouseDown(new System.Windows.Forms.MouseEventArgs(System.Windows.Forms.MouseButtons.Left, 1, x, y, 0));
+            _model.DoMouseDown(new Point(x, y));
             _model.DoKeyDown(new System.Windows.Forms.KeyEventArgs(System.Windows.Forms.Keys.Delete));
             Assert.AreEqual(0, _m.ShapeList.Count);
         }

@@ -15,11 +15,17 @@ namespace PowerPoint
         const int UNDO_BUTTON_INDEX = 4;
         const int REDO_BUTTON_INDEX = 5;
 
-        private Dictionary<ToolStripButton, int> _toolStripButtons = new Dictionary<ToolStripButton, int>();
-        private readonly PresentationModel _presentModel;
-        private DoubleBufferedPanel _drawPanel;
-        private readonly BindingSource _bindingSource = new BindingSource();
-        private FormGraphicsAdapter _graphics;
+        Dictionary<ToolStripButton, int> _toolStripButtons = new Dictionary<ToolStripButton, int>();
+        readonly PresentationModel _presentModel;
+        DoubleBufferedPanel _drawPanel;
+        readonly BindingSource _bindingSource = new BindingSource();
+        FormGraphicsAdapter _graphics;
+
+        bool _sizeAssign = false;
+        int _initWidth = 0;
+        int _initHeight = 0;
+        float _scaleX = 1.0f;
+        float _scaleY = 1.0f;
 
         public Form1(PresentationModel presentationModel)
         {
@@ -149,10 +155,32 @@ namespace PowerPoint
             Draw();
         }
 
+        /* transform mouse position */
+        private Point TransFormMousePosition(Point point)
+        {
+            point.X = (int)(point.X / _scaleX);
+            point.Y = (int)(point.Y / _scaleY);
+            return point;
+        }
+
+        /* 在畫布上點擊滑鼠時的event */
+        private void DoDrawPanelMouseDown(object sender, MouseEventArgs e)
+        {
+            Cursor = _presentModel.DoMouseDown(TransFormMousePosition(e.Location));
+            Draw();
+        }
+
+        /* 在畫布上移動滑鼠時的event */
+        private void DoDrawPanelMouseMove(object sender, MouseEventArgs e)
+        {
+            Cursor = _presentModel.DoMouseMove(TransFormMousePosition(e.Location));
+            Draw();
+        }
+
         /* 在畫布上鬆開滑鼠按鍵時的event */
         private void DoDrawPanelMouseUp(object sender, MouseEventArgs e)
         {
-            Cursor = _presentModel.DoMouseUp(e);
+            Cursor = _presentModel.DoMouseUp(TransFormMousePosition(e.Location));
             Draw();
             if (!(_presentModel.Model.State is PointState))
             {
@@ -160,23 +188,10 @@ namespace PowerPoint
             }
         }
 
-        /* 在畫布上移動滑鼠時的event */
-        private void DoDrawPanelMouseMove(object sender, MouseEventArgs e)
-        {
-            Cursor = _presentModel.DoMouseMove(e);
-            Draw();
-        }
-
-        /* 在畫布上點擊滑鼠時的event */
-        private void DoDrawPanelMouseDown(object sender, MouseEventArgs e)
-        {
-            Cursor = _presentModel.DoMouseDown(e);
-            Draw();
-        }
-
         /* 畫出所有的形狀 */
         private void DrawPanelOnDraw(object sender, PaintEventArgs e)
         {
+            e.Graphics.ScaleTransform(_scaleX, _scaleY);
             _graphics = new FormGraphicsAdapter(e.Graphics);
             _presentModel.DrawAll(_graphics);
         }
@@ -186,7 +201,7 @@ namespace PowerPoint
         {
             if (_shapeComboBox.SelectedIndex < 0)
                 return;
-            _presentModel.AddRandomShape((ShapeType)_shapeComboBox.SelectedIndex, _drawPanel.Width, _drawPanel.Height);
+            _presentModel.AddRandomShape((ShapeType)_shapeComboBox.SelectedIndex, (int)(_drawPanel.Width / _scaleX), (int)(_drawPanel.Height / _scaleY));
         }
 
         /* 處理DataGridView上的"刪除"按鈕被按的event */
@@ -270,6 +285,8 @@ namespace PowerPoint
             var adapter = new FormGraphicsAdapter(e.Graphics);
             float scaleX = (float)_slideButton1.Width / (float)_drawPanel.Width;
             float scaleY = (float)_slideButton1.Height / (float)_drawPanel.Height;
+            scaleX *= _scaleX;
+            scaleY *= _scaleY;
             e.Graphics.ScaleTransform(scaleX, scaleY);
             _presentModel.DrawAll(adapter);
         }
@@ -299,6 +316,18 @@ namespace PowerPoint
                 loc.X = splitContainer2.Panel1.Width / 2 - _drawPanel.Width / 2;
                 loc.Y = splitContainer2.Panel1.Height / 2 - _drawPanel.Height / 2;
                 _drawPanel.Location = loc;
+
+                if (!_sizeAssign)
+                {
+                    _initWidth = _drawPanel.Width;
+                    _initHeight = _drawPanel.Height;
+                    _sizeAssign = true;
+                }
+                else
+                {
+                    _scaleX = (float)_drawPanel.Width / (float)_initWidth;
+                    _scaleY = (float)_drawPanel.Height / (float)_initHeight;
+                }
             }
         }
     }
