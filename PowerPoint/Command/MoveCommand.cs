@@ -44,6 +44,12 @@ namespace PowerPoint
             set;
         }
 
+        public bool CombinePreviousCommand
+        {
+            get;
+            set;
+        }
+
         public void Execute(Shapes list)
         {
             SelectShape.Move(MoveX, MoveY);
@@ -64,6 +70,19 @@ namespace PowerPoint
                 ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, -ScaleX, ZERO);
                 ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, ZERO, -ScaleY);
             }
+        }
+
+        public void Combine(MoveCommand other)
+        {
+            if (!SelectShape.Equals(other.SelectShape))
+            {
+                throw new Exception();
+            }
+            MoveX += other.MoveX;
+            MoveY += other.MoveY;
+            ScaleX += other.ScaleX;
+            ScaleY += other.ScaleY;
+            ScaleDirect = other.ScaleDirect;
         }
     }
 }

@@ -8,10 +8,10 @@ namespace PowerPoint
 {
     public class CommandManager
     {
-        readonly Stack<ICommand> _commandBuffer = new Stack<ICommand>();
-        readonly Stack<ICommand> _commandHistory = new Stack<ICommand>();
+        readonly Stack<ICommand> _redo = new Stack<ICommand>();
+        readonly Stack<ICommand> _undo = new Stack<ICommand>();
 
-        Shapes _list = null;
+        readonly Shapes _list = null;
 
         public CommandManager(Shapes list)
         {
@@ -21,42 +21,49 @@ namespace PowerPoint
         public void Execute(ICommand command)
         {
             command.Execute(_list);
-            AddCommand(command);
+            if (command is MoveCommand && ((MoveCommand)command).CombinePreviousCommand && _undo.Count > 0 && _undo.Last() is MoveCommand)
+            {
+                ((MoveCommand)_undo.Last()).Combine((MoveCommand)command);
+            }
+            else if (!(command is DrawCommand))
+            {
+                AddCommand(command);
+            }
         }
 
         public void AddCommand(ICommand command)
         {
-            _commandHistory.Push(command);
-            _commandBuffer.Clear();
+            _undo.Push(command);
+            _redo.Clear();
         }
 
         public bool CanUndo()
         {
-            return _commandHistory.Count > 0;
+            return _undo.Count > 0;
         }
 
         public void Undo()
         {
             if (CanUndo())
             {
-                var command = _commandHistory.Pop();
+                var command = _undo.Pop();
                 command.Unexecute(_list);
-                _commandBuffer.Push(command);
+                _redo.Push(command);
             }
         }
 
         public bool CanRedo()
         {
-            return _commandBuffer.Count > 0;
+            return _redo.Count > 0;
         }
 
         public void Redo()
         {
             if (CanRedo())
             {
-                var redoCommand = _commandBuffer.Pop();
+                var redoCommand = _redo.Pop();
                 redoCommand.Execute(_list);
-                _commandHistory.Push(redoCommand);
+                _undo.Push(redoCommand);
             }
         }
     }

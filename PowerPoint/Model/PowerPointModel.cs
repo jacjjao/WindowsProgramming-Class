@@ -80,7 +80,7 @@ namespace PowerPoint
         /* draw all */
         public void DrawAll(IGraphics graphics)
         {
-            ShapeList.DrawAll(DrawPen, graphics);
+            Manager.Execute(new DrawCommand { DrawPen = DrawPen, Graphics = graphics });
         }
 
         /* mouse down */
