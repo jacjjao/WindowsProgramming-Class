@@ -37,6 +37,12 @@ namespace PowerPoint
         /* move */
         public abstract void Move(int differenceX, int differenceY);
 
+        /* 有些形狀在創建時縮放的邏輯和創建完後縮放的邏輯不同 */
+        public virtual void CreationResize(Point pointFirst, Point pointSecond)
+        {
+            Resize(pointFirst, pointSecond);
+        }
+
         /* resize */
         public abstract void Resize(Point pointFirst, Point pointSecond);
 
