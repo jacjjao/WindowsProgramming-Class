@@ -118,7 +118,6 @@ namespace PowerPoint
         /* remove at */
         public void RemoveAt(int index)
         {
-            // _list.RemoveAt(index);
             DeleteCommand command = new DeleteCommand
             {
                 DeleteIndex = index

@@ -8,6 +8,7 @@ namespace PowerPoint
         Point _drawStartPos = new Point();
         Point _drawEndPos = new Point();
         bool _mousePressed = false;
+        bool _mouseMoved = false;
         ShapeType _type = ShapeType.None;
 
         public CommandManager Manager
@@ -30,8 +31,8 @@ namespace PowerPoint
                 return Cursors.Default;
             }
             _mousePressed = true;
+            _mouseMoved = false;
             _drawStartPos = _drawEndPos = pos;
-            list.AddShape(_type, pos, pos);
             return Cursors.Cross;
         }
 
@@ -43,7 +44,21 @@ namespace PowerPoint
                 return _type == ShapeType.None ? Cursors.Default : Cursors.Cross;
             }
             _drawEndPos = pos;
-            list[list.Count - 1].Resize(_drawStartPos, _drawEndPos);
+            if (!_mouseMoved)
+            {
+                Manager.Execute(new AddCommand
+                {
+                    AddRandom = false,
+                    PointFirst = _drawStartPos,
+                    PointSecond = _drawEndPos,
+                    Type = _type,
+                });
+                _mouseMoved = true;
+            }
+            else
+            {
+                list[list.Count - 1].CreationResize(_drawStartPos, _drawEndPos);
+            }
             return Cursors.Cross;
         }
 
@@ -53,20 +68,7 @@ namespace PowerPoint
             if (!_mousePressed)
                 return Cursors.Default;
             _mousePressed = false;
-            _drawEndPos = pos;
-            list[list.Count - 1].Resize(_drawStartPos, _drawEndPos);
             list[list.Count - 1].NotifyPropertyChanged();
-            if (Manager != null)
-            {
-                Manager.AddCommand(new AddCommand
-                {
-                    AddRandom = false,
-                    PointFirst = _drawStartPos,
-                    PointSecond = _drawEndPos,
-                    Type = _type,
-                    AddShape = list[list.Count - 1]
-                });
-            }
             return Cursors.Default;
         }
     }

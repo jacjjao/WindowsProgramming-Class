@@ -112,7 +112,11 @@ namespace PowerPoint
         /* remove selected shape */
         public void RemoveSelectedShape(Shapes list)
         {
-            list.Remove(_selectedShape);
+            var command = new DeleteCommand
+            {
+                DeleteIndex = list.Content.IndexOf(_selectedShape)
+            };
+            Manager.Execute(command);
             _selectedShape = null;
         }
     }
