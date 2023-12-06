@@ -16,6 +16,56 @@ namespace PowerPoint
             get;
         }
 
+        int _initWidth = 0;
+        public int InitDrawPanelWidth
+        {
+            set
+            {
+                _initWidth = value;
+            }
+        }
+
+        int _initHeight = 0;
+        public int InitDrawPanelHeight
+        {
+            set
+            {
+                _initHeight = value;
+            }
+        }
+
+        float _scaleX = 1.0f;
+        public float DrawPanelScaleX
+        {
+            get
+            {
+                return _scaleX;
+            }
+        }
+        public int CurrentDrawPanelWidth
+        {
+            set
+            {
+                _scaleX = (float)value / (float)_initWidth;
+            }
+        }
+
+        float _scaleY = 1.0f;
+        public float DrawPanelScaleY
+        {
+            get
+            {
+                return _scaleY;
+            }
+        }
+        public int CurrentDrawPanelHeight
+        {
+            set
+            {
+                _scaleY = (float)value / (float)_initHeight;
+            }
+        }
+
         public PresentationModel(PowerPointModel model)
         {
             Model = model;
@@ -28,6 +78,35 @@ namespace PowerPoint
                 new NotifyBoolean(),
                 new NotifyBoolean(),
             };
+        }
+
+        /* form resize時drawpanel的長寬要保持16:9 */
+        public Point UpdateDrawPanelSize(int width, int height)
+        {
+            const float TARGET_ASPECT_RATIO = 16.0f / 9.0f;
+            float aspectRatio = (float)width / (float)height;
+            var result = new Point();
+            if (aspectRatio < TARGET_ASPECT_RATIO)
+            {
+                result.X = width;
+                result.Y = (int)((float)result.X / TARGET_ASPECT_RATIO);
+            }
+            else
+            {
+                result.Y = height;
+                result.X = (int)((float)height * TARGET_ASPECT_RATIO);
+            }
+            return result;
+        }
+
+        /* form resize時drawpanel待在它的Container的中間 */
+        public Point UpdateDrawPanelLocation(int containerWidth, int containerHeight, int panelWidth, int panelHeight)
+        {
+            const int TWO = 2;
+            var loc = new Point();
+            loc.X = containerWidth / TWO - panelWidth / TWO;
+            loc.Y = containerHeight / TWO - panelHeight / TWO;
+            return loc;
         }
 
         /* 更新toolstrip button上的Checked屬性 */

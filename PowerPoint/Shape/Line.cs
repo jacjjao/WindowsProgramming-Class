@@ -105,6 +105,11 @@ namespace PowerPoint
         /* resize */
         public override void Resize(Point pointFirst, Point pointSecond)
         {
+            if (pointFirst.X > pointSecond.X || pointFirst.Y > pointSecond.Y)
+            {
+                _type = _type == Type.BackwardSlash ? Type.ForwardSlash : Type.BackwardSlash;
+            }
+
             if (_type == Type.BackwardSlash)
             {
                 _startPoint.X = Math.Min(pointFirst.X, pointSecond.X);

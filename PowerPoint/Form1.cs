@@ -14,18 +14,13 @@ namespace PowerPoint
         const int POINTER_BUTTON_INDEX = 3;
         const int UNDO_BUTTON_INDEX = 4;
         const int REDO_BUTTON_INDEX = 5;
-
-        Dictionary<ToolStripButton, int> _toolStripButtons = new Dictionary<ToolStripButton, int>();
+        readonly Dictionary<ToolStripButton, int> _toolStripButtons = new Dictionary<ToolStripButton, int>();
         readonly PresentationModel _presentModel;
         DoubleBufferedPanel _drawPanel;
         readonly BindingSource _bindingSource = new BindingSource();
         FormGraphicsAdapter _graphics;
 
         bool _sizeAssign = false;
-        int _initWidth = 0;
-        int _initHeight = 0;
-        float _scaleX = 1.0f;
-        float _scaleY = 1.0f;
 
         public Form1(PresentationModel presentationModel)
         {
@@ -158,8 +153,8 @@ namespace PowerPoint
         /* transform mouse position */
         private Point TransFormMousePosition(Point point)
         {
-            point.X = (int)(point.X / _scaleX);
-            point.Y = (int)(point.Y / _scaleY);
+            point.X = (int)(point.X / _presentModel.DrawPanelScaleX);
+            point.Y = (int)(point.Y / _presentModel.DrawPanelScaleY);
             return point;
         }
 
@@ -191,7 +186,7 @@ namespace PowerPoint
         /* 畫出所有的形狀 */
         private void DrawPanelOnDraw(object sender, PaintEventArgs e)
         {
-            e.Graphics.ScaleTransform(_scaleX, _scaleY);
+            e.Graphics.ScaleTransform(_presentModel.DrawPanelScaleX, _presentModel.DrawPanelScaleY);
             _graphics = new FormGraphicsAdapter(e.Graphics);
             _presentModel.DrawAll(_graphics);
         }
@@ -201,7 +196,7 @@ namespace PowerPoint
         {
             if (_shapeComboBox.SelectedIndex < 0)
                 return;
-            _presentModel.AddRandomShape((ShapeType)_shapeComboBox.SelectedIndex, (int)(_drawPanel.Width / _scaleX), (int)(_drawPanel.Height / _scaleY));
+            _presentModel.AddRandomShape((ShapeType)_shapeComboBox.SelectedIndex, (int)(_drawPanel.Width / _presentModel.DrawPanelScaleX), (int)(_drawPanel.Height / _presentModel.DrawPanelScaleY));
         }
 
         /* 處理DataGridView上的"刪除"按鈕被按的event */
@@ -285,49 +280,39 @@ namespace PowerPoint
             var adapter = new FormGraphicsAdapter(e.Graphics);
             float scaleX = (float)_slideButton1.Width / (float)_drawPanel.Width;
             float scaleY = (float)_slideButton1.Height / (float)_drawPanel.Height;
-            scaleX *= _scaleX;
-            scaleY *= _scaleY;
+            scaleX *= _presentModel.DrawPanelScaleX;
+            scaleY *= _presentModel.DrawPanelScaleY;
             e.Graphics.ScaleTransform(scaleX, scaleY);
             _presentModel.DrawAll(adapter);
         }
 
         private void SlideButtonResize(object sender, EventArgs e)
         {
-            _slideButton1.Height = _slideButton1.Width / 16 * 9;
+            const float TARGET_ASPECT_RATIO = 16.0f / 9.0f;
+            _slideButton1.Height = (int)((float)_slideButton1.Width / TARGET_ASPECT_RATIO);
         }
 
         private void SplitContainer2Panel1Resize(object sender, EventArgs e)
         {
-            if (_drawPanel != null)
-            {
-                const float TARGET_ASPECT_RATIO = 16.0f / 9.0f;
-                float aspectRatio = (float)splitContainer2.Panel1.Width / (float)splitContainer2.Panel1.Height;
-                if (aspectRatio < TARGET_ASPECT_RATIO)
-                {
-                    _drawPanel.Width = splitContainer2.Panel1.Width;
-                    _drawPanel.Height = _drawPanel.Width / 16 * 9;
-                }
-                else
-                {
-                    _drawPanel.Height = splitContainer2.Panel1.Height;
-                    _drawPanel.Width = _drawPanel.Height * 16 / 9;
-                }
-                var loc = _drawPanel.Location;
-                loc.X = splitContainer2.Panel1.Width / 2 - _drawPanel.Width / 2;
-                loc.Y = splitContainer2.Panel1.Height / 2 - _drawPanel.Height / 2;
-                _drawPanel.Location = loc;
+            if (_drawPanel == null)
+                return;
 
-                if (!_sizeAssign)
-                {
-                    _initWidth = _drawPanel.Width;
-                    _initHeight = _drawPanel.Height;
-                    _sizeAssign = true;
-                }
-                else
-                {
-                    _scaleX = (float)_drawPanel.Width / (float)_initWidth;
-                    _scaleY = (float)_drawPanel.Height / (float)_initHeight;
-                }
+            Point size = _presentModel.UpdateDrawPanelSize(splitContainer2.Panel1.Width, splitContainer2.Panel1.Height);
+            _drawPanel.Width = size.X;
+            _drawPanel.Height = size.Y;
+
+            _drawPanel.Location = _presentModel.UpdateDrawPanelLocation(splitContainer2.Panel1.Width, splitContainer2.Panel1.Height, size.X, size.Y);
+
+            if (!_sizeAssign)
+            {
+                _presentModel.InitDrawPanelWidth = _drawPanel.Width;
+                _presentModel.InitDrawPanelHeight = _drawPanel.Height;
+                _sizeAssign = true;
+            }
+            else
+            {
+                _presentModel.CurrentDrawPanelWidth = _drawPanel.Width;
+                _presentModel.CurrentDrawPanelHeight = _drawPanel.Height;
             }
         }
     }
