@@ -59,8 +59,8 @@ namespace PowerPoint.Tests
             Assert.AreEqual(1, _list.Count);
             Assert.IsTrue(_list[0] is Line);
             var line = (Line)_list[0];
-            Assert.AreEqual(p1, line.StartPoint);
-            Assert.AreEqual(p2, line.EndPoint);
+            Assert.AreEqual(p1, line.PointLeft);
+            Assert.AreEqual(p2, line.PointRight);
         }
 
         /* remove */

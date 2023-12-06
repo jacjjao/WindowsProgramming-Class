@@ -54,8 +54,8 @@ namespace PowerPoint.Tests
             shape = _factory.CreateShape(ShapeType.Line, p1, p2);
             Assert.IsTrue(shape is Line);
             var line = (Line)shape;
-            Assert.AreEqual(p1, line.StartPoint);
-            Assert.AreEqual(p2, line.EndPoint);
+            Assert.AreEqual(p1, line.PointLeft);
+            Assert.AreEqual(p2, line.PointRight);
         }
     }
 }

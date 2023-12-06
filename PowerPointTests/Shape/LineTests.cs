@@ -24,14 +24,14 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void LineTest()
         {
-            Assert.AreEqual(_p1, _line.StartPoint);
-            Assert.AreEqual(_p2, _line.EndPoint);
+            Assert.AreEqual(_p1, _line.PointLeft);
+            Assert.AreEqual(_p2, _line.PointRight);
 
             var p3 = new Point(_p2.X, _p2.Y);
             var p4 = new Point(_p1.X, _p1.Y);
             _line = new Line(p3, p4);
-            Assert.AreEqual(p4, _line.StartPoint);
-            Assert.AreEqual(p3, _line.EndPoint);
+            Assert.AreEqual(p4, _line.PointLeft);
+            Assert.AreEqual(p3, _line.PointRight);
         }
 
         /* GetInfo */
@@ -59,8 +59,8 @@ namespace PowerPoint.Tests
                 drawLine = delegate (Point start, Point end)
                 {
                     executed = true;
-                    Assert.AreEqual(_line.StartPoint, start);
-                    Assert.AreEqual(_line.EndPoint, end);
+                    Assert.AreEqual(_line.PointLeft, start);
+                    Assert.AreEqual(_line.PointRight, end);
                 }
             };
             _line.Draw(new Pen(Color.Red), graphics);
@@ -75,8 +75,8 @@ namespace PowerPoint.Tests
             var p3 = new Point(_p1.X + dx, _p1.Y + dy);
             var p4 = new Point(_p2.X + dx, _p2.Y + dy);
             _line.Move(dx, dy);
-            Assert.AreEqual(p3, _line.StartPoint);
-            Assert.AreEqual(p4, _line.EndPoint);
+            Assert.AreEqual(p3, _line.PointLeft);
+            Assert.AreEqual(p4, _line.PointRight);
         }
 
         /* contains */
