@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PowerPoint
 {
-    class DeleteCommand : ICommand
+    public class DeleteCommand : ICommand
     {
         Shape _shape = null;
 

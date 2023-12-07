@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Pen = System.Drawing.Pen;
+using Color = System.Drawing.Color;
 
 namespace PowerPoint
 {
-    class DrawCommand : ICommand
+    public class DrawCommand : ICommand
     {
         IGraphics _graphics;
         public IGraphics Graphics
@@ -27,13 +28,27 @@ namespace PowerPoint
         {
             get
             {
-                return _drawPen; 
+                return _drawPen;
             }
             set
             {
                 _drawPen = value;
             }
         }
+
+        Color _clearColor = Color.Black;
+        public Color ClearColor
+        {
+            get
+            {
+                return _clearColor;
+            }
+            set
+            {
+                _clearColor = value;
+            }
+        }
+
 
         public void Execute(Shapes list)
         {
@@ -42,7 +57,7 @@ namespace PowerPoint
 
         public void Unexecute(Shapes list)
         {
-            throw new NotImplementedException();
+            _graphics.ClearAll(_clearColor);
         }
     }
 }

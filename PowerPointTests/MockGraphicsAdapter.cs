@@ -5,6 +5,7 @@ namespace PowerPointTests
 {
     public class MockGraphicsAdapter : PowerPoint.IGraphics
     {
+        public Action<Color> clearAll = null;
         public Action<Rectangle> drawEllipse = null;
         public Action<Point, Point> drawLine = null;
         public Action<Rectangle> drawRectangle = null;
@@ -12,7 +13,7 @@ namespace PowerPointTests
         /* clear all */
         public void ClearAll(Color color)
         {
-            /* nothing */
+            clearAll(color);
         }
 
         /* draw circle */
