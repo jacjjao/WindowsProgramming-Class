@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PowerPointTests;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -18,6 +19,7 @@ namespace PowerPoint.Tests
         public void Initialize()
         {
             _state = new DrawingState();
+            _state.Manager = null;
             _statePrivate = new PrivateObject(_state);
             _list = new Shapes();
             _p1 = new Point(100, 100);
@@ -37,11 +39,6 @@ namespace PowerPoint.Tests
 
             _state.SetShapeType(ShapeType.Circle);
             _state.MouseDown(_list, _p1);
-            Assert.AreEqual(1, _list.Count);
-            Assert.IsTrue(_list[0] is Circle);
-            var circle = (Circle)_list[0];
-            Assert.AreEqual(_p1, circle.Center);
-            Assert.AreEqual(new Point(0, 0), circle.Diameter);
             Assert.IsTrue((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
             Assert.AreEqual(_p1, _statePrivate.GetFieldOrProperty("_drawStartPos"));
             Assert.AreEqual(_p1, _statePrivate.GetFieldOrProperty("_drawEndPos"));
@@ -68,18 +65,35 @@ namespace PowerPoint.Tests
             _state.MouseDown(_list, _p1);
             cursor = _state.MouseMove(_list, _p2);
             Assert.AreEqual(Cursors.Cross, cursor);
-            Assert.AreEqual(1, _list.Count);
-            Assert.IsTrue(_list[0] is Circle);
-            var circle = (Circle)_list[0];
-            var center = new Point();
-            center.X = (_p1.X + _p2.X) / 2;
-            center.Y = (_p1.Y + _p2.Y) / 2;
-            Assert.AreEqual(center, circle.Center);
-            Assert.AreEqual(new Point(_p2.X - _p1.X, _p2.Y - _p1.Y), circle.Diameter);
             Assert.IsTrue((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
             Assert.AreEqual(_p1, _statePrivate.GetFieldOrProperty("_drawStartPos"));
             Assert.AreEqual(_p2, _statePrivate.GetFieldOrProperty("_drawEndPos"));
             Assert.AreEqual(ShapeType.Circle, _statePrivate.GetFieldOrProperty("_type"));
+
+            _list.AddRandomShape(ShapeType.Circle, 800, 600);
+            _state.MouseDown(_list, _p1);
+            bool executed = false;
+            var manager = new MockCommandManager
+            {
+                execute = (ICommand command) =>
+                {
+                    executed = true;
+                    var addCommand = (AddCommand)command;
+                    Assert.IsFalse(addCommand.AddRandom);
+                }
+            };
+            _state.Manager = manager;
+            _state.MouseMove(_list, _p2);
+            Assert.IsTrue(executed);
+            Assert.AreEqual(Cursors.Cross, cursor);
+            Assert.IsTrue((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
+            Assert.AreEqual(_p1, _statePrivate.GetFieldOrProperty("_drawStartPos"));
+            Assert.AreEqual(_p2, _statePrivate.GetFieldOrProperty("_drawEndPos"));
+            Assert.AreEqual(ShapeType.Circle, _statePrivate.GetFieldOrProperty("_type"));
+
+            _statePrivate.SetFieldOrProperty("_mousePressed", true);
+            _statePrivate.SetFieldOrProperty("_mouseMoved", true);
+            _state.MouseMove(_list, _p2);
         }
 
         /* mouse up */
@@ -93,21 +107,15 @@ namespace PowerPoint.Tests
             Assert.AreNotEqual(_p2, _statePrivate.GetFieldOrProperty("_drawEndPos"));
             Assert.AreEqual(ShapeType.None, _statePrivate.GetFieldOrProperty("_type"));
 
-            _state.SetShapeType(ShapeType.Circle);
-            _state.MouseDown(_list, _p1);
+            _list.AddRandomShape(ShapeType.Circle, 800, 600);
+            _statePrivate.SetFieldOrProperty("_mousePressed", true);
             _state.MouseUp(_list, _p2);
-            Assert.IsTrue(_list.Count == 1);
-            Assert.IsTrue(_list[0] is Circle);
-            var circle = (Circle)_list[0];
-            var center = new Point();
-            center.X = (_p1.X + _p2.X) / 2;
-            center.Y = (_p1.Y + _p2.Y) / 2;
-            Assert.AreEqual(circle.Center, center);
-            Assert.AreEqual(circle.Diameter, new Point(_p2.X - _p1.X, _p2.Y - _p1.Y));
             Assert.IsFalse((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
-            Assert.AreEqual(_p1, _statePrivate.GetFieldOrProperty("_drawStartPos"));
-            Assert.AreEqual(_p2, _statePrivate.GetFieldOrProperty("_drawEndPos"));
-            Assert.AreEqual(ShapeType.Circle, _statePrivate.GetFieldOrProperty("_type"));
+
+            _list.Content.Clear();
+            _statePrivate.SetFieldOrProperty("_mousePressed", true);
+            _state.MouseUp(_list, _p2);
+            Assert.IsFalse((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
         }
     }
 }

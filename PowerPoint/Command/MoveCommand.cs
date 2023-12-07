@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PowerPoint
 {
-    class MoveCommand : ICommand
+    public class MoveCommand : ICommand
     {
         public Shape SelectShape
         {
@@ -41,15 +41,21 @@ namespace PowerPoint
         public void Execute(Shapes list)
         {
             const int ZERO = 0;
-            ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, MoveX, ZERO);
-            ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, ZERO, MoveY);
+            if (SelectShape != null)
+            {
+                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, MoveX, ZERO);
+                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, ZERO, MoveY);
+            }
         }
 
         public void Unexecute(Shapes list)
         {
             const int ZERO = 0;
-            ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, -MoveX, ZERO);
-            ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, ZERO, -MoveY);
+            if (SelectShape != null)
+            {
+                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, -MoveX, ZERO);
+                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, ZERO, -MoveY);
+            }
         }
 
         public void Combine(MoveCommand other)

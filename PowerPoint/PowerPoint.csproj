@@ -53,6 +53,7 @@
     <Compile Include="Command\DeleteCommand.cs" />
     <Compile Include="Command\DrawCommand.cs" />
     <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\ICommandManager.cs" />
     <Compile Include="Command\MoveCommand.cs" />
     <Compile Include="ResizeDirection.cs" />
     <Compile Include="Shape\Circle.cs" />

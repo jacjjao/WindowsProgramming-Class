@@ -11,10 +11,17 @@ namespace PowerPoint
         bool _mouseMoved = false;
         ResizeDirection _direction = ResizeDirection.None;
 
-        public CommandManager Manager
+        ICommandManager _manager = null;
+        public ICommandManager Manager
         {
-            get;
-            set;
+            get
+            {
+                return _manager;
+            }
+            set
+            {
+                _manager = value;
+            }
         }
 
         /* get cursor */
@@ -92,7 +99,7 @@ namespace PowerPoint
             };
             _mouseMoved = true;
             _previousMousePosition = pos;
-            Manager.Execute(command);
+            _manager?.Execute(command);
             _direction = command.ScaleDirect;
             return GetCursor(_direction);
         }
@@ -116,7 +123,7 @@ namespace PowerPoint
             {
                 DeleteIndex = list.Content.IndexOf(_selectedShape)
             };
-            Manager.Execute(command);
+            _manager?.Execute(command);
             _selectedShape = null;
         }
     }

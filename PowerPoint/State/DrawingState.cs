@@ -11,10 +11,17 @@ namespace PowerPoint
         bool _mouseMoved = false;
         ShapeType _type = ShapeType.None;
 
-        public CommandManager Manager
+        ICommandManager _manager;
+        public ICommandManager Manager
         {
-            get;
-            set;
+            get
+            {
+                return _manager;
+            }
+            set
+            {
+                _manager = value;
+            }
         }
 
         /* set type */
@@ -46,7 +53,7 @@ namespace PowerPoint
             _drawEndPos = pos;
             if (!_mouseMoved)
             {
-                Manager.Execute(new AddCommand
+                Manager?.Execute(new AddCommand
                 {
                     AddRandom = false,
                     PointFirst = _drawStartPos,
@@ -68,7 +75,8 @@ namespace PowerPoint
             if (!_mousePressed)
                 return Cursors.Default;
             _mousePressed = false;
-            list[list.Count - 1].NotifyPropertyChanged();
+            if (list.Count > 0)
+                list[list.Count - 1].NotifyPropertyChanged();
             return Cursors.Default;
         }
     }

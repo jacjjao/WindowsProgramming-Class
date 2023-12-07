@@ -7,7 +7,7 @@ using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {
-    class AddCommand : ICommand
+    public class AddCommand : ICommand
     {
         public bool AddRandom
         {

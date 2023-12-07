@@ -59,7 +59,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BindToolStripButtonTest.cs" />
+    <Compile Include="Command\AddCommandTests.cs" />
+    <Compile Include="Command\CommandManagerTests.cs" />
     <Compile Include="DoubleBufferedPanelTest.cs" />
+    <Compile Include="MockCommandManager.cs" />
     <Compile Include="NotifyBooleanTest.cs" />
     <Compile Include="Shape\CircleTests.cs" />
     <Compile Include="State\DrawingStateTests.cs" />

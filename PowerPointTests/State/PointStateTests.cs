@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PowerPointTests;
 using System.Windows.Forms;
 using Point = System.Drawing.Point;
 
@@ -62,6 +63,10 @@ namespace PowerPoint.Tests
             cursor = _state.MouseDown(_list, new Point(1, 1));
             Assert.AreEqual(Cursors.SizeNWSE, cursor);
             Assert.AreEqual(ResizeDirection.TopLeft, _statePrivate.GetFieldOrProperty("_direction"));
+
+            var p = new Point(-100, -100);
+            cursor = _state.MouseDown(_list, p);
+            Assert.AreEqual(Cursors.Default, cursor);
         }
 
         /* mouse move */
@@ -74,17 +79,32 @@ namespace PowerPoint.Tests
             Assert.IsNull(_statePrivate.GetFieldOrProperty("_selectedShape"));
 
             _state.MouseDown(_list, _p1);
+            Assert.IsFalse((bool)_statePrivate.GetFieldOrProperty("_mouseMoved"));
             _state.MouseMove(_list, _p2);
+            Assert.IsTrue((bool)_statePrivate.GetFieldOrProperty("_mouseMoved"));
             Assert.IsTrue((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
             Assert.AreEqual(_p2, _statePrivate.GetFieldOrProperty("_previousMousePosition"));
             Assert.AreEqual(_list[1], _statePrivate.GetFieldOrProperty("_selectedShape"));
 
-            var p = new Point(-10, -10);
-            _state.MouseDown(_list, p);
+            _state.MouseDown(_list, _p1);
+            bool executed = false;
+            var manager = new MockCommandManager
+            {
+                execute = (ICommand command) =>
+                {
+                    var moveCommand = (MoveCommand)command;
+                    executed = true;
+                    Assert.AreEqual(moveCommand.MoveX, _p2.X - _p1.X);
+                    Assert.AreEqual(moveCommand.MoveY, _p2.Y - _p1.Y);
+                }
+            };
+            _state.Manager = manager;
+
             _state.MouseMove(_list, _p2);
+            Assert.IsTrue(executed);
             Assert.IsTrue((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
-            Assert.AreEqual(p, _statePrivate.GetFieldOrProperty("_previousMousePosition"));
-            Assert.IsNull(_statePrivate.GetFieldOrProperty("_selectedShape"));
+            Assert.AreEqual(_p2, _statePrivate.GetFieldOrProperty("_previousMousePosition"));
+            Assert.IsNotNull(_statePrivate.GetFieldOrProperty("_selectedShape"));
         }
 
         /* mouse up */
@@ -123,10 +143,24 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void RemoveSelectedShapeTest()
         {
+            int nShape = _list.Count;
+            _state.MouseDown(_list, new Point(10, 10));
+            _state.RemoveSelectedShape(_list);
+            Assert.AreEqual(nShape, _list.Count);
+            Assert.IsNull(_statePrivate.GetFieldOrProperty("_selectedShape"));
+
+            var manager = new MockCommandManager();
+            manager.execute = (ICommand command) =>
+            {
+                command.Execute(_list);
+            };
+            _state.Manager = manager;
+            Assert.AreEqual(manager, _state.Manager);
+
             var shouldRemain = _list[0];
             _state.MouseDown(_list, new Point(10, 10));
             _state.RemoveSelectedShape(_list);
-            Assert.AreEqual(1, _list.Count);
+            Assert.AreEqual(nShape - 1, _list.Count);
             Assert.AreEqual(shouldRemain, _list[0]);
             Assert.IsNull(_statePrivate.GetFieldOrProperty("_selectedShape"));
         }

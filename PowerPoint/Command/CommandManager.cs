@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PowerPoint
 {
-    public class CommandManager
+    public class CommandManager : ICommandManager
     {
         readonly Stack<ICommand> _redo = new Stack<ICommand>();
         readonly Stack<ICommand> _undo = new Stack<ICommand>();
@@ -21,7 +21,7 @@ namespace PowerPoint
         public void Execute(ICommand command)
         {
             command.Execute(_list);
-            if (command is MoveCommand && ((MoveCommand)command).CombinePreviousCommand && _undo.Count > 0 && _undo.Peek() is MoveCommand)
+            if (command is MoveCommand && ((MoveCommand)command).CombinePreviousCommand)
             {
                 var moveCommandOne = (MoveCommand)_undo.Pop();
                 var moveCommandTwo = (MoveCommand)command;
@@ -29,14 +29,9 @@ namespace PowerPoint
             }
             if (!(command is DrawCommand))
             {
-                AddCommand(command);
+                _undo.Push(command);
+                _redo.Clear();
             }
-        }
-
-        public void AddCommand(ICommand command)
-        {
-            _undo.Push(command);
-            _redo.Clear();
         }
 
         public bool CanUndo()
