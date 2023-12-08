@@ -63,6 +63,7 @@
     <Compile Include="Command\CommandManagerTests.cs" />
     <Compile Include="Command\DeleteCommandTests.cs" />
     <Compile Include="Command\DrawCommandTests.cs" />
+    <Compile Include="Command\MoveCommandTests.cs" />
     <Compile Include="DoubleBufferedPanelTest.cs" />
     <Compile Include="MockCommandManager.cs" />
     <Compile Include="NotifyBooleanTest.cs" />

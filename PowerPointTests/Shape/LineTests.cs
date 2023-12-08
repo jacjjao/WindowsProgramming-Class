@@ -99,7 +99,7 @@ namespace PowerPoint.Tests
 
             var p5 = new Point(0, 500);
             _line = new Line(p5, _p2);
-            _line.Resize(p4, _p2);
+            _line.Resize(p5, _p2);
         }
 
         /* contains */

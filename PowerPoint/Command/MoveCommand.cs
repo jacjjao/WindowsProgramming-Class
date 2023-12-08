@@ -60,9 +60,9 @@ namespace PowerPoint
 
         public void Combine(MoveCommand other)
         {
-            if (!SelectShape.Equals(other.SelectShape))
+            if (!Equals(SelectShape, other.SelectShape))
             {
-                throw new Exception();
+                throw new ArgumentException();
             }
             MoveX += other.MoveX;
             MoveY += other.MoveY;
