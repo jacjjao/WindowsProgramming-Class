@@ -41,7 +41,9 @@ namespace PowerPoint
         public override string GetInfo()
         {
             const string FORMAT = "({0},{1})({2},{3})";
-            return string.Format(FORMAT, Position.X, Position.Y, Position.X + Size.X, Position.Y + Size.Y);
+            var pos = TransformPoint(Position);
+            var bottomLeftPos = TransformPoint(new Point(Position.X + Size.X, Position.Y + Size.Y));
+            return string.Format(FORMAT, pos.X, pos.Y, bottomLeftPos.X, bottomLeftPos.Y);
         }
 
         /* get shape name */

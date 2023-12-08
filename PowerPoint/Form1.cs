@@ -314,6 +314,9 @@ namespace PowerPoint
                 _presentModel.CurrentDrawPanelWidth = _drawPanel.Width;
                 _presentModel.CurrentDrawPanelHeight = _drawPanel.Height;
             }
+
+            Shape.ScaleX = _presentModel.DrawPanelScaleX;
+            Shape.ScaleY = _presentModel.DrawPanelScaleY;
         }
     }
 }

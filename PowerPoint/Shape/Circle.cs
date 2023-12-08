@@ -57,7 +57,8 @@ namespace PowerPoint
         public override string GetInfo()
         {
             const string FORMAT = "({0},{1})";
-            return string.Format(FORMAT, Center.X, Center.Y);
+            var center = TransformPoint(Center);
+            return string.Format(FORMAT, center.X, center.Y);
         }
 
         /* get shape name */

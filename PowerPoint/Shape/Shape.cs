@@ -7,6 +7,38 @@ namespace PowerPoint
 {
     public abstract partial class Shape : INotifyPropertyChanged
     {
+        static float _scaleX = 1.0f;
+        public static float ScaleX
+        {
+            get
+            {
+                return _scaleX;
+            }
+            set
+            {
+                _scaleX = value;
+            }
+        }
+        static float _scaleY = 1.0f;
+        public static float ScaleY
+        {
+            get
+            {
+                return _scaleY;
+            }
+            set
+            {
+                _scaleY = value;
+            }
+        }
+
+        public static Point TransformPoint(Point point)
+        {
+            point.X = (int)((float)point.X * _scaleX);
+            point.Y = (int)((float)point.Y * _scaleY);
+            return point;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public string Info
