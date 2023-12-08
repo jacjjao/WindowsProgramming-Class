@@ -27,11 +27,16 @@ namespace PowerPoint.Tests
             Assert.AreEqual(_p1, _line.PointLeft);
             Assert.AreEqual(_p2, _line.PointRight);
 
-            var p3 = new Point(_p2.X, _p2.Y);
-            var p4 = new Point(_p1.X, _p1.Y);
+            var p3 = _p2;
+            var p4 = _p1;
             _line = new Line(p3, p4);
             Assert.AreEqual(p4, _line.PointLeft);
             Assert.AreEqual(p3, _line.PointRight);
+
+            var p5 = new Point(0, 500);
+            _line = new Line(p5, _p2);
+            Assert.AreEqual(p5, _line.PointLeft);
+            Assert.AreEqual(_p2, _line.PointRight);
         }
 
         /* GetInfo */
@@ -77,6 +82,24 @@ namespace PowerPoint.Tests
             _line.Move(dx, dy);
             Assert.AreEqual(p3, _line.PointLeft);
             Assert.AreEqual(p4, _line.PointRight);
+        }
+
+        [TestMethod]
+        public void ResizeTest()
+        {
+            var p3 = new Point(50, 50);
+            _line.Resize(p3, _p2);
+            Assert.AreEqual(p3, _line.PointLeft);
+            Assert.AreEqual(_p2, _line.PointRight);
+
+            var p4 = new Point(200, 0);
+            _line.Resize(p4, _p2);
+            Assert.AreEqual(_p2, _line.PointLeft);
+            Assert.AreEqual(p4, _line.PointRight);
+
+            var p5 = new Point(0, 500);
+            _line = new Line(p5, _p2);
+            _line.Resize(p4, _p2);
         }
 
         /* contains */

@@ -128,6 +128,13 @@ namespace PowerPoint
             return type;
         }
 
+        private Point TransFormMousePosition(Point point)
+        {
+            point.X = (int)(point.X / DrawPanelScaleX);
+            point.Y = (int)(point.Y / DrawPanelScaleY);
+            return point;
+        }
+
         /* add shape */
         public void AddRandomShape(ShapeType type, int screenWidth, int screenHeight)
         {
@@ -155,13 +162,13 @@ namespace PowerPoint
         /* 在draw panel上按下滑鼠的event */
         public Cursor DoMouseDown(Point position)
         {
-            return Model.DoMouseDown(position);
+            return Model.DoMouseDown(TransFormMousePosition(position));
         }
 
         /* 滑鼠在draw panel移動時的event */
         public Cursor DoMouseMove(Point position)
         {
-            return Model.DoMouseMove(position);
+            return Model.DoMouseMove(TransFormMousePosition(position));
         }
 
         /* 在draw panel上放開滑鼠按鈕的event */
@@ -172,7 +179,7 @@ namespace PowerPoint
             {
                 CheckList[i].Value = false;
             }
-            return Model.DoMouseUp(position);
+            return Model.DoMouseUp(TransFormMousePosition(position));
         }
 
         /* keydown */

@@ -150,32 +150,24 @@ namespace PowerPoint
             Draw();
         }
 
-        /* transform mouse position */
-        private Point TransFormMousePosition(Point point)
-        {
-            point.X = (int)(point.X / _presentModel.DrawPanelScaleX);
-            point.Y = (int)(point.Y / _presentModel.DrawPanelScaleY);
-            return point;
-        }
-
         /* 在畫布上點擊滑鼠時的event */
         private void DoDrawPanelMouseDown(object sender, MouseEventArgs e)
         {
-            Cursor = _presentModel.DoMouseDown(TransFormMousePosition(e.Location));
+            Cursor = _presentModel.DoMouseDown(e.Location);
             Draw();
         }
 
         /* 在畫布上移動滑鼠時的event */
         private void DoDrawPanelMouseMove(object sender, MouseEventArgs e)
         {
-            Cursor = _presentModel.DoMouseMove(TransFormMousePosition(e.Location));
+            Cursor = _presentModel.DoMouseMove(e.Location);
             Draw();
         }
 
         /* 在畫布上鬆開滑鼠按鍵時的event */
         private void DoDrawPanelMouseUp(object sender, MouseEventArgs e)
         {
-            Cursor = _presentModel.DoMouseUp(TransFormMousePosition(e.Location));
+            Cursor = _presentModel.DoMouseUp(e.Location);
             Draw();
             if (!(_presentModel.Model.State is PointState))
             {

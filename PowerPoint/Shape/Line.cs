@@ -109,7 +109,10 @@ namespace PowerPoint
         {
             if (pointFirst.X > pointSecond.X || pointFirst.Y > pointSecond.Y)
             {
-                _type = _type == Type.BackwardSlash ? Type.ForwardSlash : Type.BackwardSlash;
+                if (_type == Type.BackwardSlash)
+                    _type = Type.ForwardSlash;
+                else
+                    _type = Type.BackwardSlash;
             }
 
             if (_type == Type.BackwardSlash)
