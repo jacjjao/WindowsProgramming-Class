@@ -31,6 +31,11 @@ namespace PowerPoint.Tests
             mouseUp.Invoke(list, pos);
             return Cursors.Default;
         }
+
+        public void SetShapeType(ShapeType type)
+        {
+
+        }
     }
 
     [TestClass]

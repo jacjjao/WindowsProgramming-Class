@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PowerPoint
 {
@@ -13,7 +9,7 @@ namespace PowerPoint
             get;
             set;
         }
-        
+
         public int MoveX
         {
             get;
@@ -48,7 +44,7 @@ namespace PowerPoint
             }
         }
 
-        public void Unexecute(Shapes list)
+        public void Undo(Shapes list)
         {
             const int ZERO = 0;
             if (SelectShape != null)

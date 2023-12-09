@@ -52,10 +52,7 @@ namespace PowerPoint
             set
             {
                 _selectType = value;
-                if (State is DrawingState)
-                {
-                    ((DrawingState)State).SetShapeType(_selectType);
-                }
+                _state.SetShapeType(_selectType);
             }
         }
 

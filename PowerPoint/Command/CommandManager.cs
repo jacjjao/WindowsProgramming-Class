@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace PowerPoint
 {
@@ -18,6 +14,7 @@ namespace PowerPoint
             _list = list;
         }
 
+        /* execute */
         public void Execute(ICommand command)
         {
             command.Execute(_list);
@@ -34,26 +31,30 @@ namespace PowerPoint
             }
         }
 
+        /* can undo */
         public bool CanUndo()
         {
             return _undo.Count > 0;
         }
 
+        /* undo */
         public void Undo()
         {
             if (CanUndo())
             {
                 var command = _undo.Pop();
-                command.Unexecute(_list);
+                command.Undo(_list);
                 _redo.Push(command);
             }
         }
 
+        /* can redo */
         public bool CanRedo()
         {
             return _redo.Count > 0;
         }
 
+        /* redo */
         public void Redo()
         {
             if (CanRedo())

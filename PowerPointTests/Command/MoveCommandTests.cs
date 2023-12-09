@@ -1,10 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PowerPoint.Tests
 {
@@ -50,12 +45,12 @@ namespace PowerPoint.Tests
                 MoveY = dy,
                 SelectShape = _list[0]
             };
-            cmd.Unexecute(_list);
+            cmd.Undo(_list);
             Assert.AreEqual(loc.X - dx, _list[0].HitBox.X);
             Assert.AreEqual(loc.Y - dy, _list[0].HitBox.Y);
 
             cmd.SelectShape = null;
-            cmd.Unexecute(_list);
+            cmd.Undo(_list);
         }
 
         [TestMethod]

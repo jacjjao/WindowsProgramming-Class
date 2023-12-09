@@ -1,5 +1,4 @@
-﻿using PowerPoint;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using Point = System.Drawing.Point;
 

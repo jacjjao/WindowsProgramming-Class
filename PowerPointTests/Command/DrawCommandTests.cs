@@ -1,11 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint;
 using PowerPointTests;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Color = System.Drawing.Color;
 using Pen = System.Drawing.Pen;
 
@@ -49,7 +43,7 @@ namespace PowerPoint.Tests
                 Graphics = g,
                 ClearColor = clearColor
             };
-            cmd.Unexecute(null);
+            cmd.Undo(null);
             Assert.IsTrue(executed);
         }
     }

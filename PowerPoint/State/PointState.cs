@@ -119,6 +119,12 @@ namespace PowerPoint
             return Cursors.Default;
         }
 
+        /* set shape type */
+        public void SetShapeType(ShapeType type)
+        {
+
+        }
+
         /* remove selected shape */
         public void RemoveSelectedShape(Shapes list)
         {
@@ -130,7 +136,7 @@ namespace PowerPoint
             };
             if (_manager == null)
                 command.Execute(list);
-            else 
+            else
                 _manager.Execute(command);
             _selectedShape = null;
         }

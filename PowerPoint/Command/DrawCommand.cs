@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Color = System.Drawing.Color;
 using Pen = System.Drawing.Pen;
-using Color = System.Drawing.Color;
 
 namespace PowerPoint
 {
@@ -49,13 +44,14 @@ namespace PowerPoint
             }
         }
 
-
+        /* execute */
         public void Execute(Shapes list)
         {
             list.DrawAll(_drawPen, _graphics);
         }
 
-        public void Unexecute(Shapes list)
+        /* undo */
+        public void Undo(Shapes list)
         {
             _graphics.ClearAll(_clearColor);
         }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PowerPoint
+﻿namespace PowerPoint
 {
     public class DeleteCommand : ICommand
     {
@@ -22,13 +16,13 @@ namespace PowerPoint
             list.RemoveAt(DeleteIndex);
         }
 
-        public void Unexecute(Shapes list)
+        public void Undo(Shapes list)
         {
             if (_shape != null)
             {
                 list.Content.Insert(DeleteIndex, _shape);
                 _shape = null;
-            }  
+            }
         }
     }
 }

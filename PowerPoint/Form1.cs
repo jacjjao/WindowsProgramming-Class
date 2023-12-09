@@ -101,8 +101,9 @@ namespace PowerPoint
         {
             const string CHECKED = "Checked";
             const string VALUE = ".Value";
+            const string TEXT = "<-";
             var undoButton = new BindToolStripButton();
-            undoButton.Text = "<-";
+            undoButton.Text = TEXT;
             undoButton.DataBindings.Add(CHECKED, _presentModel.CheckList[UNDO_BUTTON_INDEX], VALUE);
             undoButton.Click += DoToolStripButtonUndoClick;
             _toolStrip1.Items.Add(undoButton);
@@ -114,8 +115,9 @@ namespace PowerPoint
         {
             const string CHECKED = "Checked";
             const string VALUE = ".Value";
+            const string TEXT = "<-";
             var redoButton = new BindToolStripButton();
-            redoButton.Text = "->";
+            redoButton.Text = TEXT;
             redoButton.DataBindings.Add(CHECKED, _presentModel.CheckList[REDO_BUTTON_INDEX], VALUE);
             redoButton.Click += DoToolStripButtonRedoClick;
             _toolStrip1.Items.Add(redoButton);
@@ -210,7 +212,9 @@ namespace PowerPoint
         /* '/' button被點擊時的event */
         private void DoToolStripButtonLineClick(object sender, EventArgs e)
         {
-            _presentModel.SetState(new DrawingState { Manager = _presentModel.Model.Manager });
+            var state = new DrawingState();
+            state.Manager = _presentModel.Model.Manager;
+            _presentModel.SetState(state);
             ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons[(ToolStripButton)sender], ShapeType.Line);
             ChangeCursor(type);
         }
@@ -218,7 +222,9 @@ namespace PowerPoint
         /* '[]' button被點擊時的event */
         private void DoToolStripButtonRectangleClick(object sender, EventArgs e)
         {
-            _presentModel.SetState(new DrawingState { Manager = _presentModel.Model.Manager });
+            var state = new DrawingState();
+            state.Manager = _presentModel.Model.Manager;
+            _presentModel.SetState(state);
             ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons[(ToolStripButton)sender], ShapeType.Rectangle);
             ChangeCursor(type);
         }
@@ -226,7 +232,9 @@ namespace PowerPoint
         /* 'O' button被點擊時的event */
         private void DoToolStripButtonCircleClick(object sender, EventArgs e)
         {
-            _presentModel.SetState(new DrawingState { Manager = _presentModel.Model.Manager });
+            var state = new DrawingState();
+            state.Manager = _presentModel.Model.Manager;
+            _presentModel.SetState(state);
             ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons[(ToolStripButton)sender], ShapeType.Circle);
             ChangeCursor(type);
         }
@@ -238,11 +246,15 @@ namespace PowerPoint
             _presentModel.DoToolStripButtonClick(_toolStripButtons[pointerButton], ShapeType.None);
             if (pointerButton.Checked)
             {
-                _presentModel.SetState(new PointState { Manager = _presentModel.Model.Manager });
+                var state = new PointState();
+                state.Manager = _presentModel.Model.Manager;
+                _presentModel.SetState(state);
             }
             else
             {
-                _presentModel.SetState(new DrawingState { Manager = _presentModel.Model.Manager });
+                var state = new DrawingState();
+                state.Manager = _presentModel.Model.Manager;
+                _presentModel.SetState(state);
             }
         }
 
@@ -278,23 +290,16 @@ namespace PowerPoint
             _presentModel.DrawAll(adapter);
         }
 
+        /* resize */
         private void SlideButtonResize(object sender, EventArgs e)
         {
             const float TARGET_ASPECT_RATIO = 16.0f / 9.0f;
             _slideButton1.Height = (int)((float)_slideButton1.Width / TARGET_ASPECT_RATIO);
         }
 
-        private void SplitContainer2Panel1Resize(object sender, EventArgs e)
+        /* notify draw panel size */
+        private void NotifyDrawPanelSize()
         {
-            if (_drawPanel == null)
-                return;
-
-            Point size = _presentModel.UpdateDrawPanelSize(splitContainer2.Panel1.Width, splitContainer2.Panel1.Height);
-            _drawPanel.Width = size.X;
-            _drawPanel.Height = size.Y;
-
-            _drawPanel.Location = _presentModel.UpdateDrawPanelLocation(splitContainer2.Panel1.Width, splitContainer2.Panel1.Height, size.X, size.Y);
-
             if (!_sizeAssign)
             {
                 _presentModel.InitDrawPanelWidth = _drawPanel.Width;
@@ -306,7 +311,18 @@ namespace PowerPoint
                 _presentModel.CurrentDrawPanelWidth = _drawPanel.Width;
                 _presentModel.CurrentDrawPanelHeight = _drawPanel.Height;
             }
+        }
 
+        /* resize */
+        private void SplitContainer2Panel1Resize(object sender, EventArgs e)
+        {
+            if (_drawPanel == null)
+                return;
+            Point size = _presentModel.UpdateDrawPanelSize(splitContainer2.Panel1.Width, splitContainer2.Panel1.Height);
+            _drawPanel.Width = size.X;
+            _drawPanel.Height = size.Y;
+            _drawPanel.Location = _presentModel.UpdateDrawPanelLocation(splitContainer2.Panel1.Width, splitContainer2.Panel1.Height, size.X, size.Y);
+            NotifyDrawPanelSize();
             Shape.ScaleX = _presentModel.DrawPanelScaleX;
             Shape.ScaleY = _presentModel.DrawPanelScaleY;
         }

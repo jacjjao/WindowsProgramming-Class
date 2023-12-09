@@ -13,5 +13,8 @@ namespace PowerPoint
 
         /* mouse up */
         Cursor MouseUp(Shapes list, Point pos);
+
+        /* set shape type */
+        void SetShapeType(ShapeType type);
     }
 }

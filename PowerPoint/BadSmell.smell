@@ -188,45 +188,13 @@
           <Reviews>
             <Smell>
               <Id>1</Id>
-              <SmellType>Unsuitable naming(名不符實)-Unexecute(unexecute)</SmellType>
-              <HashCode>UnsuitableNaming.AddCommand.Unexecute.Unexecute</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>AddCommand.cs</File>
-              <Line>73</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>2</Id>
-              <SmellType>ICS(函式-2)</SmellType>
-              <HashCode>Method2.AddCommand.Unexecute</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>AddCommand.cs</File>
-              <Line>73</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(函式-2) 每個函式表示一種操作，因此一律使用動詞做為第一個單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>3</Id>
               <SmellType>ICS(函式-3)</SmellType>
               <HashCode>Method3.CommandManager.CanUndo</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>CommandManager.cs</File>
-              <Line>37</Line>
+              <Line>35</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -235,7 +203,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>4</Id>
+              <Id>2</Id>
               <SmellType>ICS(函式-3)</SmellType>
               <HashCode>Method3.CommandManager.CanRedo</HashCode>
               <Severity>Red</Severity>
@@ -251,359 +219,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>5</Id>
-              <SmellType>Unsuitable naming(名不符實)-Unexecute(unexecute)</SmellType>
-              <HashCode>UnsuitableNaming.DeleteCommand.Unexecute.Unexecute</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>DeleteCommand.cs</File>
-              <Line>25</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>6</Id>
-              <SmellType>ICS(函式-2)</SmellType>
-              <HashCode>Method2.DeleteCommand.Unexecute</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>DeleteCommand.cs</File>
-              <Line>25</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(函式-2) 每個函式表示一種操作，因此一律使用動詞做為第一個單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>7</Id>
-              <SmellType>ICS(空白與空行-17)</SmellType>
-              <HashCode>SpacingAndNewLine17.DrawCommand.cs.2.        }.        public void Execute(Shapes list)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>DrawCommand.cs</File>
-              <Line>51</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(空白與空行-17) 一次不加多個空行(若發生時，則指定在多個空行的第一行即可)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>8</Id>
-              <SmellType>Unsuitable naming(名不符實)-Unexecute(unexecute)</SmellType>
-              <HashCode>UnsuitableNaming.DrawCommand.Unexecute.Unexecute</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>DrawCommand.cs</File>
-              <Line>58</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>9</Id>
-              <SmellType>ICS(函式-2)</SmellType>
-              <HashCode>Method2.DrawCommand.Unexecute</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>DrawCommand.cs</File>
-              <Line>58</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(函式-2) 每個函式表示一種操作，因此一律使用動詞做為第一個單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>10</Id>
-              <SmellType>Unsuitable naming(名不符實)-Unexecute(unexecute)</SmellType>
-              <HashCode>UnsuitableNaming.ICommand.Unexecute.Unexecute</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>ICommand.cs</File>
-              <Line>13</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>11</Id>
-              <SmellType>ICS(函式-2)</SmellType>
-              <HashCode>Method2.ICommand.Unexecute</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>ICommand.cs</File>
-              <Line>13</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(函式-2) 每個函式表示一種操作，因此一律使用動詞做為第一個單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>12</Id>
-              <SmellType>Unsuitable naming(名不符實)-Unexecute(unexecute)</SmellType>
-              <HashCode>UnsuitableNaming.MoveCommand.Unexecute.Unexecute</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>MoveCommand.cs</File>
-              <Line>51</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>13</Id>
-              <SmellType>ICS(函式-2)</SmellType>
-              <HashCode>Method2.MoveCommand.Unexecute</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>MoveCommand.cs</File>
-              <Line>51</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(函式-2) 每個函式表示一種操作，因此一律使用動詞做為第一個單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>14</Id>
-              <SmellType>ICS(縮排與換行-1)</SmellType>
-              <HashCode>IndentAndNewLine1.DoToolStripButtonLineClick.            _presentModel.SetState(new DrawingState { Manager = _presentModel.Model.Manager });</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>213</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(縮排與換行-1) 左大括號一律換行</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>15</Id>
-              <SmellType>ICS(縮排與換行-1)</SmellType>
-              <HashCode>IndentAndNewLine1.DoToolStripButtonRectangleClick.            _presentModel.SetState(new DrawingState { Manager = _presentModel.Model.Manager });</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>221</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(縮排與換行-1) 左大括號一律換行</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>16</Id>
-              <SmellType>ICS(縮排與換行-1)</SmellType>
-              <HashCode>IndentAndNewLine1.DoToolStripButtonCircleClick.            _presentModel.SetState(new DrawingState { Manager = _presentModel.Model.Manager });</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>229</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(縮排與換行-1) 左大括號一律換行</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>17</Id>
-              <SmellType>ICS(縮排與換行-1)</SmellType>
-              <HashCode>IndentAndNewLine1.DoToolStripButtonPointerClick.                _presentModel.SetState(new PointState { Manager = _presentModel.Model.Manager });</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>241</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(縮排與換行-1) 左大括號一律換行</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>18</Id>
-              <SmellType>ICS(縮排與換行-1)</SmellType>
-              <HashCode>IndentAndNewLine1.DoToolStripButtonPointerClick.                _presentModel.SetState(new DrawingState { Manager = _presentModel.Model.Manager });</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>245</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(縮排與換行-1) 左大括號一律換行</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>19</Id>
-              <SmellType>ICS(縮排與換行-3)</SmellType>
-              <HashCode>IndentAndNewLine3.DoToolStripButtonLineClick.            _presentModel.SetState(new DrawingState { Manager = _presentModel.Model.Manager });</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>213</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(縮排與換行-3) 左大括號後，一律換行撰寫程式碼</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>20</Id>
-              <SmellType>ICS(縮排與換行-3)</SmellType>
-              <HashCode>IndentAndNewLine3.DoToolStripButtonRectangleClick.            _presentModel.SetState(new DrawingState { Manager = _presentModel.Model.Manager });</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>221</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(縮排與換行-3) 左大括號後，一律換行撰寫程式碼</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>21</Id>
-              <SmellType>ICS(縮排與換行-3)</SmellType>
-              <HashCode>IndentAndNewLine3.DoToolStripButtonCircleClick.            _presentModel.SetState(new DrawingState { Manager = _presentModel.Model.Manager });</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>229</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(縮排與換行-3) 左大括號後，一律換行撰寫程式碼</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>22</Id>
-              <SmellType>ICS(縮排與換行-3)</SmellType>
-              <HashCode>IndentAndNewLine3.DoToolStripButtonPointerClick.                _presentModel.SetState(new PointState { Manager = _presentModel.Model.Manager });</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>241</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(縮排與換行-3) 左大括號後，一律換行撰寫程式碼</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>23</Id>
-              <SmellType>ICS(縮排與換行-3)</SmellType>
-              <HashCode>IndentAndNewLine3.DoToolStripButtonPointerClick.                _presentModel.SetState(new DrawingState { Manager = _presentModel.Model.Manager });</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>245</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(縮排與換行-3) 左大括號後，一律換行撰寫程式碼</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>24</Id>
-              <SmellType>Literal constants(字面常數)-"&lt;-"</SmellType>
-              <HashCode>LiteralConstants.CreateToolStripButtonListUndo."&lt;-"</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>105</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>25</Id>
-              <SmellType>Literal constants(字面常數)-"-&gt;"</SmellType>
-              <HashCode>LiteralConstants.CreateToolStripButtonListRedo."-&gt;"</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>118</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>26</Id>
-              <SmellType>Long method(過長函式)</SmellType>
-              <HashCode>LongMethod.Form1.SplitContainer2Panel1Resize.26object sender;EventArgs e;</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>26</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>287</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>27</Id>
+              <Id>3</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.Form1.splitContainer1</HashCode>
               <Severity>Red</Severity>
@@ -619,7 +235,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>28</Id>
+              <Id>4</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.Form1.tableLayoutPanel1</HashCode>
               <Severity>Red</Severity>
@@ -635,7 +251,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>29</Id>
+              <Id>5</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.Form1.splitContainer2</HashCode>
               <Severity>Red</Severity>
@@ -651,7 +267,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>30</Id>
+              <Id>6</Id>
               <SmellType>Unsuitable naming(名不符實)-splitter1(splitter)</SmellType>
               <HashCode>UnsuitableNaming.Form1.splitter1.splitter1</HashCode>
               <Severity>Red</Severity>
@@ -667,7 +283,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>31</Id>
+              <Id>7</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.Form1.splitter1</HashCode>
               <Severity>Red</Severity>
@@ -683,7 +299,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>32</Id>
+              <Id>8</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.Form1.groupBox1</HashCode>
               <Severity>Red</Severity>
@@ -699,7 +315,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>33</Id>
+              <Id>9</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.Form1.splitContainer3</HashCode>
               <Severity>Red</Severity>
@@ -715,7 +331,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>34</Id>
+              <Id>10</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.Form1.flowLayoutPanel2</HashCode>
               <Severity>Red</Severity>
@@ -731,14 +347,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>35</Id>
+              <Id>11</Id>
               <SmellType>ICS(空白與空行-9)</SmellType>
               <HashCode>SpacingAndNewLine9</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>PowerPointModel.cs</File>
-              <Line>110</Line>
+              <Line>107</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -747,14 +363,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>36</Id>
+              <Id>12</Id>
               <SmellType>ICS(空白與空行-9)</SmellType>
               <HashCode>SpacingAndNewLine9</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>PowerPointModel.cs</File>
-              <Line>114</Line>
+              <Line>111</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -763,14 +379,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>37</Id>
+              <Id>13</Id>
               <SmellType>ICS(空白與空行-9)</SmellType>
               <HashCode>SpacingAndNewLine9</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>PowerPointModel.cs</File>
-              <Line>123</Line>
+              <Line>120</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -779,14 +395,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>38</Id>
+              <Id>14</Id>
               <SmellType>ICS(空白與空行-9)</SmellType>
               <HashCode>SpacingAndNewLine9</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>PowerPointModel.cs</File>
-              <Line>124</Line>
+              <Line>121</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -795,14 +411,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>39</Id>
+              <Id>15</Id>
               <SmellType>ICS(縮排與換行-1)</SmellType>
               <HashCode>IndentAndNewLine1.DrawAll.            Manager.Execute(new DrawCommand { DrawPen = DrawPen, Graphics = graphics });</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>PowerPointModel.cs</File>
-              <Line>83</Line>
+              <Line>80</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -811,14 +427,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>40</Id>
+              <Id>16</Id>
               <SmellType>ICS(縮排與換行-3)</SmellType>
               <HashCode>IndentAndNewLine3.DrawAll.            Manager.Execute(new DrawCommand { DrawPen = DrawPen, Graphics = graphics });</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>PowerPointModel.cs</File>
-              <Line>83</Line>
+              <Line>80</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -827,7 +443,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>41</Id>
+              <Id>17</Id>
               <SmellType>Literal constants(字面常數)-1.0f</SmellType>
               <HashCode>LiteralConstants._scaleX.1.0f</HashCode>
               <Severity>Red</Severity>
@@ -843,7 +459,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>42</Id>
+              <Id>18</Id>
               <SmellType>Literal constants(字面常數)-1.0f</SmellType>
               <HashCode>LiteralConstants._scaleY.1.0f</HashCode>
               <Severity>Red</Severity>
@@ -859,7 +475,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>43</Id>
+              <Id>19</Id>
               <SmellType>Unsuitable naming(名不符實)-_initWidth(init)</SmellType>
               <HashCode>UnsuitableNaming.PresentationModel._initWidth._initWidth</HashCode>
               <Severity>Red</Severity>
@@ -875,7 +491,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>44</Id>
+              <Id>20</Id>
               <SmellType>Unsuitable naming(名不符實)-InitDrawPanelWidth(init)</SmellType>
               <HashCode>UnsuitableNaming.PresentationModel.InitDrawPanelWidth.InitDrawPanelWidth</HashCode>
               <Severity>Red</Severity>
@@ -891,7 +507,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>45</Id>
+              <Id>21</Id>
               <SmellType>Unsuitable naming(名不符實)-_initHeight(init)</SmellType>
               <HashCode>UnsuitableNaming.PresentationModel._initHeight._initHeight</HashCode>
               <Severity>Red</Severity>
@@ -907,7 +523,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>46</Id>
+              <Id>22</Id>
               <SmellType>Unsuitable naming(名不符實)-InitDrawPanelHeight(init)</SmellType>
               <HashCode>UnsuitableNaming.PresentationModel.InitDrawPanelHeight.InitDrawPanelHeight</HashCode>
               <Severity>Red</Severity>
@@ -923,7 +539,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>47</Id>
+              <Id>23</Id>
               <SmellType>Unsuitable naming(名不符實)-loc(loc)</SmellType>
               <HashCode>UnsuitableNaming.PresentationModel.UpdateDrawPanelLocation.loc</HashCode>
               <Severity>Red</Severity>
@@ -939,7 +555,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>48</Id>
+              <Id>24</Id>
               <SmellType>Unsuitable naming(名不符實)-TransFormMousePosition(trans)</SmellType>
               <HashCode>UnsuitableNaming.PresentationModel.TransFormMousePosition.TransFormMousePosition</HashCode>
               <Severity>Red</Severity>
@@ -955,7 +571,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>49</Id>
+              <Id>25</Id>
               <SmellType>ICS(函式-2)</SmellType>
               <HashCode>Method2.PresentationModel.TransFormMousePosition</HashCode>
               <Severity>Red</Severity>
@@ -971,14 +587,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>50</Id>
+              <Id>26</Id>
               <SmellType>Long method(過長函式)</SmellType>
               <HashCode>LongMethod.Shape.IsInCircle.24ResizeDirection direction;Point point;</HashCode>
               <Severity>Warning</Severity>
               <Weight>24</Weight>
               <Project>PowerPoint</Project>
               <File>HitBox.cs</File>
-              <Line>75</Line>
+              <Line>71</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -987,7 +603,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>51</Id>
+              <Id>27</Id>
               <SmellType>Unsuitable naming(名不符實)-pl(pl)</SmellType>
               <HashCode>UnsuitableNaming.Line.GetInfo.pl</HashCode>
               <Severity>Red</Severity>
@@ -1003,7 +619,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>52</Id>
+              <Id>28</Id>
               <SmellType>Unsuitable naming(名不符實)-pr(pr)</SmellType>
               <HashCode>UnsuitableNaming.Line.GetInfo.pr</HashCode>
               <Severity>Red</Severity>
@@ -1019,7 +635,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>53</Id>
+              <Id>29</Id>
               <SmellType>Long method(過長函式)</SmellType>
               <HashCode>LongMethod.Line.Resize.26Point pointFirst;Point pointSecond;</HashCode>
               <Severity>Warning</Severity>
@@ -1035,14 +651,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>54</Id>
+              <Id>30</Id>
               <SmellType>Literal constants(字面常數)-1.0f</SmellType>
               <HashCode>LiteralConstants._scaleX.1.0f</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>11</Line>
+              <Line>10</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1051,14 +667,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>55</Id>
+              <Id>31</Id>
               <SmellType>Literal constants(字面常數)-1.0f</SmellType>
               <HashCode>LiteralConstants._scaleY.1.0f</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>23</Line>
+              <Line>22</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1067,14 +683,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>56</Id>
+              <Id>32</Id>
               <SmellType>ICS(Delegate與Event-1)</SmellType>
               <HashCode>DelegateAndEvent1.Shape.PropertyChanged.TransformPoint</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>43</Line>
+              <Line>42</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1083,14 +699,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>57</Id>
+              <Id>33</Id>
               <SmellType>Static method and fields(濫用Static)</SmellType>
-              <HashCode>StaticMethodAndFields 32856959</HashCode>
+              <HashCode>StaticMethodAndFields 44048201</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>11</Line>
+              <Line>10</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1099,14 +715,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>58</Id>
+              <Id>34</Id>
               <SmellType>Static method and fields(濫用Static)</SmellType>
-              <HashCode>StaticMethodAndFields 14085185</HashCode>
+              <HashCode>StaticMethodAndFields 38831287</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>23</Line>
+              <Line>22</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1115,14 +731,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>59</Id>
+              <Id>35</Id>
               <SmellType>Static method and fields(濫用Static)</SmellType>
-              <HashCode>StaticMethodAndFields 55820034</HashCode>
+              <HashCode>StaticMethodAndFields 48091194</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>36</Line>
+              <Line>35</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1131,14 +747,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>60</Id>
+              <Id>36</Id>
               <SmellType>ICS(函式-2)</SmellType>
               <HashCode>Method2.Shape.CreationResize</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>74</Line>
+              <Line>73</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1147,14 +763,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>61</Id>
+              <Id>37</Id>
               <SmellType>Long method(過長函式)</SmellType>
               <HashCode>LongMethod.Shape.ResizeBasedOnDirection.39ResizeDirection direction;int differenceX;int differenceY;</HashCode>
               <Severity>Red</Severity>
               <Weight>39</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>182</Line>
+              <Line>181</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1163,7 +779,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>62</Id>
+              <Id>38</Id>
               <SmellType>ICS(空白與空行-9)</SmellType>
               <HashCode>SpacingAndNewLine9</HashCode>
               <Severity>Red</Severity>
@@ -1179,7 +795,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>63</Id>
+              <Id>39</Id>
               <SmellType>ICS(空白與空行-9)</SmellType>
               <HashCode>SpacingAndNewLine9</HashCode>
               <Severity>Red</Severity>
@@ -1195,7 +811,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>64</Id>
+              <Id>40</Id>
               <SmellType>Long method(過長函式)</SmellType>
               <HashCode>LongMethod.DrawingState.MouseMove.29Shapes list;Point pos;</HashCode>
               <Severity>Warning</Severity>
@@ -1211,7 +827,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>65</Id>
+              <Id>41</Id>
               <SmellType>ICS(空白與空行-9)</SmellType>
               <HashCode>SpacingAndNewLine9</HashCode>
               <Severity>Red</Severity>
@@ -1227,7 +843,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>66</Id>
+              <Id>42</Id>
               <SmellType>ICS(空白與空行-9)</SmellType>
               <HashCode>SpacingAndNewLine9</HashCode>
               <Severity>Red</Severity>
@@ -1243,14 +859,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>67</Id>
+              <Id>43</Id>
               <SmellType>ICS(空白與空行-9)</SmellType>
               <HashCode>SpacingAndNewLine9</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>PointState.cs</File>
-              <Line>129</Line>
+              <Line>135</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1259,14 +875,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>68</Id>
+              <Id>44</Id>
               <SmellType>ICS(空白與空行-9)</SmellType>
               <HashCode>SpacingAndNewLine9</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>PointState.cs</File>
-              <Line>130</Line>
+              <Line>136</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1275,7 +891,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>69</Id>
+              <Id>45</Id>
               <SmellType>Long method(過長函式)</SmellType>
               <HashCode>LongMethod.PointState.MouseMove.25Shapes list;Point pos;</HashCode>
               <Severity>Warning</Severity>
@@ -1291,14 +907,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>70</Id>
+              <Id>46</Id>
               <SmellType>ICS(變數-1)</SmellType>
               <HashCode>Variable1.MockCommandManager.canRedo</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPointTests</Project>
               <File>MockCommandManager.cs</File>
-              <Line>12</Line>
+              <Line>8</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1307,13 +923,141 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>71</Id>
+              <Id>47</Id>
               <SmellType>ICS(類別宣告-1)</SmellType>
               <HashCode>ClassDeclaration1.MockCommandManager.canRedo</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPointTests</Project>
               <File>MockCommandManager.cs</File>
+              <Line>8</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>48</Id>
+              <SmellType>ICS(變數-1)</SmellType>
+              <HashCode>Variable1.MockCommandManager.canUndo</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPointTests</Project>
+              <File>MockCommandManager.cs</File>
+              <Line>9</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(變數-1) Class 成員變數以底線開始，底線後第一個字母小寫，若由多個單字組成，從第二個單字開始，每個單字的第一個字母大寫，其餘小寫。 不以底線區隔單字</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>49</Id>
+              <SmellType>ICS(類別宣告-1)</SmellType>
+              <HashCode>ClassDeclaration1.MockCommandManager.canUndo</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPointTests</Project>
+              <File>MockCommandManager.cs</File>
+              <Line>9</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>50</Id>
+              <SmellType>ICS(變數-1)</SmellType>
+              <HashCode>Variable1.MockCommandManager.execute</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPointTests</Project>
+              <File>MockCommandManager.cs</File>
+              <Line>10</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(變數-1) Class 成員變數以底線開始，底線後第一個字母小寫，若由多個單字組成，從第二個單字開始，每個單字的第一個字母大寫，其餘小寫。 不以底線區隔單字</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>51</Id>
+              <SmellType>ICS(類別宣告-1)</SmellType>
+              <HashCode>ClassDeclaration1.MockCommandManager.execute</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPointTests</Project>
+              <File>MockCommandManager.cs</File>
+              <Line>10</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>52</Id>
+              <SmellType>ICS(變數-1)</SmellType>
+              <HashCode>Variable1.MockCommandManager.redo</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPointTests</Project>
+              <File>MockCommandManager.cs</File>
+              <Line>11</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(變數-1) Class 成員變數以底線開始，底線後第一個字母小寫，若由多個單字組成，從第二個單字開始，每個單字的第一個字母大寫，其餘小寫。 不以底線區隔單字</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>53</Id>
+              <SmellType>ICS(類別宣告-1)</SmellType>
+              <HashCode>ClassDeclaration1.MockCommandManager.redo</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPointTests</Project>
+              <File>MockCommandManager.cs</File>
+              <Line>11</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>54</Id>
+              <SmellType>ICS(變數-1)</SmellType>
+              <HashCode>Variable1.MockCommandManager.undo</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPointTests</Project>
+              <File>MockCommandManager.cs</File>
+              <Line>12</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(變數-1) Class 成員變數以底線開始，底線後第一個字母小寫，若由多個單字組成，從第二個單字開始，每個單字的第一個字母大寫，其餘小寫。 不以底線區隔單字</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>55</Id>
+              <SmellType>ICS(類別宣告-1)</SmellType>
+              <HashCode>ClassDeclaration1.MockCommandManager.undo</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPointTests</Project>
+              <File>MockCommandManager.cs</File>
               <Line>12</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
@@ -1323,142 +1067,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>72</Id>
-              <SmellType>ICS(變數-1)</SmellType>
-              <HashCode>Variable1.MockCommandManager.canUndo</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPointTests</Project>
-              <File>MockCommandManager.cs</File>
-              <Line>13</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(變數-1) Class 成員變數以底線開始，底線後第一個字母小寫，若由多個單字組成，從第二個單字開始，每個單字的第一個字母大寫，其餘小寫。 不以底線區隔單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>73</Id>
-              <SmellType>ICS(類別宣告-1)</SmellType>
-              <HashCode>ClassDeclaration1.MockCommandManager.canUndo</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPointTests</Project>
-              <File>MockCommandManager.cs</File>
-              <Line>13</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>74</Id>
-              <SmellType>ICS(變數-1)</SmellType>
-              <HashCode>Variable1.MockCommandManager.execute</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPointTests</Project>
-              <File>MockCommandManager.cs</File>
-              <Line>14</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(變數-1) Class 成員變數以底線開始，底線後第一個字母小寫，若由多個單字組成，從第二個單字開始，每個單字的第一個字母大寫，其餘小寫。 不以底線區隔單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>75</Id>
-              <SmellType>ICS(類別宣告-1)</SmellType>
-              <HashCode>ClassDeclaration1.MockCommandManager.execute</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPointTests</Project>
-              <File>MockCommandManager.cs</File>
-              <Line>14</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>76</Id>
-              <SmellType>ICS(變數-1)</SmellType>
-              <HashCode>Variable1.MockCommandManager.redo</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPointTests</Project>
-              <File>MockCommandManager.cs</File>
-              <Line>15</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(變數-1) Class 成員變數以底線開始，底線後第一個字母小寫，若由多個單字組成，從第二個單字開始，每個單字的第一個字母大寫，其餘小寫。 不以底線區隔單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>77</Id>
-              <SmellType>ICS(類別宣告-1)</SmellType>
-              <HashCode>ClassDeclaration1.MockCommandManager.redo</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPointTests</Project>
-              <File>MockCommandManager.cs</File>
-              <Line>15</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>78</Id>
-              <SmellType>ICS(變數-1)</SmellType>
-              <HashCode>Variable1.MockCommandManager.undo</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPointTests</Project>
-              <File>MockCommandManager.cs</File>
-              <Line>16</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(變數-1) Class 成員變數以底線開始，底線後第一個字母小寫，若由多個單字組成，從第二個單字開始，每個單字的第一個字母大寫，其餘小寫。 不以底線區隔單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>79</Id>
-              <SmellType>ICS(類別宣告-1)</SmellType>
-              <HashCode>ClassDeclaration1.MockCommandManager.undo</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPointTests</Project>
-              <File>MockCommandManager.cs</File>
-              <Line>16</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(類別宣告-1) 除非為類別常數(static class constants)，成員變數請勿宣告為 public</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>80</Id>
+              <Id>56</Id>
               <SmellType>ICS(函式-3)</SmellType>
               <HashCode>Method3.MockCommandManager.CanRedo</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPointTests</Project>
               <File>MockCommandManager.cs</File>
-              <Line>18</Line>
+              <Line>14</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1467,14 +1083,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>81</Id>
+              <Id>57</Id>
               <SmellType>ICS(函式-3)</SmellType>
               <HashCode>Method3.MockCommandManager.CanUndo</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPointTests</Project>
               <File>MockCommandManager.cs</File>
-              <Line>23</Line>
+              <Line>19</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1483,14 +1099,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>82</Id>
+              <Id>58</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "Execute" lack of comments</SmellType>
-              <HashCode>PowerPoint.AddCommand.cs.Unresolved warnings(忽視警告)-The method "Execute" lack of comments.54</HashCode>
+              <HashCode>PowerPoint.DeleteCommand.cs.Unresolved warnings(忽視警告)-The method "Execute" lack of comments.13</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
-              <File>AddCommand.cs</File>
-              <Line>54</Line>
+              <File>DeleteCommand.cs</File>
+              <Line>13</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1499,105 +1115,9 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>83</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "Unexecute" lack of comments</SmellType>
-              <HashCode>PowerPoint.AddCommand.cs.Unresolved warnings(忽視警告)-The method "Unexecute" lack of comments.73</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>AddCommand.cs</File>
-              <Line>73</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>84</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "Execute" lack of comments</SmellType>
-              <HashCode>PowerPoint.CommandManager.cs.Unresolved warnings(忽視警告)-The method "Execute" lack of comments.21</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>CommandManager.cs</File>
-              <Line>21</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>85</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "CanUndo" lack of comments</SmellType>
-              <HashCode>PowerPoint.CommandManager.cs.Unresolved warnings(忽視警告)-The method "CanUndo" lack of comments.37</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>CommandManager.cs</File>
-              <Line>37</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>86</Id>
+              <Id>59</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "Undo" lack of comments</SmellType>
-              <HashCode>PowerPoint.CommandManager.cs.Unresolved warnings(忽視警告)-The method "Undo" lack of comments.42</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>CommandManager.cs</File>
-              <Line>42</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>87</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "CanRedo" lack of comments</SmellType>
-              <HashCode>PowerPoint.CommandManager.cs.Unresolved warnings(忽視警告)-The method "CanRedo" lack of comments.52</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>CommandManager.cs</File>
-              <Line>52</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>88</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "Redo" lack of comments</SmellType>
-              <HashCode>PowerPoint.CommandManager.cs.Unresolved warnings(忽視警告)-The method "Redo" lack of comments.57</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>CommandManager.cs</File>
-              <Line>57</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>89</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "Execute" lack of comments</SmellType>
-              <HashCode>PowerPoint.DeleteCommand.cs.Unresolved warnings(忽視警告)-The method "Execute" lack of comments.19</HashCode>
+              <HashCode>PowerPoint.DeleteCommand.cs.Unresolved warnings(忽視警告)-The method "Undo" lack of comments.19</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
@@ -1611,62 +1131,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>90</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "Unexecute" lack of comments</SmellType>
-              <HashCode>PowerPoint.DeleteCommand.cs.Unresolved warnings(忽視警告)-The method "Unexecute" lack of comments.25</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>DeleteCommand.cs</File>
-              <Line>25</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>91</Id>
+              <Id>60</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "Execute" lack of comments</SmellType>
-              <HashCode>PowerPoint.DrawCommand.cs.Unresolved warnings(忽視警告)-The method "Execute" lack of comments.53</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>DrawCommand.cs</File>
-              <Line>53</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>92</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "Unexecute" lack of comments</SmellType>
-              <HashCode>PowerPoint.DrawCommand.cs.Unresolved warnings(忽視警告)-The method "Unexecute" lack of comments.58</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>DrawCommand.cs</File>
-              <Line>58</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>93</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "Execute" lack of comments</SmellType>
-              <HashCode>PowerPoint.ICommand.cs.Unresolved warnings(忽視警告)-The method "Execute" lack of comments.11</HashCode>
+              <HashCode>PowerPoint.ICommand.cs.Unresolved warnings(忽視警告)-The method "Execute" lack of comments.5</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>ICommand.cs</File>
-              <Line>11</Line>
+              <Line>5</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1675,14 +1147,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>94</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "Unexecute" lack of comments</SmellType>
-              <HashCode>PowerPoint.ICommand.cs.Unresolved warnings(忽視警告)-The method "Unexecute" lack of comments.13</HashCode>
+              <Id>61</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "Undo" lack of comments</SmellType>
+              <HashCode>PowerPoint.ICommand.cs.Unresolved warnings(忽視警告)-The method "Undo" lack of comments.7</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>ICommand.cs</File>
-              <Line>13</Line>
+              <Line>7</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1691,14 +1163,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>95</Id>
+              <Id>62</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "Execute" lack of comments</SmellType>
-              <HashCode>PowerPoint.MoveCommand.cs.Unresolved warnings(忽視警告)-The method "Execute" lack of comments.41</HashCode>
+              <HashCode>PowerPoint.MoveCommand.cs.Unresolved warnings(忽視警告)-The method "Execute" lack of comments.37</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>MoveCommand.cs</File>
-              <Line>41</Line>
+              <Line>37</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1707,14 +1179,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>96</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "Unexecute" lack of comments</SmellType>
-              <HashCode>PowerPoint.MoveCommand.cs.Unresolved warnings(忽視警告)-The method "Unexecute" lack of comments.51</HashCode>
+              <Id>63</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "Undo" lack of comments</SmellType>
+              <HashCode>PowerPoint.MoveCommand.cs.Unresolved warnings(忽視警告)-The method "Undo" lack of comments.47</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>MoveCommand.cs</File>
-              <Line>51</Line>
+              <Line>47</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1723,14 +1195,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>97</Id>
+              <Id>64</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "Combine" lack of comments</SmellType>
-              <HashCode>PowerPoint.MoveCommand.cs.Unresolved warnings(忽視警告)-The method "Combine" lack of comments.61</HashCode>
+              <HashCode>PowerPoint.MoveCommand.cs.Unresolved warnings(忽視警告)-The method "Combine" lack of comments.57</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>MoveCommand.cs</File>
-              <Line>61</Line>
+              <Line>57</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1739,39 +1211,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>98</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "SlideButtonResize" lack of comments</SmellType>
-              <HashCode>PowerPoint.Form1.cs.Unresolved warnings(忽視警告)-The method "SlideButtonResize" lack of comments.281</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>281</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>99</Id>
-              <SmellType>Unresolved warnings(忽視警告)-The method "SplitContainer2Panel1Resize" lack of comments</SmellType>
-              <HashCode>PowerPoint.Form1.cs.Unresolved warnings(忽視警告)-The method "SplitContainer2Panel1Resize" lack of comments.287</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>287</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>100</Id>
+              <Id>65</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "TransFormMousePosition" lack of comments</SmellType>
               <HashCode>PowerPoint.PresentationModel.cs.Unresolved warnings(忽視警告)-The method "TransFormMousePosition" lack of comments.133</HashCode>
               <Severity>Red</Severity>
@@ -1787,14 +1227,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>101</Id>
+              <Id>66</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "TransformPoint" lack of comments</SmellType>
-              <HashCode>PowerPoint.Shape.cs.Unresolved warnings(忽視警告)-The method "TransformPoint" lack of comments.36</HashCode>
+              <HashCode>PowerPoint.Shape.cs.Unresolved warnings(忽視警告)-The method "TransformPoint" lack of comments.35</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>36</Line>
+              <Line>35</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1803,14 +1243,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>102</Id>
+              <Id>67</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "Initialize" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.MoveCommandTests.cs.Unresolved warnings(忽視警告)-The method "Initialize" lack of comments.16</HashCode>
+              <HashCode>..\PowerPointTests\PowerPointTests.MoveCommandTests.cs.Unresolved warnings(忽視警告)-The method "Initialize" lack of comments.11</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>..\PowerPointTests\PowerPointTests</Project>
               <File>MoveCommandTests.cs</File>
-              <Line>16</Line>
+              <Line>11</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1819,14 +1259,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>103</Id>
+              <Id>68</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "ExecuteTest" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.MoveCommandTests.cs.Unresolved warnings(忽視警告)-The method "ExecuteTest" lack of comments.22</HashCode>
+              <HashCode>..\PowerPointTests\PowerPointTests.MoveCommandTests.cs.Unresolved warnings(忽視警告)-The method "ExecuteTest" lack of comments.17</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>..\PowerPointTests\PowerPointTests</Project>
               <File>MoveCommandTests.cs</File>
-              <Line>22</Line>
+              <Line>17</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1835,14 +1275,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>104</Id>
+              <Id>69</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "UnexecuteTest" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.MoveCommandTests.cs.Unresolved warnings(忽視警告)-The method "UnexecuteTest" lack of comments.40</HashCode>
+              <HashCode>..\PowerPointTests\PowerPointTests.MoveCommandTests.cs.Unresolved warnings(忽視警告)-The method "UnexecuteTest" lack of comments.35</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>..\PowerPointTests\PowerPointTests</Project>
               <File>MoveCommandTests.cs</File>
-              <Line>40</Line>
+              <Line>35</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1851,14 +1291,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>105</Id>
+              <Id>70</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "CombineTest" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.MoveCommandTests.cs.Unresolved warnings(忽視警告)-The method "CombineTest" lack of comments.61</HashCode>
+              <HashCode>..\PowerPointTests\PowerPointTests.MoveCommandTests.cs.Unresolved warnings(忽視警告)-The method "CombineTest" lack of comments.56</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>..\PowerPointTests\PowerPointTests</Project>
               <File>MoveCommandTests.cs</File>
-              <Line>61</Line>
+              <Line>56</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1867,14 +1307,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>106</Id>
+              <Id>71</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "CanRedo" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.MockCommandManager.cs.Unresolved warnings(忽視警告)-The method "CanRedo" lack of comments.18</HashCode>
+              <HashCode>..\PowerPointTests\PowerPointTests.MockCommandManager.cs.Unresolved warnings(忽視警告)-The method "CanRedo" lack of comments.14</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>..\PowerPointTests\PowerPointTests</Project>
               <File>MockCommandManager.cs</File>
-              <Line>18</Line>
+              <Line>14</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1883,14 +1323,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>107</Id>
+              <Id>72</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "CanUndo" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.MockCommandManager.cs.Unresolved warnings(忽視警告)-The method "CanUndo" lack of comments.23</HashCode>
+              <HashCode>..\PowerPointTests\PowerPointTests.MockCommandManager.cs.Unresolved warnings(忽視警告)-The method "CanUndo" lack of comments.19</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>..\PowerPointTests\PowerPointTests</Project>
               <File>MockCommandManager.cs</File>
-              <Line>23</Line>
+              <Line>19</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1899,14 +1339,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>108</Id>
+              <Id>73</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "Execute" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.MockCommandManager.cs.Unresolved warnings(忽視警告)-The method "Execute" lack of comments.28</HashCode>
+              <HashCode>..\PowerPointTests\PowerPointTests.MockCommandManager.cs.Unresolved warnings(忽視警告)-The method "Execute" lack of comments.24</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>..\PowerPointTests\PowerPointTests</Project>
               <File>MockCommandManager.cs</File>
-              <Line>28</Line>
+              <Line>24</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1915,14 +1355,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>109</Id>
+              <Id>74</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "Redo" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.MockCommandManager.cs.Unresolved warnings(忽視警告)-The method "Redo" lack of comments.33</HashCode>
+              <HashCode>..\PowerPointTests\PowerPointTests.MockCommandManager.cs.Unresolved warnings(忽視警告)-The method "Redo" lack of comments.29</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>..\PowerPointTests\PowerPointTests</Project>
               <File>MockCommandManager.cs</File>
-              <Line>33</Line>
+              <Line>29</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1931,14 +1371,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>110</Id>
+              <Id>75</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "Undo" lack of comments</SmellType>
-              <HashCode>..\PowerPointTests\PowerPointTests.MockCommandManager.cs.Unresolved warnings(忽視警告)-The method "Undo" lack of comments.38</HashCode>
+              <HashCode>..\PowerPointTests\PowerPointTests.MockCommandManager.cs.Unresolved warnings(忽視警告)-The method "Undo" lack of comments.34</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>..\PowerPointTests\PowerPointTests</Project>
               <File>MockCommandManager.cs</File>
-              <Line>38</Line>
+              <Line>34</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -1947,7 +1387,23 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>111</Id>
+              <Id>76</Id>
+              <SmellType>Unresolved warnings(忽視警告)-The method "SetShapeType" lack of comments</SmellType>
+              <HashCode>..\PowerPointTests\PowerPointTests.PowerPointModelTests.cs.Unresolved warnings(忽視警告)-The method "SetShapeType" lack of comments.35</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>..\PowerPointTests\PowerPointTests</Project>
+              <File>PowerPointModelTests.cs</File>
+              <Line>35</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>77</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "UpdateDrawPanelSizeTest" lack of comments</SmellType>
               <HashCode>..\PowerPointTests\PowerPointTests.PresentationModelTests.cs.Unresolved warnings(忽視警告)-The method "UpdateDrawPanelSizeTest" lack of comments.164</HashCode>
               <Severity>Red</Severity>
@@ -1963,7 +1419,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>112</Id>
+              <Id>78</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "UpdateDrawPanelLocationTest" lack of comments</SmellType>
               <HashCode>..\PowerPointTests\PowerPointTests.PresentationModelTests.cs.Unresolved warnings(忽視警告)-The method "UpdateDrawPanelLocationTest" lack of comments.175</HashCode>
               <Severity>Red</Severity>
@@ -1979,7 +1435,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>113</Id>
+              <Id>79</Id>
               <SmellType>Unresolved warnings(忽視警告)-The method "ScaleFactorTest" lack of comments</SmellType>
               <HashCode>..\PowerPointTests\PowerPointTests.PresentationModelTests.cs.Unresolved warnings(忽視警告)-The method "ScaleFactorTest" lack of comments.186</HashCode>
               <Severity>Red</Severity>
@@ -1995,14 +1451,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>114</Id>
+              <Id>80</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>11 PowerPoint.ICommand.Execute(PowerPoint.Shapes)</HashCode>
+              <HashCode>5 PowerPoint.ICommand.Execute(PowerPoint.Shapes)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>ICommand.cs</File>
-              <Line>11</Line>
+              <Line>5</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -2011,57 +1467,41 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>115</Id>
+              <Id>81</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>13 PowerPoint.ICommand.Unexecute(PowerPoint.Shapes)</HashCode>
+              <HashCode>7 PowerPoint.ICommand.Undo(PowerPoint.Shapes)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>ICommand.cs</File>
+              <Line>7</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>PowerPoint.ICommand.Undo(PowerPoint.Shapes)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>82</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>13 PowerPoint.DeleteCommand.Execute(PowerPoint.Shapes)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>DeleteCommand.cs</File>
               <Line>13</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
               <EndCol>0</EndCol>
-              <Comment>PowerPoint.ICommand.Unexecute(PowerPoint.Shapes)</Comment>
+              <Comment>PowerPoint.DeleteCommand.Execute(PowerPoint.Shapes)</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>116</Id>
+              <Id>83</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>53 PowerPoint.DrawCommand.Execute(PowerPoint.Shapes)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>DrawCommand.cs</File>
-              <Line>53</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>PowerPoint.DrawCommand.Execute(PowerPoint.Shapes)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>117</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>58 PowerPoint.DrawCommand.Unexecute(PowerPoint.Shapes)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>DrawCommand.cs</File>
-              <Line>58</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>PowerPoint.DrawCommand.Unexecute(PowerPoint.Shapes)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>118</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>19 PowerPoint.DeleteCommand.Execute(PowerPoint.Shapes)</HashCode>
+              <HashCode>19 PowerPoint.DeleteCommand.Undo(PowerPoint.Shapes)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
@@ -2071,27 +1511,11 @@
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
               <EndCol>0</EndCol>
-              <Comment>PowerPoint.DeleteCommand.Execute(PowerPoint.Shapes)</Comment>
+              <Comment>PowerPoint.DeleteCommand.Undo(PowerPoint.Shapes)</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>119</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>25 PowerPoint.DeleteCommand.Unexecute(PowerPoint.Shapes)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>DeleteCommand.cs</File>
-              <Line>25</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>PowerPoint.DeleteCommand.Unexecute(PowerPoint.Shapes)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>120</Id>
+              <Id>84</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
               <HashCode>133 PowerPoint.PresentationModel.TransFormMousePosition(System.Drawing.Point)</HashCode>
               <Severity>Red</Severity>
@@ -2107,46 +1531,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>121</Id>
+              <Id>85</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>54 PowerPoint.AddCommand.Execute(PowerPoint.Shapes)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>AddCommand.cs</File>
-              <Line>54</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>PowerPoint.AddCommand.Execute(PowerPoint.Shapes)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>122</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>73 PowerPoint.AddCommand.Unexecute(PowerPoint.Shapes)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>AddCommand.cs</File>
-              <Line>73</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>PowerPoint.AddCommand.Unexecute(PowerPoint.Shapes)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>123</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>41 PowerPoint.MoveCommand.Execute(PowerPoint.Shapes)</HashCode>
+              <HashCode>37 PowerPoint.MoveCommand.Execute(PowerPoint.Shapes)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>MoveCommand.cs</File>
-              <Line>41</Line>
+              <Line>37</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -2155,30 +1547,30 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>124</Id>
+              <Id>86</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>51 PowerPoint.MoveCommand.Unexecute(PowerPoint.Shapes)</HashCode>
+              <HashCode>47 PowerPoint.MoveCommand.Undo(PowerPoint.Shapes)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>MoveCommand.cs</File>
-              <Line>51</Line>
+              <Line>47</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
               <EndCol>0</EndCol>
-              <Comment>PowerPoint.MoveCommand.Unexecute(PowerPoint.Shapes)</Comment>
+              <Comment>PowerPoint.MoveCommand.Undo(PowerPoint.Shapes)</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>125</Id>
+              <Id>87</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>61 PowerPoint.MoveCommand.Combine(PowerPoint.MoveCommand)</HashCode>
+              <HashCode>57 PowerPoint.MoveCommand.Combine(PowerPoint.MoveCommand)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>MoveCommand.cs</File>
-              <Line>61</Line>
+              <Line>57</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -2187,46 +1579,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>126</Id>
+              <Id>88</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>281 PowerPoint.Form1.SlideButtonResize(object, System.EventArgs)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>281</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>PowerPoint.Form1.SlideButtonResize(object, System.EventArgs)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>127</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>287 PowerPoint.Form1.SplitContainer2Panel1Resize(object, System.EventArgs)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>287</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>PowerPoint.Form1.SplitContainer2Panel1Resize(object, System.EventArgs)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>128</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>36 PowerPoint.Shape.TransformPoint(System.Drawing.Point)</HashCode>
+              <HashCode>35 PowerPoint.Shape.TransformPoint(System.Drawing.Point)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>36</Line>
+              <Line>35</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -2235,9 +1595,73 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>129</Id>
+              <Id>89</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>11 PowerPoint.ICommandManager.Execute(PowerPoint.ICommand)</HashCode>
+              <HashCode>5 PowerPoint.ICommandManager.Execute(PowerPoint.ICommand)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>ICommandManager.cs</File>
+              <Line>5</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>PowerPoint.ICommandManager.Execute(PowerPoint.ICommand)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>90</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>7 PowerPoint.ICommandManager.CanUndo()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>ICommandManager.cs</File>
+              <Line>7</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>PowerPoint.ICommandManager.CanUndo()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>91</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>8 PowerPoint.ICommandManager.Undo()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>ICommandManager.cs</File>
+              <Line>8</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>PowerPoint.ICommandManager.Undo()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>92</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>10 PowerPoint.ICommandManager.CanRedo()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>ICommandManager.cs</File>
+              <Line>10</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>PowerPoint.ICommandManager.CanRedo()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>93</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>11 PowerPoint.ICommandManager.Redo()</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
@@ -2247,162 +1671,18 @@
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
               <EndCol>0</EndCol>
-              <Comment>PowerPoint.ICommandManager.Execute(PowerPoint.ICommand)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>130</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>13 PowerPoint.ICommandManager.CanUndo()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>ICommandManager.cs</File>
-              <Line>13</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>PowerPoint.ICommandManager.CanUndo()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>131</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>14 PowerPoint.ICommandManager.Undo()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>ICommandManager.cs</File>
-              <Line>14</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>PowerPoint.ICommandManager.Undo()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>132</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>16 PowerPoint.ICommandManager.CanRedo()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>ICommandManager.cs</File>
-              <Line>16</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>PowerPoint.ICommandManager.CanRedo()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>133</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>17 PowerPoint.ICommandManager.Redo()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>ICommandManager.cs</File>
-              <Line>17</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
               <Comment>PowerPoint.ICommandManager.Redo()</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>134</Id>
+              <Id>94</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>21 PowerPoint.CommandManager.Execute(PowerPoint.ICommand)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>CommandManager.cs</File>
-              <Line>21</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>PowerPoint.CommandManager.Execute(PowerPoint.ICommand)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>135</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>37 PowerPoint.CommandManager.CanUndo()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>CommandManager.cs</File>
-              <Line>37</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>PowerPoint.CommandManager.CanUndo()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>136</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>42 PowerPoint.CommandManager.Undo()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>CommandManager.cs</File>
-              <Line>42</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>PowerPoint.CommandManager.Undo()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>137</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>52 PowerPoint.CommandManager.CanRedo()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>CommandManager.cs</File>
-              <Line>52</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>PowerPoint.CommandManager.CanRedo()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>138</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>57 PowerPoint.CommandManager.Redo()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>CommandManager.cs</File>
-              <Line>57</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>PowerPoint.CommandManager.Redo()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>139</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>18 PowerPointTests.MockCommandManager.CanRedo()</HashCode>
+              <HashCode>14 PowerPointTests.MockCommandManager.CanRedo()</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPointTests</Project>
               <File>MockCommandManager.cs</File>
-              <Line>18</Line>
+              <Line>14</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -2411,14 +1691,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>140</Id>
+              <Id>95</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>23 PowerPointTests.MockCommandManager.CanUndo()</HashCode>
+              <HashCode>19 PowerPointTests.MockCommandManager.CanUndo()</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPointTests</Project>
               <File>MockCommandManager.cs</File>
-              <Line>23</Line>
+              <Line>19</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -2427,14 +1707,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>141</Id>
+              <Id>96</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>28 PowerPointTests.MockCommandManager.Execute(PowerPoint.ICommand)</HashCode>
+              <HashCode>24 PowerPointTests.MockCommandManager.Execute(PowerPoint.ICommand)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPointTests</Project>
               <File>MockCommandManager.cs</File>
-              <Line>28</Line>
+              <Line>24</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -2443,14 +1723,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>142</Id>
+              <Id>97</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>33 PowerPointTests.MockCommandManager.Redo()</HashCode>
+              <HashCode>29 PowerPointTests.MockCommandManager.Redo()</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPointTests</Project>
               <File>MockCommandManager.cs</File>
-              <Line>33</Line>
+              <Line>29</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -2459,14 +1739,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>143</Id>
+              <Id>98</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>38 PowerPointTests.MockCommandManager.Undo()</HashCode>
+              <HashCode>34 PowerPointTests.MockCommandManager.Undo()</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPointTests</Project>
               <File>MockCommandManager.cs</File>
-              <Line>38</Line>
+              <Line>34</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -2475,151 +1755,71 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>144</Id>
+              <Id>99</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>47 目前物件 PowerPoint.MoveCommand，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Shape，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Shape.ResizeBasedOnDirection(PowerPoint.ResizeDirection, int, int) 以及 PowerPoint.Shape.ResizeBasedOnDirection(PowerPoint.ResizeDirection, int, int)</HashCode>
+              <HashCode>43 目前物件 PowerPoint.MoveCommand，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Shape，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Shape.ResizeBasedOnDirection(PowerPoint.ResizeDirection, int, int) 以及 PowerPoint.Shape.ResizeBasedOnDirection(PowerPoint.ResizeDirection, int, int)</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\user\Desktop\視窗程式設計\PowerPoint\Command\MoveCommand.cs</File>
-              <Line>47</Line>
-              <StartLine>46</StartLine>
+              <Line>43</Line>
+              <StartLine>42</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>47</EndLine>
+              <EndLine>43</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 PowerPoint.MoveCommand，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Shape，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Shape.ResizeBasedOnDirection(PowerPoint.ResizeDirection, int, int) 以及 PowerPoint.Shape.ResizeBasedOnDirection(PowerPoint.ResizeDirection, int, int)</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>145</Id>
+              <Id>100</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>57 目前物件 PowerPoint.MoveCommand，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Shape，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Shape.ResizeBasedOnDirection(PowerPoint.ResizeDirection, int, int) 以及 PowerPoint.Shape.ResizeBasedOnDirection(PowerPoint.ResizeDirection, int, int)</HashCode>
+              <HashCode>53 目前物件 PowerPoint.MoveCommand，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Shape，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Shape.ResizeBasedOnDirection(PowerPoint.ResizeDirection, int, int) 以及 PowerPoint.Shape.ResizeBasedOnDirection(PowerPoint.ResizeDirection, int, int)</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\user\Desktop\視窗程式設計\PowerPoint\Command\MoveCommand.cs</File>
-              <Line>57</Line>
-              <StartLine>56</StartLine>
+              <Line>53</Line>
+              <StartLine>52</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>57</EndLine>
+              <EndLine>53</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 PowerPoint.MoveCommand，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Shape，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Shape.ResizeBasedOnDirection(PowerPoint.ResizeDirection, int, int) 以及 PowerPoint.Shape.ResizeBasedOnDirection(PowerPoint.ResizeDirection, int, int)</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>146</Id>
+              <Id>101</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>191 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：2次，Envy到對象物件 PowerPoint.PresentationModel，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.PresentationModel.DrawPanelScaleX 以及 PowerPoint.PresentationModel.DrawPanelScaleY 以及 PowerPoint.PresentationModel.AddRandomShape(PowerPoint.ShapeType, int, int)</HashCode>
+              <HashCode>193 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：2次，Envy到對象物件 PowerPoint.PresentationModel，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.PresentationModel.DrawPanelScaleX 以及 PowerPoint.PresentationModel.DrawPanelScaleY 以及 PowerPoint.PresentationModel.AddRandomShape(PowerPoint.ShapeType, int, int)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\user\Desktop\視窗程式設計\PowerPoint\Form1.cs</File>
-              <Line>191</Line>
-              <StartLine>190</StartLine>
+              <Line>193</Line>
+              <StartLine>192</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>191</EndLine>
+              <EndLine>193</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：2次，Envy到對象物件 PowerPoint.PresentationModel，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.PresentationModel.DrawPanelScaleX 以及 PowerPoint.PresentationModel.DrawPanelScaleY 以及 PowerPoint.PresentationModel.AddRandomShape(PowerPoint.ShapeType, int, int)</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>147</Id>
+              <Id>102</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>213 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.PresentationModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.PresentationModel.Model 以及 PowerPoint.PresentationModel.SetState(PowerPoint.IState)</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\user\Desktop\視窗程式設計\PowerPoint\Form1.cs</File>
-              <Line>213</Line>
-              <StartLine>212</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>213</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.PresentationModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.PresentationModel.Model 以及 PowerPoint.PresentationModel.SetState(PowerPoint.IState)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>148</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>221 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.PresentationModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.PresentationModel.Model 以及 PowerPoint.PresentationModel.SetState(PowerPoint.IState)</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\user\Desktop\視窗程式設計\PowerPoint\Form1.cs</File>
-              <Line>221</Line>
-              <StartLine>220</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>221</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.PresentationModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.PresentationModel.Model 以及 PowerPoint.PresentationModel.SetState(PowerPoint.IState)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>149</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>229 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.PresentationModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.PresentationModel.Model 以及 PowerPoint.PresentationModel.SetState(PowerPoint.IState)</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\user\Desktop\視窗程式設計\PowerPoint\Form1.cs</File>
-              <Line>229</Line>
-              <StartLine>228</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>229</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.PresentationModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.PresentationModel.Model 以及 PowerPoint.PresentationModel.SetState(PowerPoint.IState)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>150</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>241 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.PresentationModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.PresentationModel.Model 以及 PowerPoint.PresentationModel.SetState(PowerPoint.IState)</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\user\Desktop\視窗程式設計\PowerPoint\Form1.cs</File>
-              <Line>241</Line>
-              <StartLine>240</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>241</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.PresentationModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.PresentationModel.Model 以及 PowerPoint.PresentationModel.SetState(PowerPoint.IState)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>151</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>245 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.PresentationModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.PresentationModel.Model 以及 PowerPoint.PresentationModel.SetState(PowerPoint.IState)</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\user\Desktop\視窗程式設計\PowerPoint\Form1.cs</File>
-              <Line>245</Line>
-              <StartLine>244</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>245</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.PresentationModel，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.PresentationModel.Model 以及 PowerPoint.PresentationModel.SetState(PowerPoint.IState)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>152</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>296 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.PresentationModel，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.PresentationModel.UpdateDrawPanelSize(int, int) 以及 PowerPoint.PresentationModel.UpdateDrawPanelSize(int, int) 以及 PowerPoint.PresentationModel.UpdateDrawPanelLocation(int, int, int, int)</HashCode>
+              <HashCode>324 目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.PresentationModel，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.PresentationModel.UpdateDrawPanelSize(int, int) 以及 PowerPoint.PresentationModel.UpdateDrawPanelSize(int, int) 以及 PowerPoint.PresentationModel.UpdateDrawPanelLocation(int, int, int, int)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\user\Desktop\視窗程式設計\PowerPoint\Form1.cs</File>
-              <Line>296</Line>
-              <StartLine>294</StartLine>
+              <Line>324</Line>
+              <StartLine>323</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>296</EndLine>
+              <EndLine>324</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 PowerPoint.Form1，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.PresentationModel，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.PresentationModel.UpdateDrawPanelSize(int, int) 以及 PowerPoint.PresentationModel.UpdateDrawPanelSize(int, int) 以及 PowerPoint.PresentationModel.UpdateDrawPanelLocation(int, int, int, int)</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>153</Id>
+              <Id>103</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>21 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</HashCode>
               <Severity>Warning</Severity>
@@ -2635,7 +1835,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>154</Id>
+              <Id>104</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>22 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</HashCode>
               <Severity>Red</Severity>
@@ -2651,7 +1851,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>155</Id>
+              <Id>105</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>85 目前物件 PowerPoint.DrawingState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Shapes，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Shapes.Count 以及 PowerPoint.Shapes.Count</HashCode>
               <Severity>Warning</Severity>
@@ -2667,17 +1867,17 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>156</Id>
+              <Id>106</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>28 目前物件 PowerPoint.CommandManager，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.MoveCommand，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.MoveCommand.Combine(PowerPoint.MoveCommand) 以及 PowerPoint.MoveCommand.CombinePreviousCommand</HashCode>
+              <HashCode>25 目前物件 PowerPoint.CommandManager，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.MoveCommand，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.MoveCommand.Combine(PowerPoint.MoveCommand) 以及 PowerPoint.MoveCommand.CombinePreviousCommand</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\user\Desktop\視窗程式設計\PowerPoint\Command\CommandManager.cs</File>
-              <Line>28</Line>
-              <StartLine>27</StartLine>
+              <Line>25</Line>
+              <StartLine>24</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>28</EndLine>
+              <EndLine>25</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 PowerPoint.CommandManager，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.MoveCommand，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.MoveCommand.Combine(PowerPoint.MoveCommand) 以及 PowerPoint.MoveCommand.CombinePreviousCommand</Comment>
               <Auto>false</Auto>
@@ -2979,8 +2179,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>2936</ProductionLoc>
-          <TestLoc>2100</TestLoc>
+          <ProductionLoc>2922</ProductionLoc>
+          <TestLoc>2076</TestLoc>
         </CodeReview>
       </Data>
     </div>

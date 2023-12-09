@@ -1,10 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PowerPoint.Tests
 {
@@ -40,10 +34,10 @@ namespace PowerPoint.Tests
             {
                 DeleteIndex = 0
             };
-            cmd.Unexecute(_list);
+            cmd.Undo(_list);
             Assert.AreEqual(1, _list.Count);
             cmd.Execute(_list);
-            cmd.Unexecute(_list);
+            cmd.Undo(_list);
             Assert.AreEqual(1, _list.Count);
             Assert.AreEqual(shape, _list[0]);
         }

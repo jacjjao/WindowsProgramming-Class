@@ -1,10 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
 namespace PowerPoint.Tests
@@ -59,11 +53,11 @@ namespace PowerPoint.Tests
                 ScreenWidth = 800,
                 ScreenHeight = 600
             };
-            addRandom.Unexecute(_list);
+            addRandom.Undo(_list);
             Assert.AreEqual(0, _list.Count);
 
             addRandom.Execute(_list);
-            addRandom.Unexecute(_list);
+            addRandom.Undo(_list);
             Assert.AreEqual(0, _list.Count);
         }
     }

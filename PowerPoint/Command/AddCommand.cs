@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint
@@ -51,6 +47,7 @@ namespace PowerPoint
             set;
         }
 
+        /* execute */
         public void Execute(Shapes list)
         {
             if (AddShape != null)
@@ -70,7 +67,8 @@ namespace PowerPoint
             AddShape = list.Content.Last();
         }
 
-        public void Unexecute(Shapes list)
+        /* undo(Unexecute會報名不符實) */
+        public void Undo(Shapes list)
         {
             if (AddShape != null)
             {
