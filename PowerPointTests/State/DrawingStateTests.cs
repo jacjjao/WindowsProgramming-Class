@@ -75,7 +75,7 @@ namespace PowerPoint.Tests
             bool executed = false;
             var manager = new MockCommandManager
             {
-                execute = (ICommand command) =>
+                _execute = (ICommand command) =>
                 {
                     executed = true;
                     var addCommand = (AddCommand)command;
@@ -121,6 +121,13 @@ namespace PowerPoint.Tests
 
             _list.AddRandomShape(ShapeType.Circle, 800, 600);
             _statePrivate.SetFieldOrProperty("_mousePressed", true);
+            _statePrivate.SetFieldOrProperty("_shape", _list[_list.Count - 1]);
+            _state.MouseUp(_list, _p2);
+            Assert.IsFalse((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
+
+            _list.AddRandomShape(ShapeType.Circle, 800, 600);
+            _statePrivate.SetFieldOrProperty("_mousePressed", true);
+            _statePrivate.SetFieldOrProperty("_shape", null);
             _state.MouseUp(_list, _p2);
             Assert.IsFalse((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
 

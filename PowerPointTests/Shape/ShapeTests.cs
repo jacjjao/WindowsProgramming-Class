@@ -363,5 +363,15 @@ namespace PowerPoint.Tests
             }
             Assert.IsTrue(thrown is ArgumentException);
         }
+
+        /* test */
+        [TestMethod]
+        public void PropertyTest()
+        {
+            _shape.ScaleX = 2.0f;
+            _shape.ScaleY = 10.0f;
+            Assert.AreEqual(2.0f, _shape.ScaleX);
+            Assert.AreEqual(10.0f, _shape.ScaleY);
+        }
     }
 }

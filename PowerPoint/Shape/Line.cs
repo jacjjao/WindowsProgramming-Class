@@ -45,16 +45,16 @@ namespace PowerPoint
 
         public Line(Point pointFirst, Point pointSecond)
         {
-            CreationResize(pointFirst, pointSecond);
+            DoCreationResize(pointFirst, pointSecond);
         }
 
         /* get info */
         public override string GetInfo()
         {
             const string FORMAT = "({0},{1})({2},{3})";
-            var pl = TransformPoint(PointLeft);
-            var pr = TransformPoint(PointRight);
-            return string.Format(FORMAT, pl.X, pl.Y, pr.X, pr.Y);
+            var pointLeft = TransformPoint(PointLeft);
+            var pointRight = TransformPoint(PointRight);
+            return string.Format(FORMAT, pointLeft.X, pointLeft.Y, pointRight.X, pointRight.Y);
         }
 
         /* get shape name */
@@ -89,7 +89,7 @@ namespace PowerPoint
         }
 
         /* creation resize */
-        public override void CreationResize(Point pointFirst, Point pointSecond)
+        public override void DoCreationResize(Point pointFirst, Point pointSecond)
         {
             if (pointFirst.X <= pointSecond.X)
             {
@@ -104,8 +104,8 @@ namespace PowerPoint
             _type = PointLeft.Y <= PointRight.Y ? Type.BackwardSlash : Type.ForwardSlash;
         }
 
-        /* resize */
-        public override void Resize(Point pointFirst, Point pointSecond)
+        /* 線的方向可能需要改變 */
+        private void ChangeDirection(Point pointFirst, Point pointSecond)
         {
             if (pointFirst.X > pointSecond.X || pointFirst.Y > pointSecond.Y)
             {
@@ -114,7 +114,12 @@ namespace PowerPoint
                 else
                     _type = Type.BackwardSlash;
             }
+        }
 
+        /* resize */
+        public override void Resize(Point pointFirst, Point pointSecond)
+        {
+            ChangeDirection(pointFirst, pointSecond);
             if (_type == Type.BackwardSlash)
             {
                 _startPoint.X = Math.Min(pointFirst.X, pointSecond.X);

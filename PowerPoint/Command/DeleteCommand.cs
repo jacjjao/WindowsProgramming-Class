@@ -10,12 +10,14 @@
             set;
         }
 
+        /* execute */
         public void Execute(Shapes list)
         {
             _shape = list[DeleteIndex];
             list.RemoveAt(DeleteIndex);
         }
 
+        /* undo */
         public void Undo(Shapes list)
         {
             if (_shape != null)

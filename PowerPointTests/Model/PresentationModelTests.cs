@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using PowerPoint;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using Point = System.Drawing.Point;
 
@@ -9,6 +10,7 @@ namespace PowerPoint.Tests
     {
         PowerPointModel _m;
         PresentationModel _model;
+        PrivateObject _modelPrivate;
 
         /* initialize */
         [TestInitialize]
@@ -16,6 +18,7 @@ namespace PowerPoint.Tests
         {
             _m = new PowerPointModel();
             _model = new PresentationModel(_m);
+            _modelPrivate = new PrivateObject(_model);
         }
 
         /* constructor */
@@ -160,37 +163,56 @@ namespace PowerPoint.Tests
             Assert.IsTrue(_m.ShapeList.Content.All((shape) => shape.Selected == false));
         }
 
+        /* test */
         [TestMethod]
         public void UpdateDrawPanelSizeTest()
         {
-            var size = _model.UpdateDrawPanelSize(800, 600);
+            var size = (Point)_modelPrivate.Invoke("UpdateDrawPanelSize", 800, 600);
             Assert.AreEqual(800, size.X);
             Assert.AreEqual(450, size.Y);
-            size = _model.UpdateDrawPanelSize(1700, 900);
-            Assert.AreEqual(1600, size.X);
-            Assert.AreEqual(900, size.Y);
+            size = (Point)_modelPrivate.Invoke("UpdateDrawPanelSize", 1600, 90);
+            Assert.AreEqual(160, size.X);
+            Assert.AreEqual(90, size.Y);
         }
 
+        /* test */
         [TestMethod]
         public void UpdateDrawPanelLocationTest()
         {
             int containerWidth = 800;
             int containerHeight = 600;
-            var size = _model.UpdateDrawPanelSize(containerWidth, containerHeight);
-            var pos = _model.UpdateDrawPanelLocation(containerWidth, containerHeight, size.X, size.Y);
+            var size = (Point)_modelPrivate.Invoke("UpdateDrawPanelSize", containerWidth, containerHeight);
+            var pos = (Point)_modelPrivate.Invoke("UpdateDrawPanelLocation", containerWidth, containerHeight, size.X, size.Y);
             Assert.AreEqual(0, pos.X);
             Assert.AreEqual((600 - 450) / 2, pos.Y);
         }
 
+        /* test */
         [TestMethod]
         public void ScaleFactorTest()
         {
-            _model.InitDrawPanelWidth = 800;
-            _model.InitDrawPanelHeight = 600;
+            _modelPrivate.SetFieldOrProperty("_initialWidth", 800);
+            _modelPrivate.SetFieldOrProperty("_initialHeight", 600);
             _model.CurrentDrawPanelWidth = 1600;
             _model.CurrentDrawPanelHeight = 300;
             Assert.AreEqual(2.0f, _model.DrawPanelScaleX);
             Assert.AreEqual(0.5f, _model.DrawPanelScaleY);
+        }
+
+        /* test */
+        [TestMethod]
+        public void UpdateDrawPanelSizeAndPositionTest()
+        {
+            _m.AddRandomShape(ShapeType.Circle, 800, 600);
+
+            var panel = new DoubleBufferedPanel();
+            _model.UpdateDrawPanelSizeAndPosition(panel, 800, 600);
+            Assert.AreEqual(800, panel.Width);
+            Assert.AreEqual(450, panel.Height);
+
+            _model.UpdateDrawPanelSizeAndPosition(panel, 1600, 1000);
+            Assert.AreEqual(1600, panel.Width);
+            Assert.AreEqual(900, panel.Height);
         }
     }
 }

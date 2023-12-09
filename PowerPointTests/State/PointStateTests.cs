@@ -90,7 +90,7 @@ namespace PowerPoint.Tests
             var p = new Point(50, 50);
             _state.Manager = new MockCommandManager
             {
-                execute = (ICommand command) =>
+                _execute = (ICommand command) =>
                 {
                     var moveCommand = (MoveCommand)command;
                     executed = true;
@@ -149,7 +149,7 @@ namespace PowerPoint.Tests
             Assert.IsNull(_statePrivate.GetFieldOrProperty("_selectedShape"));
 
             var manager = new MockCommandManager();
-            manager.execute = (ICommand command) =>
+            manager._execute = (ICommand command) =>
             {
                 command.Execute(_list);
             };

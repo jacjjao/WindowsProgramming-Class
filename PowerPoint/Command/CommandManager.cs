@@ -32,7 +32,7 @@ namespace PowerPoint
         }
 
         /* can undo */
-        public bool CanUndo()
+        public bool IsCanUndo()
         {
             return _undo.Count > 0;
         }
@@ -40,7 +40,7 @@ namespace PowerPoint
         /* undo */
         public void Undo()
         {
-            if (CanUndo())
+            if (IsCanUndo())
             {
                 var command = _undo.Pop();
                 command.Undo(_list);
@@ -49,7 +49,7 @@ namespace PowerPoint
         }
 
         /* can redo */
-        public bool CanRedo()
+        public bool IsCanRedo()
         {
             return _redo.Count > 0;
         }
@@ -57,7 +57,7 @@ namespace PowerPoint
         /* redo */
         public void Redo()
         {
-            if (CanRedo())
+            if (IsCanRedo())
             {
                 var redoCommand = _redo.Pop();
                 redoCommand.Execute(_list);

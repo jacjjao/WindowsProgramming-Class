@@ -77,7 +77,10 @@ namespace PowerPoint
         /* draw all */
         public void DrawAll(IGraphics graphics)
         {
-            Manager.Execute(new DrawCommand { DrawPen = DrawPen, Graphics = graphics });
+            var command = new DrawCommand();
+            command.DrawPen = DrawPen;
+            command.Graphics = graphics;
+            Manager.Execute(command);
         }
 
         /* mouse down */
@@ -102,23 +105,19 @@ namespace PowerPoint
         /* add shape */
         public void AddRandomShape(ShapeType type, int screenWidth, int screenHeight)
         {
-            AddCommand command = new AddCommand
-            {
-                AddRandom = true,
-                Type = type,
-                ScreenWidth = screenWidth,
-                ScreenHeight = screenHeight
-            };
+            AddCommand command = new AddCommand();
+            command.AddRandom = true;
+            command.Type = type;
+            command.ScreenWidth = screenWidth;
+            command.ScreenHeight = screenHeight;
             _manager.Execute(command);
         }
 
         /* remove at */
         public void RemoveAt(int index)
         {
-            DeleteCommand command = new DeleteCommand
-            {
-                DeleteIndex = index
-            };
+            DeleteCommand command = new DeleteCommand();
+            command.DeleteIndex = index;
             _manager.Execute(command);
         }
 

@@ -7,8 +7,12 @@ namespace PowerPoint
 {
     public abstract partial class Shape : INotifyPropertyChanged
     {
-        static float _scaleX = 1.0f;
-        public static float ScaleX
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        const float INITIAL_SCALE_VALUE = 1.0f;
+
+        float _scaleX = INITIAL_SCALE_VALUE;
+        public float ScaleX
         {
             get
             {
@@ -19,8 +23,8 @@ namespace PowerPoint
                 _scaleX = value;
             }
         }
-        static float _scaleY = 1.0f;
-        public static float ScaleY
+        float _scaleY = INITIAL_SCALE_VALUE;
+        public float ScaleY
         {
             get
             {
@@ -32,14 +36,13 @@ namespace PowerPoint
             }
         }
 
-        public static Point TransformPoint(Point point)
+        /* transform point */
+        public Point TransformPoint(Point point)
         {
             point.X = (int)((float)point.X * _scaleX);
             point.Y = (int)((float)point.Y * _scaleY);
             return point;
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public string Info
         {
@@ -70,7 +73,7 @@ namespace PowerPoint
         public abstract void Move(int differenceX, int differenceY);
 
         /* 有些形狀在創建時縮放的邏輯和創建完後縮放的邏輯不同 */
-        public virtual void CreationResize(Point pointFirst, Point pointSecond)
+        public virtual void DoCreationResize(Point pointFirst, Point pointSecond)
         {
             Resize(pointFirst, pointSecond);
         }

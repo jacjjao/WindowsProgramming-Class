@@ -44,23 +44,16 @@ namespace PowerPoint
             return Cursors.Cross;
         }
 
-        /* mouse move */
-        public Cursor MouseMove(Shapes list, Point pos)
+        /* draw or resize the shape */
+        private void DrawOrResizeTheShape(Shapes list)
         {
-            if (!_mousePressed)
-            {
-                return _type == ShapeType.None ? Cursors.Default : Cursors.Cross;
-            }
-            _drawEndPos = pos;
             if (!_mouseMoved)
             {
-                var command = new AddCommand
-                {
-                    AddRandom = false,
-                    PointFirst = _drawStartPos,
-                    PointSecond = _drawEndPos,
-                    Type = _type,
-                };
+                var command = new AddCommand();
+                command.AddRandom = false;
+                command.PointFirst = _drawStartPos;
+                command.PointSecond = _drawEndPos;
+                command.Type = _type;
                 if (_manager == null)
                     command.Execute(list);
                 else
@@ -69,9 +62,18 @@ namespace PowerPoint
                 _mouseMoved = true;
             }
             else
+                _shape.DoCreationResize(_drawStartPos, _drawEndPos);
+        }
+
+        /* mouse move */
+        public Cursor MouseMove(Shapes list, Point pos)
+        {
+            if (!_mousePressed)
             {
-                _shape.CreationResize(_drawStartPos, _drawEndPos);
+                return _type == ShapeType.None ? Cursors.Default : Cursors.Cross;
             }
+            _drawEndPos = pos;
+            DrawOrResizeTheShape(list);
             return Cursors.Cross;
         }
 
@@ -81,8 +83,8 @@ namespace PowerPoint
             if (!_mousePressed)
                 return Cursors.Default;
             _mousePressed = false;
-            if (list.Count > 0)
-                list[list.Count - 1].NotifyPropertyChanged();
+            if (_shape != null)
+                _shape.NotifyPropertyChanged();
             return Cursors.Default;
         }
     }

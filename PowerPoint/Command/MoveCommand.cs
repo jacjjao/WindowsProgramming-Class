@@ -34,6 +34,7 @@ namespace PowerPoint
             set;
         }
 
+        /* execute */
         public void Execute(Shapes list)
         {
             const int ZERO = 0;
@@ -44,6 +45,7 @@ namespace PowerPoint
             }
         }
 
+        /* undo */
         public void Undo(Shapes list)
         {
             const int ZERO = 0;
@@ -54,6 +56,7 @@ namespace PowerPoint
             }
         }
 
+        /* combine */
         public void Combine(MoveCommand other)
         {
             if (!Equals(SelectShape, other.SelectShape))

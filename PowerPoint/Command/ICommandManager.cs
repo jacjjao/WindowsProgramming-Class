@@ -2,12 +2,19 @@
 {
     public interface ICommandManager
     {
+        /* execute */
         void Execute(ICommand command);
 
-        bool CanUndo();
+        /* can undo */
+        bool IsCanUndo();
+
+        /* undo */
         void Undo();
 
-        bool CanRedo();
+        /* can redo */
+        bool IsCanRedo();
+
+        /* redo */
         void Redo();
     }
 }

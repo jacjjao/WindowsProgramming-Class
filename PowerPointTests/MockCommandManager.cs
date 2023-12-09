@@ -5,35 +5,40 @@ namespace PowerPointTests
 {
     public class MockCommandManager : ICommandManager
     {
-        public Func<bool> canRedo = null;
-        public Func<bool> canUndo = null;
-        public Action<ICommand> execute = null;
-        public Action redo = null;
-        public Action undo = null;
+        public Func<bool> _canRedo = null;
+        public Func<bool> _canUndo = null;
+        public Action<ICommand> _execute = null;
+        public Action _redo = null;
+        public Action _undo = null;
 
-        public bool CanRedo()
+        /* can redo */
+        public bool IsCanRedo()
         {
-            return canRedo.Invoke();
+            return _canRedo.Invoke();
         }
 
-        public bool CanUndo()
+        /* can undo */
+        public bool IsCanUndo()
         {
-            return canUndo.Invoke();
+            return _canUndo.Invoke();
         }
 
+        /* execute */
         public void Execute(ICommand command)
         {
-            execute.Invoke(command);
+            _execute.Invoke(command);
         }
 
+        /* redo */
         public void Redo()
         {
-            redo.Invoke();
+            _redo.Invoke();
         }
 
+        /* undo */
         public void Undo()
         {
-            undo.Invoke();
+            _undo.Invoke();
         }
     }
 }

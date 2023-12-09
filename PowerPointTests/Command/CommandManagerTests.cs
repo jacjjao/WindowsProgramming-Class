@@ -48,11 +48,11 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void CanUndoTest()
         {
-            Assert.IsFalse(_manager.CanUndo());
+            Assert.IsFalse(_manager.IsCanUndo());
             _manager.Execute(new MoveCommand
             {
             });
-            Assert.IsTrue(_manager.CanUndo());
+            Assert.IsTrue(_manager.IsCanUndo());
         }
 
         [TestMethod]
@@ -69,10 +69,10 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void CanRedoTest()
         {
-            Assert.IsFalse(_manager.CanRedo());
+            Assert.IsFalse(_manager.IsCanRedo());
             var redoStack = (Stack<ICommand>)_managerPrivate.GetFieldOrProperty("_redo");
             redoStack.Push(new MoveCommand());
-            Assert.IsTrue(_manager.CanRedo());
+            Assert.IsTrue(_manager.IsCanRedo());
         }
 
         [TestMethod]

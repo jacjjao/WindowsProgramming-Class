@@ -20,8 +20,6 @@ namespace PowerPoint
         readonly BindingSource _bindingSource = new BindingSource();
         FormGraphicsAdapter _graphics;
 
-        bool _sizeAssign = false;
-
         public Form1(PresentationModel presentationModel)
         {
             InitializeComponent();
@@ -132,7 +130,7 @@ namespace PowerPoint
                 Dock = DockStyle.None,
                 BackColor = Color.White
             };
-            splitContainer2.Panel1.Controls.Add(_drawPanel);
+            _splitContainer4.Panel1.Controls.Add(_drawPanel);
             _drawPanel.MouseUp += DoDrawPanelMouseUp;
             _drawPanel.MouseMove += DoDrawPanelMouseMove;
             _drawPanel.MouseDown += DoDrawPanelMouseDown;
@@ -190,7 +188,7 @@ namespace PowerPoint
         {
             if (_shapeComboBox.SelectedIndex < 0)
                 return;
-            _presentModel.AddRandomShape((ShapeType)_shapeComboBox.SelectedIndex, (int)(_drawPanel.Width / _presentModel.DrawPanelScaleX), (int)(_drawPanel.Height / _presentModel.DrawPanelScaleY));
+            _presentModel.AddRandomShape((ShapeType)_shapeComboBox.SelectedIndex, _drawPanel.Width, _drawPanel.Height);
         }
 
         /* 處理DataGridView上的"刪除"按鈕被按的event */
@@ -297,34 +295,14 @@ namespace PowerPoint
             _slideButton1.Height = (int)((float)_slideButton1.Width / TARGET_ASPECT_RATIO);
         }
 
-        /* notify draw panel size */
-        private void NotifyDrawPanelSize()
-        {
-            if (!_sizeAssign)
-            {
-                _presentModel.InitDrawPanelWidth = _drawPanel.Width;
-                _presentModel.InitDrawPanelHeight = _drawPanel.Height;
-                _sizeAssign = true;
-            }
-            else
-            {
-                _presentModel.CurrentDrawPanelWidth = _drawPanel.Width;
-                _presentModel.CurrentDrawPanelHeight = _drawPanel.Height;
-            }
-        }
-
         /* resize */
         private void SplitContainer2Panel1Resize(object sender, EventArgs e)
         {
             if (_drawPanel == null)
                 return;
-            Point size = _presentModel.UpdateDrawPanelSize(splitContainer2.Panel1.Width, splitContainer2.Panel1.Height);
-            _drawPanel.Width = size.X;
-            _drawPanel.Height = size.Y;
-            _drawPanel.Location = _presentModel.UpdateDrawPanelLocation(splitContainer2.Panel1.Width, splitContainer2.Panel1.Height, size.X, size.Y);
-            NotifyDrawPanelSize();
-            Shape.ScaleX = _presentModel.DrawPanelScaleX;
-            Shape.ScaleY = _presentModel.DrawPanelScaleY;
+            int layoutWidth = _splitContainer4.Panel1.Width;
+            int layoutHeight = _splitContainer4.Panel1.Height;
+            _presentModel.UpdateDrawPanelSizeAndPosition(_drawPanel, layoutWidth, layoutHeight);
         }
     }
 }

@@ -31,14 +31,13 @@ namespace PowerPoint
         {
             this.components = new System.ComponentModel.Container();
             this._tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this._splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this._tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this._slideButton1 = new System.Windows.Forms.Button();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this._splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this._groupBox1 = new System.Windows.Forms.GroupBox();
+            this._splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this._flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this._addButton = new System.Windows.Forms.Button();
             this._shapeComboBox = new System.Windows.Forms.ComboBox();
             this._dataGridView = new System.Windows.Forms.DataGridView();
@@ -55,21 +54,20 @@ namespace PowerPoint
             this._nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._shapeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
-            this.splitContainer3.Panel1.SuspendLayout();
-            this.splitContainer3.Panel2.SuspendLayout();
-            this.splitContainer3.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainer1)).BeginInit();
+            this._splitContainer1.Panel1.SuspendLayout();
+            this._splitContainer1.Panel2.SuspendLayout();
+            this._splitContainer1.SuspendLayout();
+            this._tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainer4)).BeginInit();
+            this._splitContainer4.Panel2.SuspendLayout();
+            this._splitContainer4.SuspendLayout();
+            this._groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainer3)).BeginInit();
+            this._splitContainer3.Panel1.SuspendLayout();
+            this._splitContainer3.Panel2.SuspendLayout();
+            this._splitContainer3.SuspendLayout();
+            this._flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView)).BeginInit();
             this._tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer2)).BeginInit();
@@ -87,49 +85,49 @@ namespace PowerPoint
             this._tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.3139F));
             this._tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.6861F));
             this._tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 271F));
-            this._tableLayoutPanel1.Controls.Add(this.splitContainer1, 1, 0);
+            this._tableLayoutPanel1.Controls.Add(this._splitContainer1, 1, 0);
             this._tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._tableLayoutPanel1.Location = new System.Drawing.Point(2, 77);
+            this._tableLayoutPanel1.Location = new System.Drawing.Point(2, 71);
             this._tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this._tableLayoutPanel1.Name = "_tableLayoutPanel1";
             this._tableLayoutPanel1.RowCount = 1;
             this._tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this._tableLayoutPanel1.Size = new System.Drawing.Size(1270, 724);
+            this._tableLayoutPanel1.Size = new System.Drawing.Size(1270, 668);
             this._tableLayoutPanel1.TabIndex = 0;
             // 
-            // splitContainer1
+            // _splitContainer1
             // 
-            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer1.Name = "splitContainer1";
+            this._splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this._splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this._splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this._splitContainer1.Name = "_splitContainer1";
             // 
-            // splitContainer1.Panel1
+            // _splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
+            this._splitContainer1.Panel1.Controls.Add(this._tableLayoutPanel3);
             // 
-            // splitContainer1.Panel2
+            // _splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1264, 718);
-            this.splitContainer1.SplitterDistance = 139;
-            this.splitContainer1.TabIndex = 2;
+            this._splitContainer1.Panel2.Controls.Add(this._splitContainer4);
+            this._splitContainer1.Size = new System.Drawing.Size(1264, 662);
+            this._splitContainer1.SplitterDistance = 139;
+            this._splitContainer1.TabIndex = 2;
             // 
-            // tableLayoutPanel1
+            // _tableLayoutPanel3
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this._slideButton1, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(135, 714);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this._tableLayoutPanel3.ColumnCount = 1;
+            this._tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this._tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this._tableLayoutPanel3.Controls.Add(this._slideButton1, 0, 0);
+            this._tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this._tableLayoutPanel3.Name = "_tableLayoutPanel3";
+            this._tableLayoutPanel3.RowCount = 1;
+            this._tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this._tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this._tableLayoutPanel3.Size = new System.Drawing.Size(135, 658);
+            this._tableLayoutPanel3.TabIndex = 0;
             // 
             // _slideButton1
             // 
@@ -137,87 +135,78 @@ namespace PowerPoint
             this._slideButton1.Location = new System.Drawing.Point(2, 2);
             this._slideButton1.Margin = new System.Windows.Forms.Padding(2);
             this._slideButton1.Name = "_slideButton1";
-            this._slideButton1.Size = new System.Drawing.Size(131, 86);
+            this._slideButton1.Size = new System.Drawing.Size(131, 79);
             this._slideButton1.TabIndex = 0;
             this._slideButton1.UseVisualStyleBackColor = true;
             this._slideButton1.Paint += new System.Windows.Forms.PaintEventHandler(this.DoSlideButtonPaint);
             this._slideButton1.Resize += new System.EventHandler(this.SlideButtonResize);
             // 
-            // splitContainer2
+            // _splitContainer4
             // 
-            this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
+            this._splitContainer4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this._splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._splitContainer4.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this._splitContainer4.Location = new System.Drawing.Point(0, 0);
+            this._splitContainer4.Name = "_splitContainer4";
             // 
-            // splitContainer2.Panel1
+            // _splitContainer4.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.splitter1);
-            this.splitContainer2.Panel1.Resize += new System.EventHandler(this.SplitContainer2Panel1Resize);
+            this._splitContainer4.Panel1.Resize += new System.EventHandler(this.SplitContainer2Panel1Resize);
             // 
-            // splitContainer2.Panel2
+            // _splitContainer4.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer2.Size = new System.Drawing.Size(1121, 718);
-            this.splitContainer2.SplitterDistance = 867;
-            this.splitContainer2.TabIndex = 0;
+            this._splitContainer4.Panel2.Controls.Add(this._groupBox1);
+            this._splitContainer4.Size = new System.Drawing.Size(1121, 662);
+            this._splitContainer4.SplitterDistance = 867;
+            this._splitContainer4.TabIndex = 0;
             // 
-            // splitter1
+            // _groupBox1
             // 
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 714);
-            this.splitter1.TabIndex = 0;
-            this.splitter1.TabStop = false;
+            this._groupBox1.Controls.Add(this._splitContainer3);
+            this._groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._groupBox1.Location = new System.Drawing.Point(0, 0);
+            this._groupBox1.Name = "_groupBox1";
+            this._groupBox1.Size = new System.Drawing.Size(246, 658);
+            this._groupBox1.TabIndex = 0;
+            this._groupBox1.TabStop = false;
+            this._groupBox1.Text = "資料顯示";
             // 
-            // groupBox1
+            // _splitContainer3
             // 
-            this.groupBox1.Controls.Add(this.splitContainer3);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(246, 714);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "資料顯示";
+            this._splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._splitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this._splitContainer3.IsSplitterFixed = true;
+            this._splitContainer3.Location = new System.Drawing.Point(3, 18);
+            this._splitContainer3.Name = "_splitContainer3";
+            this._splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // splitContainer3
+            // _splitContainer3.Panel1
             // 
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer3.IsSplitterFixed = true;
-            this.splitContainer3.Location = new System.Drawing.Point(3, 16);
-            this.splitContainer3.Name = "splitContainer3";
-            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this._splitContainer3.Panel1.Controls.Add(this._flowLayoutPanel2);
             // 
-            // splitContainer3.Panel1
+            // _splitContainer3.Panel2
             // 
-            this.splitContainer3.Panel1.Controls.Add(this.flowLayoutPanel2);
+            this._splitContainer3.Panel2.Controls.Add(this._dataGridView);
+            this._splitContainer3.Size = new System.Drawing.Size(240, 637);
+            this._splitContainer3.SplitterDistance = 52;
+            this._splitContainer3.TabIndex = 0;
             // 
-            // splitContainer3.Panel2
+            // _flowLayoutPanel2
             // 
-            this.splitContainer3.Panel2.Controls.Add(this._dataGridView);
-            this.splitContainer3.Size = new System.Drawing.Size(240, 695);
-            this.splitContainer3.SplitterDistance = 52;
-            this.splitContainer3.TabIndex = 0;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this._addButton);
-            this.flowLayoutPanel2.Controls.Add(this._shapeComboBox);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(240, 52);
-            this.flowLayoutPanel2.TabIndex = 0;
+            this._flowLayoutPanel2.Controls.Add(this._addButton);
+            this._flowLayoutPanel2.Controls.Add(this._shapeComboBox);
+            this._flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this._flowLayoutPanel2.Name = "_flowLayoutPanel2";
+            this._flowLayoutPanel2.Size = new System.Drawing.Size(240, 52);
+            this._flowLayoutPanel2.TabIndex = 0;
             // 
             // _addButton
             // 
             this._addButton.Location = new System.Drawing.Point(2, 2);
             this._addButton.Margin = new System.Windows.Forms.Padding(2);
             this._addButton.Name = "_addButton";
-            this._addButton.Size = new System.Drawing.Size(63, 43);
+            this._addButton.Size = new System.Drawing.Size(63, 40);
             this._addButton.TabIndex = 0;
             this._addButton.Text = "新增";
             this._addButton.UseVisualStyleBackColor = true;
@@ -234,7 +223,7 @@ namespace PowerPoint
             this._shapeComboBox.Location = new System.Drawing.Point(69, 2);
             this._shapeComboBox.Margin = new System.Windows.Forms.Padding(2);
             this._shapeComboBox.Name = "_shapeComboBox";
-            this._shapeComboBox.Size = new System.Drawing.Size(141, 21);
+            this._shapeComboBox.Size = new System.Drawing.Size(141, 20);
             this._shapeComboBox.TabIndex = 1;
             // 
             // _dataGridView
@@ -258,7 +247,7 @@ namespace PowerPoint
             this._dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this._dataGridView.RowTemplate.Height = 28;
             this._dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._dataGridView.Size = new System.Drawing.Size(240, 639);
+            this._dataGridView.Size = new System.Drawing.Size(240, 581);
             this._dataGridView.TabIndex = 0;
             this._dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DoDataGridViewButtonCellClick);
             // 
@@ -273,7 +262,7 @@ namespace PowerPoint
             this._deleteColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this._deleteColumn.Text = "刪除";
             this._deleteColumn.UseColumnTextForButtonValue = true;
-            this._deleteColumn.Width = 56;
+            this._deleteColumn.Width = 54;
             // 
             // _tableLayoutPanel2
             // 
@@ -289,7 +278,7 @@ namespace PowerPoint
             this._tableLayoutPanel2.RowCount = 2;
             this._tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.446693F));
             this._tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.55331F));
-            this._tableLayoutPanel2.Size = new System.Drawing.Size(1274, 803);
+            this._tableLayoutPanel2.Size = new System.Drawing.Size(1274, 741);
             this._tableLayoutPanel2.TabIndex = 1;
             // 
             // _splitContainer2
@@ -309,7 +298,7 @@ namespace PowerPoint
             // _splitContainer2.Panel2
             // 
             this._splitContainer2.Panel2.Controls.Add(this._toolStrip1);
-            this._splitContainer2.Size = new System.Drawing.Size(1270, 71);
+            this._splitContainer2.Size = new System.Drawing.Size(1270, 65);
             this._splitContainer2.SplitterDistance = 25;
             this._splitContainer2.SplitterWidth = 3;
             this._splitContainer2.TabIndex = 1;
@@ -332,13 +321,13 @@ namespace PowerPoint
             this._infoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._aboutToolStripMenuItem});
             this._infoToolStripMenuItem.Name = "_infoToolStripMenuItem";
-            this._infoToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this._infoToolStripMenuItem.Size = new System.Drawing.Size(45, 21);
             this._infoToolStripMenuItem.Text = "說明";
             // 
             // _aboutToolStripMenuItem
             // 
             this._aboutToolStripMenuItem.Name = "_aboutToolStripMenuItem";
-            this._aboutToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this._aboutToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this._aboutToolStripMenuItem.Text = "關於";
             // 
             // _toolStrip1
@@ -347,7 +336,7 @@ namespace PowerPoint
             this._toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this._toolStrip1.Location = new System.Drawing.Point(0, 0);
             this._toolStrip1.Name = "_toolStrip1";
-            this._toolStrip1.Size = new System.Drawing.Size(1270, 43);
+            this._toolStrip1.Size = new System.Drawing.Size(1270, 37);
             this._toolStrip1.TabIndex = 0;
             this._toolStrip1.Text = "toolStrip1";
             // 
@@ -360,7 +349,7 @@ namespace PowerPoint
             this._shapeColumn.Name = "_shapeColumn";
             this._shapeColumn.ReadOnly = true;
             this._shapeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this._shapeColumn.Width = 56;
+            this._shapeColumn.Width = 54;
             // 
             // _infoColumn
             // 
@@ -394,30 +383,29 @@ namespace PowerPoint
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1274, 803);
+            this.ClientSize = new System.Drawing.Size(1274, 741);
             this.Controls.Add(this._tableLayoutPanel2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "PowerPoint";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1KeyDown);
             this._tableLayoutPanel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.splitContainer3.Panel1.ResumeLayout(false);
-            this.splitContainer3.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
-            this.splitContainer3.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
+            this._splitContainer1.Panel1.ResumeLayout(false);
+            this._splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainer1)).EndInit();
+            this._splitContainer1.ResumeLayout(false);
+            this._tableLayoutPanel3.ResumeLayout(false);
+            this._splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainer4)).EndInit();
+            this._splitContainer4.ResumeLayout(false);
+            this._groupBox1.ResumeLayout(false);
+            this._splitContainer3.Panel1.ResumeLayout(false);
+            this._splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainer3)).EndInit();
+            this._splitContainer3.ResumeLayout(false);
+            this._flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView)).EndInit();
             this._tableLayoutPanel2.ResumeLayout(false);
             this._tableLayoutPanel2.PerformLayout();
@@ -445,14 +433,13 @@ namespace PowerPoint
         private System.Windows.Forms.ToolStripMenuItem _aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStrip _toolStrip1;
         private System.Windows.Forms.BindingSource _shapeBindingSource;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.SplitContainer _splitContainer1;
+        private System.Windows.Forms.TableLayoutPanel _tableLayoutPanel3;
         private System.Windows.Forms.Button _slideButton1;
-        private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.SplitContainer splitContainer3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.SplitContainer _splitContainer4;
+        private System.Windows.Forms.GroupBox _groupBox1;
+        private System.Windows.Forms.SplitContainer _splitContainer3;
+        private System.Windows.Forms.FlowLayoutPanel _flowLayoutPanel2;
         private System.Windows.Forms.Button _addButton;
         private System.Windows.Forms.ComboBox _shapeComboBox;
         private System.Windows.Forms.DataGridView _dataGridView;

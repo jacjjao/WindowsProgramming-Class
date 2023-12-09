@@ -80,23 +80,26 @@ namespace PowerPoint
             return _selectedShape.IsInHitBox(pos) ? Cursors.SizeAll : Cursors.Default;
         }
 
+        /* create move command */
+        private MoveCommand CreateMoveCommand(Point pos)
+        {
+            var command = new MoveCommand();
+            command.SelectShape = _selectedShape;
+            command.ScaleDirect = _direction;
+            command.CombinePreviousCommand = _mouseMoved;
+            command.MoveX = pos.X - _previousMousePosition.X;
+            command.MoveY = pos.Y - _previousMousePosition.Y;
+            return command;
+        }
+
         /* mouse move */
         public Cursor MouseMove(Shapes list, Point pos)
         {
             if (_selectedShape == null)
                 return Cursors.Default;
             if (!_mousePressed)
-            {
                 return DoShapeResize(pos);
-            }
-            var command = new MoveCommand
-            {
-                SelectShape = _selectedShape,
-                ScaleDirect = _direction,
-                CombinePreviousCommand = _mouseMoved,
-                MoveX = pos.X - _previousMousePosition.X,
-                MoveY = pos.Y - _previousMousePosition.Y,
-            };
+            var command = CreateMoveCommand(pos);
             _mouseMoved = true;
             _previousMousePosition = pos;
             if (_manager == null)
@@ -122,7 +125,7 @@ namespace PowerPoint
         /* set shape type */
         public void SetShapeType(ShapeType type)
         {
-
+            /* nothing */
         }
 
         /* remove selected shape */
@@ -130,10 +133,8 @@ namespace PowerPoint
         {
             if (_selectedShape == null)
                 return;
-            var command = new DeleteCommand
-            {
-                DeleteIndex = list.Content.IndexOf(_selectedShape)
-            };
+            var command = new DeleteCommand();
+            command.DeleteIndex = list.Content.IndexOf(_selectedShape);
             if (_manager == null)
                 command.Execute(list);
             else
