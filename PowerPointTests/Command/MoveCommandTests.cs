@@ -91,7 +91,7 @@ namespace PowerPoint.Tests
             {
                 cmd1.Combine(cmd2);
             }
-            catch (ArgumentException e)
+            catch (ArgumentException)
             {
                 exception = true;
             }

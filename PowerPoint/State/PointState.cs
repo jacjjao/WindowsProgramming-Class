@@ -99,7 +99,10 @@ namespace PowerPoint
             };
             _mouseMoved = true;
             _previousMousePosition = pos;
-            _manager?.Execute(command);
+            if (_manager == null)
+                command.Execute(list);
+            else
+                _manager.Execute(command);
             _direction = command.ScaleDirect;
             return GetCursor(_direction);
         }
@@ -119,11 +122,16 @@ namespace PowerPoint
         /* remove selected shape */
         public void RemoveSelectedShape(Shapes list)
         {
+            if (_selectedShape == null)
+                return;
             var command = new DeleteCommand
             {
                 DeleteIndex = list.Content.IndexOf(_selectedShape)
             };
-            _manager?.Execute(command);
+            if (_manager == null)
+                command.Execute(list);
+            else 
+                _manager.Execute(command);
             _selectedShape = null;
         }
     }

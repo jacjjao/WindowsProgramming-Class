@@ -67,6 +67,9 @@ namespace PowerPoint.Tests
 
             _model.SelectedShape = ShapeType.Line;
             Assert.AreEqual(ShapeType.Line, _model.SelectedShape);
+
+            _model.State = new DrawingState();
+            _model.SelectedShape = ShapeType.Circle;
         }
 
         /* draw all */

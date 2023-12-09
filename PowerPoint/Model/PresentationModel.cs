@@ -84,17 +84,19 @@ namespace PowerPoint
         public Point UpdateDrawPanelSize(int width, int height)
         {
             const float TARGET_ASPECT_RATIO = 16.0f / 9.0f;
+            const int NINE = 9;
+            const int SIXTEEN = 16;
             float aspectRatio = (float)width / (float)height;
             var result = new Point();
             if (aspectRatio < TARGET_ASPECT_RATIO)
             {
                 result.X = width;
-                result.Y = (int)((float)result.X / TARGET_ASPECT_RATIO);
+                result.Y = result.X * NINE / SIXTEEN;
             }
             else
             {
                 result.Y = height;
-                result.X = (int)((float)height * TARGET_ASPECT_RATIO);
+                result.X = height * SIXTEEN / NINE;
             }
             return result;
         }
@@ -130,8 +132,8 @@ namespace PowerPoint
 
         private Point TransFormMousePosition(Point point)
         {
-            point.X = (int)(point.X / DrawPanelScaleX);
-            point.Y = (int)(point.Y / DrawPanelScaleY);
+            point.X = (int)((float)point.X / DrawPanelScaleX);
+            point.Y = (int)((float)point.Y / DrawPanelScaleY);
             return point;
         }
 

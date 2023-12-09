@@ -10,6 +10,7 @@ namespace PowerPoint
         bool _mousePressed = false;
         bool _mouseMoved = false;
         ShapeType _type = ShapeType.None;
+        Shape _shape = null;
 
         ICommandManager _manager;
         public ICommandManager Manager
@@ -53,18 +54,23 @@ namespace PowerPoint
             _drawEndPos = pos;
             if (!_mouseMoved)
             {
-                Manager?.Execute(new AddCommand
+                var command = new AddCommand
                 {
                     AddRandom = false,
                     PointFirst = _drawStartPos,
                     PointSecond = _drawEndPos,
                     Type = _type,
-                });
+                };
+                if (_manager == null)
+                    command.Execute(list);
+                else
+                    _manager.Execute(command);
+                _shape = command.AddShape;
                 _mouseMoved = true;
             }
             else
             {
-                list[list.Count - 1].CreationResize(_drawStartPos, _drawEndPos);
+                _shape.CreationResize(_drawStartPos, _drawEndPos);
             }
             return Cursors.Cross;
         }

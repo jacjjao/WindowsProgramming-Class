@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using PowerPoint;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using Point = System.Drawing.Point;
 
@@ -158,6 +159,39 @@ namespace PowerPoint.Tests
             _model.SetState(state);
             Assert.AreEqual(state, _m.State);
             Assert.IsTrue(_m.ShapeList.Content.All((shape) => shape.Selected == false));
+        }
+
+        [TestMethod]
+        public void UpdateDrawPanelSizeTest()
+        {
+            var size = _model.UpdateDrawPanelSize(800, 600);
+            Assert.AreEqual(800, size.X);
+            Assert.AreEqual(450, size.Y);
+            size = _model.UpdateDrawPanelSize(1700, 900);
+            Assert.AreEqual(1600, size.X);
+            Assert.AreEqual(900, size.Y);
+        }
+
+        [TestMethod]
+        public void UpdateDrawPanelLocationTest()
+        {
+            int containerWidth = 800;
+            int containerHeight = 600;
+            var size = _model.UpdateDrawPanelSize(containerWidth, containerHeight);
+            var pos = _model.UpdateDrawPanelLocation(containerWidth, containerHeight, size.X, size.Y);
+            Assert.AreEqual(0, pos.X);
+            Assert.AreEqual((600 - 450) / 2, pos.Y);
+        }
+
+        [TestMethod]
+        public void ScaleFactorTest()
+        {
+            _model.InitDrawPanelWidth = 800;
+            _model.InitDrawPanelHeight = 600;
+            _model.CurrentDrawPanelWidth = 1600;
+            _model.CurrentDrawPanelHeight = 300;
+            Assert.AreEqual(2.0f, _model.DrawPanelScaleX);
+            Assert.AreEqual(0.5f, _model.DrawPanelScaleY);
         }
     }
 }

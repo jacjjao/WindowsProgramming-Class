@@ -83,6 +83,7 @@ namespace PowerPoint.Tests
                 }
             };
             _state.Manager = manager;
+            Assert.AreEqual(manager, _state.Manager);
             _state.MouseMove(_list, _p2);
             Assert.IsTrue(executed);
             Assert.AreEqual(Cursors.Cross, cursor);
@@ -91,9 +92,20 @@ namespace PowerPoint.Tests
             Assert.AreEqual(_p2, _statePrivate.GetFieldOrProperty("_drawEndPos"));
             Assert.AreEqual(ShapeType.Circle, _statePrivate.GetFieldOrProperty("_type"));
 
+            _state = new DrawingState();
+            _state.SetShapeType(ShapeType.Circle);
+            _state.MouseDown(_list, new Point(0, 0));
+            _state.MouseMove(_list, new Point(20, 20));
+            Assert.IsTrue((bool)_statePrivate.GetFieldOrProperty("_mousePressed"));
+            Assert.IsTrue((bool)_statePrivate.GetFieldOrProperty("_mouseMoved"));
+            cursor = _state.MouseMove(_list, new Point(50, 50));
+            Assert.AreEqual(Cursors.Cross, cursor);
+
+            _state = new DrawingState();
             _statePrivate.SetFieldOrProperty("_mousePressed", true);
             _statePrivate.SetFieldOrProperty("_mouseMoved", true);
             _state.MouseMove(_list, _p2);
+            Assert.IsNull(_statePrivate.GetFieldOrProperty("_shape"));
         }
 
         /* mouse up */
