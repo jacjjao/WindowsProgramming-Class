@@ -7,12 +7,15 @@ namespace PowerPoint.Tests
     public class AddCommandTests
     {
         Shapes _list;
+
+        // test
         [TestInitialize]
         public void Initialize()
         {
             _list = new Shapes();
         }
 
+        // test
         [TestMethod]
         public void AddRandomShapeTest()
         {
@@ -30,6 +33,7 @@ namespace PowerPoint.Tests
             }
         }
 
+        // test
         [TestMethod]
         public void ExecuteTest()
         {
@@ -44,6 +48,7 @@ namespace PowerPoint.Tests
             addRandom.Execute(_list);
         }
 
+        // test
         [TestMethod]
         public void UnexecuteTest()
         {

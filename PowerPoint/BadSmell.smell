@@ -220,18 +220,18 @@
             </Smell>
             <Smell>
               <Id>3</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>25 目前物件 PowerPoint.CommandManager，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.MoveCommand，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.MoveCommand.Combine(PowerPoint.MoveCommand) 以及 PowerPoint.MoveCommand.CombinePreviousCommand</HashCode>
+              <SmellType>Long method(過長函式)</SmellType>
+              <HashCode>LongMethod.PointState.MouseMove.21Shapes list;Point pos;</HashCode>
               <Severity>Warning</Severity>
-              <Weight>1</Weight>
+              <Weight>21</Weight>
               <Project>PowerPoint</Project>
-              <File>C:\Users\user\Desktop\視窗程式設計\PowerPoint\Command\CommandManager.cs</File>
-              <Line>25</Line>
-              <StartLine>24</StartLine>
+              <File>PointState.cs</File>
+              <Line>95</Line>
+              <StartLine>0</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>25</EndLine>
+              <EndLine>0</EndLine>
               <EndCol>0</EndCol>
-              <Comment>目前物件 PowerPoint.CommandManager，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.MoveCommand，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.MoveCommand.Combine(PowerPoint.MoveCommand) 以及 PowerPoint.MoveCommand.CombinePreviousCommand</Comment>
+              <Comment />
               <Auto>false</Auto>
             </Smell>
             <Smell>
@@ -269,13 +269,11 @@
           </Reviews>
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList>
-            <string>LongMethod.Shape.ResizeBasedOnDirection.39ResizeDirection direction;int differenceX;int differenceY;</string>
             <string>21 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</string>
             <string>22 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</string>
             <string>LongMethod.Shape.IsInCircle.24ResizeDirection direction;Point point;</string>
-            <string>44 目前物件 PowerPoint.MoveCommand，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Shape，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Shape.ResizeBasedOnDirection(PowerPoint.ResizeDirection, int, int) 以及 PowerPoint.Shape.ResizeBasedOnDirection(PowerPoint.ResizeDirection, int, int)</string>
-            <string>55 目前物件 PowerPoint.MoveCommand，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.Shape，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.Shape.ResizeBasedOnDirection(PowerPoint.ResizeDirection, int, int) 以及 PowerPoint.Shape.ResizeBasedOnDirection(PowerPoint.ResizeDirection, int, int)</string>
-            <string>25 目前物件 PowerPoint.CommandManager，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.MoveCommand，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.MoveCommand.Combine(PowerPoint.MoveCommand) 以及 PowerPoint.MoveCommand.CombinePreviousCommand</string>
+            <string>LongMethod.Shape.ResizeShape.39ResizeDirection direction;int differenceX;int differenceY;</string>
+            <string>LongMethod.PointState.MouseMove.21Shapes list;Point pos;</string>
           </HashCodeRequestIgnoreList>
           <AnalysisFileManager>
             <AnalysisFiles>
@@ -301,6 +299,11 @@
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Command\DrawCommand.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Command\ExecuteOption.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -566,8 +569,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>2896</ProductionLoc>
-          <TestLoc>2159</TestLoc>
+          <ProductionLoc>2961</ProductionLoc>
+          <TestLoc>2192</TestLoc>
         </CodeReview>
       </Data>
     </div>

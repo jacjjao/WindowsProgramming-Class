@@ -8,12 +8,14 @@ namespace PowerPoint.Tests
     {
         Shapes _list;
 
+        // test
         [TestInitialize]
         public void Initialize()
         {
             _list = new Shapes();
         }
 
+        // test
         [TestMethod]
         public void ExecuteTest()
         {
@@ -32,6 +34,7 @@ namespace PowerPoint.Tests
             Assert.AreEqual(loc.Y + dy, _list[0].HitBox.Y);
         }
 
+        // test
         [TestMethod]
         public void UnexecuteTest()
         {
@@ -53,6 +56,7 @@ namespace PowerPoint.Tests
             cmd.Undo(_list);
         }
 
+        // test
         [TestMethod]
         public void CombineTest()
         {

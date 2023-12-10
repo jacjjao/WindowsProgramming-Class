@@ -8,6 +8,7 @@ namespace PowerPoint.Tests
     [TestClass]
     public class DrawCommandTests
     {
+        // test
         [TestMethod]
         public void PropertyTest()
         {
@@ -25,6 +26,7 @@ namespace PowerPoint.Tests
             Assert.AreEqual(clearColor, cmd.ClearColor);
         }
 
+        // test
         [TestMethod]
         public void UnexecuteTest()
         {

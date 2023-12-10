@@ -7,12 +7,14 @@ namespace PowerPoint.Tests
     {
         Shapes _list = null;
 
+        // test
         [TestInitialize]
         public void Initialize()
         {
             _list = new Shapes();
         }
 
+        // test
         [TestMethod]
         public void ExecuteTest()
         {
@@ -25,6 +27,7 @@ namespace PowerPoint.Tests
             Assert.AreEqual(0, _list.Count);
         }
 
+        // test
         [TestMethod]
         public void UnexecuteTest()
         {

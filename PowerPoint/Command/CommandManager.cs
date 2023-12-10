@@ -24,7 +24,7 @@ namespace PowerPoint
         public void Execute(ICommand command, ExecuteOption option)
         {
             command.Execute(_list);
-            if (option.CombindWithPreviousCommand)
+            if (option.CombineWithPreviousCommand)
             {
                 var moveCommandOne = (MoveCommand)_undo.Pop();
                 var moveCommandTwo = (MoveCommand)command;

@@ -32,6 +32,7 @@ namespace PowerPoint.Tests
             return Cursors.Default;
         }
 
+        // test
         public void SetShapeType(ShapeType type)
         {
 

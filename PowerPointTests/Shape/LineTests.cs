@@ -84,6 +84,7 @@ namespace PowerPoint.Tests
             Assert.AreEqual(p4, _line.PointRight);
         }
 
+        // test
         [TestMethod]
         public void ResizeTest()
         {

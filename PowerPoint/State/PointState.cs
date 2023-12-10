@@ -104,7 +104,7 @@ namespace PowerPoint
             else
             {
                 var option = new ExecuteOption();
-                option.CombindWithPreviousCommand = _mouseMoved;
+                option.CombineWithPreviousCommand = _mouseMoved;
                 option.ResetDataBindings = false;
                 _manager.Execute(command, option);
             }

@@ -10,6 +10,7 @@ namespace PowerPoint.Tests
         CommandManager _manager = null;
         PrivateObject _managerPrivate = null;
 
+        // test
         [TestInitialize]
         public void Initialize()
         {
@@ -18,12 +19,14 @@ namespace PowerPoint.Tests
             _managerPrivate = new PrivateObject(_manager);
         }
 
+        // test
         [TestMethod]
         public void CommandManagerTest()
         {
             Assert.AreEqual(_list, _managerPrivate.GetFieldOrProperty("_list"));
         }
 
+        // test
         [TestMethod]
         public void ExecuteTest()
         {
@@ -40,7 +43,7 @@ namespace PowerPoint.Tests
             };
             var option = new ExecuteOption
             {
-                CombindWithPreviousCommand = true,
+                CombineWithPreviousCommand = true,
                 ResetDataBindings = true
             };
             _manager.Execute(cmd, option);
@@ -49,6 +52,7 @@ namespace PowerPoint.Tests
             Assert.AreEqual(dx, ((MoveCommand)undoStack.Peek()).MoveX);
         }
 
+        // test
         [TestMethod]
         public void CanUndoTest()
         {
@@ -59,6 +63,7 @@ namespace PowerPoint.Tests
             Assert.IsTrue(_manager.IsCanUndo());
         }
 
+        // test
         [TestMethod]
         public void UndoTest()
         {
@@ -70,6 +75,7 @@ namespace PowerPoint.Tests
             Assert.AreEqual(0, undoStack.Count);
         }
 
+        // test
         [TestMethod]
         public void CanRedoTest()
         {
@@ -79,6 +85,7 @@ namespace PowerPoint.Tests
             Assert.IsTrue(_manager.IsCanRedo());
         }
 
+        // test
         [TestMethod]
         public void RedoTest()
         {

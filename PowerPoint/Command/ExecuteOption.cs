@@ -1,29 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PowerPoint
+﻿namespace PowerPoint
 {
     public class ExecuteOption
     {
+        bool _saveCommand = true;
         public bool SaveCommand
         {
-            get;
-            set;
-        } = true;
+            get
+            {
+                return _saveCommand;
+            }
+            set
+            {
+                _saveCommand = value;
+            }
+        }
 
-        public bool CombindWithPreviousCommand
+        bool _combineWithPreviousCommand = false;
+        public bool CombineWithPreviousCommand
         {
-            get;
-            set;
-        } = false;
+            get
+            {
+                return _combineWithPreviousCommand;
+            }
+            set
+            {
+                _combineWithPreviousCommand = value;
+            }
+        }
 
+        bool _resetDataBindings = false;
         public bool ResetDataBindings
         {
-            get;
-            set;
-        } = false;
+            get
+            {
+                return _resetDataBindings;
+            }
+            set
+            {
+                _resetDataBindings = value;
+            }
+        }
     }
 }

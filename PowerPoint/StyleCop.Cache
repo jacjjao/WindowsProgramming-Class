@@ -180,7 +180,7 @@
     <timestamps>
       <styleCop>2023/09/15 15:15:03.194</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/12/09 14:34:00.413</sourceFile>
+      <sourceFile>2023/12/10 16:25:34.227</sourceFile>
       <parser>2023/09/15 15:15:03.194</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 15:15:03.194</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -209,6 +209,17 @@
     </timestamps>
     <violations />
   </sourcecode>
+  <sourcecode name="ExecuteOption.cs" parser="StyleCop.CSharp.CsParser">
+    <timestamps>
+      <styleCop>2023/09/15 15:15:03.194</styleCop>
+      <settingsFile>0001/01/01 00:00:00.000</settingsFile>
+      <sourceFile>2023/12/10 16:25:34.246</sourceFile>
+      <parser>2023/09/15 15:15:03.194</parser>
+      <KellyPalRules.KellyPalAnalyzer>2023/09/15 15:15:03.194</KellyPalRules.KellyPalAnalyzer>
+      <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
+    </timestamps>
+    <violations />
+  </sourcecode>
   <sourcecode name="ICommand.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2023/09/15 15:15:03.194</styleCop>
@@ -224,7 +235,7 @@
     <timestamps>
       <styleCop>2023/09/15 15:15:03.194</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/12/09 14:34:00.410</sourceFile>
+      <sourceFile>2023/12/10 16:14:01.057</sourceFile>
       <parser>2023/09/15 15:15:03.194</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 15:15:03.194</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -235,7 +246,7 @@
     <timestamps>
       <styleCop>2023/09/15 15:15:03.194</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/12/10 15:47:22.993</sourceFile>
+      <sourceFile>2023/12/10 15:55:50.635</sourceFile>
       <parser>2023/09/15 15:15:03.194</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 15:15:03.194</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -257,7 +268,7 @@
     <timestamps>
       <styleCop>2023/09/15 15:15:03.194</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/12/09 14:48:57.332</sourceFile>
+      <sourceFile>2023/12/10 15:58:00.852</sourceFile>
       <parser>2023/09/15 15:15:03.194</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 15:15:03.194</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -312,7 +323,7 @@
     <timestamps>
       <styleCop>2023/09/15 15:15:03.194</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/12/09 14:34:28.728</sourceFile>
+      <sourceFile>2023/12/10 16:14:58.575</sourceFile>
       <parser>2023/09/15 15:15:03.194</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 15:15:03.194</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -533,11 +544,17 @@
     <timestamps>
       <styleCop>2023/09/15 15:15:03.194</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/12/09 15:13:24.215</sourceFile>
+      <sourceFile>2023/12/10 16:25:34.244</sourceFile>
       <parser>2023/09/15 15:15:03.194</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 15:15:03.194</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
     </timestamps>
-    <violations />
+    <violations>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LongMethod" ruleCheckId="LM0001">
+        <context>Long method(過長函式)</context>
+        <line>95</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
   </sourcecode>
 </stylecopresultscache>
