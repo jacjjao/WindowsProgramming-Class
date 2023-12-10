@@ -35,11 +35,15 @@ namespace PowerPoint.Tests
             const int dx = 100;
             MoveCommand cmd = new MoveCommand
             {
-                CombinePreviousCommand = true,
                 SelectShape = _list[0],
                 MoveX = dx
             };
-            _manager.Execute(cmd);
+            var option = new ExecuteOption
+            {
+                CombindWithPreviousCommand = true,
+                ResetDataBindings = true
+            };
+            _manager.Execute(cmd, option);
             Assert.AreEqual(1, _list.Count);
             var undoStack = (Stack<ICommand>)_managerPrivate.GetFieldOrProperty("_undo");
             Assert.AreEqual(dx, ((MoveCommand)undoStack.Peek()).MoveX);

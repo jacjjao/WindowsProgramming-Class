@@ -17,17 +17,27 @@ namespace PowerPoint
         /* execute */
         public void Execute(ICommand command)
         {
+            Execute(command, new ExecuteOption());
+        }
+
+        /* execute */
+        public void Execute(ICommand command, ExecuteOption option)
+        {
             command.Execute(_list);
-            if (command is MoveCommand && ((MoveCommand)command).CombinePreviousCommand)
+            if (option.CombindWithPreviousCommand)
             {
                 var moveCommandOne = (MoveCommand)_undo.Pop();
                 var moveCommandTwo = (MoveCommand)command;
                 moveCommandTwo.Combine(moveCommandOne);
             }
-            if (!(command is DrawCommand))
+            if (option.SaveCommand)
             {
                 _undo.Push(command);
                 _redo.Clear();
+            }
+            if (option.ResetDataBindings)
+            {
+                _list.Content.ResetBindings();
             }
         }
 
@@ -45,6 +55,7 @@ namespace PowerPoint
                 var command = _undo.Pop();
                 command.Undo(_list);
                 _redo.Push(command);
+                _list.Content.ResetBindings();
             }
         }
 
@@ -62,6 +73,7 @@ namespace PowerPoint
                 var redoCommand = _redo.Pop();
                 redoCommand.Execute(_list);
                 _undo.Push(redoCommand);
+                _list.Content.ResetBindings();
             }
         }
     }

@@ -181,7 +181,7 @@ namespace PowerPoint
         }
 
         /* directional resize */
-        public ResizeDirection ResizeBasedOnDirection(ResizeDirection direction, int differenceX, int differenceY)
+        private ResizeDirection ResizeShape(ResizeDirection direction, int differenceX, int differenceY)
         {
             var pointFirst = new Point(HitBox.X, HitBox.Y);
             var pointSecond = new Point(pointFirst.X + HitBox.Width, pointFirst.Y + HitBox.Height);
@@ -219,6 +219,14 @@ namespace PowerPoint
             }
             Resize(pointFirst, pointSecond);
             return direction;
+        }
+
+        /* resize base on direction */
+        public ResizeDirection ResizeBasedOnDirection(ResizeDirection direction, int differenceX, int differenceY)
+        {
+            const int ZERO = 0;
+            direction = ResizeShape(direction, differenceX, ZERO);
+            return ResizeShape(direction, ZERO, differenceY);
         }
 
         /* draw shape */

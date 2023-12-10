@@ -5,6 +5,9 @@
         /* execute */
         void Execute(ICommand command);
 
+        /* execute */
+        void Execute(ICommand command, ExecuteOption option);
+
         /* can undo */
         bool IsCanUndo();
 

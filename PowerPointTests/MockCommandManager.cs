@@ -29,6 +29,12 @@ namespace PowerPointTests
             _execute.Invoke(command);
         }
 
+        /* execute */
+        public void Execute(ICommand command, ExecuteOption option)
+        {
+            _execute.Invoke(command);
+        }
+
         /* redo */
         public void Redo()
         {

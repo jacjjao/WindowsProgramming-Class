@@ -80,7 +80,9 @@ namespace PowerPoint
             var command = new DrawCommand();
             command.DrawPen = DrawPen;
             command.Graphics = graphics;
-            Manager.Execute(command);
+            var option = new ExecuteOption();
+            option.SaveCommand = false;
+            Manager.Execute(command, option);
         }
 
         /* mouse down */

@@ -113,7 +113,7 @@ namespace PowerPoint
         {
             const string CHECKED = "Checked";
             const string VALUE = ".Value";
-            const string TEXT = "<-";
+            const string TEXT = "->";
             var redoButton = new BindToolStripButton();
             redoButton.Text = TEXT;
             redoButton.DataBindings.Add(CHECKED, _presentModel.CheckList[REDO_BUTTON_INDEX], VALUE);

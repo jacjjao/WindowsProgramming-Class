@@ -86,7 +86,6 @@ namespace PowerPoint
             var command = new MoveCommand();
             command.SelectShape = _selectedShape;
             command.ScaleDirect = _direction;
-            command.CombinePreviousCommand = _mouseMoved;
             command.MoveX = pos.X - _previousMousePosition.X;
             command.MoveY = pos.Y - _previousMousePosition.Y;
             return command;
@@ -100,12 +99,17 @@ namespace PowerPoint
             if (!_mousePressed)
                 return DoShapeResize(pos);
             var command = CreateMoveCommand(pos);
-            _mouseMoved = true;
-            _previousMousePosition = pos;
             if (_manager == null)
                 command.Execute(list);
             else
-                _manager.Execute(command);
+            {
+                var option = new ExecuteOption();
+                option.CombindWithPreviousCommand = _mouseMoved;
+                option.ResetDataBindings = false;
+                _manager.Execute(command, option);
+            }
+            _previousMousePosition = pos;
+            _mouseMoved = true;
             _direction = command.ScaleDirect;
             return GetCursor(_direction);
         }

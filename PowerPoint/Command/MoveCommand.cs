@@ -28,31 +28,21 @@ namespace PowerPoint
             set;
         }
 
-        public bool CombinePreviousCommand
-        {
-            get;
-            set;
-        }
-
         /* execute */
         public void Execute(Shapes list)
         {
-            const int ZERO = 0;
             if (SelectShape != null)
             {
-                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, MoveX, ZERO);
-                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, ZERO, MoveY);
+                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, MoveX, MoveY);
             }
         }
 
         /* undo */
         public void Undo(Shapes list)
         {
-            const int ZERO = 0;
             if (SelectShape != null)
             {
-                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, -MoveX, ZERO);
-                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, ZERO, -MoveY);
+                ScaleDirect = SelectShape.ResizeBasedOnDirection(ScaleDirect, -MoveX, -MoveY);
             }
         }
 
