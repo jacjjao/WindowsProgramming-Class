@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Windows;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Threading;
 using System.Windows.Automation;
@@ -89,6 +90,21 @@ namespace PowerPointUITests
         }
 
         // test
+        public void DrawShape(int x, int y, int width, int height)
+        {
+            var drawPanel = _driver.FindElementByName("DrawPanel");
+            Actions action = new Actions(_driver);
+            action
+                .MoveToElement(drawPanel)
+                .MoveByOffset(-drawPanel.Size.Width / 2, -drawPanel.Size.Height / 2)
+                .MoveByOffset(x, y)
+                .ClickAndHold()
+                .MoveByOffset(width, height)
+                .Release()
+                .Perform();
+        }
+
+        // test
         public void ClickTabControl(string name)
         {
             var elements = _driver.FindElementsByName(name);
@@ -141,24 +157,57 @@ namespace PowerPointUITests
         }
 
         // test
-        public void AssertUnchecked(string name)
+        public void AssertToolStripButtonUnchecked(string name)
         {
             var element = _driver.FindElementByName(name);
-            const string MAGIC_NUMBER_WHEN_BUTTON_IS_CHECKED = "1048724";
-            Assert.AreEqual(MAGIC_NUMBER_WHEN_BUTTON_IS_CHECKED, element.GetAttribute("LegacyState"));
+            const string MAGIC_NUMBER_WHEN_BUTTON_IS_UNCHECKED = "1048576";
+            Assert.AreEqual(MAGIC_NUMBER_WHEN_BUTTON_IS_UNCHECKED, element.GetAttribute("LegacyState"));
         }
 
         // test
-        public void AssertDataGridViewRowDataBy(string name, int rowIndex, string[] data)
+        public void AssertDataGridViewShapeCells(string name, int rowIndex, string data)
         {
             var dataGridView = _driver.FindElementByAccessibilityId(name);
-            var rowDatas = dataGridView.FindElementByName($"資料列 {rowIndex}").FindElementsByXPath("//*");
+            var rowDatas = dataGridView.FindElementByName($"形狀 Row {rowIndex}");
+            Assert.AreEqual(data, rowDatas.Text);
+        }
 
-            // FindElementsByXPath("//*") 會把 "row" node 也抓出來，因此 i 要從 1 開始以跳過 "row" node
-            for (int i = 1; i < rowDatas.Count; i++)
+        // test
+        private List<int> ParseInfo(string info)
+        {
+            string num = "";
+            var result = new List<int>();
+            foreach (char c in info)
             {
-                Assert.AreEqual(data[i - 1], rowDatas[i].Text.Replace("(null)", ""));
+                if (!char.IsDigit(c))
+                {
+                    if (result.Count > 0)
+                        result.Add(int.Parse(num));
+                    num = "";
+                }
+                else 
+                    num += c;
             }
+            return result;
+        }
+
+        // test
+        private void AssertNearlyEqual(List<int> a, List<int> b)
+        {
+            Assert.AreEqual(a.Count, b.Count);
+            const int epsilon = 2;
+            for (int i = 0; i < a.Count; i++)
+            {
+                Assert.IsTrue(Math.Abs(a[i] - b[i]) <= epsilon);
+            }
+        }
+
+        // 因為不明原因Robot移動滑鼠游標到指定的Coordinate時會有小誤差
+        public void AssertDataGridViewInfoCells(string name, int rowIndex, string data)
+        {
+            var dataGridView = _driver.FindElementByAccessibilityId(name);
+            var rowDatas = dataGridView.FindElementByName($"資訊 Row {rowIndex}");
+            AssertNearlyEqual(ParseInfo(data), ParseInfo(rowDatas.Text));
         }
 
         // test

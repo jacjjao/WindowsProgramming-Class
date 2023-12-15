@@ -8,17 +8,27 @@ namespace PowerPoint
 {
     public partial class Form1 : Form
     {
-        const int LINE_BUTTON_INDEX = 0;
-        const int RECTANGLE_BUTTON_INDEX = 1;
-        const int CIRCLE_BUTTON_INDEX = 2;
-        const int POINTER_BUTTON_INDEX = 3;
-        const int UNDO_BUTTON_INDEX = 4;
-        const int REDO_BUTTON_INDEX = 5;
+        public const int LINE_BUTTON_INDEX = 0;
+        public const int RECTANGLE_BUTTON_INDEX = 1;
+        public const int CIRCLE_BUTTON_INDEX = 2;
+        public const int POINTER_BUTTON_INDEX = 3;
+        public const int UNDO_BUTTON_INDEX = 4;
+        public const int REDO_BUTTON_INDEX = 5;
         readonly Dictionary<ToolStripButton, int> _toolStripButtons = new Dictionary<ToolStripButton, int>();
         readonly PresentationModel _presentModel;
         DoubleBufferedPanel _drawPanel;
         readonly BindingSource _bindingSource = new BindingSource();
         FormGraphicsAdapter _graphics;
+
+        public static readonly string[] TOOLSTRIP_BUTTON_NAME =
+        {
+            "ToolStripLineButton",
+            "ToolStripRectangleButton",
+            "ToolStripCircleButton",
+            "ToolStripPointerButton",
+            "ToolStripUndoButton",
+            "ToolStripRedoButton",
+        };
 
         public Form1(PresentationModel presentationModel)
         {
@@ -49,8 +59,7 @@ namespace PowerPoint
             lineButton.Text = SLASH;
             lineButton.DataBindings.Add(CHECKED, _presentModel.CheckList[LINE_BUTTON_INDEX], VALUE);
             lineButton.Click += DoToolStripButtonLineClick;
-            lineButton.AccessibleName = "ToolStripLineButton";
-            lineButton.AccessibilityObject.Value = "True";
+            lineButton.AccessibleName = TOOLSTRIP_BUTTON_NAME[LINE_BUTTON_INDEX];
             _toolStrip1.Items.Add(lineButton);
             _toolStripButtons.Add(lineButton, LINE_BUTTON_INDEX);
         }
@@ -64,7 +73,7 @@ namespace PowerPoint
             rectangleButton.Image = Properties.Resources.Rectangle;
             rectangleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[RECTANGLE_BUTTON_INDEX], VALUE);
             rectangleButton.Click += DoToolStripButtonRectangleClick;
-            rectangleButton.AccessibleName = "ToolStripRectangleButton";
+            rectangleButton.AccessibleName = TOOLSTRIP_BUTTON_NAME[RECTANGLE_BUTTON_INDEX];
             _toolStrip1.Items.Add(rectangleButton);
             _toolStripButtons.Add(rectangleButton, RECTANGLE_BUTTON_INDEX);
         }
@@ -79,6 +88,7 @@ namespace PowerPoint
             circleButton.Text = CIRCLE;
             circleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[CIRCLE_BUTTON_INDEX], VALUE);
             circleButton.Click += DoToolStripButtonCircleClick;
+            circleButton.AccessibleName = TOOLSTRIP_BUTTON_NAME[CIRCLE_BUTTON_INDEX];
             _toolStrip1.Items.Add(circleButton);
             _toolStripButtons.Add(circleButton, CIRCLE_BUTTON_INDEX);
         }
@@ -93,6 +103,7 @@ namespace PowerPoint
             pointerButton.DataBindings.Add(CHECKED, _presentModel.CheckList[POINTER_BUTTON_INDEX], VALUE);
             pointerButton.Click += DoToolStripButtonPointerClick;
             pointerButton.Checked = true;
+            pointerButton.AccessibleName = TOOLSTRIP_BUTTON_NAME[POINTER_BUTTON_INDEX];
             _toolStrip1.Items.Add(pointerButton);
             _toolStripButtons.Add(pointerButton, POINTER_BUTTON_INDEX);
         }
@@ -107,6 +118,7 @@ namespace PowerPoint
             undoButton.Text = TEXT;
             undoButton.DataBindings.Add(CHECKED, _presentModel.CheckList[UNDO_BUTTON_INDEX], VALUE);
             undoButton.Click += DoToolStripButtonUndoClick;
+            undoButton.AccessibleName = TOOLSTRIP_BUTTON_NAME[UNDO_BUTTON_INDEX];
             _toolStrip1.Items.Add(undoButton);
             _toolStripButtons.Add(undoButton, UNDO_BUTTON_INDEX);
         }
@@ -121,6 +133,7 @@ namespace PowerPoint
             redoButton.Text = TEXT;
             redoButton.DataBindings.Add(CHECKED, _presentModel.CheckList[REDO_BUTTON_INDEX], VALUE);
             redoButton.Click += DoToolStripButtonRedoClick;
+            redoButton.AccessibleName = TOOLSTRIP_BUTTON_NAME[REDO_BUTTON_INDEX];
             _toolStrip1.Items.Add(redoButton);
             _toolStripButtons.Add(redoButton, REDO_BUTTON_INDEX);
         }
@@ -128,10 +141,12 @@ namespace PowerPoint
         /* create draw panel */
         private void CreateDrawPanel()
         {
+            const string NAME = "DrawPanel";
             _drawPanel = new DoubleBufferedPanel
             {
                 Dock = DockStyle.None,
-                BackColor = Color.White
+                BackColor = Color.White,
+                AccessibleName = NAME
             };
             _splitContainer4.Panel1.Controls.Add(_drawPanel);
             _drawPanel.MouseUp += DoDrawPanelMouseUp;

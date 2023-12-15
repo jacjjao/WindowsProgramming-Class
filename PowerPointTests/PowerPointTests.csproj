@@ -93,7 +93,7 @@
     <Compile Include="DoubleBufferedPanelTest.cs" />
     <Compile Include="MockCommandManager.cs" />
     <Compile Include="NotifyBooleanTest.cs" />
-    <Compile Include="Robot.cs" />
+    <Compile Include="UI\Robot.cs" />
     <Compile Include="Shape\CircleTests.cs" />
     <Compile Include="State\DrawingStateTests.cs" />
     <Compile Include="Shape\LineTests.cs" />
@@ -108,7 +108,8 @@
     <Compile Include="Shape\ShapesFactoryTests.cs" />
     <Compile Include="Shape\ShapesTests.cs" />
     <Compile Include="Shape\ShapeTests.cs" />
-    <Compile Include="ToolBarUITest.cs" />
+    <Compile Include="UI\ToolBarUITest.cs" />
+    <Compile Include="UI\UndoAndRedoUITest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
