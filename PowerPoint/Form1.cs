@@ -49,6 +49,8 @@ namespace PowerPoint
             lineButton.Text = SLASH;
             lineButton.DataBindings.Add(CHECKED, _presentModel.CheckList[LINE_BUTTON_INDEX], VALUE);
             lineButton.Click += DoToolStripButtonLineClick;
+            lineButton.AccessibleName = "ToolStripLineButton";
+            lineButton.AccessibilityObject.Value = "True";
             _toolStrip1.Items.Add(lineButton);
             _toolStripButtons.Add(lineButton, LINE_BUTTON_INDEX);
         }
@@ -62,6 +64,7 @@ namespace PowerPoint
             rectangleButton.Image = Properties.Resources.Rectangle;
             rectangleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[RECTANGLE_BUTTON_INDEX], VALUE);
             rectangleButton.Click += DoToolStripButtonRectangleClick;
+            rectangleButton.AccessibleName = "ToolStripRectangleButton";
             _toolStrip1.Items.Add(rectangleButton);
             _toolStripButtons.Add(rectangleButton, RECTANGLE_BUTTON_INDEX);
         }
