@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using OpenQA.Selenium;
 using System.Windows.Input;
 using System.Windows.Forms;
+using System.Text;
 
 namespace PowerPointUITests
 {
@@ -90,7 +91,22 @@ namespace PowerPointUITests
         }
 
         // test
-        public void DrawShape(int x, int y, int width, int height)
+        public void MouseDownAndMoveThenUp(string elementName, int x, int y, int dx, int dy)
+        {
+            Actions action = new Actions(_driver);
+            var element = _driver.FindElementByName(elementName);
+            action
+                .MoveToElement(element)
+                .MoveByOffset(-element.Size.Width / 2, -element.Size.Height / 2)
+                .MoveByOffset(x, y)
+                .ClickAndHold()
+                .MoveByOffset(dx, dy)
+                .Release()
+                .Perform();
+        }
+
+        // test
+        public void Click(int x, int y)
         {
             var drawPanel = _driver.FindElementByName("DrawPanel");
             Actions action = new Actions(_driver);
@@ -98,9 +114,7 @@ namespace PowerPointUITests
                 .MoveToElement(drawPanel)
                 .MoveByOffset(-drawPanel.Size.Width / 2, -drawPanel.Size.Height / 2)
                 .MoveByOffset(x, y)
-                .ClickAndHold()
-                .MoveByOffset(width, height)
-                .Release()
+                .Click()
                 .Perform();
         }
 
@@ -173,20 +187,27 @@ namespace PowerPointUITests
         }
 
         // test
+        public System.Drawing.Size GetElementSize(string name)
+        {
+            var element = _driver.FindElementByName(name);
+            return element.Size;
+        }
+
+        // test
         private List<int> ParseInfo(string info)
         {
-            string num = "";
+            var num = new StringBuilder();
             var result = new List<int>();
             foreach (char c in info)
             {
                 if (!char.IsDigit(c))
                 {
-                    if (result.Count > 0)
-                        result.Add(int.Parse(num));
-                    num = "";
+                    if (num.Length > 0)
+                        result.Add(int.Parse(num.ToString()));
+                    num.Clear();
                 }
-                else 
-                    num += c;
+                else
+                    num.Append(c);
             }
             return result;
         }
@@ -194,6 +215,7 @@ namespace PowerPointUITests
         // test
         private void AssertNearlyEqual(List<int> a, List<int> b)
         {
+            Assert.IsTrue(a.Count > 0);
             Assert.AreEqual(a.Count, b.Count);
             const int epsilon = 2;
             for (int i = 0; i < a.Count; i++)
@@ -202,7 +224,7 @@ namespace PowerPointUITests
             }
         }
 
-        // 因為不明原因Robot移動滑鼠游標到指定的Coordinate時會有小誤差
+        // 因為不明原因Robot移動滑鼠游標到指定的Coordinate有時會有1~2 pixels的小誤差
         public void AssertDataGridViewInfoCells(string name, int rowIndex, string data)
         {
             var dataGridView = _driver.FindElementByAccessibilityId(name);

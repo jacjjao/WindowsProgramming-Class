@@ -307,13 +307,6 @@ namespace PowerPoint
         }
 
         /* resize */
-        private void SlideButtonResize(object sender, EventArgs e)
-        {
-            const float TARGET_ASPECT_RATIO = 16.0f / 9.0f;
-            _slideButton1.Height = (int)((float)_slideButton1.Width / TARGET_ASPECT_RATIO);
-        }
-
-        /* resize */
         private void SplitContainer2Panel1Resize(object sender, EventArgs e)
         {
             if (_drawPanel == null)
@@ -321,6 +314,13 @@ namespace PowerPoint
             int layoutWidth = _splitContainer4.Panel1.Width;
             int layoutHeight = _splitContainer4.Panel1.Height;
             _presentModel.UpdateDrawPanelSizeAndPosition(_drawPanel, layoutWidth, layoutHeight);
+        }
+
+        /* resize */
+        private void SplitContainer1Panel1Resize(object sender, EventArgs e)
+        {
+            const float TARGET_ASPECT_RATIO = 16.0f / 9.0f;
+            _slideButton1.Height = (int)((float)_slideButton1.Width / TARGET_ASPECT_RATIO);
         }
     }
 }

@@ -41,7 +41,7 @@ namespace PowerPointUITests
             _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.REDO_BUTTON_INDEX]);
 
             int x = 10, y = 10, width = 100, height = 50;
-            _robot.DrawShape(x, y, width, height);
+            _robot.MouseDownAndMoveThenUp("DrawPanel", x, y, width, height);
             var line = new Line(new System.Drawing.Point(x, y), new System.Drawing.Point(x + width, y + height));
             _robot.AssertDataGridViewShapeCells("_dataGridView", 0, line.GetShapeName());
             _robot.AssertDataGridViewInfoCells("_dataGridView", 0, line.GetInfo());
@@ -60,7 +60,7 @@ namespace PowerPointUITests
             _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.REDO_BUTTON_INDEX]);
 
             int x = 200, y = 200, width = 200, height = 250;
-            _robot.DrawShape(x, y, width, height);
+            _robot.MouseDownAndMoveThenUp("DrawPanel", x, y, width, height);
             var rect = new Rectangle(new System.Drawing.Point(x, y), new System.Drawing.Point(x + width, y + height));
             _robot.AssertDataGridViewShapeCells("_dataGridView", 1, rect.GetShapeName());
             _robot.AssertDataGridViewInfoCells("_dataGridView", 1, rect.GetInfo());
@@ -79,7 +79,7 @@ namespace PowerPointUITests
             _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.REDO_BUTTON_INDEX]);
 
             int x = 300, y = 300, width = 100, height = 100;
-            _robot.DrawShape(x, y, width, height);
+            _robot.MouseDownAndMoveThenUp("DrawPanel", x, y, width, height);
             var circle = new Circle(new System.Drawing.Point(x, y), new System.Drawing.Point(x + width, y + height));
             _robot.AssertDataGridViewShapeCells("_dataGridView", 2, circle.GetShapeName());
             _robot.AssertDataGridViewInfoCells("_dataGridView", 2, circle.GetInfo());

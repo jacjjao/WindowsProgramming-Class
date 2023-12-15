@@ -109,6 +109,7 @@
     <Compile Include="Shape\ShapesTests.cs" />
     <Compile Include="Shape\ShapeTests.cs" />
     <Compile Include="UI\ToolBarUITest.cs" />
+    <Compile Include="UI\FormUITest.cs" />
     <Compile Include="UI\UndoAndRedoUITest.cs" />
   </ItemGroup>
   <ItemGroup>
