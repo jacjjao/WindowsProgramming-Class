@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Pen = System.Drawing.Pen;
 
 namespace PowerPoint
 {
     public class PageManager
     {
-        public delegate void NewPageAddedHandler();
-        public event NewPageAddedHandler NewPageAdded;
+        public delegate void NewPageAddedEventHandler();
+        public event NewPageAddedEventHandler _newPageAdded;
 
-        public delegate void PageRemovedHandler(int index);
-        public event PageRemovedHandler PageRemoved;
+        public delegate void PageRemovedEventHandler(int index);
+        public event PageRemovedEventHandler _pageRemoved;
 
-        public delegate void CurrentPageChangedHandler();
-        public event CurrentPageChangedHandler CurrentPageChanged;
+        public delegate void CurrentPageChangedEventHandler();
+        public event CurrentPageChangedEventHandler _currentPageChanged;
 
         readonly List<Page> _pages = new List<Page>();
 
@@ -31,7 +28,7 @@ namespace PowerPoint
             private set
             {
                 _currentPage = value;
-                OnCurrentPageChanged();
+                DoCurrentPageChanged();
             }
         }
 
@@ -53,7 +50,7 @@ namespace PowerPoint
         {
             _pages.Add(new Page());
             CurrentPage = _pages.Last();
-            OnPageAdd();
+            DoPageAdd();
         }
 
         // add page
@@ -61,7 +58,7 @@ namespace PowerPoint
         {
             _pages.Insert(index, page);
             CurrentPage = page;
-            OnPageAdd();
+            DoPageAdd();
         }
 
         // remove
@@ -79,9 +76,9 @@ namespace PowerPoint
                 _pages.Remove(page);
                 CurrentPage = _pages[index];
             }
-            else 
+            else
                 _pages.Remove(page);
-            OnPageRemove(removeIndex);
+            DoPageRemove(removeIndex);
         }
 
         // remove at
@@ -100,7 +97,7 @@ namespace PowerPoint
             }
             else
                 _pages.RemoveAt(removeIndex);
-            OnPageRemove(removeIndex);
+            DoPageRemove(removeIndex);
         }
 
         // remove last page
@@ -111,10 +108,12 @@ namespace PowerPoint
             {
                 if (CurrentPage == _pages.Last())
                 {
-                    CurrentPage = _pages[_pages.Count - 2];
+                    int lastIndex = _pages.Count - 1;
+                    lastIndex--;
+                    CurrentPage = _pages[lastIndex];
                 }
                 _pages.Remove(_pages.Last());
-                OnPageRemove(_pages.Count);
+                DoPageRemove(_pages.Count);
             }
         }
 
@@ -140,29 +139,29 @@ namespace PowerPoint
         }
 
         // page add
-        private void OnPageAdd()
+        private void DoPageAdd()
         {
-            if (NewPageAdded != null)
+            if (_newPageAdded != null)
             {
-                NewPageAdded();
+                _newPageAdded();
             }
         }
 
         // page remove
-        private void OnPageRemove(int index)
+        private void DoPageRemove(int index)
         {
-            if (PageRemoved != null)
+            if (_pageRemoved != null)
             {
-                PageRemoved(index);
+                _pageRemoved(index);
             }
         }
 
         // current page change
-        private void OnCurrentPageChanged()
+        private void DoCurrentPageChanged()
         {
-            if (CurrentPageChanged != null)
+            if (_currentPageChanged != null)
             {
-                CurrentPageChanged();
+                _currentPageChanged();
             }
         }
     }
