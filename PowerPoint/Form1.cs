@@ -21,6 +21,7 @@ namespace PowerPoint
         readonly BindingSource _bindingSource = new BindingSource();
         FormGraphicsAdapter _graphics;
         List<Button> _slideButtons = new List<Button>();
+        MyFlowLayoutPanel _flowLayoutPanel = new MyFlowLayoutPanel();
 
         public static readonly string[] TOOLSTRIP_BUTTON_NAME =
         {
@@ -51,7 +52,9 @@ namespace PowerPoint
 
             CreateDrawPanel();
             KeyPreview = true;
-            OnResize(EventArgs.Empty);
+
+            _flowLayoutPanel.Dock = DockStyle.Fill;
+            _splitContainer1.Panel1.Controls.Add(_flowLayoutPanel);
         }
 
         /* create toolstrip button list */
@@ -318,17 +321,18 @@ namespace PowerPoint
         /* add new slide button */
         private void AddNewSlideButton()
         {
-            _tableLayoutPanel3.RowCount++;
             var slideButton = new Button();
-            slideButton.Dock = DockStyle.Top;
             slideButton.Paint += DoSlideButtonPaint;
-            _tableLayoutPanel3.Controls.Add(slideButton);
+            _flowLayoutPanel.Controls.Add(slideButton);
+            _slideButtons.Add(slideButton);
 
             _presentModel.Model.CurrentPage.Content.ListChanged += DoListChanged;
             _bindingSource.DataSource = _presentModel.Model.CurrentPage.Content;
             _dataGridView.DataSource = _bindingSource;
 
             _presentModel.Model.CommandManager.Page = _presentModel.Model.PageManager.CurrentPage;
+
+            _flowLayoutPanel.OnResize();
         }
 
         /* slide button click */
@@ -372,7 +376,7 @@ namespace PowerPoint
             const float TARGET_ASPECT_RATIO = 16.0f / 9.0f;
             for (int i = 0; i < _slideButtons.Count; i++)
             {
-                _slideButtons[i].Width = _splitContainer1.Panel1.Width;
+                _slideButtons[i].Width = _splitContainer1.Panel1.Width - _slideButtons[i].Margin.Horizontal;
                 _slideButtons[i].Height = (int)((float)_slideButtons[i].Width / TARGET_ASPECT_RATIO);
             }
         }

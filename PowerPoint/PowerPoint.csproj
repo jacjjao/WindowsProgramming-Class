@@ -56,6 +56,9 @@
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Command\ICommandManager.cs" />
     <Compile Include="Command\MoveCommand.cs" />
+    <Compile Include="MyFlowLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PageManager.cs" />
     <Compile Include="ResizeDirection.cs" />
     <Compile Include="Shape\Circle.cs" />

@@ -51,10 +51,8 @@ namespace PowerPoint
             this._infoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._shapeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this._tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer1)).BeginInit();
-            this._splitContainer1.Panel1.SuspendLayout();
             this._splitContainer1.Panel2.SuspendLayout();
             this._splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer4)).BeginInit();
@@ -104,7 +102,6 @@ namespace PowerPoint
             // 
             // _splitContainer1.Panel1
             // 
-            this._splitContainer1.Panel1.Controls.Add(this._tableLayoutPanel3);
             this._splitContainer1.Panel1.Resize += new System.EventHandler(this.SplitContainer1Panel1Resize);
             // 
             // _splitContainer1.Panel2
@@ -355,20 +352,6 @@ namespace PowerPoint
             // 
             this._shapeBindingSource.DataSource = typeof(PowerPoint.Shape);
             // 
-            // _tableLayoutPanel3
-            // 
-            this._tableLayoutPanel3.ColumnCount = 1;
-            this._tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this._tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this._tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this._tableLayoutPanel3.Name = "_tableLayoutPanel3";
-            this._tableLayoutPanel3.RowCount = 1;
-            this._tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this._tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this._tableLayoutPanel3.Size = new System.Drawing.Size(135, 658);
-            this._tableLayoutPanel3.TabIndex = 0;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -380,7 +363,6 @@ namespace PowerPoint
             this.Text = "PowerPoint";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1KeyDown);
             this._tableLayoutPanel1.ResumeLayout(false);
-            this._splitContainer1.Panel1.ResumeLayout(false);
             this._splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer1)).EndInit();
             this._splitContainer1.ResumeLayout(false);
@@ -433,7 +415,6 @@ namespace PowerPoint
         private System.Windows.Forms.DataGridViewTextBoxColumn _infoColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _infoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TableLayoutPanel _tableLayoutPanel3;
     }
 }
 
