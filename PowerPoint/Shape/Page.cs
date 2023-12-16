@@ -5,12 +5,12 @@ using Point = System.Drawing.Point;
 
 namespace PowerPoint
 {
-    public class Shapes
+    public class Page
     {
         readonly ShapesFactory _factory = new ShapesFactory(new RandomGenerator());
         readonly BindingList<Shape> _list = new BindingList<Shape>();
 
-        public Shapes()
+        public Page()
         {
             _list.AllowEdit = true;
             _list.AllowNew = true;

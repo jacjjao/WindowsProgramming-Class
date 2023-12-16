@@ -10,7 +10,7 @@ namespace PowerPoint.Tests
     {
         DrawingState _state;
         PrivateObject _statePrivate;
-        Shapes _list;
+        Page _list;
         Point _p1;
         Point _p2;
 
@@ -21,7 +21,7 @@ namespace PowerPoint.Tests
             _state = new DrawingState();
             _state.Manager = null;
             _statePrivate = new PrivateObject(_state);
-            _list = new Shapes();
+            _list = new Page();
             _p1 = new Point(100, 100);
             _p2 = new Point(200, 200);
         }

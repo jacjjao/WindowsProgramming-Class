@@ -80,7 +80,7 @@ namespace PowerPoint.Tests
                 draw = true;
             };
             _model.AddRandomShape(ShapeType.Rectangle, 800, 600);
-            _model.DrawAll(g);
+            _model.Model.DrawCurrentPage(g);
             Assert.IsTrue(draw);
         }
 
@@ -91,7 +91,7 @@ namespace PowerPoint.Tests
             var executed = false;
             var state = new MockState
             {
-                mouseDown = delegate (Shapes shape, Point p)
+                mouseDown = delegate (Page shape, Point p)
                 {
                     executed = true;
                 }
@@ -108,7 +108,7 @@ namespace PowerPoint.Tests
             var executed = false;
             var state = new MockState
             {
-                mouseMove = delegate (Shapes shape, Point p)
+                mouseMove = delegate (Page shape, Point p)
                 {
                     executed = true;
                 }
@@ -125,7 +125,7 @@ namespace PowerPoint.Tests
             var executed = false;
             var state = new MockState
             {
-                mouseUp = delegate (Shapes shape, Point p)
+                mouseUp = delegate (Page shape, Point p)
                 {
                     executed = true;
                 }

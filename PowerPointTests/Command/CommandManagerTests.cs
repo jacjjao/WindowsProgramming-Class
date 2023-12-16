@@ -6,7 +6,7 @@ namespace PowerPoint.Tests
     [TestClass]
     public class CommandManagerTests
     {
-        Shapes _list = null;
+        Page _list = null;
         CommandManager _manager = null;
         PrivateObject _managerPrivate = null;
 
@@ -14,7 +14,7 @@ namespace PowerPoint.Tests
         [TestInitialize]
         public void Initialize()
         {
-            _list = new Shapes();
+            _list = new Page();
             _manager = new CommandManager(_list);
             _managerPrivate = new PrivateObject(_manager);
         }

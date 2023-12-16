@@ -5,13 +5,13 @@ namespace PowerPoint.Tests
     [TestClass]
     public class DeleteCommandTests
     {
-        Shapes _list = null;
+        Page _list = null;
 
         // test
         [TestInitialize]
         public void Initialize()
         {
-            _list = new Shapes();
+            _list = new Page();
         }
 
         // test

@@ -29,7 +29,7 @@ namespace PowerPoint
         }
 
         /* execute */
-        public void Execute(Shapes list)
+        public void Execute(Page list)
         {
             if (SelectShape != null)
             {
@@ -38,7 +38,7 @@ namespace PowerPoint
         }
 
         /* undo */
-        public void Undo(Shapes list)
+        public void Undo(Page list)
         {
             if (SelectShape != null)
             {

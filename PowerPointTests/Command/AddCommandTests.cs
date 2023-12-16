@@ -6,13 +6,13 @@ namespace PowerPoint.Tests
     [TestClass]
     public class AddCommandTests
     {
-        Shapes _list;
+        Page _list;
 
         // test
         [TestInitialize]
         public void Initialize()
         {
-            _list = new Shapes();
+            _list = new Page();
         }
 
         // test

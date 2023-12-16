@@ -12,7 +12,7 @@ namespace PowerPoint.Tests
         PrivateObject _statePrivate;
         Point _p1;
         Point _p2;
-        Shapes _list;
+        Page _list;
 
         /* initialize */
         [TestInitialize]
@@ -22,7 +22,7 @@ namespace PowerPoint.Tests
             _statePrivate = new PrivateObject(_state);
             _p1 = new Point(0, 0);
             _p2 = new Point(200, 300);
-            _list = new Shapes();
+            _list = new Page();
             _list.AddShape(ShapeType.Rectangle, new Point(50, 50), _p2);
             _list.AddShape(ShapeType.Rectangle, _p1, _p2);
         }

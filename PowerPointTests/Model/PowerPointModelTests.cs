@@ -7,26 +7,26 @@ namespace PowerPoint.Tests
 {
     class MockState : IState
     {
-        public Action<Shapes, Point> mouseDown = null;
-        public Action<Shapes, Point> mouseMove = null;
-        public Action<Shapes, Point> mouseUp = null;
+        public Action<Page, Point> mouseDown = null;
+        public Action<Page, Point> mouseMove = null;
+        public Action<Page, Point> mouseUp = null;
 
         /* mouse down */
-        public Cursor MouseDown(Shapes list, Point pos)
+        public Cursor MouseDown(Page list, Point pos)
         {
             mouseDown.Invoke(list, pos);
             return Cursors.Default;
         }
 
         /* mouse move */
-        public Cursor MouseMove(Shapes list, Point pos)
+        public Cursor MouseMove(Page list, Point pos)
         {
             mouseMove.Invoke(list, pos);
             return Cursors.Default;
         }
 
         /* mouse up */
-        public Cursor MouseUp(Shapes list, Point pos)
+        public Cursor MouseUp(Page list, Point pos)
         {
             mouseUp.Invoke(list, pos);
             return Cursors.Default;
@@ -82,7 +82,7 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void DrawAllTest()
         {
-            var list = (Shapes)_modelPrivate.GetFieldOrProperty("_list");
+            var list = (Page)_modelPrivate.GetFieldOrProperty("_list");
             int screenWidth = 800;
             int screenHeight = 600;
             list.AddRandomShape(ShapeType.Rectangle, screenWidth, screenHeight);
@@ -97,7 +97,7 @@ namespace PowerPoint.Tests
                     count++;
                 }
             };
-            _model.DrawAll(graphics);
+            _model.DrawCurrentPage(graphics);
             Assert.AreEqual(list.Count, count);
         }
 
@@ -110,7 +110,7 @@ namespace PowerPoint.Tests
             _model.SelectedShape = ShapeType.Rectangle;
             var state = new MockState
             {
-                mouseDown = delegate (Shapes list, Point loc)
+                mouseDown = delegate (Page list, Point loc)
                 {
                     executed = true;
                     Assert.AreEqual(location, loc);
@@ -130,7 +130,7 @@ namespace PowerPoint.Tests
             var location = new Point(50, 100);
             var state = new MockState
             {
-                mouseMove = delegate (Shapes list, Point loc)
+                mouseMove = delegate (Page list, Point loc)
                 {
                     executed = true;
                     Assert.AreEqual(location, loc);
@@ -150,7 +150,7 @@ namespace PowerPoint.Tests
             var location = new Point(50, 100);
             var state = new MockState
             {
-                mouseUp = delegate (Shapes list, Point loc)
+                mouseUp = delegate (Page list, Point loc)
                 {
                     executed = true;
                     Assert.AreEqual(location, loc);

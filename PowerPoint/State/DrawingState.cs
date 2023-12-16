@@ -32,7 +32,7 @@ namespace PowerPoint
         }
 
         /* mouse down */
-        public Cursor MouseDown(Shapes list, Point pos)
+        public Cursor MouseDown(Page list, Point pos)
         {
             if (_type == ShapeType.None)
             {
@@ -45,7 +45,7 @@ namespace PowerPoint
         }
 
         /* draw or resize the shape */
-        private void DrawOrResizeTheShape(Shapes list)
+        private void DrawOrResizeTheShape(Page list)
         {
             if (!_mouseMoved)
             {
@@ -66,7 +66,7 @@ namespace PowerPoint
         }
 
         /* mouse move */
-        public Cursor MouseMove(Shapes list, Point pos)
+        public Cursor MouseMove(Page list, Point pos)
         {
             if (!_mousePressed)
             {
@@ -78,7 +78,7 @@ namespace PowerPoint
         }
 
         /* mouse up */
-        public Cursor MouseUp(Shapes list, Point pos)
+        public Cursor MouseUp(Page list, Point pos)
         {
             if (!_mousePressed)
                 return Cursors.Default;

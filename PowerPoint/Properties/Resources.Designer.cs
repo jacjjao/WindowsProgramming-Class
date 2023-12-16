@@ -63,6 +63,16 @@ namespace PowerPoint.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DeletePage {
+            get {
+                object obj = ResourceManager.GetObject("DeletePage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NewPage {
             get {
                 object obj = ResourceManager.GetObject("NewPage", resourceCulture);

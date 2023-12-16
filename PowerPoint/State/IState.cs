@@ -6,13 +6,13 @@ namespace PowerPoint
     public interface IState
     {
         /* mouse down */
-        Cursor MouseDown(Shapes list, Point pos);
+        Cursor MouseDown(Page list, Point pos);
 
         /* mouse move */
-        Cursor MouseMove(Shapes list, Point pos);
+        Cursor MouseMove(Page list, Point pos);
 
         /* mouse up */
-        Cursor MouseUp(Shapes list, Point pos);
+        Cursor MouseUp(Page list, Point pos);
 
         /* set shape type */
         void SetShapeType(ShapeType type);

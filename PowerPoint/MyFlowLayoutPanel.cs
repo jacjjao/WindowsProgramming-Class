@@ -9,10 +9,10 @@ namespace PowerPoint
 {
     class MyFlowLayoutPanel : FlowLayoutPanel
     {
-        // on resize
-        public void OnResize()
+        // on size changed
+        public void OnSizeChanged()
         {
-            base.OnResize(EventArgs.Empty);
+            base.OnSizeChanged(EventArgs.Empty);
         }
     }
 }

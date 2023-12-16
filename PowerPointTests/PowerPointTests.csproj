@@ -88,7 +88,6 @@
     <Compile Include="Command\AddCommandTests.cs" />
     <Compile Include="Command\CommandManagerTests.cs" />
     <Compile Include="Command\DeleteCommandTests.cs" />
-    <Compile Include="Command\DrawCommandTests.cs" />
     <Compile Include="Command\MoveCommandTests.cs" />
     <Compile Include="DoubleBufferedPanelTest.cs" />
     <Compile Include="MockCommandManager.cs" />
@@ -106,7 +105,7 @@
     <Compile Include="RandomGeneratorTests.cs" />
     <Compile Include="Shape\RectangleTests.cs" />
     <Compile Include="Shape\ShapesFactoryTests.cs" />
-    <Compile Include="Shape\ShapesTests.cs" />
+    <Compile Include="Shape\PageTests.cs" />
     <Compile Include="Shape\ShapeTests.cs" />
     <Compile Include="UI\ToolBarUITest.cs" />
     <Compile Include="UI\FormUITest.cs" />

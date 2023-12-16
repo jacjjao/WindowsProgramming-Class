@@ -48,7 +48,7 @@ namespace PowerPoint
         }
 
         /* execute */
-        public void Execute(Shapes list)
+        public void Execute(Page list)
         {
             if (AddShape != null)
             {
@@ -68,7 +68,7 @@ namespace PowerPoint
         }
 
         /* undo(Unexecute會報名不符實) */
-        public void Undo(Shapes list)
+        public void Undo(Page list)
         {
             if (AddShape != null)
             {

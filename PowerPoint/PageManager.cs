@@ -13,34 +13,94 @@ namespace PowerPoint
         public delegate void NewPageAddedHandler();
         public event NewPageAddedHandler NewPageAdded;
 
-        public delegate void PageRemovedHandler();
+        public delegate void PageRemovedHandler(int index);
         public event PageRemovedHandler PageRemoved;
 
-        List<Shapes> _pages = new List<Shapes>();
+        public delegate void CurrentPageChangedHandler();
+        public event CurrentPageChangedHandler CurrentPageChanged;
 
-        Shapes _currentPage = null;
-        public Shapes CurrentPage
+        readonly List<Page> _pages = new List<Page>();
+
+        Page _currentPage = null;
+        public Page CurrentPage
         {
             get
             {
                 return _currentPage;
             }
+            private set
+            {
+                _currentPage = value;
+                OnCurrentPageChanged();
+            }
+        }
+
+        // get current page index
+        public int GetCurrentPageIndex()
+        {
+            return _pages.FindIndex((page) => page.Equals(CurrentPage));
+        }
+
+        // set current page
+        public void SetCurrentPage(int index)
+        {
+            Debug.Assert(0 <= index && index < _pages.Count);
+            CurrentPage = _pages[index];
         }
 
         // add blank page
         public void AddBlankPage()
         {
-            _pages.Add(new Shapes());
-            _currentPage = _pages.Last();
+            _pages.Add(new Page());
+            CurrentPage = _pages.Last();
+            OnPageAdd();
+        }
+
+        // add page
+        public void AddPage(Page page, int index)
+        {
+            _pages.Insert(index, page);
+            CurrentPage = page;
             OnPageAdd();
         }
 
         // remove
-        public void Remove(Shapes page)
+        public void Remove(Page page)
         {
+            if (_pages.Count <= 1)
+                return;
             Debug.Assert(page != null && _pages.Contains(page));
-            _pages.Remove(page);
-            OnPageRemove();
+            int removeIndex = _pages.FindIndex((p) => p.Equals(page));
+            if (page.Equals(CurrentPage))
+            {
+                int index = GetCurrentPageIndex();
+                if (index > 0)
+                    index--;
+                _pages.Remove(page);
+                CurrentPage = _pages[index];
+            }
+            else 
+                _pages.Remove(page);
+            OnPageRemove(removeIndex);
+        }
+
+        // remove at
+        public void RemoveAt(int removeIndex)
+        {
+            if (_pages.Count <= 1)
+                return;
+            Debug.Assert(0 <= removeIndex && removeIndex < _pages.Count);
+            if (GetCurrentPageIndex() == removeIndex)
+            {
+                int index = removeIndex;
+                if (index > 0)
+                    index--;
+                _pages.RemoveAt(removeIndex);
+                CurrentPage = _pages[index];
+            }
+            else
+                _pages.RemoveAt(removeIndex);
+            OnPageRemove(removeIndex);
         }
 
         // remove last page
@@ -49,17 +109,17 @@ namespace PowerPoint
             Debug.Assert(_pages.Count > 0);
             if (_pages.Count > 1)
             {
-                if (_currentPage == _pages.Last())
+                if (CurrentPage == _pages.Last())
                 {
-                    _currentPage = _pages[_pages.Count - 2];
+                    CurrentPage = _pages[_pages.Count - 2];
                 }
                 _pages.Remove(_pages.Last());
-                OnPageRemove();
+                OnPageRemove(_pages.Count);
             }
         }
 
         // select current page
-        public void SelectCurrentPage(Shapes page)
+        public void SelectCurrentPage(Page page)
         {
             Debug.Assert(page != null && _pages.Contains(page));
             _currentPage = page;
@@ -89,11 +149,20 @@ namespace PowerPoint
         }
 
         // page remove
-        private void OnPageRemove()
+        private void OnPageRemove(int index)
         {
             if (PageRemoved != null)
             {
-                PageRemoved();
+                PageRemoved(index);
+            }
+        }
+
+        // current page change
+        private void OnCurrentPageChanged()
+        {
+            if (CurrentPageChanged != null)
+            {
+                CurrentPageChanged();
             }
         }
     }

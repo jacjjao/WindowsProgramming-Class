@@ -3,9 +3,9 @@
     public interface ICommand
     {
         /* execute */
-        void Execute(Shapes list);
+        void Execute(Page list);
 
         /* undo */
-        void Undo(Shapes list);
+        void Undo(Page list);
     }
 }

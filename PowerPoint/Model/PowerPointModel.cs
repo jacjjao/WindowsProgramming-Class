@@ -14,7 +14,7 @@ namespace PowerPoint
                 return _pageManager;
             }
         }
-        public Shapes CurrentPage
+        public Page CurrentPage
         {
             get
             {
@@ -79,12 +79,25 @@ namespace PowerPoint
             {
                 Manager = _commandManager
             };
+            PageManager.CurrentPageChanged += OnCurrentPageChange;
+        }
+
+        // current page change
+        private void OnCurrentPageChange()
+        {
+            CommandManager.CurrentPage = PageManager.CurrentPage;
         }
 
         // add blank page
         public void AddBlankPage()
         {
             _pageManager.AddBlankPage();
+        }
+
+        // set current page
+        public void SetCurrentPage(int index)
+        {
+            _pageManager.SetCurrentPage(index);
         }
 
         // draw page
@@ -94,14 +107,9 @@ namespace PowerPoint
         }
 
         /* draw all */
-        public void DrawAll(IGraphics graphics)
+        public void DrawCurrentPage(IGraphics graphics)
         {
-            var command = new DrawCommand();
-            command.DrawPen = DrawPen;
-            command.Graphics = graphics;
-            var option = new ExecuteOption();
-            option.SaveCommand = false;
-            CommandManager.Execute(command, option);
+            _pageManager.CurrentPage.DrawAll(DrawPen, graphics);
         }
 
         /* mouse down */

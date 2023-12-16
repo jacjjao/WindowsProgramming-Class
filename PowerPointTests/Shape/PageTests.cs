@@ -5,15 +5,15 @@ using Point = System.Drawing.Point;
 namespace PowerPoint.Tests
 {
     [TestClass]
-    public class ShapesTests
+    public class PageTests
     {
-        Shapes _list;
+        Page _list;
 
         /* initialize */
         [TestInitialize]
         public void Initialize()
         {
-            _list = new Shapes();
+            _list = new Page();
         }
 
         /* constructor */

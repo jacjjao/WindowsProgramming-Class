@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace PowerPoint
@@ -15,12 +16,13 @@ namespace PowerPoint
         public const int UNDO_BUTTON_INDEX = 4;
         public const int REDO_BUTTON_INDEX = 5;
         public const int NEW_PAGE_BUTTON_INDEX = 6;
+        public const int DELETE_PAGE_BUTTON_INDEX = 7;
         readonly Dictionary<ToolStripButton, int> _toolStripButtons = new Dictionary<ToolStripButton, int>();
         readonly PresentationModel _presentModel;
         DoubleBufferedPanel _drawPanel;
         readonly BindingSource _bindingSource = new BindingSource();
         FormGraphicsAdapter _graphics;
-        List<Button> _slideButtons = new List<Button>();
+        List<CheckBox> _slideButtons = new List<CheckBox>();
         MyFlowLayoutPanel _flowLayoutPanel = new MyFlowLayoutPanel();
 
         public static readonly string[] TOOLSTRIP_BUTTON_NAME =
@@ -32,6 +34,7 @@ namespace PowerPoint
             "ToolStripUndoButton",
             "ToolStripRedoButton",
             "ToolStripNewPageButton",
+            "ToolStripDeletePageButton",
         };
 
         public Form1(PresentationModel presentationModel)
@@ -46,14 +49,18 @@ namespace PowerPoint
             CreateToolStripButtonListUndo();
             CreateToolStripButtonListRedo();
             CreateToolStripButtonNewPage();
+            CreateToolStripButtonDeletePage();
 
             _presentModel.Model.PageManager.NewPageAdded += AddNewSlideButton;
+            _presentModel.Model.PageManager.PageRemoved += RemoveSlideButton;
+            _presentModel.Model.PageManager.CurrentPageChanged += RebindDataGridViewToCurrentPage;
             _presentModel.Model.AddBlankPage();
 
             CreateDrawPanel();
             KeyPreview = true;
 
             _flowLayoutPanel.Dock = DockStyle.Fill;
+            _flowLayoutPanel.SizeChanged += ResizeSlideButtons;
             _splitContainer1.Panel1.Controls.Add(_flowLayoutPanel);
         }
 
@@ -160,6 +167,20 @@ namespace PowerPoint
             _toolStripButtons.Add(newPageButton, NEW_PAGE_BUTTON_INDEX);
         }
 
+        /* 分割出來的不然會太長 */
+        private void CreateToolStripButtonDeletePage()
+        {
+            const string CHECKED = "Checked";
+            const string VALUE = ".Value";
+            var newPageButton = new BindToolStripButton();
+            newPageButton.Image = Properties.Resources.DeletePage;
+            newPageButton.DataBindings.Add(CHECKED, _presentModel.CheckList[DELETE_PAGE_BUTTON_INDEX], VALUE);
+            newPageButton.Click += RemoveCheckedSlide;
+            newPageButton.AccessibleName = TOOLSTRIP_BUTTON_NAME[DELETE_PAGE_BUTTON_INDEX];
+            _toolStrip1.Items.Add(newPageButton);
+            _toolStripButtons.Add(newPageButton, DELETE_PAGE_BUTTON_INDEX);
+        }
+
         /* create draw panel */
         private void CreateDrawPanel()
         {
@@ -181,8 +202,8 @@ namespace PowerPoint
         private void Draw()
         {
             _drawPanel.Invalidate();
-            for (int i = 0; i < _slideButtons.Count; i++)
-                _slideButtons[i].Invalidate();
+            int index = _presentModel.Model.PageManager.GetCurrentPageIndex();
+            _slideButtons[index].Invalidate();
         }
 
         /* 有形狀變動時重畫 */
@@ -221,7 +242,7 @@ namespace PowerPoint
         {
             e.Graphics.ScaleTransform(_presentModel.DrawPanelScaleX, _presentModel.DrawPanelScaleY);
             _graphics = new FormGraphicsAdapter(e.Graphics);
-            _presentModel.DrawAll(_graphics);
+            _presentModel.Model.DrawCurrentPage(_graphics);
         }
 
         /* 處理"新增"按鈕被按的event */
@@ -314,31 +335,80 @@ namespace PowerPoint
         /* new page click */
         private void DoToolStripButtonNewPageClick(object sender, EventArgs e)
         {
-            _presentModel.Model.AddBlankPage();
+            _presentModel.Model.CommandManager.Execute(new AddPageCommand { Manager = _presentModel.Model.PageManager });
             Draw();
+        }
+
+        // rebind databinding
+        private void RebindDataGridViewToCurrentPage()
+        {
+            _presentModel.Model.CurrentPage.Content.ListChanged += DoListChanged;
+            _bindingSource.DataSource = _presentModel.Model.CurrentPage.Content;
+            _dataGridView.DataSource = _bindingSource;
+        }
+
+        // check button
+        private void CheckedButton()
+        {
+            for (int i = 0; i < _slideButtons.Count; i++)
+                _slideButtons[i].Checked = false;
+            _slideButtons[_presentModel.Model.PageManager.GetCurrentPageIndex()].Checked = true;
         }
 
         /* add new slide button */
         private void AddNewSlideButton()
         {
-            var slideButton = new Button();
+            var slideButton = new CheckBox();
+            slideButton.Appearance = Appearance.Button;
             slideButton.Paint += DoSlideButtonPaint;
+            slideButton.Click += OnSlideButtonClick;
+
             _flowLayoutPanel.Controls.Add(slideButton);
             _slideButtons.Add(slideButton);
 
-            _presentModel.Model.CurrentPage.Content.ListChanged += DoListChanged;
-            _bindingSource.DataSource = _presentModel.Model.CurrentPage.Content;
-            _dataGridView.DataSource = _bindingSource;
+            RebindDataGridViewToCurrentPage();
 
-            _presentModel.Model.CommandManager.Page = _presentModel.Model.PageManager.CurrentPage;
+            CheckedButton();
 
-            _flowLayoutPanel.OnResize();
+            _flowLayoutPanel.OnSizeChanged();
+        }
+
+        // draw all
+        private void DrawAll()
+        {
+            _drawPanel.Invalidate();
+            for (int i = 0; i < _slideButtons.Count; i++)
+                _slideButtons[i].Invalidate();
+        }
+
+        // remove slide
+        private void RemoveCheckedSlide(object sender, EventArgs e)
+        {
+            int index = _slideButtons.FindIndex((button) => button.Checked);
+            _presentModel.Model.PageManager.RemoveAt(index);
+            if (index > 0)
+                index--;
+            CheckedButton();
+            DrawAll();
+        }
+
+        // remove Index
+        private void RemoveSlideButton(int index)
+        {
+            _slideButtons.Remove(_slideButtons.Last());
+            _flowLayoutPanel.Controls.RemoveAt(_flowLayoutPanel.Controls.Count - 1);
         }
 
         /* slide button click */
         private void OnSlideButtonClick(object sender, EventArgs e)
         {
+            int index = _slideButtons.FindIndex((button) => button.Equals(sender));
+            _presentModel.Model.SetCurrentPage(index);
 
+            RebindDataGridViewToCurrentPage();
+
+            CheckedButton();
+            Draw();
         }
 
         /* keydown */
@@ -350,14 +420,14 @@ namespace PowerPoint
         /* slide button paint */
         private void DoSlideButtonPaint(object sender, PaintEventArgs e)
         {
-            var button = (Button)sender;
+            var button = (CheckBox)sender;
             var adapter = new FormGraphicsAdapter(e.Graphics);
             float scaleX = (float)button.Width / (float)_drawPanel.Width;
             float scaleY = (float)button.Height / (float)_drawPanel.Height;
             scaleX *= _presentModel.DrawPanelScaleX;
             scaleY *= _presentModel.DrawPanelScaleY;
             e.Graphics.ScaleTransform(scaleX, scaleY);
-            _presentModel.DrawAll(adapter);
+            _presentModel.Model.DrawPage(_slideButtons.FindIndex((slideButton) => slideButton.Equals(button)), adapter);
         }
 
         /* resize */
@@ -371,7 +441,7 @@ namespace PowerPoint
         }
 
         /* resize */
-        private void SplitContainer1Panel1Resize(object sender, EventArgs e)
+        private void ResizeSlideButtons(object sender, EventArgs e)
         {
             const float TARGET_ASPECT_RATIO = 16.0f / 9.0f;
             for (int i = 0; i < _slideButtons.Count; i++)

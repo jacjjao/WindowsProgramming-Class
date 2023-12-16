@@ -102,7 +102,7 @@ namespace PowerPoint
             // 
             // _splitContainer1.Panel1
             // 
-            this._splitContainer1.Panel1.Resize += new System.EventHandler(this.SplitContainer1Panel1Resize);
+            this._splitContainer1.Panel1.Resize += new System.EventHandler(this.ResizeSlideButtons);
             // 
             // _splitContainer1.Panel2
             // 

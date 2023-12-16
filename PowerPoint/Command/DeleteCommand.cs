@@ -11,14 +11,14 @@
         }
 
         /* execute */
-        public void Execute(Shapes list)
+        public void Execute(Page list)
         {
             _shape = list[DeleteIndex];
             list.RemoveAt(DeleteIndex);
         }
 
         /* undo */
-        public void Undo(Shapes list)
+        public void Undo(Page list)
         {
             if (_shape != null)
             {

@@ -66,6 +66,7 @@ namespace PowerPoint
                 new NotifyBoolean(),
                 new NotifyBoolean(),
                 new NotifyBoolean(),
+                new NotifyBoolean(),
             };
         }
 
@@ -112,12 +113,6 @@ namespace PowerPoint
         public Pen GetDrawPen()
         {
             return Model.DrawPen;
-        }
-
-        /* 畫出所有形狀 */
-        public void DrawAll(IGraphics graphics)
-        {
-            Model.DrawAll(graphics);
         }
 
         /* 在draw panel上按下滑鼠的event */

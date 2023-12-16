@@ -47,7 +47,7 @@ namespace PowerPoint
         }
 
         /* mouse down */
-        public Cursor MouseDown(Shapes list, Point pos)
+        public Cursor MouseDown(Page list, Point pos)
         {
             _mousePressed = true;
             _mouseMoved = false;
@@ -92,7 +92,7 @@ namespace PowerPoint
         }
 
         /* mouse move */
-        public Cursor MouseMove(Shapes list, Point pos)
+        public Cursor MouseMove(Page list, Point pos)
         {
             if (_selectedShape == null)
                 return Cursors.Default;
@@ -115,7 +115,7 @@ namespace PowerPoint
         }
 
         /* mouse up */
-        public Cursor MouseUp(Shapes list, Point pos)
+        public Cursor MouseUp(Page list, Point pos)
         {
             _mousePressed = false;
             if (_selectedShape != null)
@@ -133,7 +133,7 @@ namespace PowerPoint
         }
 
         /* remove selected shape */
-        public void RemoveSelectedShape(Shapes list)
+        public void RemoveSelectedShape(Page list)
         {
             if (_selectedShape == null)
                 return;
