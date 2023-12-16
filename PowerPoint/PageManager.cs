@@ -23,13 +23,22 @@ namespace PowerPoint
         {
             get
             {
+                Debug.Assert(_currentPage == null || _pages.Contains(_currentPage));
                 return _currentPage;
             }
             private set
             {
+                Debug.Assert(_pages.Contains(value));
                 _currentPage = value;
                 DoCurrentPageChanged();
             }
+        }
+
+        // get page
+        public Page GetPage(int index)
+        {
+            Debug.Assert(0 <= index && index < _pages.Count);
+            return _pages[index];
         }
 
         // get current page index
@@ -50,6 +59,15 @@ namespace PowerPoint
         {
             _pages.Add(new Page());
             CurrentPage = _pages.Last();
+            DoPageAdd();
+        }
+
+        // add blank page at
+        public void AddBlankPageAt(int index)
+        {
+            Debug.Assert(0 <= index && index <= _pages.Count);
+            _pages.Insert(index, new Page());
+            CurrentPage = _pages[index];
             DoPageAdd();
         }
 
@@ -100,35 +118,18 @@ namespace PowerPoint
             DoPageRemove(removeIndex);
         }
 
-        // remove last page
-        public void RemoveLastPage()
-        {
-            Debug.Assert(_pages.Count > 0);
-            if (_pages.Count > 1)
-            {
-                if (CurrentPage == _pages.Last())
-                {
-                    int lastIndex = _pages.Count - 1;
-                    lastIndex--;
-                    CurrentPage = _pages[lastIndex];
-                }
-                _pages.Remove(_pages.Last());
-                DoPageRemove(_pages.Count);
-            }
-        }
-
         // select current page
         public void SelectCurrentPage(Page page)
         {
             Debug.Assert(page != null && _pages.Contains(page));
-            _currentPage = page;
+            CurrentPage = page;
         }
 
         // draw current page
         public void DrawCurrentPage(Pen pen, IGraphics graphics)
         {
-            Debug.Assert(_currentPage != null && _pages.Contains(_currentPage));
-            _currentPage.DrawAll(pen, graphics);
+            Debug.Assert(CurrentPage != null && _pages.Contains(CurrentPage));
+            CurrentPage.DrawAll(pen, graphics);
         }
 
         // draw page

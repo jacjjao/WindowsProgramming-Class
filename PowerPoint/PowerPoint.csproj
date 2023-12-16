@@ -56,6 +56,7 @@
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Command\ICommandManager.cs" />
     <Compile Include="Command\MoveCommand.cs" />
+    <Compile Include="Command\RemovePageCommand.cs" />
     <Compile Include="MyFlowLayoutPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -66,6 +67,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Shape\HitBox.cs" />
+    <Compile Include="SlideButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="State\DrawingState.cs" />
     <Compile Include="Graphics\FormGraphicsAdapter.cs" />
     <Compile Include="Graphics\IGraphics.cs" />

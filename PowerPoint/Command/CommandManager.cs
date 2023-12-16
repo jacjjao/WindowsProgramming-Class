@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace PowerPoint
 {
     public class CommandManager : ICommandManager
     {
-         readonly Dictionary<Page, Stack<ICommand>> _redo = new Dictionary<Page, Stack<ICommand>>();
-        readonly Dictionary<Page, Stack<ICommand>> _undo = new Dictionary<Page, Stack<ICommand>>();
+        readonly Stack<Tuple<Page, ICommand>> _redo = new Stack<Tuple<Page, ICommand>>();
+        readonly Stack<Tuple<Page, ICommand>> _undo = new Stack<Tuple<Page, ICommand>>();
 
         Page _page = null;
         public Page CurrentPage
@@ -17,13 +18,6 @@ namespace PowerPoint
             set
             {
                 _page = value;
-                if (_page != null)
-                {
-                    if (!_undo.ContainsKey(_page))
-                        _undo.Add(_page, new Stack<ICommand>());
-                    if (!_redo.ContainsKey(_page))
-                        _redo.Add(_page, new Stack<ICommand>());
-                }
             }
         }
 
@@ -44,14 +38,15 @@ namespace PowerPoint
             command.Execute(_page);
             if (option.CombineWithPreviousCommand)
             {
-                var moveCommandOne = (MoveCommand)_undo[_page].Pop();
+                var (_, cmd) = _undo.Pop();
+                var moveCommandOne = (MoveCommand)cmd;
                 var moveCommandTwo = (MoveCommand)command;
                 moveCommandTwo.Combine(moveCommandOne);
             }
             if (option.SaveCommand)
             {
-                _undo[_page].Push(command);
-                _redo[_page].Clear();
+                _undo.Push(Tuple.Create(CurrentPage, command));
+                _redo.Clear();
             }
             if (option.ResetDataBindings)
             {
@@ -62,7 +57,7 @@ namespace PowerPoint
         /* can undo */
         public bool IsCanUndo()
         {
-            return _undo[_page].Count > 0;
+            return _undo.Count > 0;
         }
 
         /* undo */
@@ -70,9 +65,9 @@ namespace PowerPoint
         {
             if (IsCanUndo())
             {
-                var command = _undo[_page].Pop();
-                command.Undo(_page);
-                _redo[_page].Push(command);
+                var (page, command) = _undo.Pop();
+                command.Undo(page);
+                _redo.Push(Tuple.Create(page, command));
                 _page.Content.ResetBindings();
             }
         }
@@ -80,7 +75,7 @@ namespace PowerPoint
         /* can redo */
         public bool IsCanRedo()
         {
-            return _redo[_page].Count > 0;
+            return _redo.Count > 0;
         }
 
         /* redo */
@@ -88,9 +83,9 @@ namespace PowerPoint
         {
             if (IsCanRedo())
             {
-                var redoCommand = _redo[_page].Pop();
-                redoCommand.Execute(_page);
-                _undo[_page].Push(redoCommand);
+                var (page, redoCommand) = _redo.Pop();
+                redoCommand.Execute(page);
+                _undo.Push(Tuple.Create(page, redoCommand));
                 _page.Content.ResetBindings();
             }
         }

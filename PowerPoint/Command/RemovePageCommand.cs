@@ -1,6 +1,12 @@
-﻿namespace PowerPoint
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PowerPoint
 {
-    public class AddPageCommand : ICommand
+    public class RemovePageCommand : ICommand
     {
         Page _page = null;
 
@@ -11,7 +17,7 @@
         }
 
         int _index = -1;
-        public int AddIndex
+        public int RemoveIndex
         {
             set
             {
@@ -22,21 +28,14 @@
         // execute
         public void Execute(Page list)
         {
-            if (_page == null)
-            {
-                Manager.AddBlankPageAt(_index);
-                _page = Manager.CurrentPage;
-            }
-            else
-            {
-                Manager.AddPage(_page, _index);
-            }
+            _page = Manager.GetPage(_index);
+            Manager.RemoveAt(_index);
         }
 
         // undo
         public void Undo(Page list)
         {
-            Manager.Remove(_page);
+            Manager.AddPage(_page, _index);
         }
     }
 }

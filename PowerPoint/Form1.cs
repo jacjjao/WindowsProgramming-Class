@@ -327,20 +327,23 @@ namespace PowerPoint
         private void DoToolStripButtonUndoClick(object sender, EventArgs e)
         {
             _presentModel.Model.CommandManager.Undo();
-            DrawPartial();
+            DrawAll();
+            UpdateSlideButtonChecked();
         }
 
         /* button undo click */
         private void DoToolStripButtonRedoClick(object sender, EventArgs e)
         {
             _presentModel.Model.CommandManager.Redo();
-            DrawPartial();
+            DrawAll();
+            UpdateSlideButtonChecked();
         }
 
         /* new page click */
         private void DoToolStripButtonNewPageClick(object sender, EventArgs e)
         {
             var command = new AddPageCommand();
+            command.AddIndex = _slideButtons.FindIndex((button) => button.Checked) + 1;
             command.Manager = _presentModel.Model.PageManager;
             _presentModel.Model.CommandManager.Execute(command);
             DrawPartial();
@@ -365,8 +368,7 @@ namespace PowerPoint
         /* add new slide button */
         private void AddNewSlideButton()
         {
-            var slideButton = new CheckBox();
-            slideButton.Appearance = Appearance.Button;
+            var slideButton = new SlideButton();
             slideButton.Paint += DoSlideButtonPaint;
             slideButton.Click += DoSlideButtonClick;
 
@@ -382,7 +384,10 @@ namespace PowerPoint
         private void RemoveCheckedSlide(object sender, EventArgs e)
         {
             int index = _slideButtons.FindIndex((button) => button.Checked);
-            _presentModel.Model.PageManager.RemoveAt(index);
+            var command = new RemovePageCommand();
+            command.Manager = _presentModel.Model.PageManager;
+            command.RemoveIndex = index;
+            _presentModel.Model.CommandManager.Execute(command);
             if (index > 0)
                 index--;
             UpdateSlideButtonChecked();
