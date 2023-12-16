@@ -47,7 +47,7 @@ namespace PowerPoint.Tests
         public void AddRandomShapeTest()
         {
             _model.AddRandomShape(ShapeType.Circle, 800, 600);
-            Assert.AreEqual(1, _m.ShapeList.Count);
+            Assert.AreEqual(1, _m.CurrentPage.Count);
         }
 
         /* remove at */
@@ -56,10 +56,10 @@ namespace PowerPoint.Tests
         {
             _model.AddRandomShape(ShapeType.Circle, 800, 600);
             _model.AddRandomShape(ShapeType.Circle, 800, 600);
-            var remain = _m.ShapeList[1];
+            var remain = _m.CurrentPage[1];
             _model.RemoveAt(0);
-            Assert.AreEqual(1, _m.ShapeList.Count);
-            Assert.AreEqual(remain, _m.ShapeList[0]);
+            Assert.AreEqual(1, _m.CurrentPage.Count);
+            Assert.AreEqual(remain, _m.CurrentPage[0]);
         }
 
         /* get draw pen */
@@ -145,11 +145,11 @@ namespace PowerPoint.Tests
         {
             _model.AddRandomShape(ShapeType.Rectangle, 800, 600);
             _model.SetState(new PointState());
-            int x = _m.ShapeList[0].HitBox.X + _m.ShapeList[0].HitBox.Width / 2;
-            int y = _m.ShapeList[0].HitBox.Y + _m.ShapeList[0].HitBox.Height / 2;
+            int x = _m.CurrentPage[0].HitBox.X + _m.CurrentPage[0].HitBox.Width / 2;
+            int y = _m.CurrentPage[0].HitBox.Y + _m.CurrentPage[0].HitBox.Height / 2;
             _model.DoMouseDown(new Point(x, y));
             _model.DoKeyDown(new System.Windows.Forms.KeyEventArgs(System.Windows.Forms.Keys.Delete));
-            Assert.AreEqual(0, _m.ShapeList.Count);
+            Assert.AreEqual(0, _m.CurrentPage.Count);
         }
 
         /* set state */
@@ -159,7 +159,7 @@ namespace PowerPoint.Tests
             var state = new PointState();
             _model.SetState(state);
             Assert.AreEqual(state, _m.State);
-            Assert.IsTrue(_m.ShapeList.Content.All((shape) => shape.Selected == false));
+            Assert.IsTrue(_m.CurrentPage.Content.All((shape) => shape.Selected == false));
         }
 
         /* test */

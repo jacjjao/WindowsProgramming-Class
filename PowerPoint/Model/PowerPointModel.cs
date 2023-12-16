@@ -6,12 +6,19 @@ namespace PowerPoint
 {
     public class PowerPointModel
     {
-        readonly Shapes _list = new Shapes();
-        public Shapes ShapeList
+        readonly PageManager _pageManager = new PageManager();
+        public PageManager PageManager
         {
             get
             {
-                return _list;
+                return _pageManager;
+            }
+        }
+        public Shapes CurrentPage
+        {
+            get
+            {
+                return _pageManager.CurrentPage;
             }
         }
 
@@ -56,22 +63,34 @@ namespace PowerPoint
             }
         }
 
-        CommandManager _manager = null;
-        public CommandManager Manager
+        CommandManager _commandManager = null;
+        public CommandManager CommandManager
         {
             get
             {
-                return _manager;
+                return _commandManager;
             }
         }
 
         public PowerPointModel()
         {
-            _manager = new CommandManager(_list);
+            _commandManager = new CommandManager(_pageManager.CurrentPage);
             State = new PointState
             {
-                Manager = _manager
+                Manager = _commandManager
             };
+        }
+
+        // add blank page
+        public void AddBlankPage()
+        {
+            _pageManager.AddBlankPage();
+        }
+
+        // draw page
+        public void DrawPage(int index, IGraphics graphics)
+        {
+            _pageManager.DrawPage(index, DrawPen, graphics);
         }
 
         /* draw all */
@@ -82,26 +101,26 @@ namespace PowerPoint
             command.Graphics = graphics;
             var option = new ExecuteOption();
             option.SaveCommand = false;
-            Manager.Execute(command, option);
+            CommandManager.Execute(command, option);
         }
 
         /* mouse down */
         public Cursor DoMouseDown(Point position)
         {
-            return State.MouseDown(ShapeList, position);
+            return State.MouseDown(CurrentPage, position);
         }
 
         /* mouse move */
         public Cursor DoMouseMove(Point position)
         {
-            return State.MouseMove(ShapeList, position);
+            return State.MouseMove(CurrentPage, position);
         }
 
         /* mouse up */
         public Cursor DoMouseUp(Point position)
         {
             SelectedShape = ShapeType.None;
-            return State.MouseUp(ShapeList, position);
+            return State.MouseUp(CurrentPage, position);
         }
 
         /* add shape */
@@ -112,7 +131,7 @@ namespace PowerPoint
             command.Type = type;
             command.ScreenWidth = screenWidth;
             command.ScreenHeight = screenHeight;
-            _manager.Execute(command);
+            _commandManager.Execute(command);
         }
 
         /* remove at */
@@ -120,7 +139,7 @@ namespace PowerPoint
         {
             DeleteCommand command = new DeleteCommand();
             command.DeleteIndex = index;
-            _manager.Execute(command);
+            _commandManager.Execute(command);
         }
 
         /* keydown */
@@ -129,7 +148,7 @@ namespace PowerPoint
             if (e.KeyCode == Keys.Delete && State is PointState)
             {
                 var state = (PointState)State;
-                state.RemoveSelectedShape(ShapeList);
+                state.RemoveSelectedShape(CurrentPage);
             }
         }
     }

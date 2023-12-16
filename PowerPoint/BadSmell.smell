@@ -368,6 +368,11 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>PageManager.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Program.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>ViewOrController</AnalysisFileType>
@@ -566,6 +571,11 @@
                 <RelativePath>State\PointStateTests.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>UI\FormUITest.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>UI\Robot.cs</RelativePath>

@@ -14,11 +14,13 @@ namespace PowerPoint
         public const int POINTER_BUTTON_INDEX = 3;
         public const int UNDO_BUTTON_INDEX = 4;
         public const int REDO_BUTTON_INDEX = 5;
+        public const int NEW_PAGE_BUTTON_INDEX = 6;
         readonly Dictionary<ToolStripButton, int> _toolStripButtons = new Dictionary<ToolStripButton, int>();
         readonly PresentationModel _presentModel;
         DoubleBufferedPanel _drawPanel;
         readonly BindingSource _bindingSource = new BindingSource();
         FormGraphicsAdapter _graphics;
+        List<Button> _slideButtons = new List<Button>();
 
         public static readonly string[] TOOLSTRIP_BUTTON_NAME =
         {
@@ -28,15 +30,13 @@ namespace PowerPoint
             "ToolStripPointerButton",
             "ToolStripUndoButton",
             "ToolStripRedoButton",
+            "ToolStripNewPageButton",
         };
 
         public Form1(PresentationModel presentationModel)
         {
             InitializeComponent();
             _presentModel = presentationModel;
-            _presentModel.Model.ShapeList.Content.ListChanged += DoListChanged;
-            _bindingSource.DataSource = _presentModel.Model.ShapeList.Content;
-            _dataGridView.DataSource = _bindingSource;
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
             CreateToolStripButtonListLine();
             CreateToolStripButtonListRectangle();
@@ -44,6 +44,11 @@ namespace PowerPoint
             CreateToolStripButtonListPointer();
             CreateToolStripButtonListUndo();
             CreateToolStripButtonListRedo();
+            CreateToolStripButtonNewPage();
+
+            _presentModel.Model.PageManager.NewPageAdded += AddNewSlideButton;
+            _presentModel.Model.AddBlankPage();
+
             CreateDrawPanel();
             KeyPreview = true;
             OnResize(EventArgs.Empty);
@@ -138,6 +143,20 @@ namespace PowerPoint
             _toolStripButtons.Add(redoButton, REDO_BUTTON_INDEX);
         }
 
+        /* 分割出來的不然會太長 */
+        private void CreateToolStripButtonNewPage()
+        {
+            const string CHECKED = "Checked";
+            const string VALUE = ".Value";
+            var newPageButton = new BindToolStripButton();
+            newPageButton.Image = Properties.Resources.NewPage;
+            newPageButton.DataBindings.Add(CHECKED, _presentModel.CheckList[NEW_PAGE_BUTTON_INDEX], VALUE);
+            newPageButton.Click += DoToolStripButtonNewPageClick;
+            newPageButton.AccessibleName = TOOLSTRIP_BUTTON_NAME[NEW_PAGE_BUTTON_INDEX];
+            _toolStrip1.Items.Add(newPageButton);
+            _toolStripButtons.Add(newPageButton, NEW_PAGE_BUTTON_INDEX);
+        }
+
         /* create draw panel */
         private void CreateDrawPanel()
         {
@@ -159,7 +178,8 @@ namespace PowerPoint
         private void Draw()
         {
             _drawPanel.Invalidate();
-            _slideButton1.Invalidate();
+            for (int i = 0; i < _slideButtons.Count; i++)
+                _slideButtons[i].Invalidate();
         }
 
         /* 有形狀變動時重畫 */
@@ -229,7 +249,7 @@ namespace PowerPoint
         private void DoToolStripButtonLineClick(object sender, EventArgs e)
         {
             var state = new DrawingState();
-            state.Manager = _presentModel.Model.Manager;
+            state.Manager = _presentModel.Model.CommandManager;
             _presentModel.SetState(state);
             ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons[(ToolStripButton)sender], ShapeType.Line);
             ChangeCursor(type);
@@ -239,7 +259,7 @@ namespace PowerPoint
         private void DoToolStripButtonRectangleClick(object sender, EventArgs e)
         {
             var state = new DrawingState();
-            state.Manager = _presentModel.Model.Manager;
+            state.Manager = _presentModel.Model.CommandManager;
             _presentModel.SetState(state);
             ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons[(ToolStripButton)sender], ShapeType.Rectangle);
             ChangeCursor(type);
@@ -249,7 +269,7 @@ namespace PowerPoint
         private void DoToolStripButtonCircleClick(object sender, EventArgs e)
         {
             var state = new DrawingState();
-            state.Manager = _presentModel.Model.Manager;
+            state.Manager = _presentModel.Model.CommandManager;
             _presentModel.SetState(state);
             ShapeType type = _presentModel.DoToolStripButtonClick(_toolStripButtons[(ToolStripButton)sender], ShapeType.Circle);
             ChangeCursor(type);
@@ -263,13 +283,13 @@ namespace PowerPoint
             if (pointerButton.Checked)
             {
                 var state = new PointState();
-                state.Manager = _presentModel.Model.Manager;
+                state.Manager = _presentModel.Model.CommandManager;
                 _presentModel.SetState(state);
             }
             else
             {
                 var state = new DrawingState();
-                state.Manager = _presentModel.Model.Manager;
+                state.Manager = _presentModel.Model.CommandManager;
                 _presentModel.SetState(state);
             }
         }
@@ -277,15 +297,44 @@ namespace PowerPoint
         /* button undo click */
         private void DoToolStripButtonUndoClick(object sender, EventArgs e)
         {
-            _presentModel.Model.Manager.Undo();
+            _presentModel.Model.CommandManager.Undo();
             Draw();
         }
 
         /* button undo click */
         private void DoToolStripButtonRedoClick(object sender, EventArgs e)
         {
-            _presentModel.Model.Manager.Redo();
+            _presentModel.Model.CommandManager.Redo();
             Draw();
+        }
+        
+        /* new page click */
+        private void DoToolStripButtonNewPageClick(object sender, EventArgs e)
+        {
+            _presentModel.Model.AddBlankPage();
+            Draw();
+        }
+
+        /* add new slide button */
+        private void AddNewSlideButton()
+        {
+            _tableLayoutPanel3.RowCount++;
+            var slideButton = new Button();
+            slideButton.Dock = DockStyle.Top;
+            slideButton.Paint += DoSlideButtonPaint;
+            _tableLayoutPanel3.Controls.Add(slideButton);
+
+            _presentModel.Model.CurrentPage.Content.ListChanged += DoListChanged;
+            _bindingSource.DataSource = _presentModel.Model.CurrentPage.Content;
+            _dataGridView.DataSource = _bindingSource;
+
+            _presentModel.Model.CommandManager.Page = _presentModel.Model.PageManager.CurrentPage;
+        }
+
+        /* slide button click */
+        private void OnSlideButtonClick(object sender, EventArgs e)
+        {
+
         }
 
         /* keydown */
@@ -297,9 +346,10 @@ namespace PowerPoint
         /* slide button paint */
         private void DoSlideButtonPaint(object sender, PaintEventArgs e)
         {
+            var button = (Button)sender;
             var adapter = new FormGraphicsAdapter(e.Graphics);
-            float scaleX = (float)_slideButton1.Width / (float)_drawPanel.Width;
-            float scaleY = (float)_slideButton1.Height / (float)_drawPanel.Height;
+            float scaleX = (float)button.Width / (float)_drawPanel.Width;
+            float scaleY = (float)button.Height / (float)_drawPanel.Height;
             scaleX *= _presentModel.DrawPanelScaleX;
             scaleY *= _presentModel.DrawPanelScaleY;
             e.Graphics.ScaleTransform(scaleX, scaleY);
@@ -320,7 +370,11 @@ namespace PowerPoint
         private void SplitContainer1Panel1Resize(object sender, EventArgs e)
         {
             const float TARGET_ASPECT_RATIO = 16.0f / 9.0f;
-            _slideButton1.Height = (int)((float)_slideButton1.Width / TARGET_ASPECT_RATIO);
+            for (int i = 0; i < _slideButtons.Count; i++)
+            {
+                _slideButtons[i].Width = _splitContainer1.Panel1.Width;
+                _slideButtons[i].Height = (int)((float)_slideButtons[i].Width / TARGET_ASPECT_RATIO);
+            }
         }
     }
 }

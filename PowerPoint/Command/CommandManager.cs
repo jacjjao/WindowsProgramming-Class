@@ -7,7 +7,18 @@ namespace PowerPoint
         readonly Stack<ICommand> _redo = new Stack<ICommand>();
         readonly Stack<ICommand> _undo = new Stack<ICommand>();
 
-        readonly Shapes _list = null;
+        Shapes _list = null;
+        public Shapes Page
+        {
+            get
+            {
+                return _list;
+            }
+            set
+            {
+                _list = value;
+            }
+        }
 
         public CommandManager(Shapes list)
         {

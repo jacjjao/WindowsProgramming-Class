@@ -65,6 +65,7 @@ namespace PowerPoint
                 new NotifyBoolean(),
                 new NotifyBoolean(),
                 new NotifyBoolean(),
+                new NotifyBoolean(),
             };
         }
 
@@ -152,9 +153,9 @@ namespace PowerPoint
         public void SetState(IState state)
         {
             Model.State = state;
-            for (int i = 0; i < Model.ShapeList.Count; i++)
+            for (int i = 0; i < Model.CurrentPage.Count; i++)
             {
-                Model.ShapeList[i].Selected = false;
+                Model.CurrentPage[i].Selected = false;
             }
         }
 
@@ -192,10 +193,10 @@ namespace PowerPoint
         /* notify scaling change */
         private void NotifyScalingChange()
         {
-            for (int i = 0; i < Model.ShapeList.Count; i++)
+            for (int i = 0; i < Model.CurrentPage.Count; i++)
             {
-                Model.ShapeList[i].ScaleX = DrawPanelScaleX;
-                Model.ShapeList[i].ScaleY = DrawPanelScaleY;
+                Model.CurrentPage[i].ScaleX = DrawPanelScaleX;
+                Model.CurrentPage[i].ScaleY = DrawPanelScaleY;
             }
         }
 

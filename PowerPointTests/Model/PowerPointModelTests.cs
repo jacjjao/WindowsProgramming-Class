@@ -57,7 +57,7 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void PropertyTest()
         {
-            Assert.IsNotNull(_model.ShapeList);
+            Assert.IsNotNull(_model.CurrentPage);
 
             Assert.IsNotNull(_model.DrawPen);
             const float width = 10.0f;
@@ -114,7 +114,7 @@ namespace PowerPoint.Tests
                 {
                     executed = true;
                     Assert.AreEqual(location, loc);
-                    Assert.AreEqual(_model.ShapeList, list);
+                    Assert.AreEqual(_model.CurrentPage, list);
                 }
             };
             _model.State = state;
@@ -134,7 +134,7 @@ namespace PowerPoint.Tests
                 {
                     executed = true;
                     Assert.AreEqual(location, loc);
-                    Assert.AreEqual(_model.ShapeList, list);
+                    Assert.AreEqual(_model.CurrentPage, list);
                 }
             };
             _model.State = state;
@@ -154,7 +154,7 @@ namespace PowerPoint.Tests
                 {
                     executed = true;
                     Assert.AreEqual(location, loc);
-                    Assert.AreEqual(_model.ShapeList, list);
+                    Assert.AreEqual(_model.CurrentPage, list);
                 }
             };
             _model.State = state;
@@ -169,8 +169,8 @@ namespace PowerPoint.Tests
         public void AddRandomShapeTest()
         {
             _model.AddRandomShape(ShapeType.Rectangle, 800, 600);
-            Assert.AreEqual(1, _model.ShapeList.Count);
-            Assert.IsTrue(_model.ShapeList[0] is Rectangle);
+            Assert.AreEqual(1, _model.CurrentPage.Count);
+            Assert.IsTrue(_model.CurrentPage[0] is Rectangle);
         }
 
         /* remove at */
@@ -181,10 +181,10 @@ namespace PowerPoint.Tests
             const int screenHeight = 600;
             _model.AddRandomShape(ShapeType.Rectangle, screenWidth, screenHeight);
             _model.AddRandomShape(ShapeType.Circle, screenWidth, screenHeight);
-            var remain = _model.ShapeList[1];
+            var remain = _model.CurrentPage[1];
             _model.RemoveAt(0);
-            Assert.AreEqual(1, _model.ShapeList.Count);
-            Assert.AreEqual(remain, _model.ShapeList[0]);
+            Assert.AreEqual(1, _model.CurrentPage.Count);
+            Assert.AreEqual(remain, _model.CurrentPage[0]);
         }
 
         /* do key down */
@@ -199,18 +199,18 @@ namespace PowerPoint.Tests
             var keyArgs = new KeyEventArgs(Keys.Escape);
             _model.State = new DrawingState();
             _model.DoKeyDown(keyArgs);
-            Assert.AreEqual(2, _model.ShapeList.Count);
+            Assert.AreEqual(2, _model.CurrentPage.Count);
 
             keyArgs = new KeyEventArgs(Keys.Delete);
             _model.DoKeyDown(keyArgs);
-            Assert.AreEqual(2, _model.ShapeList.Count);
+            Assert.AreEqual(2, _model.CurrentPage.Count);
 
             _model.State = new PointState();
-            int x = _model.ShapeList[0].HitBox.X + _model.ShapeList[0].HitBox.Width / 2;
-            int y = _model.ShapeList[0].HitBox.Y + _model.ShapeList[0].HitBox.Height / 2;
+            int x = _model.CurrentPage[0].HitBox.X + _model.CurrentPage[0].HitBox.Width / 2;
+            int y = _model.CurrentPage[0].HitBox.Y + _model.CurrentPage[0].HitBox.Height / 2;
             _model.DoMouseDown(new Point(x, y));
             _model.DoKeyDown(keyArgs);
-            Assert.AreEqual(1, _model.ShapeList.Count);
+            Assert.AreEqual(1, _model.CurrentPage.Count);
         }
     }
 }
