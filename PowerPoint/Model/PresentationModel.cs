@@ -97,12 +97,6 @@ namespace PowerPoint
             return point;
         }
 
-        /* add shape */
-        public void AddRandomShape(ShapeType type, int screenWidth, int screenHeight)
-        {
-            Model.AddRandomShape(type, (int)(screenWidth / DrawPanelScaleX), (int)(screenHeight / DrawPanelScaleY));
-        }
-
         /* remove at */
         public void RemoveAt(int index)
         {

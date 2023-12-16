@@ -43,8 +43,54 @@ namespace PowerPointUITests
             var size = _robot.GetElementSize("DrawPanel");
             AssertAspectRatio(size.Width, size.Height);
 
-            size = _robot.GetElementSize("_slideButton1");
+            size = _robot.GetElementSize("SlideButton0");
             AssertAspectRatio(size.Width, size.Height);
+        }
+
+        // test
+        [TestMethod]
+        public void AddAndDeleteSlide()
+        {
+            // add
+            _robot.ClickButton(PowerPoint.Form1.NEW_PAGE_BUTTON_NAME);
+            bool assert = false;
+            int slideButtonCount = 0;
+            try
+            {
+                const string NAME = "SlideButton{0}";
+                for (int i = 0; i < 100; i++)
+                {
+                    var size = _robot.GetElementSize(string.Format(NAME, i));
+                    slideButtonCount++;
+                }
+            }
+            catch (Exception)
+            {
+                assert = true;
+                Assert.AreEqual(2, slideButtonCount);
+            }
+            Assert.IsTrue(assert);
+
+
+            // delete
+            _robot.ClickButton(PowerPoint.Form1.DELETE_PAGE_BUTTON_NAME);
+            assert = false;
+            slideButtonCount = 0;
+            try
+            {
+                const string NAME = "SlideButton{0}";
+                for (int i = 0; i < 100; i++)
+                {
+                    var size = _robot.GetElementSize(string.Format(NAME, i));
+                    slideButtonCount++;
+                }
+            }
+            catch (Exception)
+            {
+                assert = true;
+                Assert.AreEqual(1, slideButtonCount);
+            }
+            Assert.IsTrue(assert);
         }
     }
 }

@@ -142,7 +142,6 @@ namespace PowerPointUITests
         // test
         public void ClickDataGridViewCellBy(string name, int rowIndex, string columnName)
         {
-            var dataGridView = _driver.FindElementByAccessibilityId(name);
             _driver.FindElementByName($"{columnName} 資料列 {rowIndex}").Click();
         }
 

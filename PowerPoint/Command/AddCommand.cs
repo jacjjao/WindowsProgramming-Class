@@ -5,25 +5,7 @@ namespace PowerPoint
 {
     public class AddCommand : ICommand
     {
-        public bool AddRandom
-        {
-            get;
-            set;
-        }
-
         public ShapeType Type
-        {
-            get;
-            set;
-        }
-
-        public int ScreenWidth
-        {
-            get;
-            set;
-        }
-
-        public int ScreenHeight
         {
             get;
             set;
@@ -56,14 +38,7 @@ namespace PowerPoint
                 list.Content.Add(AddShape);
                 return;
             }
-            if (AddRandom)
-            {
-                list.AddRandomShape(Type, ScreenWidth, ScreenHeight);
-            }
-            else
-            {
-                list.AddShape(Type, PointFirst, PointSecond);
-            }
+            list.AddShape(Type, PointFirst, PointSecond);
             AddShape = list.Content.Last();
         }
 

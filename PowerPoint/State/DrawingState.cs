@@ -50,7 +50,6 @@ namespace PowerPoint
             if (!_mouseMoved)
             {
                 var command = new AddCommand();
-                command.AddRandom = false;
                 command.PointFirst = _drawStartPos;
                 command.PointSecond = _drawEndPos;
                 command.Type = _type;

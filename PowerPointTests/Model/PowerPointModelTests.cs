@@ -168,7 +168,7 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void AddRandomShapeTest()
         {
-            _model.AddRandomShape(ShapeType.Rectangle, 800, 600);
+            _model.AddShape(ShapeType.Rectangle, 800, 600);
             Assert.AreEqual(1, _model.CurrentPage.Count);
             Assert.IsTrue(_model.CurrentPage[0] is Rectangle);
         }
@@ -179,8 +179,8 @@ namespace PowerPoint.Tests
         {
             const int screenWidth = 800;
             const int screenHeight = 600;
-            _model.AddRandomShape(ShapeType.Rectangle, screenWidth, screenHeight);
-            _model.AddRandomShape(ShapeType.Circle, screenWidth, screenHeight);
+            _model.AddShape(ShapeType.Rectangle, screenWidth, screenHeight);
+            _model.AddShape(ShapeType.Circle, screenWidth, screenHeight);
             var remain = _model.CurrentPage[1];
             _model.RemoveAt(0);
             Assert.AreEqual(1, _model.CurrentPage.Count);
@@ -193,8 +193,8 @@ namespace PowerPoint.Tests
         {
             const int screenWidth = 800;
             const int screenHeight = 600;
-            _model.AddRandomShape(ShapeType.Rectangle, screenWidth, screenHeight);
-            _model.AddRandomShape(ShapeType.Circle, screenWidth, screenHeight);
+            _model.AddShape(ShapeType.Rectangle, screenWidth, screenHeight);
+            _model.AddShape(ShapeType.Circle, screenWidth, screenHeight);
 
             var keyArgs = new KeyEventArgs(Keys.Escape);
             _model.State = new DrawingState();

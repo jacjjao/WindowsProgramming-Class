@@ -79,7 +79,6 @@ namespace PowerPoint.Tests
                 {
                     executed = true;
                     var addCommand = (AddCommand)command;
-                    Assert.IsFalse(addCommand.AddRandom);
                 }
             };
             _state.Manager = manager;

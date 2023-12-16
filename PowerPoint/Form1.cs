@@ -47,152 +47,15 @@ namespace PowerPoint
             CreateToolStripButtonListRedo();
             CreateToolStripButtonNewPage();
             CreateToolStripButtonDeletePage();
-
             _presentModel.Model.PageManager._newPageAdded += AddNewSlideButton;
             _presentModel.Model.PageManager._pageRemoved += RemoveSlideButton;
             _presentModel.Model.PageManager._currentPageChanged += BindDataGridViewToCurrentPage;
             _presentModel.Model.AddBlankPage();
-
             CreateDrawPanel();
             KeyPreview = true;
-
             _flowLayoutPanel.Dock = DockStyle.Fill;
             _flowLayoutPanel.SizeChanged += ResizeSlideButtons;
             _splitContainer1.Panel1.Controls.Add(_flowLayoutPanel);
-        }
-
-        /* create toolstrip button list */
-        private void CreateToolStripButtonListLine()
-        {
-            const string SLASH = "/";
-            const string CHECKED = "Checked";
-            const string VALUE = ".Value";
-            var lineButton = new BindToolStripButton();
-            lineButton.Text = SLASH;
-            lineButton.DataBindings.Add(CHECKED, _presentModel.CheckList[LINE_BUTTON_INDEX], VALUE);
-            lineButton.Click += DoToolStripButtonLineClick;
-            lineButton.AccessibleName = LINE_BUTTON_NAME;
-            _toolStrip1.Items.Add(lineButton);
-            _toolStripButtons.Add(lineButton, LINE_BUTTON_INDEX);
-        }
-
-        /* 分割出來的不然會太長 */
-        private void CreateToolStripButtonListRectangle()
-        {
-            const string CHECKED = "Checked";
-            const string VALUE = ".Value";
-            var rectangleButton = new BindToolStripButton();
-            rectangleButton.Image = Properties.Resources.Rectangle;
-            rectangleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[RECTANGLE_BUTTON_INDEX], VALUE);
-            rectangleButton.Click += DoToolStripButtonRectangleClick;
-            rectangleButton.AccessibleName = RECTANGLE_BUTTON_NAME;
-            _toolStrip1.Items.Add(rectangleButton);
-            _toolStripButtons.Add(rectangleButton, RECTANGLE_BUTTON_INDEX);
-        }
-
-        /* 分割出來的不然會太長 */
-        private void CreateToolStripButtonListCircle()
-        {
-            const string CIRCLE = "O";
-            const string CHECKED = "Checked";
-            const string VALUE = ".Value";
-            var circleButton = new BindToolStripButton();
-            circleButton.Text = CIRCLE;
-            circleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[CIRCLE_BUTTON_INDEX], VALUE);
-            circleButton.Click += DoToolStripButtonCircleClick;
-            circleButton.AccessibleName = CIRCLE_BUTTON_NAME;
-            _toolStrip1.Items.Add(circleButton);
-            _toolStripButtons.Add(circleButton, CIRCLE_BUTTON_INDEX);
-        }
-
-        /* 分割出來的不然會太長 */
-        private void CreateToolStripButtonListPointer()
-        {
-            const string CHECKED = "Checked";
-            const string VALUE = ".Value";
-            var pointerButton = new BindToolStripButton();
-            pointerButton.Image = Properties.Resources.Pointer;
-            pointerButton.DataBindings.Add(CHECKED, _presentModel.CheckList[POINTER_BUTTON_INDEX], VALUE);
-            pointerButton.Click += DoToolStripButtonPointerClick;
-            pointerButton.Checked = true;
-            pointerButton.AccessibleName = POINTER_BUTTON_NAME;
-            _toolStrip1.Items.Add(pointerButton);
-            _toolStripButtons.Add(pointerButton, POINTER_BUTTON_INDEX);
-        }
-
-        /* 分割出來的不然會太長 */
-        private void CreateToolStripButtonListUndo()
-        {
-            const string CHECKED = "Checked";
-            const string VALUE = ".Value";
-            const string TEXT = "<-";
-            var undoButton = new BindToolStripButton();
-            undoButton.Text = TEXT;
-            undoButton.DataBindings.Add(CHECKED, _presentModel.CheckList[UNDO_BUTTON_INDEX], VALUE);
-            undoButton.Click += DoToolStripButtonUndoClick;
-            undoButton.AccessibleName = UNDO_BUTTON_NAME;
-            _toolStrip1.Items.Add(undoButton);
-            _toolStripButtons.Add(undoButton, UNDO_BUTTON_INDEX);
-        }
-
-        /* 分割出來的不然會太長 */
-        private void CreateToolStripButtonListRedo()
-        {
-            const string CHECKED = "Checked";
-            const string VALUE = ".Value";
-            const string TEXT = "->";
-            var redoButton = new BindToolStripButton();
-            redoButton.Text = TEXT;
-            redoButton.DataBindings.Add(CHECKED, _presentModel.CheckList[REDO_BUTTON_INDEX], VALUE);
-            redoButton.Click += DoToolStripButtonRedoClick;
-            redoButton.AccessibleName = REDO_BUTTON_NAME;
-            _toolStrip1.Items.Add(redoButton);
-            _toolStripButtons.Add(redoButton, REDO_BUTTON_INDEX);
-        }
-
-        /* 分割出來的不然會太長 */
-        private void CreateToolStripButtonNewPage()
-        {
-            const string CHECKED = "Checked";
-            const string VALUE = ".Value";
-            var newPageButton = new BindToolStripButton();
-            newPageButton.Image = Properties.Resources.NewPage;
-            newPageButton.DataBindings.Add(CHECKED, _presentModel.CheckList[NEW_PAGE_BUTTON_INDEX], VALUE);
-            newPageButton.Click += DoToolStripButtonNewPageClick;
-            newPageButton.AccessibleName = NEW_PAGE_BUTTON_NAME;
-            _toolStrip1.Items.Add(newPageButton);
-            _toolStripButtons.Add(newPageButton, NEW_PAGE_BUTTON_INDEX);
-        }
-
-        /* 分割出來的不然會太長 */
-        private void CreateToolStripButtonDeletePage()
-        {
-            const string CHECKED = "Checked";
-            const string VALUE = ".Value";
-            var newPageButton = new BindToolStripButton();
-            newPageButton.Image = Properties.Resources.DeletePage;
-            newPageButton.DataBindings.Add(CHECKED, _presentModel.CheckList[DELETE_PAGE_BUTTON_INDEX], VALUE);
-            newPageButton.Click += RemoveCheckedSlide;
-            newPageButton.AccessibleName = DELETE_PAGE_BUTTON_NAME;
-            _toolStrip1.Items.Add(newPageButton);
-            _toolStripButtons.Add(newPageButton, DELETE_PAGE_BUTTON_INDEX);
-        }
-
-        /* create draw panel */
-        private void CreateDrawPanel()
-        {
-            const string NAME = "DrawPanel";
-            _drawPanel = new DoubleBufferedPanel
-            {
-                Dock = DockStyle.None,
-                BackColor = Color.White,
-                AccessibleName = NAME
-            };
-            _splitContainer4.Panel1.Controls.Add(_drawPanel);
-            _drawPanel.MouseUp += DoDrawPanelMouseUp;
-            _drawPanel.MouseMove += DoDrawPanelMouseMove;
-            _drawPanel.MouseDown += DoDrawPanelMouseDown;
-            _drawPanel.Paint += DrawPanelOnDraw;
         }
 
         // draw all
@@ -253,9 +116,10 @@ namespace PowerPoint
         /* 處理"新增"按鈕被按的event */
         private void AddButtonClick(object sender, EventArgs e)
         {
-            if (_shapeComboBox.SelectedIndex < 0)
+            var box = new AddShapeMessageBox(this, _drawPanel);
+            if (_shapeComboBox.SelectedIndex < 0 || box.DialogResult != DialogResult.OK)
                 return;
-            _presentModel.AddRandomShape((ShapeType)_shapeComboBox.SelectedIndex, _drawPanel.Width, _drawPanel.Height);
+            _presentModel.Model.AddShape((ShapeType)_shapeComboBox.SelectedIndex, box.PointFirst, box.PointSecond);
         }
 
         /* 處理DataGridView上的"刪除"按鈕被按的event */
@@ -328,7 +192,7 @@ namespace PowerPoint
         {
             _presentModel.Model.CommandManager.Undo();
             DrawAll();
-            UpdateSlideButtonChecked();
+            UpdateSlideButtonCheckedAndName();
         }
 
         /* button undo click */
@@ -336,7 +200,7 @@ namespace PowerPoint
         {
             _presentModel.Model.CommandManager.Redo();
             DrawAll();
-            UpdateSlideButtonChecked();
+            UpdateSlideButtonCheckedAndName();
         }
 
         /* new page click */
@@ -346,7 +210,7 @@ namespace PowerPoint
             command.AddIndex = _slideButtons.FindIndex((button) => button.Checked) + 1;
             command.Manager = _presentModel.Model.PageManager;
             _presentModel.Model.CommandManager.Execute(command);
-            DrawPartial();
+            DrawAll();
         }
 
         // rebind databinding
@@ -358,11 +222,14 @@ namespace PowerPoint
         }
 
         // check button
-        private void UpdateSlideButtonChecked()
+        private void UpdateSlideButtonCheckedAndName()
         {
             for (int i = 0; i < _slideButtons.Count; i++)
                 _slideButtons[i].Checked = false;
             _slideButtons[_presentModel.Model.PageManager.GetCurrentPageIndex()].Checked = true;
+            const string NAME = "SlideButton{0}";
+            for (int i = 0; i < _slideButtons.Count; i++)
+                _slideButtons[i].AccessibleName = string.Format(NAME, i);
         }
 
         /* add new slide button */
@@ -371,12 +238,9 @@ namespace PowerPoint
             var slideButton = new SlideButton();
             slideButton.Paint += DoSlideButtonPaint;
             slideButton.Click += DoSlideButtonClick;
-
             _flowLayoutPanel.Controls.Add(slideButton);
             _slideButtons.Add(slideButton);
-
-            UpdateSlideButtonChecked();
-
+            UpdateSlideButtonCheckedAndName();
             _flowLayoutPanel.DoSizeChanged();
         }
 
@@ -390,7 +254,7 @@ namespace PowerPoint
             _presentModel.Model.CommandManager.Execute(command);
             if (index > 0)
                 index--;
-            UpdateSlideButtonChecked();
+            UpdateSlideButtonCheckedAndName();
             DrawAll();
         }
 
@@ -406,8 +270,7 @@ namespace PowerPoint
         {
             int index = _slideButtons.FindIndex((button) => button.Equals(sender));
             _presentModel.Model.SetCurrentPage(index);
-
-            UpdateSlideButtonChecked();
+            UpdateSlideButtonCheckedAndName();
             DrawPartial();
         }
 

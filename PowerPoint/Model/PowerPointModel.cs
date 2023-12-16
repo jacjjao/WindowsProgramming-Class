@@ -132,14 +132,19 @@ namespace PowerPoint
         }
 
         /* add shape */
-        public void AddRandomShape(ShapeType type, int screenWidth, int screenHeight)
+        public void AddShape(ShapeType type, Point pointFirst, Point pointSecond)
         {
             AddCommand command = new AddCommand();
-            command.AddRandom = true;
             command.Type = type;
-            command.ScreenWidth = screenWidth;
-            command.ScreenHeight = screenHeight;
+            command.PointFirst = pointFirst;
+            command.PointSecond = pointSecond;
             _commandManager.Execute(command);
+        }
+
+        /* add shape */
+        public void AddShape(ShapeType type, int screenWidth, int screenHeight)
+        {
+            _pageManager.CurrentPage.AddRandomShape(type, screenWidth, screenHeight);
         }
 
         /* remove at */

@@ -46,7 +46,7 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void AddRandomShapeTest()
         {
-            _model.AddRandomShape(ShapeType.Circle, 800, 600);
+            _model.Model.AddShape(ShapeType.Circle, 800, 600);
             Assert.AreEqual(1, _m.CurrentPage.Count);
         }
 
@@ -54,10 +54,10 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void RemoveAtTest()
         {
-            _model.AddRandomShape(ShapeType.Circle, 800, 600);
-            _model.AddRandomShape(ShapeType.Circle, 800, 600);
+            _model.Model.AddShape(ShapeType.Circle, 800, 600);
+            _model.Model.AddShape(ShapeType.Circle, 800, 600);
             var remain = _m.CurrentPage[1];
-            _model.RemoveAt(0);
+            _model.Model.RemoveAt(0);
             Assert.AreEqual(1, _m.CurrentPage.Count);
             Assert.AreEqual(remain, _m.CurrentPage[0]);
         }
@@ -79,7 +79,7 @@ namespace PowerPoint.Tests
             {
                 draw = true;
             };
-            _model.AddRandomShape(ShapeType.Rectangle, 800, 600);
+            _model.Model.AddShape(ShapeType.Rectangle, 800, 600);
             _model.Model.DrawCurrentPage(g);
             Assert.IsTrue(draw);
         }
@@ -143,7 +143,7 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void DoKeyDownTest()
         {
-            _model.AddRandomShape(ShapeType.Rectangle, 800, 600);
+            _model.Model.AddShape(ShapeType.Rectangle, 800, 600);
             _model.SetState(new PointState());
             int x = _m.CurrentPage[0].HitBox.X + _m.CurrentPage[0].HitBox.Width / 2;
             int y = _m.CurrentPage[0].HitBox.Y + _m.CurrentPage[0].HitBox.Height / 2;
@@ -202,7 +202,7 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void UpdateDrawPanelSizeAndPositionTest()
         {
-            _m.AddRandomShape(ShapeType.Circle, 800, 600);
+            _m.AddShape(ShapeType.Circle, 800, 600);
 
             var panel = new DoubleBufferedPanel();
             _model.UpdateDrawPanelSizeAndPosition(panel, 800, 600);
