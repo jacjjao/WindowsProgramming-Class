@@ -1,8 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PowerPoint;
 using System;
 using System.IO;
-using PowerPoint;
-using System.Threading;
 
 namespace PowerPointUITests
 {
@@ -31,14 +30,14 @@ namespace PowerPointUITests
         // test
         private void ToolStripLineButtonTest()
         {
-            _robot.ClickButton(Form1.TOOLSTRIP_BUTTON_NAME[Form1.LINE_BUTTON_INDEX]);
-            _robot.AssertToolStripButtonChecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.LINE_BUTTON_INDEX]);
+            _robot.ClickButton(Form1.LINE_BUTTON_NAME);
+            _robot.AssertToolStripButtonChecked(Form1.LINE_BUTTON_NAME);
 
-            _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.RECTANGLE_BUTTON_INDEX]);
-            _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.CIRCLE_BUTTON_INDEX]);
-            _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.POINTER_BUTTON_INDEX]);
-            _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.UNDO_BUTTON_INDEX]);
-            _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.REDO_BUTTON_INDEX]);
+            _robot.AssertToolStripButtonUnchecked(Form1.RECTANGLE_BUTTON_NAME);
+            _robot.AssertToolStripButtonUnchecked(Form1.CIRCLE_BUTTON_NAME);
+            _robot.AssertToolStripButtonUnchecked(Form1.POINTER_BUTTON_NAME);
+            _robot.AssertToolStripButtonUnchecked(Form1.UNDO_BUTTON_NAME);
+            _robot.AssertToolStripButtonUnchecked(Form1.REDO_BUTTON_NAME);
 
             int x = 10, y = 10, width = 100, height = 50;
             _robot.MouseDownAndMoveThenUp("DrawPanel", x, y, width, height);
@@ -50,14 +49,14 @@ namespace PowerPointUITests
         // test
         private void ToolStripRectangleButtonTest()
         {
-            _robot.ClickButton(Form1.TOOLSTRIP_BUTTON_NAME[Form1.RECTANGLE_BUTTON_INDEX]);
-            _robot.AssertToolStripButtonChecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.RECTANGLE_BUTTON_INDEX]);
+            _robot.ClickButton(Form1.RECTANGLE_BUTTON_NAME);
+            _robot.AssertToolStripButtonChecked(Form1.RECTANGLE_BUTTON_NAME);
 
-            _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.LINE_BUTTON_INDEX]);
-            _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.CIRCLE_BUTTON_INDEX]);
-            _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.POINTER_BUTTON_INDEX]);
-            _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.UNDO_BUTTON_INDEX]);
-            _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.REDO_BUTTON_INDEX]);
+            _robot.AssertToolStripButtonUnchecked(Form1.LINE_BUTTON_NAME);
+            _robot.AssertToolStripButtonUnchecked(Form1.CIRCLE_BUTTON_NAME);
+            _robot.AssertToolStripButtonUnchecked(Form1.POINTER_BUTTON_NAME);
+            _robot.AssertToolStripButtonUnchecked(Form1.UNDO_BUTTON_NAME);
+            _robot.AssertToolStripButtonUnchecked(Form1.REDO_BUTTON_NAME);
 
             int x = 200, y = 200, width = 200, height = 250;
             _robot.MouseDownAndMoveThenUp("DrawPanel", x, y, width, height);
@@ -69,14 +68,14 @@ namespace PowerPointUITests
         // test
         private void ToolStripCircleButtonTest()
         {
-            _robot.ClickButton(Form1.TOOLSTRIP_BUTTON_NAME[Form1.CIRCLE_BUTTON_INDEX]);
-            _robot.AssertToolStripButtonChecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.CIRCLE_BUTTON_INDEX]);
+            _robot.ClickButton(Form1.CIRCLE_BUTTON_NAME);
+            _robot.AssertToolStripButtonChecked(Form1.CIRCLE_BUTTON_NAME);
 
-            _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.LINE_BUTTON_INDEX]);
-            _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.RECTANGLE_BUTTON_INDEX]);
-            _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.POINTER_BUTTON_INDEX]);
-            _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.UNDO_BUTTON_INDEX]);
-            _robot.AssertToolStripButtonUnchecked(Form1.TOOLSTRIP_BUTTON_NAME[Form1.REDO_BUTTON_INDEX]);
+            _robot.AssertToolStripButtonUnchecked(Form1.LINE_BUTTON_NAME);
+            _robot.AssertToolStripButtonUnchecked(Form1.RECTANGLE_BUTTON_NAME);
+            _robot.AssertToolStripButtonUnchecked(Form1.POINTER_BUTTON_NAME);
+            _robot.AssertToolStripButtonUnchecked(Form1.UNDO_BUTTON_NAME);
+            _robot.AssertToolStripButtonUnchecked(Form1.REDO_BUTTON_NAME);
 
             int x = 300, y = 300, width = 100, height = 100;
             _robot.MouseDownAndMoveThenUp("DrawPanel", x, y, width, height);

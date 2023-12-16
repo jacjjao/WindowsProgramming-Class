@@ -1,9 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
-using PowerPoint;
-using System.Threading;
-using System.Collections.Generic;
 
 namespace PowerPointUITests
 {

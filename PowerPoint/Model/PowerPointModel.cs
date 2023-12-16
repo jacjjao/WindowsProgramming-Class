@@ -79,11 +79,11 @@ namespace PowerPoint
             {
                 Manager = _commandManager
             };
-            PageManager.CurrentPageChanged += OnCurrentPageChange;
+            PageManager._currentPageChanged += DoCurrentPageChange;
         }
 
         // current page change
-        private void OnCurrentPageChange()
+        private void DoCurrentPageChange()
         {
             CommandManager.CurrentPage = PageManager.CurrentPage;
         }

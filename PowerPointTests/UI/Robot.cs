@@ -3,14 +3,12 @@ using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Windows;
 using OpenQA.Selenium.Interactions;
 using System;
-using System.Threading;
-using System.Windows.Automation;
-using System.Windows;
 using System.Collections.Generic;
-using OpenQA.Selenium;
-using System.Windows.Input;
-using System.Windows.Forms;
 using System.Text;
+using System.Threading;
+using System.Windows;
+using System.Windows.Automation;
+using System.Windows.Forms;
 
 namespace PowerPointUITests
 {

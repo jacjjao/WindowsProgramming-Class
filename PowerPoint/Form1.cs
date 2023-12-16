@@ -9,14 +9,14 @@ namespace PowerPoint
 {
     public partial class Form1 : Form
     {
-        public const int LINE_BUTTON_INDEX = 0;
-        public const int RECTANGLE_BUTTON_INDEX = 1;
-        public const int CIRCLE_BUTTON_INDEX = 2;
-        public const int POINTER_BUTTON_INDEX = 3;
-        public const int UNDO_BUTTON_INDEX = 4;
-        public const int REDO_BUTTON_INDEX = 5;
-        public const int NEW_PAGE_BUTTON_INDEX = 6;
-        public const int DELETE_PAGE_BUTTON_INDEX = 7;
+        const int LINE_BUTTON_INDEX = 0;
+        const int RECTANGLE_BUTTON_INDEX = 1;
+        const int CIRCLE_BUTTON_INDEX = 2;
+        const int POINTER_BUTTON_INDEX = 3;
+        const int UNDO_BUTTON_INDEX = 4;
+        const int REDO_BUTTON_INDEX = 5;
+        const int NEW_PAGE_BUTTON_INDEX = 6;
+        const int DELETE_PAGE_BUTTON_INDEX = 7;
         readonly Dictionary<ToolStripButton, int> _toolStripButtons = new Dictionary<ToolStripButton, int>();
         readonly PresentationModel _presentModel;
         DoubleBufferedPanel _drawPanel;
@@ -25,17 +25,14 @@ namespace PowerPoint
         List<CheckBox> _slideButtons = new List<CheckBox>();
         MyFlowLayoutPanel _flowLayoutPanel = new MyFlowLayoutPanel();
 
-        public static readonly string[] TOOLSTRIP_BUTTON_NAME =
-        {
-            "ToolStripLineButton",
-            "ToolStripRectangleButton",
-            "ToolStripCircleButton",
-            "ToolStripPointerButton",
-            "ToolStripUndoButton",
-            "ToolStripRedoButton",
-            "ToolStripNewPageButton",
-            "ToolStripDeletePageButton",
-        };
+        public const string LINE_BUTTON_NAME = "ToolStripLineButton";
+        public const string RECTANGLE_BUTTON_NAME = "ToolStripRectangleButton";
+        public const string CIRCLE_BUTTON_NAME = "ToolStripCircleButton";
+        public const string POINTER_BUTTON_NAME = "ToolStripPointerButton";
+        public const string UNDO_BUTTON_NAME = "ToolStripUndoButton";
+        public const string REDO_BUTTON_NAME = "ToolStripRedoButton";
+        public const string NEW_PAGE_BUTTON_NAME = "ToolStripNewPageButton";
+        public const string DELETE_PAGE_BUTTON_NAME = "ToolStripDeletePageButton";
 
         public Form1(PresentationModel presentationModel)
         {
@@ -51,9 +48,9 @@ namespace PowerPoint
             CreateToolStripButtonNewPage();
             CreateToolStripButtonDeletePage();
 
-            _presentModel.Model.PageManager.NewPageAdded += AddNewSlideButton;
-            _presentModel.Model.PageManager.PageRemoved += RemoveSlideButton;
-            _presentModel.Model.PageManager.CurrentPageChanged += RebindDataGridViewToCurrentPage;
+            _presentModel.Model.PageManager._newPageAdded += AddNewSlideButton;
+            _presentModel.Model.PageManager._pageRemoved += RemoveSlideButton;
+            _presentModel.Model.PageManager._currentPageChanged += BindDataGridViewToCurrentPage;
             _presentModel.Model.AddBlankPage();
 
             CreateDrawPanel();
@@ -74,7 +71,7 @@ namespace PowerPoint
             lineButton.Text = SLASH;
             lineButton.DataBindings.Add(CHECKED, _presentModel.CheckList[LINE_BUTTON_INDEX], VALUE);
             lineButton.Click += DoToolStripButtonLineClick;
-            lineButton.AccessibleName = TOOLSTRIP_BUTTON_NAME[LINE_BUTTON_INDEX];
+            lineButton.AccessibleName = LINE_BUTTON_NAME;
             _toolStrip1.Items.Add(lineButton);
             _toolStripButtons.Add(lineButton, LINE_BUTTON_INDEX);
         }
@@ -88,7 +85,7 @@ namespace PowerPoint
             rectangleButton.Image = Properties.Resources.Rectangle;
             rectangleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[RECTANGLE_BUTTON_INDEX], VALUE);
             rectangleButton.Click += DoToolStripButtonRectangleClick;
-            rectangleButton.AccessibleName = TOOLSTRIP_BUTTON_NAME[RECTANGLE_BUTTON_INDEX];
+            rectangleButton.AccessibleName = RECTANGLE_BUTTON_NAME;
             _toolStrip1.Items.Add(rectangleButton);
             _toolStripButtons.Add(rectangleButton, RECTANGLE_BUTTON_INDEX);
         }
@@ -103,7 +100,7 @@ namespace PowerPoint
             circleButton.Text = CIRCLE;
             circleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[CIRCLE_BUTTON_INDEX], VALUE);
             circleButton.Click += DoToolStripButtonCircleClick;
-            circleButton.AccessibleName = TOOLSTRIP_BUTTON_NAME[CIRCLE_BUTTON_INDEX];
+            circleButton.AccessibleName = CIRCLE_BUTTON_NAME;
             _toolStrip1.Items.Add(circleButton);
             _toolStripButtons.Add(circleButton, CIRCLE_BUTTON_INDEX);
         }
@@ -118,7 +115,7 @@ namespace PowerPoint
             pointerButton.DataBindings.Add(CHECKED, _presentModel.CheckList[POINTER_BUTTON_INDEX], VALUE);
             pointerButton.Click += DoToolStripButtonPointerClick;
             pointerButton.Checked = true;
-            pointerButton.AccessibleName = TOOLSTRIP_BUTTON_NAME[POINTER_BUTTON_INDEX];
+            pointerButton.AccessibleName = POINTER_BUTTON_NAME;
             _toolStrip1.Items.Add(pointerButton);
             _toolStripButtons.Add(pointerButton, POINTER_BUTTON_INDEX);
         }
@@ -133,7 +130,7 @@ namespace PowerPoint
             undoButton.Text = TEXT;
             undoButton.DataBindings.Add(CHECKED, _presentModel.CheckList[UNDO_BUTTON_INDEX], VALUE);
             undoButton.Click += DoToolStripButtonUndoClick;
-            undoButton.AccessibleName = TOOLSTRIP_BUTTON_NAME[UNDO_BUTTON_INDEX];
+            undoButton.AccessibleName = UNDO_BUTTON_NAME;
             _toolStrip1.Items.Add(undoButton);
             _toolStripButtons.Add(undoButton, UNDO_BUTTON_INDEX);
         }
@@ -148,7 +145,7 @@ namespace PowerPoint
             redoButton.Text = TEXT;
             redoButton.DataBindings.Add(CHECKED, _presentModel.CheckList[REDO_BUTTON_INDEX], VALUE);
             redoButton.Click += DoToolStripButtonRedoClick;
-            redoButton.AccessibleName = TOOLSTRIP_BUTTON_NAME[REDO_BUTTON_INDEX];
+            redoButton.AccessibleName = REDO_BUTTON_NAME;
             _toolStrip1.Items.Add(redoButton);
             _toolStripButtons.Add(redoButton, REDO_BUTTON_INDEX);
         }
@@ -162,7 +159,7 @@ namespace PowerPoint
             newPageButton.Image = Properties.Resources.NewPage;
             newPageButton.DataBindings.Add(CHECKED, _presentModel.CheckList[NEW_PAGE_BUTTON_INDEX], VALUE);
             newPageButton.Click += DoToolStripButtonNewPageClick;
-            newPageButton.AccessibleName = TOOLSTRIP_BUTTON_NAME[NEW_PAGE_BUTTON_INDEX];
+            newPageButton.AccessibleName = NEW_PAGE_BUTTON_NAME;
             _toolStrip1.Items.Add(newPageButton);
             _toolStripButtons.Add(newPageButton, NEW_PAGE_BUTTON_INDEX);
         }
@@ -176,7 +173,7 @@ namespace PowerPoint
             newPageButton.Image = Properties.Resources.DeletePage;
             newPageButton.DataBindings.Add(CHECKED, _presentModel.CheckList[DELETE_PAGE_BUTTON_INDEX], VALUE);
             newPageButton.Click += RemoveCheckedSlide;
-            newPageButton.AccessibleName = TOOLSTRIP_BUTTON_NAME[DELETE_PAGE_BUTTON_INDEX];
+            newPageButton.AccessibleName = DELETE_PAGE_BUTTON_NAME;
             _toolStrip1.Items.Add(newPageButton);
             _toolStripButtons.Add(newPageButton, DELETE_PAGE_BUTTON_INDEX);
         }
@@ -198,8 +195,16 @@ namespace PowerPoint
             _drawPanel.Paint += DrawPanelOnDraw;
         }
 
+        // draw all
+        private void DrawAll()
+        {
+            _drawPanel.Invalidate();
+            for (int i = 0; i < _slideButtons.Count; i++)
+                _slideButtons[i].Invalidate();
+        }
+
         /* redraw panel and slide button */
-        private void Draw()
+        private void DrawPartial()
         {
             _drawPanel.Invalidate();
             int index = _presentModel.Model.PageManager.GetCurrentPageIndex();
@@ -209,28 +214,28 @@ namespace PowerPoint
         /* 有形狀變動時重畫 */
         private void DoListChanged(object sender, ListChangedEventArgs e)
         {
-            Draw();
+            DrawPartial();
         }
 
         /* 在畫布上點擊滑鼠時的event */
         private void DoDrawPanelMouseDown(object sender, MouseEventArgs e)
         {
             Cursor = _presentModel.DoMouseDown(e.Location);
-            Draw();
+            DrawPartial();
         }
 
         /* 在畫布上移動滑鼠時的event */
         private void DoDrawPanelMouseMove(object sender, MouseEventArgs e)
         {
             Cursor = _presentModel.DoMouseMove(e.Location);
-            Draw();
+            DrawPartial();
         }
 
         /* 在畫布上鬆開滑鼠按鍵時的event */
         private void DoDrawPanelMouseUp(object sender, MouseEventArgs e)
         {
             Cursor = _presentModel.DoMouseUp(e.Location);
-            Draw();
+            DrawPartial();
             if (!(_presentModel.Model.State is PointState))
             {
                 _toolStrip1.Items[POINTER_BUTTON_INDEX].PerformClick();
@@ -259,7 +264,7 @@ namespace PowerPoint
             if (_dataGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 _presentModel.RemoveAt(e.RowIndex);
-                Draw();
+                DrawPartial();
             }
         }
 
@@ -322,25 +327,27 @@ namespace PowerPoint
         private void DoToolStripButtonUndoClick(object sender, EventArgs e)
         {
             _presentModel.Model.CommandManager.Undo();
-            Draw();
+            DrawPartial();
         }
 
         /* button undo click */
         private void DoToolStripButtonRedoClick(object sender, EventArgs e)
         {
             _presentModel.Model.CommandManager.Redo();
-            Draw();
+            DrawPartial();
         }
-        
+
         /* new page click */
         private void DoToolStripButtonNewPageClick(object sender, EventArgs e)
         {
-            _presentModel.Model.CommandManager.Execute(new AddPageCommand { Manager = _presentModel.Model.PageManager });
-            Draw();
+            var command = new AddPageCommand();
+            command.Manager = _presentModel.Model.PageManager;
+            _presentModel.Model.CommandManager.Execute(command);
+            DrawPartial();
         }
 
         // rebind databinding
-        private void RebindDataGridViewToCurrentPage()
+        private void BindDataGridViewToCurrentPage()
         {
             _presentModel.Model.CurrentPage.Content.ListChanged += DoListChanged;
             _bindingSource.DataSource = _presentModel.Model.CurrentPage.Content;
@@ -348,7 +355,7 @@ namespace PowerPoint
         }
 
         // check button
-        private void CheckedButton()
+        private void UpdateSlideButtonChecked()
         {
             for (int i = 0; i < _slideButtons.Count; i++)
                 _slideButtons[i].Checked = false;
@@ -361,24 +368,14 @@ namespace PowerPoint
             var slideButton = new CheckBox();
             slideButton.Appearance = Appearance.Button;
             slideButton.Paint += DoSlideButtonPaint;
-            slideButton.Click += OnSlideButtonClick;
+            slideButton.Click += DoSlideButtonClick;
 
             _flowLayoutPanel.Controls.Add(slideButton);
             _slideButtons.Add(slideButton);
 
-            RebindDataGridViewToCurrentPage();
+            UpdateSlideButtonChecked();
 
-            CheckedButton();
-
-            _flowLayoutPanel.OnSizeChanged();
-        }
-
-        // draw all
-        private void DrawAll()
-        {
-            _drawPanel.Invalidate();
-            for (int i = 0; i < _slideButtons.Count; i++)
-                _slideButtons[i].Invalidate();
+            _flowLayoutPanel.DoSizeChanged();
         }
 
         // remove slide
@@ -388,7 +385,7 @@ namespace PowerPoint
             _presentModel.Model.PageManager.RemoveAt(index);
             if (index > 0)
                 index--;
-            CheckedButton();
+            UpdateSlideButtonChecked();
             DrawAll();
         }
 
@@ -400,15 +397,13 @@ namespace PowerPoint
         }
 
         /* slide button click */
-        private void OnSlideButtonClick(object sender, EventArgs e)
+        private void DoSlideButtonClick(object sender, EventArgs e)
         {
             int index = _slideButtons.FindIndex((button) => button.Equals(sender));
             _presentModel.Model.SetCurrentPage(index);
 
-            RebindDataGridViewToCurrentPage();
-
-            CheckedButton();
-            Draw();
+            UpdateSlideButtonChecked();
+            DrawPartial();
         }
 
         /* keydown */
