@@ -110,6 +110,7 @@
     <Compile Include="UI\ToolBarUITest.cs" />
     <Compile Include="UI\FormUITest.cs" />
     <Compile Include="UI\UndoAndRedoUITest.cs" />
+    <Compile Include="UI\AddShapeUITest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

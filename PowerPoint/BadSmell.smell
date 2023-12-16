@@ -236,12 +236,12 @@
             </Smell>
             <Smell>
               <Id>4</Id>
-              <SmellType>A syntax error has been discovered in file C:\Users\user\Desktop\視窗程式設計\PowerPointTests\UI\Robot.cs on line 145.</SmellType>
+              <SmellType>A syntax error has been discovered in file C:\Users\user\Desktop\視窗程式設計\PowerPointTests\UI\Robot.cs on line 152.</SmellType>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPointTests</Project>
               <File>Robot.cs</File>
-              <Line>145</Line>
+              <Line>152</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -612,6 +612,11 @@
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>UI\AddShapeUITest.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>UI\FormUITest.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
@@ -633,8 +638,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>3693</ProductionLoc>
-          <TestLoc>2903</TestLoc>
+          <ProductionLoc>3698</ProductionLoc>
+          <TestLoc>2988</TestLoc>
         </CodeReview>
       </Data>
     </div>

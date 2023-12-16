@@ -92,6 +92,7 @@ namespace PowerPoint
             // 
             // _bottomRightY
             // 
+            this._bottomRightY.AccessibleName = "_bottomRightY";
             this._bottomRightY.Dock = System.Windows.Forms.DockStyle.Fill;
             this._bottomRightY.Location = new System.Drawing.Point(3, 45);
             this._bottomRightY.Name = "_bottomRightY";
@@ -129,6 +130,7 @@ namespace PowerPoint
             // 
             // _bottomRightX
             // 
+            this._bottomRightX.AccessibleName = "_bottomRightX";
             this._bottomRightX.Dock = System.Windows.Forms.DockStyle.Fill;
             this._bottomRightX.Location = new System.Drawing.Point(3, 45);
             this._bottomRightX.Name = "_bottomRightX";
@@ -166,6 +168,7 @@ namespace PowerPoint
             // 
             // _topLeftY
             // 
+            this._topLeftY.AccessibleName = "_topLeftY";
             this._topLeftY.Dock = System.Windows.Forms.DockStyle.Fill;
             this._topLeftY.Location = new System.Drawing.Point(3, 45);
             this._topLeftY.Name = "_topLeftY";
@@ -214,6 +217,7 @@ namespace PowerPoint
             // 
             // _topLeftX
             // 
+            this._topLeftX.AccessibleName = "_topLeftX";
             this._topLeftX.Dock = System.Windows.Forms.DockStyle.Fill;
             this._topLeftX.Location = new System.Drawing.Point(3, 45);
             this._topLeftX.Name = "_topLeftX";

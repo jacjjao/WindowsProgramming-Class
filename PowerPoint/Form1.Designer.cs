@@ -182,6 +182,7 @@ namespace PowerPoint
             // 
             // _shapeComboBox
             // 
+            this._shapeComboBox.AccessibleName = "ShapeSelector";
             this._shapeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._shapeComboBox.FormattingEnabled = true;
             this._shapeComboBox.Items.AddRange(new object[] {
@@ -327,7 +328,7 @@ namespace PowerPoint
             // _aboutToolStripMenuItem
             // 
             this._aboutToolStripMenuItem.Name = "_aboutToolStripMenuItem";
-            this._aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this._aboutToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this._aboutToolStripMenuItem.Text = "關於";
             // 
             // _toolStrip1

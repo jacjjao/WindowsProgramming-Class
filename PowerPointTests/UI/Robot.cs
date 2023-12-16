@@ -23,7 +23,7 @@ namespace PowerPointUITests
         // constructor
         public Robot(string targetAppPath, string root)
         {
-            this.Initialize(targetAppPath, root);
+            Initialize(targetAppPath, root);
         }
 
         // initialize
@@ -89,6 +89,13 @@ namespace PowerPointUITests
         }
 
         // test
+        public void KeyInputString(string name, string str)
+        {
+            var element = _driver.FindElementByName(name);
+            element.SendKeys(str);
+        }
+
+        // test
         public void MouseDownAndMoveThenUp(string elementName, int x, int y, int dx, int dy)
         {
             Actions action = new Actions(_driver);
@@ -142,7 +149,7 @@ namespace PowerPointUITests
         // test
         public void ClickDataGridViewCellBy(int rowIndex, string columnName)
         {
-            _driver.FindElementByName($"{columnName} 資料列 {rowIndex}").Click();
+            _driver.FindElementByName($"{columnName} {rowIndex}").Click();
         }
 
         // test
