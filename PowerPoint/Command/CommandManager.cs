@@ -4,7 +4,7 @@ namespace PowerPoint
 {
     public class CommandManager : ICommandManager
     {
-        readonly Dictionary<Page, Stack<ICommand>> _redo = new Dictionary<Page, Stack<ICommand>>();
+         readonly Dictionary<Page, Stack<ICommand>> _redo = new Dictionary<Page, Stack<ICommand>>();
         readonly Dictionary<Page, Stack<ICommand>> _undo = new Dictionary<Page, Stack<ICommand>>();
 
         Page _page = null;
