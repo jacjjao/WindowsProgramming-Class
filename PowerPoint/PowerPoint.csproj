@@ -147,5 +147,11 @@
   <ItemGroup>
     <None Include="Resources\DeletePage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1014902.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rectangle.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

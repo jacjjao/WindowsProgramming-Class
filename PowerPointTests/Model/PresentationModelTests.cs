@@ -16,6 +16,7 @@ namespace PowerPoint.Tests
         public void Initialize()
         {
             _m = new PowerPointModel();
+            _m.AddBlankPage();
             _model = new PresentationModel(_m);
             _modelPrivate = new PrivateObject(_model);
         }
@@ -24,8 +25,6 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void PresentationModelTest()
         {
-            const int LEN = 6;
-            Assert.AreEqual(LEN, _model.CheckList.Count);
             Assert.AreEqual(_m, _model.Model);
         }
 

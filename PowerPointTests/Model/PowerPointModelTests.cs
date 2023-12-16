@@ -50,6 +50,7 @@ namespace PowerPoint.Tests
         public void Initialize()
         {
             _model = new PowerPointModel();
+            _model.AddBlankPage();
             _modelPrivate = new PrivateObject(_model);
         }
 
@@ -82,13 +83,13 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void DrawAllTest()
         {
-            var list = (Page)_modelPrivate.GetFieldOrProperty("_list");
+            var page = _model.CurrentPage;
             int screenWidth = 800;
             int screenHeight = 600;
-            list.AddRandomShape(ShapeType.Rectangle, screenWidth, screenHeight);
-            list.AddRandomShape(ShapeType.Rectangle, screenWidth, screenHeight);
-            list.AddRandomShape(ShapeType.Rectangle, screenWidth, screenHeight);
-            list.AddRandomShape(ShapeType.Rectangle, screenWidth, screenHeight);
+            page.AddRandomShape(ShapeType.Rectangle, screenWidth, screenHeight);
+            page.AddRandomShape(ShapeType.Rectangle, screenWidth, screenHeight);
+            page.AddRandomShape(ShapeType.Rectangle, screenWidth, screenHeight);
+            page.AddRandomShape(ShapeType.Rectangle, screenWidth, screenHeight);
             int count = 0;
             var graphics = new PowerPointTests.MockGraphicsAdapter
             {
@@ -98,7 +99,7 @@ namespace PowerPoint.Tests
                 }
             };
             _model.DrawCurrentPage(graphics);
-            Assert.AreEqual(list.Count, count);
+            Assert.AreEqual(page.Count, count);
         }
 
         /* do mouse down */

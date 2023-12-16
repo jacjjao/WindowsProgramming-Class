@@ -48,28 +48,34 @@ namespace PowerPoint
             }
         }
 
-        // verify input
-        private bool CheckInput()
+        // get input
+        private bool GetInput()
         {
-            Func<int, int, bool> isOutOfBounds = (int x, int y) =>
-            {
-                return x < 0 || x > _panel.Width || y < 0 || y > _panel.Height;
-            };
             int leftY = 0;
             int rightX = 0;
             int rightY = 0;
-            bool succeed = 
+            bool succeed =
                 int.TryParse(_topLeftX.Text, out int leftX) &&
                 int.TryParse(_topLeftY.Text, out leftY) &&
                 int.TryParse(_bottomRightX.Text, out rightX) &&
                 int.TryParse(_bottomRightY.Text, out rightY);
-            if (!succeed || leftX > rightX || leftY > rightY || isOutOfBounds(leftX, leftY) || isOutOfBounds(rightX, rightY))
+            if (!succeed)
                 return false;
             _pointFirst.X = leftX;
             _pointFirst.Y = leftY;
             _pointSecond.X = rightX;
             _pointSecond.Y = rightY;
             return true;
+        }
+
+        // verify input
+        private bool CheckInput()
+        {
+            Func<Point, bool> isOutOfBounds = (Point point) =>
+            {
+                return point.X < 0 || point.X > _panel.Width || point.Y < 0 || point.Y > _panel.Height;
+            };
+            return GetInput() && _pointFirst.X < _pointSecond.X && _pointFirst.Y < _pointSecond.Y && !isOutOfBounds(_pointFirst) && !isOutOfBounds(_pointSecond);
         }
 
         // ok button click

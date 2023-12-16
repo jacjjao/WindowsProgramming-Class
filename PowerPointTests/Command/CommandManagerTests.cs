@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 
 namespace PowerPoint.Tests
@@ -6,7 +7,7 @@ namespace PowerPoint.Tests
     [TestClass]
     public class CommandManagerTests
     {
-        Page _list = null;
+        Page _page = null;
         CommandManager _manager = null;
         PrivateObject _managerPrivate = null;
 
@@ -14,8 +15,8 @@ namespace PowerPoint.Tests
         [TestInitialize]
         public void Initialize()
         {
-            _list = new Page();
-            _manager = new CommandManager(_list);
+            _page = new Page();
+            _manager = new CommandManager(_page);
             _managerPrivate = new PrivateObject(_manager);
         }
 
@@ -23,22 +24,22 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void CommandManagerTest()
         {
-            Assert.AreEqual(_list, _managerPrivate.GetFieldOrProperty("_list"));
+            Assert.AreEqual(_page, _managerPrivate.GetFieldOrProperty("_page"));
         }
 
         // test
         [TestMethod]
         public void ExecuteTest()
         {
-            _list.AddRandomShape(ShapeType.Circle, 800, 600);
+            _page.AddRandomShape(ShapeType.Circle, 800, 600);
             _manager.Execute(new MoveCommand
             {
-                SelectShape = _list[0]
+                SelectShape = _page[0]
             });
             const int dx = 100;
             MoveCommand cmd = new MoveCommand
             {
-                SelectShape = _list[0],
+                SelectShape = _page[0],
                 MoveX = dx
             };
             var option = new ExecuteOption
@@ -47,9 +48,9 @@ namespace PowerPoint.Tests
                 ResetDataBindings = true
             };
             _manager.Execute(cmd, option);
-            Assert.AreEqual(1, _list.Count);
-            var undoStack = (Stack<ICommand>)_managerPrivate.GetFieldOrProperty("_undo");
-            Assert.AreEqual(dx, ((MoveCommand)undoStack.Peek()).MoveX);
+            Assert.AreEqual(1, _page.Count);
+            var undoStack = (Stack<Tuple<Page, ICommand>>)_managerPrivate.GetFieldOrProperty("_undo");
+            Assert.AreEqual(dx, ((MoveCommand)undoStack.Peek().Item2).MoveX);
         }
 
         // test
@@ -67,7 +68,7 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void UndoTest()
         {
-            var undoStack = (Stack<ICommand>)_managerPrivate.GetFieldOrProperty("_undo");
+            var undoStack = (Stack<Tuple<Page, ICommand>>)_managerPrivate.GetFieldOrProperty("_undo");
             _manager.Undo();
             Assert.AreEqual(0, undoStack.Count);
             _manager.Execute(new MoveCommand());
@@ -80,8 +81,8 @@ namespace PowerPoint.Tests
         public void CanRedoTest()
         {
             Assert.IsFalse(_manager.IsCanRedo());
-            var redoStack = (Stack<ICommand>)_managerPrivate.GetFieldOrProperty("_redo");
-            redoStack.Push(new MoveCommand());
+            var redoStack = (Stack<Tuple<Page, ICommand>>)_managerPrivate.GetFieldOrProperty("_redo");
+            redoStack.Push(Tuple.Create(_page, (ICommand)new MoveCommand()));
             Assert.IsTrue(_manager.IsCanRedo());
         }
 
@@ -89,7 +90,7 @@ namespace PowerPoint.Tests
         [TestMethod]
         public void RedoTest()
         {
-            var redoStack = (Stack<ICommand>)_managerPrivate.GetFieldOrProperty("_redo");
+            var redoStack = (Stack<Tuple<Page, ICommand>>)_managerPrivate.GetFieldOrProperty("_redo");
             _manager.Redo();
             Assert.AreEqual(0, redoStack.Count);
             _manager.Execute(new MoveCommand());

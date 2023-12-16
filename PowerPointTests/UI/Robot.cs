@@ -140,7 +140,7 @@ namespace PowerPointUITests
         }
 
         // test
-        public void ClickDataGridViewCellBy(string name, int rowIndex, string columnName)
+        public void ClickDataGridViewCellBy(int rowIndex, string columnName)
         {
             _driver.FindElementByName($"{columnName} 資料列 {rowIndex}").Click();
         }
