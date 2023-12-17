@@ -22,8 +22,8 @@ namespace PowerPoint
         DoubleBufferedPanel _drawPanel;
         readonly BindingSource _bindingSource = new BindingSource();
         FormGraphicsAdapter _graphics;
-        List<CheckBox> _slideButtons = new List<CheckBox>();
-        MyFlowLayoutPanel _flowLayoutPanel = new MyFlowLayoutPanel();
+        readonly List<CheckBox> _slideButtons = new List<CheckBox>();
+        readonly MyFlowLayoutPanel _flowLayoutPanel = new MyFlowLayoutPanel();
 
         public const string LINE_BUTTON_NAME = "ToolStripLineButton";
         public const string RECTANGLE_BUTTON_NAME = "ToolStripRectangleButton";
@@ -247,13 +247,10 @@ namespace PowerPoint
         // remove slide
         private void RemoveCheckedSlide(object sender, EventArgs e)
         {
-            int index = _slideButtons.FindIndex((button) => button.Checked);
             var command = new RemovePageCommand();
             command.Manager = _presentModel.Model.PageManager;
-            command.RemoveIndex = index;
+            command.RemoveIndex = _slideButtons.FindIndex((button) => button.Checked);
             _presentModel.Model.CommandManager.Execute(command);
-            if (index > 0)
-                index--;
             UpdateSlideButtonCheckedAndName();
             DrawAll();
         }
@@ -268,8 +265,7 @@ namespace PowerPoint
         /* slide button click */
         private void DoSlideButtonClick(object sender, EventArgs e)
         {
-            int index = _slideButtons.FindIndex((button) => button.Equals(sender));
-            _presentModel.Model.SetCurrentPage(index);
+            _presentModel.Model.SetCurrentPage(_slideButtons.FindIndex((button) => button.Equals(sender)));
             UpdateSlideButtonCheckedAndName();
             DrawPartial();
         }

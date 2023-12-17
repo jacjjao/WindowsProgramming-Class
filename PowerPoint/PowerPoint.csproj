@@ -136,9 +136,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Rectangle.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Pointer.png" />
   </ItemGroup>
   <ItemGroup>
@@ -146,9 +143,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\DeletePage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1014902.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Rectangle.png" />
