@@ -56,6 +56,14 @@ namespace PowerPoint
             _flowLayoutPanel.Dock = DockStyle.Fill;
             _flowLayoutPanel.SizeChanged += ResizeSlideButtons;
             _splitContainer1.Panel1.Controls.Add(_flowLayoutPanel);
+            RefreshUndoRedo();
+        }
+
+        // refresh undo redo 
+        private void RefreshUndoRedo()
+        {
+            _toolStrip1.Items[UNDO_BUTTON_INDEX].Enabled = _presentModel.Model.CommandManager.IsCanUndo();
+            _toolStrip1.Items[REDO_BUTTON_INDEX].Enabled = _presentModel.Model.CommandManager.IsCanRedo();
         }
 
         // draw all
@@ -78,6 +86,7 @@ namespace PowerPoint
         private void DoListChanged(object sender, ListChangedEventArgs e)
         {
             DrawPartial();
+            RefreshUndoRedo();
         }
 
         /* 在畫布上點擊滑鼠時的event */
