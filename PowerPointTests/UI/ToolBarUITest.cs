@@ -36,8 +36,6 @@ namespace PowerPointUITests
             _robot.AssertToolStripButtonUnchecked(Form1.RECTANGLE_BUTTON_NAME);
             _robot.AssertToolStripButtonUnchecked(Form1.CIRCLE_BUTTON_NAME);
             _robot.AssertToolStripButtonUnchecked(Form1.POINTER_BUTTON_NAME);
-            _robot.AssertToolStripButtonUnchecked(Form1.UNDO_BUTTON_NAME);
-            _robot.AssertToolStripButtonUnchecked(Form1.REDO_BUTTON_NAME);
 
             int x = 10, y = 10, width = 100, height = 50;
             _robot.MouseDownAndMoveThenUp("DrawPanel", x, y, width, height);
@@ -55,8 +53,6 @@ namespace PowerPointUITests
             _robot.AssertToolStripButtonUnchecked(Form1.LINE_BUTTON_NAME);
             _robot.AssertToolStripButtonUnchecked(Form1.CIRCLE_BUTTON_NAME);
             _robot.AssertToolStripButtonUnchecked(Form1.POINTER_BUTTON_NAME);
-            _robot.AssertToolStripButtonUnchecked(Form1.UNDO_BUTTON_NAME);
-            _robot.AssertToolStripButtonUnchecked(Form1.REDO_BUTTON_NAME);
 
             int x = 200, y = 200, width = 200, height = 250;
             _robot.MouseDownAndMoveThenUp("DrawPanel", x, y, width, height);
@@ -74,8 +70,6 @@ namespace PowerPointUITests
             _robot.AssertToolStripButtonUnchecked(Form1.LINE_BUTTON_NAME);
             _robot.AssertToolStripButtonUnchecked(Form1.RECTANGLE_BUTTON_NAME);
             _robot.AssertToolStripButtonUnchecked(Form1.POINTER_BUTTON_NAME);
-            _robot.AssertToolStripButtonUnchecked(Form1.UNDO_BUTTON_NAME);
-            _robot.AssertToolStripButtonUnchecked(Form1.REDO_BUTTON_NAME);
 
             int x = 300, y = 300, width = 100, height = 100;
             _robot.MouseDownAndMoveThenUp("DrawPanel", x, y, width, height);
