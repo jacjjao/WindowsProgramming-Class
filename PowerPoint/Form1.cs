@@ -13,17 +13,12 @@ namespace PowerPoint
         const int RECTANGLE_BUTTON_INDEX = 1;
         const int CIRCLE_BUTTON_INDEX = 2;
         const int POINTER_BUTTON_INDEX = 3;
-        const int UNDO_BUTTON_INDEX = 4;
-        const int REDO_BUTTON_INDEX = 5;
-        const int NEW_PAGE_BUTTON_INDEX = 6;
-        const int DELETE_PAGE_BUTTON_INDEX = 7;
         readonly Dictionary<ToolStripButton, int> _toolStripButtons = new Dictionary<ToolStripButton, int>();
         readonly PresentationModel _presentModel;
         DoubleBufferedPanel _drawPanel;
         readonly BindingSource _bindingSource = new BindingSource();
         FormGraphicsAdapter _graphics;
         readonly List<CheckBox> _slideButtons = new List<CheckBox>();
-        readonly MyFlowLayoutPanel _flowLayoutPanel = new MyFlowLayoutPanel();
 
         public const string LINE_BUTTON_NAME = "ToolStripLineButton";
         public const string RECTANGLE_BUTTON_NAME = "ToolStripRectangleButton";
@@ -37,33 +32,62 @@ namespace PowerPoint
         public Form1(PresentationModel presentationModel)
         {
             InitializeComponent();
-            _presentModel = presentationModel;
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
-            CreateToolStripButtonListLine();
-            CreateToolStripButtonListRectangle();
-            CreateToolStripButtonListCircle();
-            CreateToolStripButtonListPointer();
-            CreateToolStripButtonListUndo();
-            CreateToolStripButtonListRedo();
-            CreateToolStripButtonNewPage();
-            CreateToolStripButtonDeletePage();
+
+            _presentModel = presentationModel;
             _presentModel.Model.PageManager._newPageAdded += AddNewSlideButton;
             _presentModel.Model.PageManager._pageRemoved += RemoveSlideButton;
             _presentModel.Model.PageManager._currentPageChanged += BindDataGridViewToCurrentPage;
             _presentModel.Model.AddBlankPage();
+
+            BindToolStripButtons();
             CreateDrawPanel();
             KeyPreview = true;
-            _flowLayoutPanel.Dock = DockStyle.Fill;
-            _flowLayoutPanel.SizeChanged += ResizeSlideButtons;
-            _splitContainer1.Panel1.Controls.Add(_flowLayoutPanel);
             RefreshUndoRedo();
+        }
+
+        /* create toolstrip button list */
+        private void BindToolStripButtons()
+        {
+            const string CHECKED = "Checked";
+            const string VALUE = ".Value";
+
+            _toolStripLineButton.DataBindings.Add(CHECKED, _presentModel.CheckList[LINE_BUTTON_INDEX], VALUE);
+            _toolStripButtons.Add(_toolStripLineButton, LINE_BUTTON_INDEX);
+
+            _toolStripRectangleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[RECTANGLE_BUTTON_INDEX], VALUE);
+            _toolStripButtons.Add(_toolStripRectangleButton, RECTANGLE_BUTTON_INDEX);
+
+            _toolStripCircleButton.DataBindings.Add(CHECKED, _presentModel.CheckList[CIRCLE_BUTTON_INDEX], VALUE);
+            _toolStripButtons.Add(_toolStripCircleButton, CIRCLE_BUTTON_INDEX);
+
+            _toolStripPointerButton.DataBindings.Add(CHECKED, _presentModel.CheckList[POINTER_BUTTON_INDEX], VALUE);
+            _toolStripPointerButton.Checked = true;
+            _toolStripButtons.Add(_toolStripPointerButton, POINTER_BUTTON_INDEX);
+        }
+
+        /* create draw panel */
+        private void CreateDrawPanel()
+        {
+            const string NAME = "DrawPanel";
+            _drawPanel = new DoubleBufferedPanel
+            {
+                Dock = DockStyle.None,
+                BackColor = Color.White,
+                AccessibleName = NAME
+            };
+            _splitContainer4.Panel1.Controls.Add(_drawPanel);
+            _drawPanel.MouseUp += DoDrawPanelMouseUp;
+            _drawPanel.MouseMove += DoDrawPanelMouseMove;
+            _drawPanel.MouseDown += DoDrawPanelMouseDown;
+            _drawPanel.Paint += DrawPanelOnDraw;
         }
 
         // refresh undo redo 
         private void RefreshUndoRedo()
         {
-            _toolStrip1.Items[UNDO_BUTTON_INDEX].Enabled = _presentModel.Model.CommandManager.IsCanUndo();
-            _toolStrip1.Items[REDO_BUTTON_INDEX].Enabled = _presentModel.Model.CommandManager.IsCanRedo();
+            _toolStripUndoButton.Enabled = _presentModel.Model.CommandManager.IsCanUndo();
+            _toolStripRedoButton.Enabled = _presentModel.Model.CommandManager.IsCanRedo();
         }
 
         // draw all
@@ -250,7 +274,7 @@ namespace PowerPoint
             _flowLayoutPanel.Controls.Add(slideButton);
             _slideButtons.Add(slideButton);
             UpdateSlideButtonCheckedAndName();
-            _flowLayoutPanel.DoSizeChanged();
+            _flowLayoutPanel.CallSizeChangedEvent();
         }
 
         // remove slide

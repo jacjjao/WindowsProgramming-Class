@@ -3,10 +3,10 @@ using System.Windows.Forms;
 
 namespace PowerPoint
 {
-    class MyFlowLayoutPanel : FlowLayoutPanel
+    class SizeChangedFlowLayoutPanel : FlowLayoutPanel
     {
         // on size changed
-        public void DoSizeChanged()
+        public void CallSizeChangedEvent()
         {
             base.OnSizeChanged(EventArgs.Empty);
         }

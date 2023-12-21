@@ -342,11 +342,6 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>ComponentsInitialize.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
                 <RelativePath>DoubleBufferedPanel.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
@@ -393,11 +388,6 @@
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Model\PresentationModel.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>MyFlowLayoutPanel.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -478,6 +468,11 @@
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Shape\ShapeType.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>SizeChangedFlowLayoutPanel.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -638,8 +633,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>3697</ProductionLoc>
-          <TestLoc>2988</TestLoc>
+          <ProductionLoc>3698</ProductionLoc>
+          <TestLoc>2982</TestLoc>
         </CodeReview>
       </Data>
     </div>
