@@ -63,9 +63,6 @@
     <Compile Include="MessageBox.Designer.cs">
       <DependentUpon>MessageBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="SizeChangedFlowLayoutPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="PageManager.cs" />
     <Compile Include="ResizeDirection.cs" />
     <Compile Include="Shape\Circle.cs" />

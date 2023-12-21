@@ -472,11 +472,6 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>SizeChangedFlowLayoutPanel.cs</RelativePath>
-                <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
                 <RelativePath>SlideButton.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
@@ -633,7 +628,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>3698</ProductionLoc>
+          <ProductionLoc>3686</ProductionLoc>
           <TestLoc>2982</TestLoc>
         </CodeReview>
       </Data>

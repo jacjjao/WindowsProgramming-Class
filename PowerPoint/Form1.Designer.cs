@@ -46,7 +46,6 @@ namespace PowerPoint
             this._toolStripDeletePageButton = new PowerPoint.BindToolStripButton();
             this._tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this._flowLayoutPanel = new PowerPoint.SizeChangedFlowLayoutPanel();
             this._splitContainer4 = new System.Windows.Forms.SplitContainer();
             this._groupBox1 = new System.Windows.Forms.GroupBox();
             this._splitContainer3 = new System.Windows.Forms.SplitContainer();
@@ -61,6 +60,7 @@ namespace PowerPoint
             this._deleteColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this._shapeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this._flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this._tableLayoutPanel3.SuspendLayout();
             this._menuStrip1.SuspendLayout();
             this._toolStrip1.SuspendLayout();
@@ -263,15 +263,6 @@ namespace PowerPoint
             this._splitContainer1.SplitterDistance = 139;
             this._splitContainer1.TabIndex = 2;
             // 
-            // _flowLayoutPanel
-            // 
-            this._flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._flowLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this._flowLayoutPanel.Name = "_flowLayoutPanel";
-            this._flowLayoutPanel.Size = new System.Drawing.Size(135, 657);
-            this._flowLayoutPanel.TabIndex = 0;
-            this._flowLayoutPanel.SizeChanged += new System.EventHandler(this.ResizeSlideButtons);
-            // 
             // _splitContainer4
             // 
             this._splitContainer4.AccessibleName = "_splitContainer4";
@@ -455,6 +446,15 @@ namespace PowerPoint
             this._tableLayoutPanel2.Size = new System.Drawing.Size(1274, 741);
             this._tableLayoutPanel2.TabIndex = 1;
             // 
+            // _flowLayoutPanel
+            // 
+            this._flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._flowLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this._flowLayoutPanel.Name = "_flowLayoutPanel";
+            this._flowLayoutPanel.Size = new System.Drawing.Size(135, 657);
+            this._flowLayoutPanel.TabIndex = 0;
+            this._flowLayoutPanel.SizeChanged += new System.EventHandler(this.ResizeSlideButtons);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -525,7 +525,7 @@ namespace PowerPoint
         private BindToolStripButton _toolStripRedoButton;
         private BindToolStripButton _toolStripNewPageButton;
         private BindToolStripButton _toolStripDeletePageButton;
-        private SizeChangedFlowLayoutPanel _flowLayoutPanel;
+        private System.Windows.Forms.FlowLayoutPanel _flowLayoutPanel;
     }
 }
 

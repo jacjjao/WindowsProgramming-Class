@@ -274,7 +274,7 @@ namespace PowerPoint
             _flowLayoutPanel.Controls.Add(slideButton);
             _slideButtons.Add(slideButton);
             UpdateSlideButtonCheckedAndName();
-            _flowLayoutPanel.CallSizeChangedEvent();
+            ResizeSlideButtons(null, EventArgs.Empty);
         }
 
         // remove slide

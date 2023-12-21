@@ -195,6 +195,17 @@
     </timestamps>
     <violations />
   </sourcecode>
+  <sourcecode name="SizeChangedFlowLayoutPanel.cs" parser="StyleCop.CSharp.CsParser">
+    <timestamps>
+      <styleCop>2023/09/15 15:15:03.194</styleCop>
+      <settingsFile>0001/01/01 00:00:00.000</settingsFile>
+      <sourceFile>2023/12/21 16:41:16.652</sourceFile>
+      <parser>2023/09/15 15:15:03.194</parser>
+      <KellyPalRules.KellyPalAnalyzer>2023/09/15 15:15:03.194</KellyPalRules.KellyPalAnalyzer>
+      <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
+    </timestamps>
+    <violations />
+  </sourcecode>
   <project key="-1717211300">
     <configuration>DEBUG;TRACE</configuration>
   </project>
@@ -323,7 +334,7 @@
     <timestamps>
       <styleCop>2023/09/15 15:15:03.194</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/12/21 16:41:16.643</sourceFile>
+      <sourceFile>2023/12/21 16:57:03.277</sourceFile>
       <parser>2023/09/15 15:15:03.194</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 15:15:03.194</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -334,7 +345,7 @@
     <timestamps>
       <styleCop>2023/09/15 15:15:03.194</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/12/21 16:40:13.288</sourceFile>
+      <sourceFile>2023/12/21 16:56:17.749</sourceFile>
       <parser>2023/09/15 15:15:03.194</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 15:15:03.194</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -600,17 +611,6 @@
       <styleCop>2023/09/15 15:15:03.194</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
       <sourceFile>2023/11/16 15:20:31.514</sourceFile>
-      <parser>2023/09/15 15:15:03.194</parser>
-      <KellyPalRules.KellyPalAnalyzer>2023/09/15 15:15:03.194</KellyPalRules.KellyPalAnalyzer>
-      <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
-    </timestamps>
-    <violations />
-  </sourcecode>
-  <sourcecode name="SizeChangedFlowLayoutPanel.cs" parser="StyleCop.CSharp.CsParser">
-    <timestamps>
-      <styleCop>2023/09/15 15:15:03.194</styleCop>
-      <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/12/21 16:41:16.652</sourceFile>
       <parser>2023/09/15 15:15:03.194</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 15:15:03.194</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
