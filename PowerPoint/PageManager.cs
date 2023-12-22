@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Pen = System.Drawing.Pen;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Text;
 
 namespace PowerPoint
 {
@@ -17,6 +19,21 @@ namespace PowerPoint
         public event CurrentPageChangedEventHandler _currentPageChanged;
 
         readonly List<Page> _pages = new List<Page>();
+        public int Count
+        {
+            get
+            {
+                return _pages.Count;
+            }
+        }
+        public Page this[int index]
+        {
+            get
+            {
+                return _pages[index];
+            }
+        }
+
 
         Page _currentPage = null;
         public Page CurrentPage
@@ -33,10 +50,26 @@ namespace PowerPoint
             }
         }
 
-        // get page
-        public Page GetPage(int index)
+        // upload files
+        public Task UploadAllPageAsync(IPageSaver saver)
         {
-            return _pages[index];
+            System.TimeSpan SLEEP_TIME = System.TimeSpan.FromSeconds(10);
+            var uploadBuffer = new List<string>();
+            for (int i = 0; i < Count; i++)
+            {
+                var fileContent = new StringBuilder();
+                for (int j = 0; j < _pages[i].Count; j++)
+                    fileContent.AppendLine(_pages[i][j].GetSaveInfo());
+                uploadBuffer.Add(fileContent.ToString());
+            }
+            return Task.Run(() =>
+            {
+                foreach (var fileContent in uploadBuffer)
+                {
+                    saver.Upload(fileContent);
+                }
+                Thread.Sleep(SLEEP_TIME);
+            });
         }
 
         // get current page index

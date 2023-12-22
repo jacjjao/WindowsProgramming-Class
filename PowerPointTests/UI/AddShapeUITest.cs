@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PowerPoint;
 using System;
 using System.IO;
-using PowerPoint;
 
 namespace PowerPointUITests
 {

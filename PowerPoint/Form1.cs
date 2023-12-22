@@ -35,6 +35,8 @@ namespace PowerPoint
             _shapeComboBox.SelectedItem = _shapeComboBox.Items[0];
 
             _presentModel = presentationModel;
+            _presentModel.Model._uploading += () => _toolStripFileSaveButton.Enabled = false;
+            _presentModel.Model._uploadComplete += () => _toolStripFileSaveButton.Enabled = true;
             _presentModel.Model.PageManager._newPageAdded += AddNewSlideButton;
             _presentModel.Model.PageManager._pageRemoved += RemoveSlideButton;
             _presentModel.Model.PageManager._currentPageChanged += BindDataGridViewToCurrentPage;
@@ -340,6 +342,12 @@ namespace PowerPoint
                 _slideButtons[i].Width = _splitContainer1.Panel1.Width - _slideButtons[i].Margin.Horizontal;
                 _slideButtons[i].Height = (int)((float)_slideButtons[i].Width / TARGET_ASPECT_RATIO);
             }
+        }
+
+        // upload
+        private void UploadPages(object sender, EventArgs e)
+        {
+            _presentModel.Model.SaveAsync();
         }
     }
 }

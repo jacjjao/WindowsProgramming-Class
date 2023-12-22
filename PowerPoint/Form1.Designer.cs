@@ -36,6 +36,16 @@ namespace PowerPoint
             this._infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this._toolStripLineButton = new PowerPoint.BindToolStripButton();
+            this._toolStripRectangleButton = new PowerPoint.BindToolStripButton();
+            this._toolStripCircleButton = new PowerPoint.BindToolStripButton();
+            this._toolStripPointerButton = new PowerPoint.BindToolStripButton();
+            this._toolStripUndoButton = new PowerPoint.BindToolStripButton();
+            this._toolStripRedoButton = new PowerPoint.BindToolStripButton();
+            this._toolStripNewPageButton = new PowerPoint.BindToolStripButton();
+            this._toolStripDeletePageButton = new PowerPoint.BindToolStripButton();
+            this._toolStripFileSaveButton = new PowerPoint.BindToolStripButton();
+            this._toolStripFileLoadButton = new PowerPoint.BindToolStripButton();
             this._tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._splitContainer1 = new System.Windows.Forms.SplitContainer();
             this._flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -46,21 +56,13 @@ namespace PowerPoint
             this._addButton = new System.Windows.Forms.Button();
             this._shapeComboBox = new System.Windows.Forms.ComboBox();
             this._dataGridView = new System.Windows.Forms.DataGridView();
-            this._deleteColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this._tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this._shapeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._infoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._infoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._deleteColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this._shapeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._toolStripLineButton = new PowerPoint.BindToolStripButton();
-            this._toolStripRectangleButton = new PowerPoint.BindToolStripButton();
-            this._toolStripCircleButton = new PowerPoint.BindToolStripButton();
-            this._toolStripPointerButton = new PowerPoint.BindToolStripButton();
-            this._toolStripUndoButton = new PowerPoint.BindToolStripButton();
-            this._toolStripRedoButton = new PowerPoint.BindToolStripButton();
-            this._toolStripNewPageButton = new PowerPoint.BindToolStripButton();
-            this._toolStripDeletePageButton = new PowerPoint.BindToolStripButton();
+            this._tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this._tableLayoutPanel3.SuspendLayout();
             this._menuStrip1.SuspendLayout();
             this._toolStrip1.SuspendLayout();
@@ -79,8 +81,8 @@ namespace PowerPoint
             this._splitContainer3.SuspendLayout();
             this._flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView)).BeginInit();
-            this._tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._shapeBindingSource)).BeginInit();
+            this._tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // _tableLayoutPanel3
@@ -134,12 +136,119 @@ namespace PowerPoint
             this._toolStripUndoButton,
             this._toolStripRedoButton,
             this._toolStripNewPageButton,
-            this._toolStripDeletePageButton});
+            this._toolStripDeletePageButton,
+            this._toolStripFileSaveButton,
+            this._toolStripFileLoadButton});
             this._toolStrip1.Location = new System.Drawing.Point(0, 28);
             this._toolStrip1.Name = "_toolStrip1";
             this._toolStrip1.Size = new System.Drawing.Size(1268, 36);
             this._toolStrip1.TabIndex = 0;
             this._toolStrip1.Text = "toolStrip1";
+            // 
+            // _toolStripLineButton
+            // 
+            this._toolStripLineButton.AccessibleName = "ToolStripLineButton";
+            this._toolStripLineButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this._toolStripLineButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripLineButton.Image")));
+            this._toolStripLineButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._toolStripLineButton.Name = "_toolStripLineButton";
+            this._toolStripLineButton.Size = new System.Drawing.Size(23, 33);
+            this._toolStripLineButton.Text = "/";
+            this._toolStripLineButton.Click += new System.EventHandler(this.DoToolStripButtonLineClick);
+            // 
+            // _toolStripRectangleButton
+            // 
+            this._toolStripRectangleButton.AccessibleName = "ToolStripRectangleButton";
+            this._toolStripRectangleButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._toolStripRectangleButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripRectangleButton.Image")));
+            this._toolStripRectangleButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._toolStripRectangleButton.Name = "_toolStripRectangleButton";
+            this._toolStripRectangleButton.Size = new System.Drawing.Size(23, 33);
+            this._toolStripRectangleButton.Click += new System.EventHandler(this.DoToolStripButtonRectangleClick);
+            // 
+            // _toolStripCircleButton
+            // 
+            this._toolStripCircleButton.AccessibleName = "ToolStripCircleButton";
+            this._toolStripCircleButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this._toolStripCircleButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripCircleButton.Image")));
+            this._toolStripCircleButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._toolStripCircleButton.Name = "_toolStripCircleButton";
+            this._toolStripCircleButton.Size = new System.Drawing.Size(23, 33);
+            this._toolStripCircleButton.Text = "O";
+            this._toolStripCircleButton.Click += new System.EventHandler(this.DoToolStripButtonCircleClick);
+            // 
+            // _toolStripPointerButton
+            // 
+            this._toolStripPointerButton.AccessibleName = "ToolStripPointerButton";
+            this._toolStripPointerButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._toolStripPointerButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripPointerButton.Image")));
+            this._toolStripPointerButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._toolStripPointerButton.Name = "_toolStripPointerButton";
+            this._toolStripPointerButton.Size = new System.Drawing.Size(23, 33);
+            this._toolStripPointerButton.Click += new System.EventHandler(this.DoToolStripButtonPointerClick);
+            // 
+            // _toolStripUndoButton
+            // 
+            this._toolStripUndoButton.AccessibleName = "ToolStripUndoButton";
+            this._toolStripUndoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this._toolStripUndoButton.Enabled = false;
+            this._toolStripUndoButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripUndoButton.Image")));
+            this._toolStripUndoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._toolStripUndoButton.Name = "_toolStripUndoButton";
+            this._toolStripUndoButton.Size = new System.Drawing.Size(24, 33);
+            this._toolStripUndoButton.Text = "<-";
+            this._toolStripUndoButton.Click += new System.EventHandler(this.DoToolStripButtonUndoClick);
+            // 
+            // _toolStripRedoButton
+            // 
+            this._toolStripRedoButton.AccessibleName = "ToolStripRedoButton";
+            this._toolStripRedoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this._toolStripRedoButton.Enabled = false;
+            this._toolStripRedoButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripRedoButton.Image")));
+            this._toolStripRedoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._toolStripRedoButton.Name = "_toolStripRedoButton";
+            this._toolStripRedoButton.Size = new System.Drawing.Size(24, 33);
+            this._toolStripRedoButton.Text = "->";
+            this._toolStripRedoButton.Click += new System.EventHandler(this.DoToolStripButtonRedoClick);
+            // 
+            // _toolStripNewPageButton
+            // 
+            this._toolStripNewPageButton.AccessibleName = "ToolStripNewPageButton";
+            this._toolStripNewPageButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._toolStripNewPageButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripNewPageButton.Image")));
+            this._toolStripNewPageButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._toolStripNewPageButton.Name = "_toolStripNewPageButton";
+            this._toolStripNewPageButton.Size = new System.Drawing.Size(23, 33);
+            this._toolStripNewPageButton.Click += new System.EventHandler(this.DoToolStripButtonNewPageClick);
+            // 
+            // _toolStripDeletePageButton
+            // 
+            this._toolStripDeletePageButton.AccessibleName = "ToolStripDeletePageButton";
+            this._toolStripDeletePageButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._toolStripDeletePageButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripDeletePageButton.Image")));
+            this._toolStripDeletePageButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._toolStripDeletePageButton.Name = "_toolStripDeletePageButton";
+            this._toolStripDeletePageButton.Size = new System.Drawing.Size(23, 33);
+            this._toolStripDeletePageButton.Click += new System.EventHandler(this.RemoveCheckedSlide);
+            // 
+            // _toolStripFileSaveButton
+            // 
+            this._toolStripFileSaveButton.AccessibleName = "ToolStripFileSaveButton";
+            this._toolStripFileSaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._toolStripFileSaveButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripFileSaveButton.Image")));
+            this._toolStripFileSaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._toolStripFileSaveButton.Name = "_toolStripFileSaveButton";
+            this._toolStripFileSaveButton.Size = new System.Drawing.Size(23, 33);
+            this._toolStripFileSaveButton.Click += new System.EventHandler(this.UploadPages);
+            // 
+            // _toolStripFileLoadButton
+            // 
+            this._toolStripFileLoadButton.AccessibleName = "ToolStripFileLoadButton";
+            this._toolStripFileLoadButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._toolStripFileLoadButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripFileLoadButton.Image")));
+            this._toolStripFileLoadButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._toolStripFileLoadButton.Name = "_toolStripFileLoadButton";
+            this._toolStripFileLoadButton.Size = new System.Drawing.Size(23, 33);
             // 
             // _tableLayoutPanel1
             // 
@@ -300,36 +409,6 @@ namespace PowerPoint
             this._dataGridView.TabIndex = 0;
             this._dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DoDataGridViewButtonCellClick);
             // 
-            // _deleteColumn
-            // 
-            this._deleteColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this._deleteColumn.HeaderText = "刪除";
-            this._deleteColumn.MinimumWidth = 8;
-            this._deleteColumn.Name = "_deleteColumn";
-            this._deleteColumn.ReadOnly = true;
-            this._deleteColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this._deleteColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this._deleteColumn.Text = "刪除";
-            this._deleteColumn.UseColumnTextForButtonValue = true;
-            this._deleteColumn.Width = 54;
-            // 
-            // _tableLayoutPanel2
-            // 
-            this._tableLayoutPanel2.AutoSize = true;
-            this._tableLayoutPanel2.ColumnCount = 1;
-            this._tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._tableLayoutPanel2.Controls.Add(this._tableLayoutPanel1, 0, 1);
-            this._tableLayoutPanel2.Controls.Add(this._tableLayoutPanel3, 0, 0);
-            this._tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this._tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
-            this._tableLayoutPanel2.Name = "_tableLayoutPanel2";
-            this._tableLayoutPanel2.RowCount = 2;
-            this._tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this._tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._tableLayoutPanel2.Size = new System.Drawing.Size(1274, 741);
-            this._tableLayoutPanel2.TabIndex = 1;
-            // 
             // _shapeColumn
             // 
             this._shapeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -367,95 +446,39 @@ namespace PowerPoint
             this._nameDataGridViewTextBoxColumn.ReadOnly = true;
             this._nameDataGridViewTextBoxColumn.Visible = false;
             // 
+            // _deleteColumn
+            // 
+            this._deleteColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this._deleteColumn.HeaderText = "刪除";
+            this._deleteColumn.MinimumWidth = 8;
+            this._deleteColumn.Name = "_deleteColumn";
+            this._deleteColumn.ReadOnly = true;
+            this._deleteColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this._deleteColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this._deleteColumn.Text = "刪除";
+            this._deleteColumn.UseColumnTextForButtonValue = true;
+            this._deleteColumn.Width = 54;
+            // 
             // _shapeBindingSource
             // 
             this._shapeBindingSource.DataSource = typeof(PowerPoint.Shape);
             // 
-            // _toolStripLineButton
+            // _tableLayoutPanel2
             // 
-            this._toolStripLineButton.AccessibleName = "ToolStripLineButton";
-            this._toolStripLineButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this._toolStripLineButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripLineButton.Image")));
-            this._toolStripLineButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this._toolStripLineButton.Name = "_toolStripLineButton";
-            this._toolStripLineButton.Size = new System.Drawing.Size(23, 33);
-            this._toolStripLineButton.Text = "/";
-            this._toolStripLineButton.Click += new System.EventHandler(this.DoToolStripButtonLineClick);
-            // 
-            // _toolStripRectangleButton
-            // 
-            this._toolStripRectangleButton.AccessibleName = "ToolStripRectangleButton";
-            this._toolStripRectangleButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this._toolStripRectangleButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripRectangleButton.Image")));
-            this._toolStripRectangleButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this._toolStripRectangleButton.Name = "_toolStripRectangleButton";
-            this._toolStripRectangleButton.Size = new System.Drawing.Size(23, 33);
-            this._toolStripRectangleButton.Click += new System.EventHandler(this.DoToolStripButtonRectangleClick);
-            // 
-            // _toolStripCircleButton
-            // 
-            this._toolStripCircleButton.AccessibleName = "ToolStripCircleButton";
-            this._toolStripCircleButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this._toolStripCircleButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripCircleButton.Image")));
-            this._toolStripCircleButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this._toolStripCircleButton.Name = "_toolStripCircleButton";
-            this._toolStripCircleButton.Size = new System.Drawing.Size(23, 33);
-            this._toolStripCircleButton.Text = "O";
-            this._toolStripCircleButton.Click += new System.EventHandler(this.DoToolStripButtonCircleClick);
-            // 
-            // _toolStripPointerButton
-            // 
-            this._toolStripPointerButton.AccessibleName = "ToolStripPointerButton";
-            this._toolStripPointerButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this._toolStripPointerButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripPointerButton.Image")));
-            this._toolStripPointerButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this._toolStripPointerButton.Name = "_toolStripPointerButton";
-            this._toolStripPointerButton.Size = new System.Drawing.Size(23, 33);
-            this._toolStripPointerButton.Click += new System.EventHandler(this.DoToolStripButtonPointerClick);
-            // 
-            // _toolStripUndoButton
-            // 
-            this._toolStripUndoButton.AccessibleName = "ToolStripUndoButton";
-            this._toolStripUndoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this._toolStripUndoButton.Enabled = false;
-            this._toolStripUndoButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripUndoButton.Image")));
-            this._toolStripUndoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this._toolStripUndoButton.Name = "_toolStripUndoButton";
-            this._toolStripUndoButton.Size = new System.Drawing.Size(24, 33);
-            this._toolStripUndoButton.Text = "<-";
-            this._toolStripUndoButton.Click += new System.EventHandler(this.DoToolStripButtonUndoClick);
-            // 
-            // _toolStripRedoButton
-            // 
-            this._toolStripRedoButton.AccessibleName = "ToolStripRedoButton";
-            this._toolStripRedoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this._toolStripRedoButton.Enabled = false;
-            this._toolStripRedoButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripRedoButton.Image")));
-            this._toolStripRedoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this._toolStripRedoButton.Name = "_toolStripRedoButton";
-            this._toolStripRedoButton.Size = new System.Drawing.Size(24, 33);
-            this._toolStripRedoButton.Text = "->";
-            this._toolStripRedoButton.Click += new System.EventHandler(this.DoToolStripButtonRedoClick);
-            // 
-            // _toolStripNewPageButton
-            // 
-            this._toolStripNewPageButton.AccessibleName = "ToolStripNewPageButton";
-            this._toolStripNewPageButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this._toolStripNewPageButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripNewPageButton.Image")));
-            this._toolStripNewPageButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this._toolStripNewPageButton.Name = "_toolStripNewPageButton";
-            this._toolStripNewPageButton.Size = new System.Drawing.Size(23, 33);
-            this._toolStripNewPageButton.Click += new System.EventHandler(this.DoToolStripButtonNewPageClick);
-            // 
-            // _toolStripDeletePageButton
-            // 
-            this._toolStripDeletePageButton.AccessibleName = "ToolStripDeletePageButton";
-            this._toolStripDeletePageButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this._toolStripDeletePageButton.Image = ((System.Drawing.Image)(resources.GetObject("_toolStripDeletePageButton.Image")));
-            this._toolStripDeletePageButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this._toolStripDeletePageButton.Name = "_toolStripDeletePageButton";
-            this._toolStripDeletePageButton.Size = new System.Drawing.Size(23, 33);
-            this._toolStripDeletePageButton.Click += new System.EventHandler(this.RemoveCheckedSlide);
+            this._tableLayoutPanel2.AutoSize = true;
+            this._tableLayoutPanel2.ColumnCount = 1;
+            this._tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this._tableLayoutPanel2.Controls.Add(this._tableLayoutPanel1, 0, 1);
+            this._tableLayoutPanel2.Controls.Add(this._tableLayoutPanel3, 0, 0);
+            this._tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this._tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
+            this._tableLayoutPanel2.Name = "_tableLayoutPanel2";
+            this._tableLayoutPanel2.RowCount = 2;
+            this._tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this._tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this._tableLayoutPanel2.Size = new System.Drawing.Size(1274, 741);
+            this._tableLayoutPanel2.TabIndex = 1;
             // 
             // Form1
             // 
@@ -489,9 +512,9 @@ namespace PowerPoint
             this._splitContainer3.ResumeLayout(false);
             this._flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._shapeBindingSource)).EndInit();
             this._tableLayoutPanel2.ResumeLayout(false);
             this._tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._shapeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -528,6 +551,8 @@ namespace PowerPoint
         private BindToolStripButton _toolStripNewPageButton;
         private BindToolStripButton _toolStripDeletePageButton;
         private System.Windows.Forms.FlowLayoutPanel _flowLayoutPanel;
+        private BindToolStripButton _toolStripFileSaveButton;
+        private BindToolStripButton _toolStripFileLoadButton;
     }
 }
 

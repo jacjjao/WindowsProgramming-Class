@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Text;
 using Point = System.Drawing.Point;
 
 namespace PowerPoint
@@ -89,6 +90,22 @@ namespace PowerPoint
 
         /* draw */
         public abstract void Draw(Pen pen, IGraphics graphics);
+
+        /* save info for google drive */
+        public string GetSaveInfo()
+        {
+            var info = new StringBuilder();
+            info.Append(Name);
+            info.Append(' ');
+            info.Append(_hitBox.X);
+            info.Append(' ');
+            info.Append(_hitBox.Y);
+            info.Append(' ');
+            info.Append(_hitBox.X + _hitBox.Width);
+            info.Append(' ');
+            info.Append(_hitBox.Y + _hitBox.Height);
+            return info.ToString();
+        }
 
         /* is in hitbox */
         public bool IsInHitBox(Point point)

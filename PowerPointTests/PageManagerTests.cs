@@ -1,10 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PowerPoint.Tests
 {
@@ -30,7 +25,7 @@ namespace PowerPoint.Tests
             var pages = (List<Page>)_managerPrivate.GetFieldOrProperty("_pages");
             var page = new Page();
             pages.Add(page);
-            Assert.AreEqual(page, _manager.GetPage(0));
+            Assert.AreEqual(page, _manager[0]);
         }
 
         // test

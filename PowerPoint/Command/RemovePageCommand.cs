@@ -22,7 +22,7 @@
         // execute
         public void Execute(Page list)
         {
-            _page = Manager.GetPage(_index);
+            _page = Manager[_index];
             Manager.RemoveAt(_index);
         }
 

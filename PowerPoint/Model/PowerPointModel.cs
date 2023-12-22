@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Threading.Tasks;
+using System.Windows.Forms;
 using Pen = System.Drawing.Pen;
 using Point = System.Drawing.Point;
 
@@ -6,6 +7,11 @@ namespace PowerPoint
 {
     public class PowerPointModel
     {
+        public delegate void UploadingEventHandler();
+        public event UploadingEventHandler _uploading;
+        public delegate void UploadCompleteEventHandler();
+        public event UploadingEventHandler _uploadComplete;
+
         readonly PageManager _pageManager = new PageManager();
         public PageManager PageManager
         {
@@ -72,6 +78,10 @@ namespace PowerPoint
             }
         }
 
+        readonly PageSaver _saver = new PageSaver();
+
+        Task _uploadTask = null;
+
         public PowerPointModel()
         {
             _commandManager = new CommandManager(_pageManager.CurrentPage);
@@ -80,6 +90,18 @@ namespace PowerPoint
                 Manager = _commandManager
             };
             PageManager._currentPageChanged += DoCurrentPageChange;
+        }
+
+        // save
+        public async void SaveAsync()
+        {
+            if (_uploadTask != null)
+                await _uploadTask;
+            Uploading();
+            _uploadTask = _pageManager.UploadAllPageAsync(_saver).ContinueWith((task) => 
+            {
+                UploadComplete(); 
+            }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         // current page change
@@ -97,7 +119,7 @@ namespace PowerPoint
         // draw page
         public void DrawPage(int index, IGraphics graphics)
         {
-            _pageManager.GetPage(index).DrawAll(DrawPen, graphics);
+            _pageManager[index].DrawAll(DrawPen, graphics);
         }
 
         /* draw current */
@@ -156,6 +178,24 @@ namespace PowerPoint
             {
                 var state = (PointState)State;
                 state.RemoveSelectedShape(CurrentPage);
+            }
+        }
+
+        // uploading event
+        public void Uploading()
+        {
+            if (_uploading != null)
+            {
+                _uploading();
+            }
+        }
+
+        // upload complete
+        public void UploadComplete()
+        {
+            if (_uploadComplete != null)
+            {
+                _uploadComplete();
             }
         }
     }
