@@ -102,6 +102,23 @@ namespace PowerPoint.Tests
             Assert.AreEqual(page.Count, count);
         }
 
+        // test
+        [TestMethod]
+        public void DrawPageTest()
+        {
+            _model.CurrentPage.AddRandomShape(ShapeType.Rectangle, 800, 600);
+            int count = 0;
+            var graphics = new PowerPointTests.MockGraphicsAdapter
+            {
+                drawRectangle = delegate (System.Drawing.Rectangle rect)
+                {
+                    count++;
+                }
+            };
+            _model.DrawPage(0, graphics);
+            Assert.AreEqual(_model.CurrentPage.Count, count);
+        }
+
         /* do mouse down */
         [TestMethod]
         public void DoMouseDownTest()
@@ -163,6 +180,14 @@ namespace PowerPoint.Tests
             _model.DoMouseUp(location);
             Assert.IsTrue(executed);
             Assert.AreEqual(ShapeType.None, _model.SelectedShape);
+        }
+
+        // test
+        [TestMethod]
+        public void AddShapeTest()
+        {
+            _model.AddShape(ShapeType.Circle, new Point(0, 0), new Point(10, 10));
+            Assert.AreEqual(1, _model.CurrentPage.Count);
         }
 
         /* add random shape */

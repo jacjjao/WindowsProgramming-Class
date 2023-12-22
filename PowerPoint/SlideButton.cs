@@ -2,7 +2,7 @@
 
 namespace PowerPoint
 {
-    class SlideButton : CheckBox
+    public class SlideButton : CheckBox
     {
         public SlideButton() : base()
         {

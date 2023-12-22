@@ -43,7 +43,6 @@ namespace PowerPoint
             BindToolStripButtons();
             CreateDrawPanel();
             KeyPreview = true;
-            RefreshUndoRedo();
         }
 
         /* create toolstrip button list */

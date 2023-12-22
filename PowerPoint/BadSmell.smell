@@ -557,6 +557,11 @@
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>PageManagerTests.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>

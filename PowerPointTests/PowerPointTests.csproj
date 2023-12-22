@@ -90,10 +90,12 @@
     <Compile Include="Command\CommandManagerTests.cs" />
     <Compile Include="Command\DeleteCommandTests.cs" />
     <Compile Include="Command\MoveCommandTests.cs" />
+    <Compile Include="Command\RemovePageCommandTests.cs" />
     <Compile Include="DoubleBufferedPanelTest.cs" />
     <Compile Include="MockCommandManager.cs" />
     <Compile Include="NotifyBooleanTest.cs" />
     <Compile Include="PageManagerTests.cs" />
+    <Compile Include="SlideButtonTests.cs" />
     <Compile Include="UI\Robot.cs" />
     <Compile Include="Shape\CircleTests.cs" />
     <Compile Include="State\DrawingStateTests.cs" />

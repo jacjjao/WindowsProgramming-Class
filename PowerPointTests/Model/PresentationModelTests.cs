@@ -56,7 +56,7 @@ namespace PowerPoint.Tests
             _model.Model.AddRandomShape(ShapeType.Circle, 800, 600);
             _model.Model.AddRandomShape(ShapeType.Circle, 800, 600);
             var remain = _m.CurrentPage[1];
-            _model.Model.RemoveAt(0);
+            _model.RemoveAt(0);
             Assert.AreEqual(1, _m.CurrentPage.Count);
             Assert.AreEqual(remain, _m.CurrentPage[0]);
         }
