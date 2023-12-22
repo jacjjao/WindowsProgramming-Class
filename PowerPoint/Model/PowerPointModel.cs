@@ -103,7 +103,7 @@ namespace PowerPoint
         // draw page
         public void DrawPage(int index, IGraphics graphics)
         {
-            _pageManager.DrawPage(index, DrawPen, graphics);
+            _pageManager.GetPage(index).DrawAll(DrawPen, graphics);
         }
 
         /* draw all */

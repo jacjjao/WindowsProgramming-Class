@@ -43,11 +43,8 @@ namespace PowerPoint
                 var moveCommandTwo = (MoveCommand)command;
                 moveCommandTwo.Combine(moveCommandOne);
             }
-            if (option.SaveCommand)
-            {
-                _undo.Push(Tuple.Create(CurrentPage, command));
-                _redo.Clear();
-            }
+            _undo.Push(Tuple.Create(CurrentPage, command));
+            _redo.Clear();
             if (option.ResetDataBindings)
             {
                 _page.Content.ResetBindings();

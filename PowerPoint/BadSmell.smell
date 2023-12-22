@@ -374,7 +374,7 @@
               <AnalysisFile>
                 <RelativePath>MessageBox.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>MessageBox.Designer.cs</RelativePath>
@@ -498,6 +498,11 @@
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Command\AddCommandTests.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Command\AddPageCommandTests.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>

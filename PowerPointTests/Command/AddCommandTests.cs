@@ -21,13 +21,16 @@ namespace PowerPoint.Tests
         {
             var p1 = new Point(100, 100);
             var p2 = new Point(200, 200);
-            var addRandom = new AddCommand
+            var cmd = new AddCommand
             {
                 Type = ShapeType.Circle,
                 PointFirst = p1,
                 PointSecond = p2
             };
-            addRandom.Execute(_list);
+            cmd.Execute(_list);
+            Assert.AreEqual(1, _list.Count);
+            cmd.Execute(_list);
+            Assert.AreEqual(2, _list.Count);
         }
 
         // test

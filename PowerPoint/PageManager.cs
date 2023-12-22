@@ -78,20 +78,7 @@ namespace PowerPoint
         // remove
         public void Remove(Page page)
         {
-            if (_pages.Count <= 1)
-                return;
-            int removeIndex = _pages.FindIndex((p) => p.Equals(page));
-            if (page.Equals(CurrentPage))
-            {
-                int index = GetCurrentPageIndex();
-                if (index > 0)
-                    index--;
-                _pages.Remove(page);
-                CurrentPage = _pages[index];
-            }
-            else
-                _pages.Remove(page);
-            DoPageRemove(removeIndex);
+            RemoveAt(_pages.FindIndex(p => p.Equals(page)));
         }
 
         // remove at
@@ -110,24 +97,6 @@ namespace PowerPoint
             else
                 _pages.RemoveAt(removeIndex);
             DoPageRemove(removeIndex);
-        }
-
-        // select current page
-        public void SetCurrentPage(Page page)
-        {
-            CurrentPage = page;
-        }
-
-        // draw current page
-        public void DrawCurrentPage(Pen pen, IGraphics graphics)
-        {
-            CurrentPage.DrawAll(pen, graphics);
-        }
-
-        // draw page
-        public void DrawPage(int index, Pen pen, IGraphics graphics)
-        {
-            _pages[index].DrawAll(pen, graphics);
         }
 
         // page add
