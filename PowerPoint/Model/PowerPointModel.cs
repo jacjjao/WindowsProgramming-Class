@@ -94,19 +94,13 @@ namespace PowerPoint
             _pageManager.AddBlankPage();
         }
 
-        // set current page
-        public void SetCurrentPage(int index)
-        {
-            _pageManager.SetCurrentPage(index);
-        }
-
         // draw page
         public void DrawPage(int index, IGraphics graphics)
         {
             _pageManager.GetPage(index).DrawAll(DrawPen, graphics);
         }
 
-        /* draw all */
+        /* draw current */
         public void DrawCurrentPage(IGraphics graphics)
         {
             _pageManager.CurrentPage.DrawAll(DrawPen, graphics);
@@ -142,7 +136,7 @@ namespace PowerPoint
         }
 
         /* add shape */
-        public void AddShape(ShapeType type, int screenWidth, int screenHeight)
+        public void AddRandomShape(ShapeType type, int screenWidth, int screenHeight)
         {
             _pageManager.CurrentPage.AddRandomShape(type, screenWidth, screenHeight);
         }

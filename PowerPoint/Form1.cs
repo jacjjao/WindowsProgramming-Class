@@ -298,7 +298,7 @@ namespace PowerPoint
         /* slide button click */
         private void DoSlideButtonClick(object sender, EventArgs e)
         {
-            _presentModel.Model.SetCurrentPage(_slideButtons.FindIndex((button) => button.Equals(sender)));
+            _presentModel.Model.PageManager.SetCurrentPage(_slideButtons.FindIndex((button) => button.Equals(sender)));
             UpdateSlideButtonCheckedAndName();
             DrawPartial();
         }
