@@ -189,6 +189,54 @@
             <Smell>
               <Id>1</Id>
               <SmellType>Long method(過長函式)</SmellType>
+              <HashCode>LongMethod.PageManager.UploadAllPageAsync.22IPageSaver saver;</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>22</Weight>
+              <Project>PowerPoint</Project>
+              <File>PageManager.cs</File>
+              <Line>53</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>2</Id>
+              <SmellType>Unsuitable naming(名不符實)-FOLDER_MIME_TYPE(mime)</SmellType>
+              <HashCode>UnsuitableNaming.PageSaver.GetAllShapeInfoFileNames.FOLDER_MIME_TYPE</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>PageSaver.cs</File>
+              <Line>37</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>3</Id>
+              <SmellType>Long method(過長函式)</SmellType>
+              <HashCode>LongMethod.PageSaver.ConstructPage.30string fileName;List&lt;Page&gt; pages;</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>30</Weight>
+              <Project>PowerPoint</Project>
+              <File>PageSaver.cs</File>
+              <Line>66</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>4</Id>
+              <SmellType>Long method(過長函式)</SmellType>
               <HashCode>LongMethod.Shape.IsInCircle.24ResizeDirection direction;Point point;</HashCode>
               <Severity>Warning</Severity>
               <Weight>24</Weight>
@@ -203,14 +251,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>2</Id>
+              <Id>5</Id>
               <SmellType>Long method(過長函式)</SmellType>
               <HashCode>LongMethod.Shape.ResizeShape.39ResizeDirection direction;int differenceX;int differenceY;</HashCode>
               <Severity>Red</Severity>
               <Weight>39</Weight>
               <Project>PowerPoint</Project>
               <File>Shape.cs</File>
-              <Line>184</Line>
+              <Line>203</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -219,7 +267,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>3</Id>
+              <Id>6</Id>
               <SmellType>Long method(過長函式)</SmellType>
               <HashCode>LongMethod.PointState.MouseMove.21Page list;Point pos;</HashCode>
               <Severity>Warning</Severity>
@@ -235,7 +283,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>4</Id>
+              <Id>7</Id>
               <SmellType>A syntax error has been discovered in file C:\Users\user\Desktop\視窗程式設計\PowerPointTests\UI\Robot.cs on line 152.</SmellType>
               <Severity>Red</Severity>
               <Weight>1</Weight>
@@ -250,7 +298,23 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>5</Id>
+              <Id>8</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>42 目前物件 PowerPoint.PageSaver，使用物件的方法或屬性次數：0次，Envy到對象物件 Google.Apis.Drive.v2.Data.File，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：Google.Apis.Drive.v2.Data.File.OriginalFilename 以及 Google.Apis.Drive.v2.Data.File.OriginalFilename</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\user\Desktop\視窗程式設計\PowerPoint\PageSaver.cs</File>
+              <Line>42</Line>
+              <StartLine>41</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>42</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 PowerPoint.PageSaver，使用物件的方法或屬性次數：0次，Envy到對象物件 Google.Apis.Drive.v2.Data.File，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：Google.Apis.Drive.v2.Data.File.OriginalFilename 以及 Google.Apis.Drive.v2.Data.File.OriginalFilename</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>9</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>21 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</HashCode>
               <Severity>Warning</Severity>
@@ -266,7 +330,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>6</Id>
+              <Id>10</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>22 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</HashCode>
               <Severity>Red</Severity>
@@ -284,10 +348,16 @@
           </Reviews>
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList>
-            <string>21 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</string>
-            <string>22 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</string>
+            <string>LongMethod.PageManager.UploadAllPageAsync.22IPageSaver saver;</string>
+            <string>UnsuitableNaming.PageSaver.GetAllShapeInfoFileNames.FOLDER_MIME_TYPE</string>
+            <string>LongMethod.PageSaver.ConstructPage.30string fileName;List&lt;Page&gt; pages;</string>
             <string>LongMethod.Shape.IsInCircle.24ResizeDirection direction;Point point;</string>
             <string>LongMethod.Shape.ResizeShape.39ResizeDirection direction;int differenceX;int differenceY;</string>
+            <string>LongMethod.PointState.MouseMove.21Page list;Point pos;</string>
+            <string xsi:nil="true" />
+            <string>42 目前物件 PowerPoint.PageSaver，使用物件的方法或屬性次數：0次，Envy到對象物件 Google.Apis.Drive.v2.Data.File，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：Google.Apis.Drive.v2.Data.File.OriginalFilename 以及 Google.Apis.Drive.v2.Data.File.OriginalFilename</string>
+            <string>21 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</string>
+            <string>22 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</string>
           </HashCodeRequestIgnoreList>
           <AnalysisFileManager>
             <AnalysisFiles>
@@ -357,12 +427,22 @@
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>GoogleDriveService.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Graphics\FormGraphicsAdapter.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Graphics\IGraphics.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>IPageSaver.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -398,6 +478,11 @@
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>PageManager.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>PageSaver.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -522,6 +607,11 @@
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>Command\RemovePageCommandTests.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>DoubleBufferedPanelTest.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
@@ -559,7 +649,7 @@
               <AnalysisFile>
                 <RelativePath>PageManagerTests.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
-                <AnalysisFileType>Unknown</AnalysisFileType>
+                <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
@@ -602,6 +692,11 @@
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>SlideButtonTests.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>State\DrawingStateTests.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
@@ -638,8 +733,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>3686</ProductionLoc>
-          <TestLoc>2982</TestLoc>
+          <ProductionLoc>3928</ProductionLoc>
+          <TestLoc>3475</TestLoc>
         </CodeReview>
       </Data>
     </div>

@@ -104,6 +104,12 @@ namespace PowerPoint
             }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
+        // load
+        public void Load()
+        {
+            PageManager.DownloadPages(_saver);
+        }
+
         // current page change
         private void DoCurrentPageChange()
         {
@@ -182,7 +188,7 @@ namespace PowerPoint
         }
 
         // uploading event
-        public void Uploading()
+        private void Uploading()
         {
             if (_uploading != null)
             {
@@ -191,7 +197,7 @@ namespace PowerPoint
         }
 
         // upload complete
-        public void UploadComplete()
+        private void UploadComplete()
         {
             if (_uploadComplete != null)
             {

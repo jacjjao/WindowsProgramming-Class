@@ -51,7 +51,7 @@ namespace PowerPoint
             Resize(pointFirst, pointSecond);
         }
 
-        const string SHAPE_NAME = "圓形";
+        public const string SHAPE_NAME = "圓形";
 
         /* get info */
         public override string GetInfo()

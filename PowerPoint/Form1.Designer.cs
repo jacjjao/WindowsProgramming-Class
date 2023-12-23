@@ -249,6 +249,7 @@ namespace PowerPoint
             this._toolStripFileLoadButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._toolStripFileLoadButton.Name = "_toolStripFileLoadButton";
             this._toolStripFileLoadButton.Size = new System.Drawing.Size(23, 33);
+            this._toolStripFileLoadButton.Click += new System.EventHandler(this.DownloadFile);
             // 
             // _tableLayoutPanel1
             // 

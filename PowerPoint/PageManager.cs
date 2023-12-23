@@ -34,7 +34,6 @@ namespace PowerPoint
             }
         }
 
-
         Page _currentPage = null;
         public Page CurrentPage
         {
@@ -53,10 +52,12 @@ namespace PowerPoint
         // upload files
         public Task UploadAllPageAsync(IPageSaver saver)
         {
-            System.TimeSpan SLEEP_TIME = System.TimeSpan.FromSeconds(10);
+            const int SLEEP_SECONDS = 10;
             var uploadBuffer = new List<string>();
             for (int i = 0; i < Count; i++)
             {
+                if (_pages[i].Count <= 0)
+                    continue;
                 var fileContent = new StringBuilder();
                 for (int j = 0; j < _pages[i].Count; j++)
                     fileContent.AppendLine(_pages[i][j].GetSaveInfo());
@@ -66,10 +67,20 @@ namespace PowerPoint
             {
                 foreach (var fileContent in uploadBuffer)
                 {
-                    saver.Upload(fileContent);
+                    saver.Save(fileContent);
                 }
-                Thread.Sleep(SLEEP_TIME);
+                Thread.Sleep(System.TimeSpan.FromSeconds(SLEEP_SECONDS));
             });
+        }
+
+        // download
+        public void DownloadPages(IPageSaver saver)
+        {
+            const int SLEEP_SECONDS = 10;
+            var pages = saver.Load();
+            Thread.Sleep(System.TimeSpan.FromSeconds(SLEEP_SECONDS));
+            foreach (var page in pages)
+                AddPage(page, Count);
         }
 
         // get current page index

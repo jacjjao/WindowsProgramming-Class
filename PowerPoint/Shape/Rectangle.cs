@@ -30,7 +30,7 @@ namespace PowerPoint
             }
         }
 
-        private const string SHAPE_NAME = "矩形";
+        public const string SHAPE_NAME = "矩形";
 
         public Rectangle(Point pointFirst, Point pointSecond)
         {

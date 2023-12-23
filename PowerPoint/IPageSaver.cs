@@ -9,6 +9,9 @@ namespace PowerPoint
     public interface IPageSaver
     {
         // save
-        void Upload(string fileContent);
+        void Save(string fileContent);
+
+        // load
+        List<Page> Load();
     }
 }

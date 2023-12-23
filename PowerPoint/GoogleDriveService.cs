@@ -20,8 +20,6 @@ namespace GoogleDriveUploader.GoogleDrive
     {
         static readonly string[] SCOPES = new[] { DriveService.Scope.DriveFile, DriveService.Scope.Drive };
         DriveService _service;
-        const int KB = 0x400;
-        const int DOWNLOAD_CHUNK_SIZE = 256 * KB;
         int _timeStamp;
         string _applicationName;
         string _clientSecretFileName;
@@ -206,51 +204,6 @@ namespace GoogleDriveUploader.GoogleDrive
                 {
                     throw exception;
                 }
-            }
-        }
-
-        /// <summary>
-        /// 刪除符合FileID的檔案
-        /// </summary>
-        /// <param name="fileId">欲刪除檔案的FileID</param>
-        public void DeleteFile(string fileId)
-        {
-            CheckCredentialTimeStamp();
-            try
-            {
-                _service.Files.Delete(fileId).Execute();
-            }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-        }
-
-        /// <summary>
-        /// 更新指定FileID的檔案
-        /// </summary>
-        /// <param name="fileName">欲上傳至Google Drive並覆蓋在Google Drive上舊版檔案的檔案位置 </param>
-        /// <param name="fileId">存在於Google Drive 舊版檔案的FileID </param>
-        /// <param name="contentType">MIME Type</param>
-        /// <returns>如更新成功，回傳更新後的Google Drive File</returns>
-        public Google.Apis.Drive.v2.Data.File UpdateFile(string fileName, string fileId, string contentType)
-        {
-            CheckCredentialTimeStamp();
-            try
-            {
-                Google.Apis.Drive.v2.Data.File file = _service.Files.Get(fileId).Execute();
-                byte[] byteArray = System.IO.File.ReadAllBytes(fileName);
-                MemoryStream stream = new MemoryStream(byteArray);
-                FilesResource.UpdateMediaUpload request = _service.Files.Update(file, fileId, stream, contentType);
-                request.NewRevision = true;
-                request.Upload();
-
-                Google.Apis.Drive.v2.Data.File updatedFile = request.ResponseBody;
-                return updatedFile;
-            }
-            catch (Exception exception)
-            {
-                throw exception;
             }
         }
     }

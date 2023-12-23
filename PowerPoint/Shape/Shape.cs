@@ -10,6 +10,8 @@ namespace PowerPoint
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public const char SEPARATOR = ' ';
+
         const float INITIAL_SCALE_VALUE = 1.0f;
 
         float _scaleX = INITIAL_SCALE_VALUE;
@@ -96,13 +98,13 @@ namespace PowerPoint
         {
             var info = new StringBuilder();
             info.Append(Name);
-            info.Append(' ');
+            info.Append(SEPARATOR);
             info.Append(_hitBox.X);
-            info.Append(' ');
+            info.Append(SEPARATOR);
             info.Append(_hitBox.Y);
-            info.Append(' ');
+            info.Append(SEPARATOR);
             info.Append(_hitBox.X + _hitBox.Width);
-            info.Append(' ');
+            info.Append(SEPARATOR);
             info.Append(_hitBox.Y + _hitBox.Height);
             return info.ToString();
         }

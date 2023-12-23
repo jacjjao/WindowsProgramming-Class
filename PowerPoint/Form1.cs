@@ -36,7 +36,7 @@ namespace PowerPoint
 
             _presentModel = presentationModel;
             _presentModel.Model._uploading += () => _toolStripFileSaveButton.Enabled = false;
-            _presentModel.Model._uploadComplete += () => _toolStripFileSaveButton.Enabled = true;
+            _presentModel.Model._uploadComplete += UploadComplete;
             _presentModel.Model.PageManager._newPageAdded += AddNewSlideButton;
             _presentModel.Model.PageManager._pageRemoved += RemoveSlideButton;
             _presentModel.Model.PageManager._currentPageChanged += BindDataGridViewToCurrentPage;
@@ -245,6 +245,7 @@ namespace PowerPoint
             command.Manager = _presentModel.Model.PageManager;
             _presentModel.Model.CommandManager.Execute(command);
             DrawAll();
+            RefreshUndoRedo();
         }
 
         // rebind databinding
@@ -287,6 +288,7 @@ namespace PowerPoint
             _presentModel.Model.CommandManager.Execute(command);
             UpdateSlideButtonCheckedAndName();
             DrawAll();
+            RefreshUndoRedo();
         }
 
         // remove Index
@@ -347,7 +349,31 @@ namespace PowerPoint
         // upload
         private void UploadPages(object sender, EventArgs e)
         {
-            _presentModel.Model.SaveAsync();
+            var result = MessageBox.Show("是否確定要儲存？", "", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                _presentModel.Model.SaveAsync();
+            }
+        }
+
+        // upload complete
+        private void UploadComplete()
+        {
+            MessageBox.Show("上傳完成", "", MessageBoxButtons.OK);
+            _toolStripFileSaveButton.Enabled = true;
+        }
+
+        // download
+        private void DownloadFile(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("是否要重新載入？", "", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                _toolStripFileLoadButton.Enabled = false;
+                _presentModel.Model.Load();
+                MessageBox.Show("下載完成", "", MessageBoxButtons.OK);
+                _toolStripFileLoadButton.Enabled = true;
+            }
         }
     }
 }

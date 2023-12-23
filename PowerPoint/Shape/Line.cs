@@ -41,7 +41,7 @@ namespace PowerPoint
 
         Type _type = Type.ForwardSlash;
 
-        private const string SHAPE_NAME = "線";
+        public const string SHAPE_NAME = "線";
 
         public Line(Point pointFirst, Point pointSecond)
         {
