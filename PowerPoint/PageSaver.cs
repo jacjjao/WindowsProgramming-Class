@@ -40,6 +40,7 @@ namespace PowerPoint
             rootFolderFiles.RemoveAll(removeItem => removeItem.MimeType == FOLDER_MIME_TYPE);
             rootFolderFiles.RemoveAll(removeItem => removeItem.FileExtension == FILE_EXTENSION);
             rootFolderFiles.RemoveAll(removeItem => removeItem.OriginalFilename == null || !removeItem.OriginalFilename.StartsWith(FILE_NAME_TYPE));
+            rootFolderFiles.Reverse();
 
             return rootFolderFiles;
         }
