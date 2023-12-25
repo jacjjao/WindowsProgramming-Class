@@ -204,8 +204,8 @@
             </Smell>
             <Smell>
               <Id>2</Id>
-              <SmellType>Unsuitable naming(名不符實)-FOLDER_MIME_TYPE(mime)</SmellType>
-              <HashCode>UnsuitableNaming.PageSaver.GetAllShapeInfoFileNames.FOLDER_MIME_TYPE</HashCode>
+              <SmellType>Unsuitable naming(名不符實)-FILE_MIME_TYPE(mime)</SmellType>
+              <HashCode>UnsuitableNaming.PageSaver.GetAllShapeInfoFileNames.FILE_MIME_TYPE</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
@@ -226,7 +226,7 @@
               <Weight>30</Weight>
               <Project>PowerPoint</Project>
               <File>PageSaver.cs</File>
-              <Line>66</Line>
+              <Line>68</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -300,15 +300,15 @@
             <Smell>
               <Id>8</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>42 目前物件 PowerPoint.PageSaver，使用物件的方法或屬性次數：0次，Envy到對象物件 Google.Apis.Drive.v2.Data.File，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：Google.Apis.Drive.v2.Data.File.OriginalFilename 以及 Google.Apis.Drive.v2.Data.File.OriginalFilename</HashCode>
+              <HashCode>43 目前物件 PowerPoint.PageSaver，使用物件的方法或屬性次數：0次，Envy到對象物件 Google.Apis.Drive.v2.Data.File，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：Google.Apis.Drive.v2.Data.File.OriginalFilename 以及 Google.Apis.Drive.v2.Data.File.OriginalFilename</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\user\Desktop\視窗程式設計\PowerPoint\PageSaver.cs</File>
-              <Line>42</Line>
-              <StartLine>41</StartLine>
+              <Line>43</Line>
+              <StartLine>42</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>42</EndLine>
+              <EndLine>43</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 PowerPoint.PageSaver，使用物件的方法或屬性次數：0次，Envy到對象物件 Google.Apis.Drive.v2.Data.File，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：Google.Apis.Drive.v2.Data.File.OriginalFilename 以及 Google.Apis.Drive.v2.Data.File.OriginalFilename</Comment>
               <Auto>false</Auto>
@@ -349,15 +349,15 @@
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList>
             <string>LongMethod.PageManager.UploadAllPageAsync.22IPageSaver saver;</string>
-            <string>UnsuitableNaming.PageSaver.GetAllShapeInfoFileNames.FOLDER_MIME_TYPE</string>
             <string>LongMethod.PageSaver.ConstructPage.30string fileName;List&lt;Page&gt; pages;</string>
             <string>LongMethod.Shape.IsInCircle.24ResizeDirection direction;Point point;</string>
             <string>LongMethod.Shape.ResizeShape.39ResizeDirection direction;int differenceX;int differenceY;</string>
             <string>LongMethod.PointState.MouseMove.21Page list;Point pos;</string>
             <string xsi:nil="true" />
-            <string>42 目前物件 PowerPoint.PageSaver，使用物件的方法或屬性次數：0次，Envy到對象物件 Google.Apis.Drive.v2.Data.File，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：Google.Apis.Drive.v2.Data.File.OriginalFilename 以及 Google.Apis.Drive.v2.Data.File.OriginalFilename</string>
             <string>21 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</string>
             <string>22 目前物件 PowerPoint.ShapesFactory，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.IRandom，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int) 以及 PowerPoint.IRandom.GetNext(int, int)</string>
+            <string>UnsuitableNaming.PageSaver.GetAllShapeInfoFileNames.FILE_MIME_TYPE</string>
+            <string>43 目前物件 PowerPoint.PageSaver，使用物件的方法或屬性次數：0次，Envy到對象物件 Google.Apis.Drive.v2.Data.File，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：Google.Apis.Drive.v2.Data.File.OriginalFilename 以及 Google.Apis.Drive.v2.Data.File.OriginalFilename</string>
           </HashCodeRequestIgnoreList>
           <AnalysisFileManager>
             <AnalysisFiles>
@@ -733,7 +733,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>3928</ProductionLoc>
+          <ProductionLoc>3930</ProductionLoc>
           <TestLoc>3475</TestLoc>
         </CodeReview>
       </Data>

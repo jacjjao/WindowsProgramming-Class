@@ -483,26 +483,26 @@
     <timestamps>
       <styleCop>2023/09/15 15:15:03.194</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/12/23 11:20:49.569</sourceFile>
+      <sourceFile>2023/12/25 15:10:33.124</sourceFile>
       <parser>2023/09/15 15:15:03.194</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/15 15:15:03.194</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
     </timestamps>
     <violations>
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="UnsuitableNaming" ruleCheckId="UN0001">
-        <context>Unsuitable naming(名不符實)-FOLDER_MIME_TYPE(mime)</context>
+        <context>Unsuitable naming(名不符實)-FILE_MIME_TYPE(mime)</context>
         <line>37</line>
-        <index>1271</index>
-        <endIndex>1327</endIndex>
+        <index>1275</index>
+        <endIndex>1303</endIndex>
         <startLine>37</startLine>
         <startColumn>26</startColumn>
         <endLine>37</endLine>
-        <endColumn>82</endColumn>
+        <endColumn>54</endColumn>
         <warning>False</warning>
       </violation>
       <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LongMethod" ruleCheckId="LM0001">
         <context>Long method(過長函式)</context>
-        <line>66</line>
+        <line>68</line>
         <warning>False</warning>
       </violation>
     </violations>

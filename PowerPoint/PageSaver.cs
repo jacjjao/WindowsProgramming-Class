@@ -34,11 +34,11 @@ namespace PowerPoint
         // get
         private List<GoogleDriveFile> GetAllShapeInfoFileNames()
         {
-            const string FOLDER_MIME_TYPE = @"application/vnd.google-apps.folder";
+            const string FILE_MIME_TYPE = "text/plain";
             const string FILE_EXTENSION = "txt";
 
             var rootFolderFiles = _service.ListRootFileAndFolder();
-            rootFolderFiles.RemoveAll(removeItem => removeItem.MimeType == FOLDER_MIME_TYPE);
+            rootFolderFiles.RemoveAll(removeItem => removeItem.MimeType != FILE_MIME_TYPE);
             rootFolderFiles.RemoveAll(removeItem => removeItem.FileExtension != FILE_EXTENSION);
             rootFolderFiles.RemoveAll(removeItem => removeItem.OriginalFilename == null || !removeItem.OriginalFilename.StartsWith(FILE_NAME_TYPE));
             rootFolderFiles.Reverse();
