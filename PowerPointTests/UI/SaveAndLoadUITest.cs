@@ -30,11 +30,8 @@ namespace PowerPointUITests
 
         // test
         [TestMethod]
-        public void SaveButtonTest()
+        public void SaveAndLoadButtonTest()
         {
-            _robot.ClickButton("ToolStripFileSaveButton");
-            _robot.ClickButton("Yes");
-            _robot.AssertEnable("ToolStripFileSaveButton", false);
             _robot.ClickButton("ShapeSelector");
             _robot.ClickButton("圓");
             _robot.ClickButton("新增");
@@ -43,20 +40,26 @@ namespace PowerPointUITests
             _robot.KeyInputString("_bottomRightX", "400");
             _robot.KeyInputString("_bottomRightY", "400");
             _robot.ClickButton("OK");
+
+            _robot.ClickButton("ToolStripFileSaveButton");
+            _robot.ClickButton("Yes");
+            _robot.AssertEnable("ToolStripFileSaveButton", false);
             Thread.Sleep(TimeSpan.FromSeconds(10));
             _robot.ClickButton("OK");
             _robot.AssertEnable("ToolStripFileSaveButton", true);
-        }
 
-        // test
-        [TestMethod]
-        public void LoadButtonTest()
-        {
+            var circle = new Circle(new System.Drawing.Point(100, 100), new System.Drawing.Point(400, 400));
+            _robot.ClickDataGridViewCellBy(0, "刪除 Row");
+            
             _robot.ClickButton("ToolStripFileLoadButton");
             _robot.ClickButton("Yes");
-            Thread.Sleep(TimeSpan.FromSeconds(13));
+            Thread.Sleep(TimeSpan.FromSeconds(12));
             _robot.ClickButton("OK");
             _robot.AssertEnable("ToolStripFileLoadButton", true);
+
+            Thread.Sleep(TimeSpan.FromSeconds(1));
+            _robot.AssertDataGridViewShapeCells("_dataGridView", 0, circle.Name);
+            _robot.AssertDataGridViewInfoCells("_dataGridView", 0, circle.Info);
         }
     }
 }
