@@ -111,6 +111,7 @@
     <Compile Include="Shape\ShapesFactoryTests.cs" />
     <Compile Include="Shape\PageTests.cs" />
     <Compile Include="Shape\ShapeTests.cs" />
+    <Compile Include="UI\SaveAndLoadUITest.cs" />
     <Compile Include="UI\ToolBarUITest.cs" />
     <Compile Include="UI\FormUITest.cs" />
     <Compile Include="UI\UndoAndRedoUITest.cs" />

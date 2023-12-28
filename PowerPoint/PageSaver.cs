@@ -16,32 +16,30 @@ namespace PowerPoint
         const string APPLICATION_NAME = "PowerPoint";
         const string CLIENT_SECRET_FILE_NAME = "clientSecret.json";
         const string FILE_NAME_TYPE = "ShapesInfo";
+        const string FILE_CONTENT_TYPE = "text/plain";
         GoogleDriveService _service = new GoogleDriveService(APPLICATION_NAME, CLIENT_SECRET_FILE_NAME);
 
         // save
         public void Save(string fileContent)
         {
-            const string CONTENT_TYPE = "text/plain";
             const string FILE_EXTENSION = ".txt";
             string fileName = Path.GetTempPath() + FILE_NAME_TYPE + Guid.NewGuid().ToString() + FILE_EXTENSION;
             using (var writer = new StreamWriter(fileName))
             {
                 writer.Write(fileContent);
             }
-            _service.UploadFile(fileName, CONTENT_TYPE);
+            _service.UploadFile(fileName, FILE_CONTENT_TYPE);
         }
 
         // get
         private List<GoogleDriveFile> GetAllShapeInfoFileNames()
         {
-            const string FILE_MIME_TYPE = "text/plain";
             const string FILE_EXTENSION = "txt";
 
             var rootFolderFiles = _service.ListRootFileAndFolder();
-            rootFolderFiles.RemoveAll(removeItem => removeItem.MimeType != FILE_MIME_TYPE);
+            rootFolderFiles.RemoveAll(removeItem => removeItem.MimeType != FILE_CONTENT_TYPE);
             rootFolderFiles.RemoveAll(removeItem => removeItem.FileExtension != FILE_EXTENSION);
             rootFolderFiles.RemoveAll(removeItem => removeItem.OriginalFilename == null || !removeItem.OriginalFilename.StartsWith(FILE_NAME_TYPE));
-            rootFolderFiles.Reverse();
 
             return rootFolderFiles;
         }

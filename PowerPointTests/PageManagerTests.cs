@@ -90,14 +90,14 @@ namespace PowerPoint.Tests
             var pages = (List<Page>)_managerPrivate.GetFieldOrProperty("_pages");
             _manager.AddBlankPage();
             _manager.Remove(_manager.CurrentPage);
-            Assert.AreEqual(1, pages.Count);
+            Assert.AreEqual(1, _manager.Count);
             _manager.AddBlankPage();
             _manager.Remove(_manager.CurrentPage);
-            Assert.AreEqual(1, pages.Count);
+            Assert.AreEqual(1, _manager.Count);
             _manager.AddBlankPage();
             _managerPrivate.SetFieldOrProperty("CurrentPage", pages[0]);
             _manager.Remove(pages[0]);
-            Assert.AreEqual(1, pages.Count);
+            Assert.AreEqual(1, _manager.Count);
         }
 
         // test

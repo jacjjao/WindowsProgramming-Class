@@ -18,6 +18,8 @@ namespace PowerPoint
         public delegate void CurrentPageChangedEventHandler();
         public event CurrentPageChangedEventHandler _currentPageChanged;
 
+        const int SLEEP_SECONDS = 10;
+
         readonly List<Page> _pages = new List<Page>();
         public int Count
         {
@@ -45,14 +47,13 @@ namespace PowerPoint
             {
                 Debug.Assert(_pages.Contains(value));
                 _currentPage = value;
-                DoCurrentPageChanged();
+                NotifyCurrentPageChanged();
             }
         }
 
         // upload files
         public Task UploadAllPageAsync(IPageSaver saver)
         {
-            const int SLEEP_SECONDS = 10;
             var uploadBuffer = new List<string>();
             for (int i = 0; i < Count; i++)
             {
@@ -66,9 +67,7 @@ namespace PowerPoint
             return Task.Run(() =>
             {
                 foreach (var fileContent in uploadBuffer)
-                {
                     saver.Save(fileContent);
-                }
                 Thread.Sleep(System.TimeSpan.FromSeconds(SLEEP_SECONDS));
             });
         }
@@ -76,11 +75,15 @@ namespace PowerPoint
         // download
         public void DownloadPages(IPageSaver saver)
         {
-            const int SLEEP_SECONDS = 10;
+            int length = _pages.Count;
             var pages = saver.Load();
             Thread.Sleep(System.TimeSpan.FromSeconds(SLEEP_SECONDS));
+            if (pages.Count == 0)
+                return;
             foreach (var page in pages)
-                AddPage(page, Count);
+                AddPage(page, 0);
+            for (int i = 0; i < length; i++)
+                Remove(_pages.Last());
         }
 
         // get current page index
@@ -100,7 +103,7 @@ namespace PowerPoint
         {
             _pages.Add(new Page());
             CurrentPage = _pages.Last();
-            DoPageAdd();
+            PageAdd();
         }
 
         // add blank page at
@@ -108,7 +111,7 @@ namespace PowerPoint
         {
             _pages.Insert(index, new Page());
             CurrentPage = _pages[index];
-            DoPageAdd();
+            PageAdd();
         }
 
         // add page
@@ -116,7 +119,7 @@ namespace PowerPoint
         {
             _pages.Insert(index, page);
             CurrentPage = page;
-            DoPageAdd();
+            PageAdd();
         }
 
         // remove
@@ -140,11 +143,11 @@ namespace PowerPoint
             }
             else
                 _pages.RemoveAt(removeIndex);
-            DoPageRemove(removeIndex);
+            PageRemove(removeIndex);
         }
 
         // page add
-        private void DoPageAdd()
+        private void PageAdd()
         {
             if (_newPageAdded != null)
             {
@@ -153,7 +156,7 @@ namespace PowerPoint
         }
 
         // page remove
-        private void DoPageRemove(int index)
+        private void PageRemove(int index)
         {
             if (_pageRemoved != null)
             {
@@ -162,7 +165,7 @@ namespace PowerPoint
         }
 
         // current page change
-        private void DoCurrentPageChanged()
+        private void NotifyCurrentPageChanged()
         {
             if (_currentPageChanged != null)
             {
