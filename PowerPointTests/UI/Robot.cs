@@ -1,9 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Windows;
 using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows;
@@ -31,9 +34,16 @@ namespace PowerPointUITests
         {
             _root = root;
             var options = new AppiumOptions();
-            options.AddAdditionalCapability("app", targetAppPath);
+            // options.AddAdditionalCapability("app", targetAppPath);
             options.AddAdditionalCapability("deviceName", "WindowsPC");
 
+            ProcessStartInfo start = new ProcessStartInfo();
+            start.FileName = targetAppPath;
+            Process.Start(start);
+            Thread.Sleep(1000);
+            var processes = Process.GetProcessesByName(root);
+            options.AddAdditionalCapability("appTopLevelWindow", processes[0].MainWindowHandle.ToString("x"));
+            
             _driver = new WindowsDriver<WindowsElement>(new Uri(WIN_APP_DRIVER_URI), options);
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             _windowHandles = new Dictionary<string, string>
