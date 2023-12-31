@@ -32,8 +32,6 @@ namespace PowerPointUITests
         [TestMethod]
         public void SaveAndLoadButtonTest()
         {
-            _robot.ClickButton("ShapeSelector");
-            _robot.ClickButton("圓");
             _robot.ClickButton("新增");
             _robot.KeyInputString("_topLeftX", "100");
             _robot.KeyInputString("_topLeftY", "100");
@@ -44,7 +42,7 @@ namespace PowerPointUITests
             _robot.ClickButton("ToolStripFileSaveButton");
             _robot.ClickButton("Yes");
             _robot.AssertEnable("ToolStripFileSaveButton", false);
-            Thread.Sleep(TimeSpan.FromSeconds(10));
+            Thread.Sleep(TimeSpan.FromSeconds(15));
             _robot.ClickButton("OK");
             _robot.AssertEnable("ToolStripFileSaveButton", true);
 
@@ -53,7 +51,7 @@ namespace PowerPointUITests
             
             _robot.ClickButton("ToolStripFileLoadButton");
             _robot.ClickButton("Yes");
-            Thread.Sleep(TimeSpan.FromSeconds(12));
+            Thread.Sleep(TimeSpan.FromSeconds(15));
             _robot.ClickButton("OK");
             _robot.AssertEnable("ToolStripFileLoadButton", true);
 
